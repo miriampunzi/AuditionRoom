@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.auditionroom.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\mpunz\\Desktop\\LISN\\Unity projects\\AuditionRoom\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "AuditionRoom [Testing]"
+        }
+      }
+    }
+  ]
+}

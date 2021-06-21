@@ -12,7 +12,7 @@ public class EnvironmentStatus : MonoBehaviour
 
     public static bool wasYesPressed = false;
     public static bool wasNoPressed = false;
-    public static bool isVotingTime = true;
+    public static bool isVotingTime = false;
     public static bool hasVoted = false;
     public static int bestActorVoted = -1;
 

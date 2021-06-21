@@ -105,6 +105,7 @@ public class Story : MonoBehaviour
 
                         // END
                         EnvironmentStatus.wasYesPressed = false;
+                        EnvironmentStatus.wasNoPressed = false;
 
                         break;
 

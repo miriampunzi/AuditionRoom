@@ -13,6 +13,8 @@ public class EnvironmentStatus : MonoBehaviour
     public static bool wasYesPressed = false;
     public static bool wasNoPressed = false;
     public static bool isVotingTime = true;
+    public static bool hasVoted = false;
+    public static int bestActorVoted = -1;
 
     public static Actor[] getActors()
     {
@@ -28,6 +30,7 @@ public class EnvironmentStatus : MonoBehaviour
             }
         }
 
+        //actors.sort()
         return actors;
     }
 

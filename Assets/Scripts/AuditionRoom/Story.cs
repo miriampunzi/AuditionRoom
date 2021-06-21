@@ -22,8 +22,7 @@ public class Story : MonoBehaviour
     {
         ActorsAppear,
         Choosing,
-        Waiting,
-        Winning,
+        Win,
         Bye
     }
 
@@ -40,14 +39,25 @@ public class Story : MonoBehaviour
         "Now all the actors have finished. Do you want to see old performances?"
     };
 
-    private StatePerformance currentState;
+    private ArrayList votingScript = new ArrayList()
+    {
+        "Now it’s time to vote",
+        "Which was the best actor?",
+        "Congratulations actor num ",
+        "Bye bye the others!"
+    };
+
+    private StatePerformance currentStatePerformance;
+    private StateVoting currentStateVoting;
 
     private int indexPerformancesScript = 0;
+    private int indexVotingScript = 0;
     private int indexPerformingActor = 5;
     
     private bool trapdoorCoverUp = false;
     private bool hasStartedPlaying = false;
     private bool hasGoneDownFast = false;
+    private bool hasStartedPlayingWin = false;
 
     private Actor[] actors;
     TextMeshPro scriptTextMesh;
@@ -57,7 +67,8 @@ public class Story : MonoBehaviour
     {
         scriptTextMesh = GetComponent<TextMeshPro>();
         actors = EnvironmentStatus.getActors();
-        currentState = StatePerformance.Presentation;
+        currentStatePerformance = StatePerformance.Presentation;
+        currentStateVoting = StateVoting.ActorsAppear;
     }
 
     void Update()
@@ -72,7 +83,7 @@ public class Story : MonoBehaviour
                     scriptTextMesh.text = (string)performancesScript[indexPerformancesScript];
                 }
 
-                switch (currentState)
+                switch (currentStatePerformance)
                 {
                     case StatePerformance.Presentation:
                         // BEGIN
@@ -87,7 +98,7 @@ public class Story : MonoBehaviour
                         if (EnvironmentStatus.wasYesPressed)
                         {
                             indexPerformancesScript++;
-                            currentState = StatePerformance.Performace;
+                            currentStatePerformance = StatePerformance.Performace;
                             actors[indexPerformingActor].PlayAnimation();
                             trapdoorCoverUp = false;
                         }
@@ -108,7 +119,7 @@ public class Story : MonoBehaviour
                         // TIME EXPIRED
                         if (hasStartedPlaying && !actors[indexPerformingActor].IsPlayingAnimation())
                         {
-                            currentState = StatePerformance.Replay;
+                            currentStatePerformance = StatePerformance.Replay;
                             indexPerformancesScript++;
                             hasStartedPlaying = false;
                         }
@@ -119,7 +130,7 @@ public class Story : MonoBehaviour
                         if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
                         {
                             indexPerformancesScript--;
-                            currentState = StatePerformance.Performace;
+                            currentStatePerformance = StatePerformance.Performace;
                             EnvironmentStatus.wasYesPressed = false;
 
                         }
@@ -127,7 +138,7 @@ public class Story : MonoBehaviour
                         else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
                         {
                             indexPerformancesScript++;
-                            currentState = StatePerformance.Liking;
+                            currentStatePerformance = StatePerformance.Liking;
                             EnvironmentStatus.wasNoPressed = false;
                         }
 
@@ -140,7 +151,7 @@ public class Story : MonoBehaviour
                             scriptTextMesh.text = "Great, see him/her later!";
                             EnvironmentStatus.wasYesPressed = false;
                             indexPerformancesScript++;
-                            currentState = StatePerformance.Bye;
+                            currentStatePerformance = StatePerformance.Bye;
                         }
                         // NO
                         else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
@@ -148,7 +159,7 @@ public class Story : MonoBehaviour
                             scriptTextMesh.text = "BYE-BYE!!";
                             EnvironmentStatus.wasNoPressed = false;
                             indexPerformancesScript++;
-                            currentState = StatePerformance.Bye;
+                            currentStatePerformance = StatePerformance.Bye;
                         }
 
                         break;
@@ -162,10 +173,10 @@ public class Story : MonoBehaviour
                         }
 
                         // TIME EXPIRED
-                        if (hasGoneDownFast && !actors[indexPerformingActor].trapdoorCover.IsPlayingAnimation())
+                        if (hasGoneDownFast && !actors[indexPerformingActor].trapdoorCover.IsGoingDownFast())
                         {
                             indexPerformancesScript = 0;
-                            currentState = StatePerformance.Presentation;
+                            currentStatePerformance = StatePerformance.Presentation;
                             indexPerformingActor++;
                             hasGoneDownFast = false;
                         }
@@ -203,12 +214,98 @@ public class Story : MonoBehaviour
         // VOTING TIME
         else
         {
-            scriptTextMesh.text = "Now it's time to vote";
-            
-            for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+            if (indexVotingScript < votingScript.Count)
             {
-                actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.1f, actors[i].transform.position.z);
-                actors[i].trapdoorCover.GoUpSlow();
+                scriptTextMesh.text = (string)votingScript[indexVotingScript];
+            }
+
+            switch (currentStateVoting)
+            {
+                case StateVoting.ActorsAppear:
+                    // BEGIN
+                    if (!trapdoorCoverUp)
+                    {
+                        for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                        {
+                            actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
+                            actors[i].trapdoorCover.GoUpSlow();
+                        }
+                        trapdoorCoverUp = true;
+                    }
+
+                    // TIME EXPIRED
+                    if (trapdoorCoverUp && !actors[0].trapdoorCover.IsGoingUpSlow())
+                    {
+                        trapdoorCoverUp = true;
+                        indexVotingScript++;
+                        currentStateVoting = StateVoting.Choosing;
+                    }
+
+                    break;
+
+                case StateVoting.Choosing:
+                    if (EnvironmentStatus.hasVoted)
+                    {
+                        indexVotingScript++;
+                        currentStateVoting = StateVoting.Win;
+                        EnvironmentStatus.hasVoted = false;
+                    }
+
+                    break;
+
+                case StateVoting.Win:
+                    // BEGIN
+                    if (!hasStartedPlayingWin)
+                    {
+                        for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                        {
+                            if (EnvironmentStatus.bestActorVoted == actors[i].id)
+                            {
+                                actors[i].PlayVictory();
+                            }
+                            else
+                            {
+                                actors[i].PlayDefeat();
+                            }
+                        }
+
+                        hasStartedPlayingWin = true;
+                    }
+
+                    // TIME EXPIRED
+                    if (hasStartedPlayingWin && !actors[0].IsPlayingWinning())
+                    {
+                        indexVotingScript++;
+                        currentStateVoting = StateVoting.Bye;
+                        hasStartedPlayingWin = false;
+                    }
+
+                    break;
+
+                case StateVoting.Bye:
+                    // BEGIN
+                    if (!hasGoneDownFast)
+                    {
+                        for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                            if (actors[i].id != EnvironmentStatus.bestActorVoted)
+                                actors[i].trapdoorCover.GoDownFast();
+                        hasGoneDownFast = true;
+                    }
+
+                    // TIME EXPIRED
+                    if (hasGoneDownFast && !actors[0].trapdoorCover.IsGoingDownFast())
+                    {
+                        scriptTextMesh.text = "THE END";
+                        hasGoneDownFast = false;
+                    }
+
+                    break;
+
+                default:
+                    scriptTextMesh.color = Color.red;
+                    scriptTextMesh.text = "YOU SHOULDN'T ENTER HERE";
+
+                    break;
             }
         }
     }

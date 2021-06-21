@@ -52,8 +52,13 @@ public class TrapdoorCover : MonoBehaviour
 		anim.Play("GoDownFast");
     }
 
-	public bool IsPlayingAnimation()
+	public bool IsGoingDownFast()
 	{
 		return anim.IsPlaying("GoDownFast");
+	}
+
+	public bool IsGoingUpSlow()
+	{
+		return anim.IsPlaying("GoUpSlow");
 	}
 }

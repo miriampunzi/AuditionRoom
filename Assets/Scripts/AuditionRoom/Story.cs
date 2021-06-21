@@ -52,14 +52,14 @@ public class Story : MonoBehaviour
 
     private int indexPerformancesScript = 0;
     private int indexVotingScript = 0;
-    private int indexPerformingActor = 5;
+    private int indexPerformingActor = 0;
     
     private bool trapdoorCoverUp = false;
     private bool hasStartedPlaying = false;
     private bool hasGoneDownFast = false;
     private bool hasStartedPlayingWin = false;
 
-    private Actor[] actors;
+    private List<Actor> actors;
     TextMeshPro scriptTextMesh;
 
 
@@ -234,7 +234,7 @@ public class Story : MonoBehaviour
                     }
 
                     // TIME EXPIRED
-                    if (trapdoorCoverUp && !actors[0].trapdoorCover.IsGoingUpSlow())
+                    if (trapdoorCoverUp && !actors[EnvironmentStatus.NUM_ACTORS - 1].trapdoorCover.IsGoingUpSlow())
                     {
                         trapdoorCoverUp = true;
                         indexVotingScript++;
@@ -273,7 +273,7 @@ public class Story : MonoBehaviour
                     }
 
                     // TIME EXPIRED
-                    if (hasStartedPlayingWin && !actors[0].IsPlayingWinning())
+                    if (hasStartedPlayingWin && !actors[EnvironmentStatus.bestActorVoted - 1].IsPlayingWinning())
                     {
                         indexVotingScript++;
                         currentStateVoting = StateVoting.Bye;

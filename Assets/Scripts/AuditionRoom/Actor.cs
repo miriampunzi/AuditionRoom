@@ -66,29 +66,10 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     }
 }
 
-//class PersonComparer : IComparer, IComparer<Actor>
-//{
-//    public int Compare(object x, object y)
-//    {
-//        var a = x as Actor;
-//        var b = y as Actor;
-//        return Compare(a, b);
-//    }
-
-//    public int Compare(Actor x, Actor y)
-//    {
-
-
-//        var comparisons = new Func<Actor, Actor, int>[]{
-//            (a, b) => a.FirstName.CompareTo (y.FirstName),
-//            (a, b) => a.LastName.CompareTo (y.LastName),
-//        };
-//        foreach (var f in comparisons)
-//        {
-//            int c = f(x, y);
-//            if (c != 0)
-//                return c;
-//        }
-//        return 0;
-//    }
-//}
+class ActorComparer : IComparer<Actor>
+{
+    public int Compare(Actor x, Actor y)
+    {
+        return x.id.CompareTo(y.id);
+    }
+}

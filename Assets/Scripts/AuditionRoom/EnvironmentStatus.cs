@@ -16,21 +16,21 @@ public class EnvironmentStatus : MonoBehaviour
     public static bool hasVoted = false;
     public static int bestActorVoted = -1;
 
-    public static Actor[] getActors()
+    public static List<Actor> getActors()
     {
         GameObject[] gameObjects = FindObjectsOfType<GameObject>();
-        Actor[] actors = new Actor[NUM_ACTORS];
+        List<Actor> actors = new List<Actor>();
         int i = 0;
         foreach (GameObject actor in gameObjects)
         {
             if (actor.CompareTag("Actor"))
-            {   // layer Actor2 
-                actors[i] = actor.GetComponent<Actor>();
+            {
+                actors.Add(actor.GetComponent<Actor>());
                 i++;
             }
         }
 
-        //actors.sort()
+        actors.Sort(new ActorComparer());
         return actors;
     }
 

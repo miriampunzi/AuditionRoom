@@ -12,6 +12,7 @@ public class EnvironmentStatus : MonoBehaviour
 
     public static bool wasYesPressed = false;
     public static bool wasNoPressed = false;
+    public static bool isVotingTime = true;
 
     public static Actor[] getActors()
     {
@@ -28,5 +29,17 @@ public class EnvironmentStatus : MonoBehaviour
         }
 
         return actors;
+    }
+
+    public static void TrapdoorsUpSlow()
+    {
+        GameObject trapdoorsCovers = GameObject.Find("TrapdoorsCovers");
+        trapdoorsCovers.transform.position = new Vector3(trapdoorsCovers.transform.position.x, trapdoorsCovers.transform.position.y - 3, trapdoorsCovers.transform.position.z);
+
+    }
+
+    public static void TrapdoorsDownFast()
+    {
+
     }
 }

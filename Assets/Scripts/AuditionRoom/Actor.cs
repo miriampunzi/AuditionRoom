@@ -24,6 +24,7 @@ public class Actor : MonoBehaviour
     public void PlayAnimation()
     {
         animator.enabled = true;
+        animator.Rebind();
         animator.Play(nameAnimationToPlay, -1, 0f);
     }
 

@@ -1,13 +1,33 @@
 using HTC.UnityPlugin.Vive;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public class Story : MonoBehaviour
 {
-    private ArrayList instructionsScript = new ArrayList()
+    private enum StatePerformance
+    {
+        Presentation,
+        Performace,
+        Replay,
+        Liking,
+        Bye
+    }
+
+    private enum StateVoting
+    {
+        ActorsAppear,
+        Choosing,
+        Waiting,
+        Winning,
+        Bye
+    }
+
+    private ArrayList performancesScript = new ArrayList()
     {
         "Now it’s the turn of the actor 1. Are you ready to see the performance?",
         "Performance...",
@@ -15,89 +35,180 @@ public class Story : MonoBehaviour
         "Did you like the performance?"
     };
 
-    private int positionInIstructions = 0;
-    private int indexActor = 3;
+    private ArrayList cameraScript = new ArrayList()
+    {
+        "Now all the actors have finished. Do you want to see old performances?"
+    };
+
+    private StatePerformance currentState;
+
+    private int indexPerformancesScript = 0;
+    private int indexPerformingActor = 5;
+    
+    private bool trapdoorCoverUp = false;
+    private bool hasStartedPlaying = false;
+    private bool hasGoneDownFast = false;
+
+    private Actor[] actors;
     TextMeshPro scriptTextMesh;
 
-    private bool trapdoorCoverUp = false;
-    private Actor[] actors;
 
     private void Start()
     {
         scriptTextMesh = GetComponent<TextMeshPro>();
         actors = EnvironmentStatus.getActors();
+        currentState = StatePerformance.Presentation;
     }
 
     void Update()
     {
-        if (indexActor < EnvironmentStatus.NUM_ACTORS)
+        if (!EnvironmentStatus.isVotingTime)
         {
-            if (positionInIstructions < instructionsScript.Count)
-                scriptTextMesh.text = (string)instructionsScript[positionInIstructions];
-
-            switch (positionInIstructions)
+            // PERFORMANCES
+            if (indexPerformingActor < EnvironmentStatus.NUM_ACTORS)
             {
-                case 0:
-                    if (!trapdoorCoverUp)
-                    {
-                        actors[indexActor].trapdoorCover.GoUpSlow();
-                        trapdoorCoverUp = true;
-                    }
+                if (indexPerformancesScript < performancesScript.Count)
+                {
+                    scriptTextMesh.text = (string)performancesScript[indexPerformancesScript];
+                }
 
-                    if (EnvironmentStatus.wasYesPressed)
-                    {
-                        positionInIstructions++;
-                        actors[indexActor].PlayAnimation();
+                switch (currentState)
+                {
+                    case StatePerformance.Presentation:
+                        // BEGIN
+                        if (!trapdoorCoverUp)
+                        {
+                            actors[indexPerformingActor].transform.position = new Vector3(actors[indexPerformingActor].transform.position.x, actors[indexPerformingActor].transform.position.y + 0.1f, actors[indexPerformingActor].transform.position.z);
+                            actors[indexPerformingActor].trapdoorCover.GoUpSlow();
+                            trapdoorCoverUp = true;
+                        }
+
+                        // YES
+                        if (EnvironmentStatus.wasYesPressed)
+                        {
+                            indexPerformancesScript++;
+                            currentState = StatePerformance.Performace;
+                            actors[indexPerformingActor].PlayAnimation();
+                            trapdoorCoverUp = false;
+                        }
+
+                        // END
                         EnvironmentStatus.wasYesPressed = false;
-                    }
 
-                    break;
+                        break;
 
-                case 1:
-                    if (!actors[indexActor].IsPlayingAnimation())
-                    {
-                        positionInIstructions++;
-                    }
-                    break;
+                    case StatePerformance.Performace:
+                        // BEGIN
+                        if (!hasStartedPlaying)
+                        {
+                            actors[indexPerformingActor].PlayAnimation();
+                            hasStartedPlaying = true;
+                        }
 
-                case 2: // REPLAY
-                    if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
-                    {
-                        positionInIstructions -= 2;
-                        EnvironmentStatus.wasYesPressed = false;
-                    }
-                    else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
-                    {
-                        EnvironmentStatus.wasNoPressed = false;
-                        positionInIstructions++;
-                    }
+                        // TIME EXPIRED
+                        if (hasStartedPlaying && !actors[indexPerformingActor].IsPlayingAnimation())
+                        {
+                            currentState = StatePerformance.Replay;
+                            indexPerformancesScript++;
+                            hasStartedPlaying = false;
+                        }
+                        break;
 
-                    break;
+                    case StatePerformance.Replay:
+                        // YES
+                        if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
+                        {
+                            indexPerformancesScript--;
+                            currentState = StatePerformance.Performace;
+                            EnvironmentStatus.wasYesPressed = false;
 
-                case 3: // DID YOU LIKE THE PERFORMANCE
+                        }
+                        // NO
+                        else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
+                        {
+                            indexPerformancesScript++;
+                            currentState = StatePerformance.Liking;
+                            EnvironmentStatus.wasNoPressed = false;
+                        }
 
-                    if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
-                    {
-                        scriptTextMesh.text = "Great, see him/her later!";
-                        EnvironmentStatus.wasYesPressed = false;
-                        positionInIstructions++;
-                        actors[indexActor].trapdoorCover.GoDownFast();
-                    }
-                    else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
-                    {
-                        scriptTextMesh.text = "BYE-BYE!!";
-                        EnvironmentStatus.wasNoPressed = false;
-                        positionInIstructions++;
-                        actors[indexActor].trapdoorCover.GoDownFast();
-                    }
+                        break;
 
-                    break;
+                    case StatePerformance.Liking:
+                        // YES
+                        if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
+                        {
+                            scriptTextMesh.text = "Great, see him/her later!";
+                            EnvironmentStatus.wasYesPressed = false;
+                            indexPerformancesScript++;
+                            currentState = StatePerformance.Bye;
+                        }
+                        // NO
+                        else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
+                        {
+                            scriptTextMesh.text = "BYE-BYE!!";
+                            EnvironmentStatus.wasNoPressed = false;
+                            indexPerformancesScript++;
+                            currentState = StatePerformance.Bye;
+                        }
 
-                default:
-                    Debug.Log("entrato");
-                    positionInIstructions = 0;
-                    indexActor++;
-                    break;
+                        break;
+
+                    case StatePerformance.Bye:
+                        // BEGIN
+                        if (!hasGoneDownFast)
+                        {
+                            actors[indexPerformingActor].trapdoorCover.GoDownFast();
+                            hasGoneDownFast = true;
+                        }
+
+                        // TIME EXPIRED
+                        if (hasGoneDownFast && !actors[indexPerformingActor].trapdoorCover.IsPlayingAnimation())
+                        {
+                            indexPerformancesScript = 0;
+                            currentState = StatePerformance.Presentation;
+                            indexPerformingActor++;
+                            hasGoneDownFast = false;
+                        }
+
+                        break;
+
+                    default:
+                        scriptTextMesh.color = Color.red;
+                        scriptTextMesh.text = "YOU SHOULDN'T ENTER HERE";
+
+                        break;
+                }
+            }
+            // SEE OLD PERFORMANCES
+            else
+            {
+                scriptTextMesh.text = "Now all the actors have finished. Do you want to see old performances?";
+
+                // YES
+                if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
+                {
+                    //scriptTextMesh.text = "YES CLICKED";
+                    EnvironmentStatus.wasYesPressed = false;
+                    SceneManager.LoadScene("Camera");
+                }
+                // NO
+                else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
+                {
+                    scriptTextMesh.text = "NO CLICKED";
+                    EnvironmentStatus.wasNoPressed = false;
+                    EnvironmentStatus.isVotingTime = true;
+                }
+            }
+        }
+        // VOTING TIME
+        else
+        {
+            scriptTextMesh.text = "Now it's time to vote";
+            
+            for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+            {
+                actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.1f, actors[i].transform.position.z);
+                actors[i].trapdoorCover.GoUpSlow();
             }
         }
     }

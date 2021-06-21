@@ -5,23 +5,36 @@ using UnityEngine;
 public class TrapdoorCover : MonoBehaviour
 {
 	private Animation anim;
-	private AnimationClip animationClip;
 
 	void Start()
 	{
 		anim = GetComponent<Animation>();
 
-		AnimationCurve constantX = AnimationCurve.Linear(0, transform.position.x, 2, transform.position.x);
-		AnimationCurve translateY = AnimationCurve.Linear(0, -3, 2, 0.2f);
-		AnimationCurve constantZ = AnimationCurve.Linear(0, transform.position.z, 2, transform.position.z);
+		// GoUpSlow
+		AnimationCurve xGoUpSlow = AnimationCurve.Linear(0, transform.position.x, 2, transform.position.x);
+		AnimationCurve yGoUpSlow = AnimationCurve.Linear(0, -3, 2, 0.2f);
+		AnimationCurve zGoUpSlow = AnimationCurve.Linear(0, transform.position.z, 2, transform.position.z);
 
-		animationClip = new AnimationClip();
-		animationClip.SetCurve("", typeof(Transform), "localPosition.x", constantX);
-		animationClip.SetCurve("", typeof(Transform), "localPosition.y", translateY);
-		animationClip.SetCurve("", typeof(Transform), "localPosition.z", constantZ);
+		AnimationClip goUpSlowClip = new AnimationClip();
+		goUpSlowClip.SetCurve("", typeof(Transform), "localPosition.x", xGoUpSlow);
+		goUpSlowClip.SetCurve("", typeof(Transform), "localPosition.y", yGoUpSlow);
+		goUpSlowClip.SetCurve("", typeof(Transform), "localPosition.z", zGoUpSlow);
 
-		animationClip.legacy = true;
-		anim.AddClip(animationClip, "GoUpSlow");
+		goUpSlowClip.legacy = true;
+		anim.AddClip(goUpSlowClip, "GoUpSlow");
+
+		// GoDownFast
+		AnimationCurve xGoDownFast = AnimationCurve.Linear(0, transform.position.x, 3, transform.position.x);
+		AnimationCurve yGoDownFast = AnimationCurve.Linear(0, -3, 3, -3);
+		AnimationCurve zGoDownFast = AnimationCurve.Linear(0, transform.position.z, 2, transform.position.z);
+
+		AnimationClip goDownFastClip = new AnimationClip();
+		goDownFastClip.SetCurve("", typeof(Transform), "localPosition.x", xGoDownFast);
+		goDownFastClip.SetCurve("", typeof(Transform), "localPosition.y", yGoDownFast);
+		goDownFastClip.SetCurve("", typeof(Transform), "localPosition.z", zGoDownFast);
+
+		goDownFastClip.legacy = true;
+		anim.AddClip(goDownFastClip, "GoDownFast");
 	}
 
 	public void GoUpSlow()
@@ -36,6 +49,11 @@ public class TrapdoorCover : MonoBehaviour
 
     public void GoDownFast()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y - 3, transform.position.z);
+		anim.Play("GoDownFast");
     }
+
+	public bool IsPlayingAnimation()
+	{
+		return anim.IsPlaying("GoDownFast");
+	}
 }

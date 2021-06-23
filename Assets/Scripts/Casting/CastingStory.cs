@@ -8,6 +8,8 @@ using Valve.VR;
 
 public class CastingStory : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
     private ArrayList actorsScript = new ArrayList()
     {
         "These are the actors who showed up \nat the casting auditions you organized. \nPay attention: not all of them are professionals!",
@@ -22,6 +24,15 @@ public class CastingStory : MonoBehaviour
 
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+            GameObject VRCamera = GameObject.Find("VRCamera");
+            Camera camera = VRCamera.GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+        }
+
         scriptTextMesh = GetComponent<TextMeshPro>();
     }
 

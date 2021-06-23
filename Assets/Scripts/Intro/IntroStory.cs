@@ -8,6 +8,8 @@ using Valve.VR;
 
 public class IntroStory : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
     private ArrayList contextScript = new ArrayList()
     {
         "You are a movie director who \nis emerging among the \nmost famous directors.",
@@ -19,10 +21,17 @@ public class IntroStory : MonoBehaviour
     private int position = 0;
     TextMeshPro scriptTextMesh;
 
-    private SteamVR_Action_Single squeezeAction;
-
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+            GameObject VRCamera = GameObject.Find("VRCamera");
+            Camera camera = VRCamera.GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+        }
+
         scriptTextMesh = GetComponent<TextMeshPro>();
     }
 

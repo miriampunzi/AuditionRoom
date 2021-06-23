@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ReplayStory : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
     private enum StateReplay
     {
         Question,
@@ -32,6 +34,15 @@ public class ReplayStory : MonoBehaviour
 
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
+
+            GameObject VRCamera = GameObject.Find("VRCamera");
+            Camera camera = VRCamera.GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+        }
+
         scriptTextMesh = GetComponent<TextMeshPro>();
         actors = EnvironmentStatus.getActors();
         currentStateReplay = StateReplay.Question;
@@ -58,7 +69,6 @@ public class ReplayStory : MonoBehaviour
                 case StateReplay.Performance:
                     if (!trapdoorCoverUp)
                     {
-                        Debug.Log("UANIME 0");
                         actors[EnvironmentStatus.idActorForReplay - 1].transform.position = new Vector3(
                             actors[EnvironmentStatus.idActorForReplay - 1].transform.position.x,
                             actors[EnvironmentStatus.idActorForReplay - 1].transform.position.y + 0.1f,
@@ -69,14 +79,12 @@ public class ReplayStory : MonoBehaviour
 
                     if (!actors[EnvironmentStatus.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !hasStartedPlaying && !trapdoorCoverDown)
                     {
-                        Debug.Log("UANIME 1");
                         actors[EnvironmentStatus.idActorForReplay - 1].PlayAnimation();
                         hasStartedPlaying = true;
                     }
 
                     if (hasStartedPlaying && !actors[EnvironmentStatus.idActorForReplay - 1].IsPlayingAnimation())
                     {
-                        Debug.Log("UANIME 2");
                         hasStartedPlaying = false;
                         actors[EnvironmentStatus.idActorForReplay - 1].trapdoorCover.GoDownSlow();
                         trapdoorCoverDown = true;
@@ -84,7 +92,6 @@ public class ReplayStory : MonoBehaviour
 
                     if (trapdoorCoverDown && !actors[EnvironmentStatus.idActorForReplay - 1].trapdoorCover.IsGoingDownSlow())
                     {
-                        Debug.Log("UANIME 3");
                         currentStateReplay = StateReplay.Continue;
                         indexReplayScript++;
                         trapdoorCoverDown = false;

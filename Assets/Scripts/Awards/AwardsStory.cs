@@ -7,8 +7,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Valve.VR;
 
-public class Story : MonoBehaviour
+public class AwardsStory : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
     private enum StatePerformance
     {
         Presentation,
@@ -65,6 +67,15 @@ public class Story : MonoBehaviour
 
     private void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
+
+            GameObject VRCamera = GameObject.Find("VRCamera");
+            Camera camera = VRCamera.GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+        }
+
         scriptTextMesh = GetComponent<TextMeshPro>();
         actors = EnvironmentStatus.getActors();
         currentStatePerformance = StatePerformance.Presentation;

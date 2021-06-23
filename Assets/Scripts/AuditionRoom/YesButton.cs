@@ -48,7 +48,7 @@ public class YesButton : MonoBehaviour
     private void Pressed()
     {
         isPressed = true;
-        EnvironmentStatus.wasYesPressed = true;
+        Story.wasYesPressed = true;
         //onPressed.Invoke();
     }
 

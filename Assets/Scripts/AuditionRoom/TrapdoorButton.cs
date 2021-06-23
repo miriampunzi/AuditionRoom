@@ -52,12 +52,20 @@ public class TrapdoorButton : MonoBehaviour
     private void Pressed()
     {
         isPressed = true;
-        EnvironmentStatus.bestActorVoted = id;
-        EnvironmentStatus.hasVoted = true;
 
-        // TODO to divide in different files
-        EnvironmentStatus.idActorForReplay = id;
-        EnvironmentStatus.hasAskedForReplay = true;
+        switch (Story.currentState)
+        {
+            case Story.State.Replay:
+                Story.idActorForReplay = id;
+                Story.hasAskedForReplay = true;
+                break;
+
+            case Story.State.Voting:
+                Story.bestActorVoted = id;
+                Story.hasVoted = true;
+                break;
+        }
+
         //onPressed.Invoke();
     }
 

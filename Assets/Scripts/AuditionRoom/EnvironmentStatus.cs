@@ -10,14 +10,6 @@ public class EnvironmentStatus : MonoBehaviour
     public const int NUM_ACTORS = 5;
     public const float ARM_LENGTH = 0.62f;
 
-    public static bool wasYesPressed = false;
-    public static bool wasNoPressed = false;
-    public static bool isVotingTime = false;
-    public static bool hasVoted = false;
-    public static int bestActorVoted = -1;
-    public static bool hasAskedForReplay = false;
-    public static int idActorForReplay = -1;
-
     public static List<Actor> getActors()
     {
         GameObject[] gameObjects = FindObjectsOfType<GameObject>();
@@ -34,17 +26,5 @@ public class EnvironmentStatus : MonoBehaviour
 
         actors.Sort(new ActorComparer());
         return actors;
-    }
-
-    public static void TrapdoorsUpSlow()
-    {
-        GameObject trapdoorsCovers = GameObject.Find("TrapdoorsCovers");
-        trapdoorsCovers.transform.position = new Vector3(trapdoorsCovers.transform.position.x, trapdoorsCovers.transform.position.y - 3, trapdoorsCovers.transform.position.z);
-
-    }
-
-    public static void TrapdoorsDownFast()
-    {
-
     }
 }

@@ -48,7 +48,7 @@ public class NoButton : MonoBehaviour
     private void Pressed()
     {
         isPressed = true;
-        EnvironmentStatus.wasNoPressed = true;
+        Story.wasNoPressed = true;
         //onPressed.Invoke();
     }
 

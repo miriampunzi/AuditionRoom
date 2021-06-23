@@ -23,6 +23,19 @@ public class TrapdoorCover : MonoBehaviour
 		goUpSlowClip.legacy = true;
 		anim.AddClip(goUpSlowClip, "GoUpSlow");
 
+		// GoDownSlow
+		AnimationCurve xGoDownSlow = AnimationCurve.Linear(0, transform.position.x, 2, transform.position.x);
+		AnimationCurve yGoDownSlow = AnimationCurve.Linear(0, 0.2f, 2, -3);
+		AnimationCurve zGoDownSlow = AnimationCurve.Linear(0, transform.position.z, 2, transform.position.z);
+
+		AnimationClip goDownSlowClip = new AnimationClip();
+		goDownSlowClip.SetCurve("", typeof(Transform), "localPosition.x", xGoDownSlow);
+		goDownSlowClip.SetCurve("", typeof(Transform), "localPosition.y", yGoDownSlow);
+		goDownSlowClip.SetCurve("", typeof(Transform), "localPosition.z", zGoDownSlow);
+
+		goDownSlowClip.legacy = true;
+		anim.AddClip(goDownSlowClip, "GoDownSlow");
+
 		// GoDownFast
 		AnimationCurve xGoDownFast = AnimationCurve.Linear(0, transform.position.x, 3, transform.position.x);
 		AnimationCurve yGoDownFast = AnimationCurve.Linear(0, -3, 3, -3);
@@ -44,13 +57,18 @@ public class TrapdoorCover : MonoBehaviour
 
     public void GoDownSlow()
     {
-
+		anim.Play("GoDownSlow");
     }
 
     public void GoDownFast()
     {
 		anim.Play("GoDownFast");
     }
+
+	public bool IsGoingDownSlow()
+	{
+		return anim.IsPlaying("GoDownSlow");
+	}
 
 	public bool IsGoingDownFast()
 	{

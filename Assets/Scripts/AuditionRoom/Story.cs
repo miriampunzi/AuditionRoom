@@ -52,7 +52,7 @@ public class Story : MonoBehaviour
 
     private int indexPerformancesScript = 0;
     private int indexVotingScript = 0;
-    private int indexPerformingActor = 0;
+    private int indexPerformingActor = 5;
     
     private bool trapdoorCoverUp = false;
     private bool hasStartedPlaying = false;
@@ -93,6 +93,8 @@ public class Story : MonoBehaviour
                             actors[indexPerformingActor].trapdoorCover.GoUpSlow();
                             trapdoorCoverUp = true;
                         }
+
+                        // TODO CONTROLLA CHE I TRAPDOORCOVER SIANO SU PRIMA DI CONTROLLARE IL SI PER EVITARE CHE SUCCEDANO COSE QUANDO L'UTENTE CLICCA SI A CASO
 
                         // YES
                         if (EnvironmentStatus.wasYesPressed)
@@ -199,14 +201,12 @@ public class Story : MonoBehaviour
                 // YES
                 if (EnvironmentStatus.wasYesPressed && !EnvironmentStatus.wasNoPressed)
                 {
-                    //scriptTextMesh.text = "YES CLICKED";
                     EnvironmentStatus.wasYesPressed = false;
-                    SceneManager.LoadScene("Camera");
+                    SceneManager.LoadScene("Replay");
                 }
                 // NO
                 else if (!EnvironmentStatus.wasYesPressed && EnvironmentStatus.wasNoPressed)
                 {
-                    scriptTextMesh.text = "NO CLICKED";
                     EnvironmentStatus.wasNoPressed = false;
                     EnvironmentStatus.isVotingTime = true;
                 }

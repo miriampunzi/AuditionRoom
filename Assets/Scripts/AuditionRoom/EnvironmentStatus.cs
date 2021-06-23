@@ -15,6 +15,8 @@ public class EnvironmentStatus : MonoBehaviour
     public static bool isVotingTime = false;
     public static bool hasVoted = false;
     public static int bestActorVoted = -1;
+    public static bool hasAskedForReplay = false;
+    public static int idActorForReplay = -1;
 
     public static List<Actor> getActors()
     {

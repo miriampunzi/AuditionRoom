@@ -24,12 +24,20 @@ public class Story : MonoBehaviour
     private bool hasStartedPlaying = false;
     private bool hasGoneDownFast = false;
 
+    // DESK BUTTONS
+    // yes button value
     public static bool wasYesPressed = false;
+
+    // no button value
     public static bool wasNoPressed = false;
-    public static bool hasVoted = false;
-    public static int bestActorVoted = -1;
+
+    // trapdoor button value for replay
     public static bool hasAskedForReplay = false;
     public static int idActorForReplay = -1;
+
+    // trapdoor button value for voting
+    public static bool hasVoted = false;
+    public static int bestActorVoted = -1;
 
     // PERFORMANCES PARAMETERS
     private enum StatePerformance
@@ -52,7 +60,7 @@ public class Story : MonoBehaviour
     private StatePerformance currentStatePerformance;
 
     private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 4;
+    private int indexPerformingActor = 5;
 
     // REPLAY PARAMETERS
     private enum StateReplay
@@ -137,9 +145,9 @@ public class Story : MonoBehaviour
 
     private void PerformancesStateMachine()
     {
-        // PERFORMANCES
         if (indexPerformingActor < EnvironmentStatus.NUM_ACTORS)
         {
+            // update text script
             if (indexPerformancesScript < performancesScript.Count)
             {
                 scriptTextMesh.text = (string)performancesScript[indexPerformancesScript];
@@ -159,7 +167,7 @@ public class Story : MonoBehaviour
                     // TODO CONTROLLA CHE I TRAPDOORCOVER SIANO SU PRIMA DI CONTROLLARE IL SI PER EVITARE CHE SUCCEDANO COSE QUANDO L'UTENTE CLICCA SI A CASO
 
                     // YES
-                    if (wasYesPressed)
+                    if (trapdoorCoverUp && wasYesPressed)
                     {
                         indexPerformancesScript++;
                         currentStatePerformance = StatePerformance.Performace;
@@ -168,8 +176,7 @@ public class Story : MonoBehaviour
                     }
 
                     // END
-                    wasYesPressed = false;
-                    wasNoPressed = false;
+                    CleanDeskVariables();
 
                     break;
 
@@ -279,6 +286,7 @@ public class Story : MonoBehaviour
 
     private void ReplayStateMachine()
     {
+        // update text script
         if (indexReplayScript < replayScript.Count)
         {
             scriptTextMesh.text = (string)replayScript[indexReplayScript];
@@ -355,6 +363,7 @@ public class Story : MonoBehaviour
 
     private void VotingStateMachine()
     {
+        // update text script
         if (indexVotingScript < votingScript.Count)
         {
             scriptTextMesh.text = (string)votingScript[indexVotingScript];
@@ -449,11 +458,25 @@ public class Story : MonoBehaviour
                 break;
         }
     }
-
+        
     private void CleanVariables()
     {
         trapdoorCoverUp = false;
         hasStartedPlaying = false;
         hasGoneDownFast = false;
-}
+        trapdoorCoverDown = false;
+        hasStartedPlayingWin = false;
+    }
+
+    private void CleanDeskVariables()
+    {
+        wasYesPressed = false;
+        wasNoPressed = false;
+
+        hasAskedForReplay = false;
+        idActorForReplay = -1;
+
+        hasVoted = false;
+        bestActorVoted = -1;
+    }
 }

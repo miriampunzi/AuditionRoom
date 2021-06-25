@@ -18,14 +18,12 @@ public class TrapdoorButton : MonoBehaviour
 
     public int id = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         startPos = transform.localPosition;
         joint = GetComponent<ConfigurableJoint>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // the player has just pressed the button

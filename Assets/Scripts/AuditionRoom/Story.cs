@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -51,7 +51,7 @@ public class Story : MonoBehaviour
 
     private ArrayList performancesScript = new ArrayList()
     {
-        "Now it’s the turn of the actor 1. Are you ready to see the performance?",
+        "Now itâ€™s the turn of the actor $. Are you ready to see the performance?",
         "Performance...",
         "Do you want to see a replay?",
         "Did you like the performance?"
@@ -93,7 +93,7 @@ public class Story : MonoBehaviour
 
     private ArrayList votingScript = new ArrayList()
     {
-        "Now it’s time to vote",
+        "Now itâ€™s time to vote",
         "Which was the best actor?",
         "Congratulations actor num ",
         "Bye bye the others!"
@@ -127,6 +127,7 @@ public class Story : MonoBehaviour
 
     public void Update()
     {
+        
         switch (currentState)
         {
             case State.Performance:
@@ -150,7 +151,13 @@ public class Story : MonoBehaviour
             // update text script
             if (indexPerformancesScript < performancesScript.Count)
             {
-                scriptTextMesh.text = (string)performancesScript[indexPerformancesScript];
+                if (currentStatePerformance == StatePerformance.Presentation)
+                {
+                    string modifiedText = ((string)performancesScript[indexPerformancesScript]).Replace("$", "" + (indexPerformingActor + 1));
+                    scriptTextMesh.text = modifiedText;
+                }
+                else
+                    scriptTextMesh.text = (string)performancesScript[indexPerformancesScript];
             }
 
             switch (currentStatePerformance)

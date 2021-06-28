@@ -1,0 +1,17 @@
+This is one of a series of 6 cactus models, you can buy them seperate or together. I give one model for free as an example.This is the free one. 
+
+Model created in Maya 2016, renderd with Vray 3
+
+Dimensions:	 
+h=14cm
+b=10
+modeled in cm
+
+Images are renderd with an HDRI from CGsource.
+Materials, Objects and Textures have unique and meaningfull names.
+Models are unsmoothed, so please apply a turbosmooth in 3dsmax or hit 3 in maya for smooth mesh.
+
+Materialsetup for Maya Vray 3
+
+
+If you have any Questions feel free to contact me: marlis.str@gmail.com

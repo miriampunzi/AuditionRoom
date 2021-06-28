@@ -56,11 +56,17 @@ public class TrapdoorButton : MonoBehaviour
             case Story.State.Replay:
                 Story.idActorForReplay = id;
                 Story.hasAskedForReplay = true;
+
+                Story.bestActorVoted = -1;
+                Story.hasVoted = false;
                 break;
 
             case Story.State.Voting:
                 Story.bestActorVoted = id;
                 Story.hasVoted = true;
+
+                Story.idActorForReplay = -1;
+                Story.hasAskedForReplay = false;
                 break;
         }
 

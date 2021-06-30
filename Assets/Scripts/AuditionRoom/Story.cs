@@ -60,7 +60,7 @@ public class Story : MonoBehaviour
     private StatePerformance currentStatePerformance;
 
     private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 5;
+    private int indexPerformingActor = 0;
 
     // REPLAY PARAMETERS
     private enum StateReplay

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.MLAgents;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     public AnimatorController defeatedAnimatorController;
 
     public TrapdoorCover trapdoorCover;
-    private Vector3 initialPosition;
 
     Animator animator;
     public int id;
@@ -19,15 +19,13 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     // Start is called before the first frame update
     void Start()
     {
-        initialPosition = transform.position;
-
         animator = GetComponent<Animator>();
-        animator.enabled = false;
+        //animator.enabled = false;
     }
 
     public void PlayAnimation()
     {
-        animator.enabled = true;
+        //animator.enabled = true;
         animator.Rebind();
         animator.Play(nameAnimationToPlay, -1, 0f);
     }

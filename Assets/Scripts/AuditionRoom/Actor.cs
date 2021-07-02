@@ -37,6 +37,11 @@ public class Actor : Agent, IComparer<Actor>
 
     bool hasRecorded = false;
 
+    // THINGS FOR REPLAY
+    private ArrayList performedPositions = new ArrayList();
+    private ArrayList performedRotations = new ArrayList();
+    private int indexReplay = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -141,6 +146,36 @@ public class Actor : Agent, IComparer<Actor>
         return countStep < Human.numActions;
     }
 
+    public void PerformReplay()
+    {
+        Debug.Log("indexReplay: " + indexReplay);
+        Debug.Log("performedPositions.Count: " + performedPositions.Count);
+
+        if (indexReplay < performedPositions.Count)
+        {
+            float moveSpeed = 1f;
+            target.localPosition += ((Vector3) performedPositions[indexReplay]) * Time.deltaTime * moveSpeed * 5;
+            target.Rotate(
+                ((Vector3) performedRotations[indexReplay]).x * Time.deltaTime * moveSpeed * 500,
+                ((Vector3)performedRotations[indexReplay]).y * Time.deltaTime * moveSpeed * 500,
+                ((Vector3)performedRotations[indexReplay]).z * Time.deltaTime * moveSpeed * 500);
+            
+            indexReplay++;
+        }        
+    }
+
+    public bool IsPlayingReplay()
+    {
+        return indexReplay < performedPositions.Count;
+    }
+
+    public void SetupForReplay()
+    {
+        target.localPosition = Vector3.zero;
+        target.localRotation = Quaternion.identity;
+        indexReplay = 0;
+    }
+
     public override void OnActionReceived(ActionBuffers actions)
     {
         float moveX = actions.ContinuousActions[0];
@@ -158,6 +193,9 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.x + rotateX) * Time.deltaTime * moveSpeed * 500,
             (transform.localRotation.y + rotateY) * Time.deltaTime * moveSpeed * 500,
             (transform.localRotation.z + rotateZ) * Time.deltaTime * moveSpeed * 500);
+
+        performedPositions.Add(new Vector3(moveX, moveY, moveZ));
+        performedRotations.Add(new Vector3(rotateX, rotateY, rotateZ));
     }
 
     //public void PlayAnimation()

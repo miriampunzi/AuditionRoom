@@ -188,30 +188,64 @@ public class Story : MonoBehaviour
                     break;
 
                 case StatePerformance.Performace:
-                    // BEGIN
-                    actors[indexPerformingActor].PerformAction();
-
-                    // FINISHED PERFORMANCE
-                    if (!actors[indexPerformingActor].IsPlayingPerformance())
+                    
+                    if (!hasAskedForReplay)
                     {
-                        currentStatePerformance = StatePerformance.Replay;
-                        indexPerformancesScript++;
+                        // BEGIN PERFORMANCE
+                        actors[indexPerformingActor].PerformAction();
+
+                        // FINISHED PERFORMANCE
+                        if (!actors[indexPerformingActor].IsPlayingPerformance())
+                        {
+                            currentStatePerformance = StatePerformance.Replay;
+                            indexPerformancesScript++;
+                        }
+                    }
+                    else
+                    {
+                        // BEGIN REPLAY
+                        actors[indexPerformingActor].PerformReplay();
+
+                        // FINISHED REPLAY
+                        if (!actors[indexPerformingActor].IsPlayingReplay())
+                        {
+                            currentStatePerformance = StatePerformance.Replay;
+                            indexPerformancesScript++;
+                        }
                     }
 
                     break;
 
                 case StatePerformance.Replay:
                     // YES
+                    //if (wasYesPressed && !wasNoPressed)
+                    //{
+                    //    indexPerformancesScript--;
+                    //    currentStatePerformance = StatePerformance.Performace;
+                    //    wasYesPressed = false;
+
+                    //}
+
                     if (wasYesPressed && !wasNoPressed)
                     {
+                        actors[indexPerformingActor].SetupForReplay();
+                        hasAskedForReplay = true;
                         indexPerformancesScript--;
                         currentStatePerformance = StatePerformance.Performace;
                         wasYesPressed = false;
-
                     }
+
                     // NO
+                    //else if (!wasYesPressed && wasNoPressed)
+                    //{
+                    //    indexPerformancesScript++;
+                    //    currentStatePerformance = StatePerformance.Liking;
+                    //    wasNoPressed = false;
+                    //}
+
                     else if (!wasYesPressed && wasNoPressed)
                     {
+                        hasAskedForReplay = false;
                         indexPerformancesScript++;
                         currentStatePerformance = StatePerformance.Liking;
                         wasNoPressed = false;

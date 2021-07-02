@@ -148,17 +148,14 @@ public class Actor : Agent, IComparer<Actor>
 
     public void PerformReplay()
     {
-        Debug.Log("indexReplay: " + indexReplay);
-        Debug.Log("performedPositions.Count: " + performedPositions.Count);
-
         if (indexReplay < performedPositions.Count)
         {
             float moveSpeed = 1f;
             target.localPosition += ((Vector3) performedPositions[indexReplay]) * Time.deltaTime * moveSpeed * 5;
             target.Rotate(
-                ((Vector3) performedRotations[indexReplay]).x * Time.deltaTime * moveSpeed * 500,
-                ((Vector3)performedRotations[indexReplay]).y * Time.deltaTime * moveSpeed * 500,
-                ((Vector3)performedRotations[indexReplay]).z * Time.deltaTime * moveSpeed * 500);
+                (transform.localRotation.x + ((Vector3) performedRotations[indexReplay]).x) * Time.deltaTime * moveSpeed * 500,
+                (transform.localRotation.y + ((Vector3) performedRotations[indexReplay]).y) * Time.deltaTime * moveSpeed * 500,
+                (transform.localRotation.z + ((Vector3) performedRotations[indexReplay]).z) * Time.deltaTime * moveSpeed * 500);
             
             indexReplay++;
         }        

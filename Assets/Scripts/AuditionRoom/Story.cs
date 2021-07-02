@@ -45,7 +45,6 @@ public class Story : MonoBehaviour
         Presentation,
         Performace,
         Replay,
-        Liking,
         Bye
     }
 
@@ -54,7 +53,7 @@ public class Story : MonoBehaviour
         "Now it’s the turn of the actor $. Are you ready to see the performance?",
         "Performance...",
         "Do you want to see a replay?",
-        "Did you like the performance?"
+        "Bye-bye, see you later!"
     };
 
     private StatePerformance currentStatePerformance;
@@ -218,14 +217,6 @@ public class Story : MonoBehaviour
 
                 case StatePerformance.Replay:
                     // YES
-                    //if (wasYesPressed && !wasNoPressed)
-                    //{
-                    //    indexPerformancesScript--;
-                    //    currentStatePerformance = StatePerformance.Performace;
-                    //    wasYesPressed = false;
-
-                    //}
-
                     if (wasYesPressed && !wasNoPressed)
                     {
                         actors[indexPerformingActor].SetupForReplay();
@@ -236,39 +227,12 @@ public class Story : MonoBehaviour
                     }
 
                     // NO
-                    //else if (!wasYesPressed && wasNoPressed)
-                    //{
-                    //    indexPerformancesScript++;
-                    //    currentStatePerformance = StatePerformance.Liking;
-                    //    wasNoPressed = false;
-                    //}
-
                     else if (!wasYesPressed && wasNoPressed)
                     {
                         hasAskedForReplay = false;
                         indexPerformancesScript++;
-                        currentStatePerformance = StatePerformance.Liking;
-                        wasNoPressed = false;
-                    }
-
-                    break;
-
-                case StatePerformance.Liking:
-                    // YES
-                    if (wasYesPressed && !wasNoPressed)
-                    {
-                        scriptTextMesh.text = "Great, see him/her later!";
-                        wasYesPressed = false;
-                        indexPerformancesScript++;
                         currentStatePerformance = StatePerformance.Bye;
-                    }
-                    // NO
-                    else if (!wasYesPressed && wasNoPressed)
-                    {
-                        scriptTextMesh.text = "BYE-BYE!!";
                         wasNoPressed = false;
-                        indexPerformancesScript++;
-                        currentStatePerformance = StatePerformance.Bye;
                     }
 
                     break;

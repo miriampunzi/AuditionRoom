@@ -178,7 +178,7 @@ public class Story : MonoBehaviour
                     {
                         indexPerformancesScript++;
                         currentStatePerformance = StatePerformance.Performace;
-                        actors[indexPerformingActor].PlayAnimation();
+
                         trapdoorCoverUp = false;
                     }
 
@@ -189,19 +189,15 @@ public class Story : MonoBehaviour
 
                 case StatePerformance.Performace:
                     // BEGIN
-                    if (!hasStartedPlaying)
-                    {
-                        actors[indexPerformingActor].PlayAnimation();
-                        hasStartedPlaying = true;
-                    }
+                    actors[indexPerformingActor].PerformAction();
 
-                    // TIME EXPIRED
-                    if (hasStartedPlaying && !actors[indexPerformingActor].IsPlayingAnimation())
+                    // FINISHED PERFORMANCE
+                    if (!actors[indexPerformingActor].IsPlayingPerformance())
                     {
                         currentStatePerformance = StatePerformance.Replay;
                         indexPerformancesScript++;
-                        hasStartedPlaying = false;
                     }
+
                     break;
 
                 case StatePerformance.Replay:
@@ -323,16 +319,16 @@ public class Story : MonoBehaviour
 
                     if (!actors[idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !hasStartedPlaying && !trapdoorCoverDown)
                     {
-                        actors[idActorForReplay - 1].PlayAnimation();
+                        //actors[idActorForReplay - 1].PlayAnimation();
                         hasStartedPlaying = true;
                     }
 
-                    if (hasStartedPlaying && !actors[idActorForReplay - 1].IsPlayingAnimation())
-                    {
-                        hasStartedPlaying = false;
-                        actors[idActorForReplay - 1].trapdoorCover.GoDownSlow();
-                        trapdoorCoverDown = true;
-                    }
+                    //if (hasStartedPlaying && !actors[idActorForReplay - 1].IsPlayingAnimation())
+                    //{
+                    //    hasStartedPlaying = false;
+                    //    actors[idActorForReplay - 1].trapdoorCover.GoDownSlow();
+                    //    trapdoorCoverDown = true;
+                    //}
 
                     if (trapdoorCoverDown && !actors[idActorForReplay - 1].trapdoorCover.IsGoingDownSlow())
                     {
@@ -418,11 +414,11 @@ public class Story : MonoBehaviour
                     {
                         if (bestActorVoted == actors[i].id)
                         {
-                            actors[i].PlayVictory();
+                            //actors[i].PlayVictory();
                         }
                         else
                         {
-                            actors[i].PlayDefeat();
+                            //actors[i].PlayDefeat();
                         }
                     }
 
@@ -430,12 +426,12 @@ public class Story : MonoBehaviour
                 }
 
                 // TIME EXPIRED
-                if (hasStartedPlayingWin && !actors[bestActorVoted - 1].IsPlayingWinning())
-                {
-                    indexVotingScript++;
-                    currentStateVoting = StateVoting.Bye;
-                    hasStartedPlayingWin = false;
-                }
+                //if (hasStartedPlayingWin && !actors[bestActorVoted - 1].IsPlayingWinning())
+                //{
+                //    indexVotingScript++;
+                //    currentStateVoting = StateVoting.Bye;
+                //    hasStartedPlayingWin = false;
+                //}
 
                 break;
 

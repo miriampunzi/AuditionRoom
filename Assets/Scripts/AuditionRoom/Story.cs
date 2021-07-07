@@ -60,7 +60,7 @@ public class Story : MonoBehaviour
     private StatePerformance currentStatePerformance;
 
     private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 5;
+    private int indexPerformingActor = 0;
 
     // REPLAY PARAMETERS
     private enum StateReplay
@@ -69,15 +69,6 @@ public class Story : MonoBehaviour
         Performance,
         Continue
     }
-
-    private enum StateReplayPerformance
-    {
-        TrapdoorCoverGoingUp,
-        ReplayPerformance,
-        TrapdoorCoverGoingDown
-    }
-
-    private StateReplayPerformance currentStateReplayPerformance = StateReplayPerformance.TrapdoorCoverGoingUp;
 
     private ArrayList replayScript = new ArrayList()
     {
@@ -138,7 +129,6 @@ public class Story : MonoBehaviour
 
     public void Update()
     {
-        
         switch (currentState)
         {
             case State.Performance:
@@ -471,6 +461,11 @@ public class Story : MonoBehaviour
                 {
                     scriptTextMesh.text = "THE END";
                     hasGoneDownFast = false;
+
+                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                    {
+                        actors[i].EndEpisode();
+                    }
                 }
 
                 break;

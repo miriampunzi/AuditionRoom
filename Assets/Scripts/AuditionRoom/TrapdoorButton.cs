@@ -13,9 +13,6 @@ public class TrapdoorButton : MonoBehaviour
     private Vector3 startPos;
     private ConfigurableJoint joint;
 
-    public UnityEvent onPressed;
-    public UnityEvent onReleased;
-
     public int id = 0;
 
     void Start()
@@ -64,18 +61,16 @@ public class TrapdoorButton : MonoBehaviour
             case Story.State.Voting:
                 Story.bestActorVoted = id;
                 Story.hasVoted = true;
+                Human.DNNRewardFunction();
 
                 Story.idActorForReplay = -1;
                 Story.hasAskedForReplay = false;
                 break;
         }
-
-        //onPressed.Invoke();
     }
 
     private void Released()
     {
         isPressed = false;
-        //onReleased.Invoke();
     }
 }

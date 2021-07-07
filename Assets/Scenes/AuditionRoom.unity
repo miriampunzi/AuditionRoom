@@ -2358,12 +2358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 1
 --- !u!153 &62662602
 ConfigurableJoint:
@@ -26362,7 +26356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727431603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: 0.736, z: -3.242}
+  m_LocalPosition: {x: -0.325, y: 0.736, z: -3.242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2009983919}
@@ -33076,12 +33070,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 2
 --- !u!153 &892559522
 ConfigurableJoint:
@@ -36496,12 +36484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 1
 --- !u!153 &987798363
 ConfigurableJoint:
@@ -39105,8 +39087,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061662313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.325, y: 0.736, z: -3.242}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34, y: 0.736, z: -3.242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1951430176}
@@ -51890,12 +51872,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 2
 --- !u!153 &1403308523
 ConfigurableJoint:
@@ -56140,12 +56116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 4
 --- !u!153 &1490009391
 ConfigurableJoint:
@@ -60572,12 +60542,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 5
 --- !u!153 &1611471692
 ConfigurableJoint:
@@ -76600,12 +76564,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
   id: 3
 --- !u!153 &1994096052
 ConfigurableJoint:

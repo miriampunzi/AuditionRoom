@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnvironmentStatus : MonoBehaviour
 {
     public static bool feedbackProvided = false;
+    public static int idBestActor = -1;
     public static int numEpisode = 1;
 
     public const int NUM_ACTORS = 5;

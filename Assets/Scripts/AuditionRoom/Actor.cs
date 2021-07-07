@@ -70,8 +70,7 @@ public class Actor : Agent, IComparer<Actor>
 
     private void Update()
     {
-        // the avatar 0 initializes list of right actions
-        if (!hasRecorded) //&& idActor == 0)
+        if (!hasRecorded)
         {
             if (animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).IsName("Standing Greeting") &&
             animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
@@ -95,30 +94,6 @@ public class Actor : Agent, IComparer<Actor>
                 hasRecorded = true;
             }
         }
-        // when the right actions are saved
-        //else
-        //{
-        //    // perform actions to create a movement
-        //    if (countStep < Human.numActions)
-        //    {
-        //        RequestDecision();
-        //        countStep++;
-
-        //        performedRotationsRightArm.Add(actorRightArm.rotation);
-        //        performedRotationsRightForeArm.Add(actorRightForeArm.rotation);
-        //        performedRotationsRightHand.Add(actorRightHand.rotation);
-        //    }
-        //    else if (countStep == Human.numActions && !EnvironmentStatus.feedbackProvided)
-        //    {
-        //        Human.DNNRewardFunction();
-        //        EnvironmentStatus.feedbackProvided = true;
-        //    }
-
-        //    if (EnvironmentStatus.feedbackProvided)
-        //    {
-        //        EndEpisode();
-        //    }
-        //}
     }
 
     public void PerformAction()

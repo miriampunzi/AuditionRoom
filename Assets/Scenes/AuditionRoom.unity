@@ -8347,9 +8347,6 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  nameAnimationToPlay: Happy
-  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
   trapdoorCover: {fileID: 579300165}
   id: 4
   gender: 0
@@ -8471,6 +8468,22 @@ MonoBehaviour:
   - m_Rig: {fileID: 1035181286}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &228408039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228408031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
+  nameAnimationToPlay: 
+  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
 --- !u!1 &228724605
 GameObject:
   m_ObjectHideFlags: 0
@@ -17248,9 +17261,6 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  nameAnimationToPlay: Excited
-  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
   trapdoorCover: {fileID: 1507411390}
   id: 1
   gender: 0
@@ -17356,6 +17366,22 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!114 &477801300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477801293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  nameAnimationToPlay: 
+  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
 --- !u!114 &477801301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19672,9 +19698,6 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  nameAnimationToPlay: Joyful Jump
-  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
   trapdoorCover: {fileID: 1455116312}
   id: 5
   gender: 0
@@ -19796,6 +19819,22 @@ MonoBehaviour:
   - m_Rig: {fileID: 1100036712}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &531210512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531210504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
+  nameAnimationToPlay: 
+  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
 --- !u!1 &531234168
 GameObject:
   m_ObjectHideFlags: 0
@@ -34914,9 +34953,6 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  nameAnimationToPlay: Happy Walk
-  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
   trapdoorCover: {fileID: 1043032884}
   id: 3
   gender: 0
@@ -35038,6 +35074,22 @@ MonoBehaviour:
   - m_Rig: {fileID: 1185063046}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &937445263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937445255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
+  nameAnimationToPlay: 
+  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
 --- !u!1 &938865953
 GameObject:
   m_ObjectHideFlags: 0
@@ -47158,9 +47210,6 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  nameAnimationToPlay: Happy Hand Gesture
-  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
   trapdoorCover: {fileID: 2127349258}
   id: 2
   gender: 0
@@ -47282,6 +47331,22 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+--- !u!114 &1278871157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278871149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+  nameAnimationToPlay: 
+  victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
 --- !u!1 &1280912173
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,4 +27,22 @@ public class EnvironmentStatus : MonoBehaviour
         actors.Sort(new ActorComparer());
         return actors;
     }
+
+    public static List<ActorMonoBehavior> getActorsMonoBehavior()
+    {
+        GameObject[] gameObjects = FindObjectsOfType<GameObject>();
+        List<ActorMonoBehavior> actors = new List<ActorMonoBehavior>();
+        int i = 0;
+        foreach (GameObject actor in gameObjects)
+        {
+            if (actor.CompareTag("Actor"))
+            {
+                actors.Add(actor.GetComponent<ActorMonoBehavior>());
+                i++;
+            }
+        }
+
+        actors.Sort(new ActorMonoBehaviorComparer());
+        return actors;
+    }
 }

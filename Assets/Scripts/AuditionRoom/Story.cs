@@ -9,6 +9,7 @@ public class Story : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
 
     private List<Actor> actors;
+    private List<ActorMonoBehavior> actorsMonoBehavior;
     TextMeshPro scriptTextMesh;
 
     public enum State
@@ -59,7 +60,7 @@ public class Story : MonoBehaviour
     private StatePerformance currentStatePerformance;
 
     private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 4;
+    private int indexPerformingActor = 5;
 
     // REPLAY PARAMETERS
     private enum StateReplay
@@ -131,6 +132,7 @@ public class Story : MonoBehaviour
 
         scriptTextMesh = GetComponent<TextMeshPro>();
         actors = EnvironmentStatus.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
         currentStatePerformance = StatePerformance.Presentation;
     }
 
@@ -433,11 +435,11 @@ public class Story : MonoBehaviour
                     {
                         if (bestActorVoted == actors[i].id)
                         {
-                            //actors[i].PlayVictory();
+                            actorsMonoBehavior[i].PlayVictory();
                         }
                         else
                         {
-                            //actors[i].PlayDefeat();
+                            actorsMonoBehavior[i].PlayDefeat();
                         }
                     }
 
@@ -445,12 +447,12 @@ public class Story : MonoBehaviour
                 }
 
                 // TIME EXPIRED
-                //if (hasStartedPlayingWin && !actors[bestActorVoted - 1].IsPlayingWinning())
-                //{
-                //    indexVotingScript++;
-                //    currentStateVoting = StateVoting.Bye;
-                //    hasStartedPlayingWin = false;
-                //}
+                if (hasStartedPlayingWin && !actorsMonoBehavior[bestActorVoted - 1].IsPlayingWinning())
+                {
+                    indexVotingScript++;
+                    currentStateVoting = StateVoting.Bye;
+                    hasStartedPlayingWin = false;
+                }
 
                 break;
 

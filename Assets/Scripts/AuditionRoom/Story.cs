@@ -59,7 +59,7 @@ public class Story : MonoBehaviour
     private StatePerformance currentStatePerformance;
 
     private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 0;
+    private int indexPerformingActor = 4;
 
     // REPLAY PARAMETERS
     private enum StateReplay
@@ -68,6 +68,15 @@ public class Story : MonoBehaviour
         Performance,
         Continue
     }
+
+    private enum StateReplayPerformance
+    {
+        TrapdoorCoverGoingUp,
+        ReplayPerformance,
+        TrapdoorCoverGoingDown
+    }
+
+    private StateReplayPerformance currentStateReplayPerformance = StateReplayPerformance.TrapdoorCoverGoingUp;
 
     private ArrayList replayScript = new ArrayList()
     {
@@ -80,6 +89,7 @@ public class Story : MonoBehaviour
     private int indexReplayScript = 0;
 
     private bool trapdoorCoverDown = false;
+    private bool hasPerformedReplay = false;
 
     // VOTING PARAMETERS
     private enum StateVoting
@@ -305,31 +315,36 @@ public class Story : MonoBehaviour
                     break;
 
                 case StateReplay.Performance:
+                    // ON ENTER STATE
                     if (!trapdoorCoverUp)
-                    {
+                    {                        
                         actors[idActorForReplay - 1].transform.position = new Vector3(
                             actors[idActorForReplay - 1].transform.position.x,
                             actors[idActorForReplay - 1].transform.position.y + 0.1f,
                             actors[idActorForReplay - 1].transform.position.z);
                         actors[idActorForReplay - 1].trapdoorCover.GoUpSlow();
                         trapdoorCoverUp = true;
+                        actors[idActorForReplay - 1].SetupForReplay();
                     }
 
-                    if (!actors[idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !hasStartedPlaying && !trapdoorCoverDown)
+                    // REPLAY PERFORMANCE
+                    if (!actors[idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
                     {
-                        //actors[idActorForReplay - 1].PlayAnimation();
-                        hasStartedPlaying = true;
+                        actors[idActorForReplay - 1].PerformReplay();
+                        hasPerformedReplay = true;
                     }
 
-                    //if (hasStartedPlaying && !actors[idActorForReplay - 1].IsPlayingAnimation())
-                    //{
-                    //    hasStartedPlaying = false;
-                    //    actors[idActorForReplay - 1].trapdoorCover.GoDownSlow();
-                    //    trapdoorCoverDown = true;
-                    //}
-
-                    if (trapdoorCoverDown && !actors[idActorForReplay - 1].trapdoorCover.IsGoingDownSlow())
+                    // ON EXIT STATE
+                    if (hasPerformedReplay && !actors[idActorForReplay - 1].IsPlayingReplay())
                     {
+                        actors[idActorForReplay - 1].trapdoorCover.GoDownFast();
+                        trapdoorCoverDown = true;
+                        hasPerformedReplay = false;
+                    }
+
+                    if (trapdoorCoverDown && !actors[idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
+                    {
+                        Debug.Log("UANIME 4");
                         currentStateReplay = StateReplay.Continue;
                         indexReplayScript++;
                         trapdoorCoverDown = false;
@@ -343,16 +358,22 @@ public class Story : MonoBehaviour
                     {
                         indexReplayScript = 0;
                         currentStateReplay = StateReplay.Question;
+
                         wasYesPressed = false;
+                        wasNoPressed = false;
 
                         trapdoorCoverUp = false;
-                        hasStartedPlaying = false;
                         trapdoorCoverDown = false;
                     }
                     // NO
                     else if (!wasYesPressed && wasNoPressed)
                     {
                         wasNoPressed = false;
+                        wasYesPressed = false;
+
+                        trapdoorCoverUp = false;
+                        trapdoorCoverDown = false;
+
                         currentState = State.Voting;
                         CleanVariables();
                     }
@@ -459,7 +480,7 @@ public class Story : MonoBehaviour
                 break;
         }
     }
-        
+
     private void CleanVariables()
     {
         trapdoorCoverUp = false;

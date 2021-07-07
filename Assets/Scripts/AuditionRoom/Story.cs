@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HTC.UnityPlugin.Vive;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,15 +15,15 @@ public class Story : MonoBehaviour
 
     public enum State
     {
+        Recording,
         Performance,
         Replay,
         Voting
     }
 
-    public static State currentState = State.Performance;
+    public static State currentState = State.Recording;
 
     private bool trapdoorCoverUp = false;
-    private bool hasStartedPlaying = false;
     private bool hasGoneDownFast = false;
 
     // DESK BUTTONS
@@ -39,6 +40,26 @@ public class Story : MonoBehaviour
     // trapdoor button value for voting
     public static bool hasVoted = false;
     public static int bestActorVoted = -1;
+
+    // RECORDING PARAMETERS
+    private enum StateRecording
+    {
+        Question,
+        Ready,
+        Performance,
+        Continue
+    }
+
+    private ArrayList recordingScript = new ArrayList()
+    {
+        "Before starting, show an example of joy. Are you ready?\n",
+        "Press X when you want to start",
+        "Recording...\nPress X when you want to finish",
+        "Do you want to redo your recording?"
+    };
+
+    private StateRecording currentStateRecording;
+    private int indexRecordingScript = 0;
 
     // PERFORMANCES PARAMETERS
     private enum StatePerformance
@@ -131,6 +152,10 @@ public class Story : MonoBehaviour
     {
         switch (currentState)
         {
+            case State.Recording:
+                RecordingStateMachine();
+                break;
+
             case State.Performance:
                 PerformancesStateMachine();
                 break;
@@ -142,6 +167,75 @@ public class Story : MonoBehaviour
             case State.Voting:
                 VotingStateMachine();
                 break;
+        }
+    }
+
+    private void RecordingStateMachine()
+    {
+        // update text script
+        if (indexRecordingScript < recordingScript.Count)
+        {
+            scriptTextMesh.text = (string)recordingScript[indexRecordingScript];
+
+            switch (currentStateRecording)
+            {
+                case StateRecording.Question:
+                    // YES
+                    if (wasYesPressed && !wasNoPressed)
+                    {
+                        indexRecordingScript++;
+                        currentStateRecording = StateRecording.Ready;
+
+                        wasYesPressed = false;
+                        wasNoPressed = false;
+                    }
+
+                    break;
+
+                case StateRecording.Ready:
+                    // X PRESSING
+                    if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    {
+                        indexRecordingScript++;
+                        currentStateRecording = StateRecording.Performance;
+                    }
+
+                    break;
+
+                case StateRecording.Performance:
+                    // TODO TRACK MOVEMENTS
+
+                    // X PRESSING
+                    if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    {
+                        indexRecordingScript++;
+                        currentStateRecording = StateRecording.Continue;
+                    }
+
+                    break;
+
+                case StateRecording.Continue:
+                    // YES
+                    if (wasYesPressed && !wasNoPressed)
+                    {
+                        indexRecordingScript = 1;
+                        currentStateRecording = StateRecording.Ready;
+
+                        wasYesPressed = false;
+                        wasNoPressed = false;
+                    }
+                    // NO
+                    else if (!wasYesPressed && wasNoPressed)
+                    {
+                        wasNoPressed = false;
+                        wasYesPressed = false;
+
+                        currentState = State.Performance;
+                        CleanVariables();
+                    }
+
+                    break;
+            }
         }
     }
 
@@ -336,7 +430,6 @@ public class Story : MonoBehaviour
 
                     if (trapdoorCoverDown && !actors[idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
                     {
-                        Debug.Log("UANIME 4");
                         currentStateReplay = StateReplay.Continue;
                         indexReplayScript++;
                         trapdoorCoverDown = false;
@@ -481,7 +574,6 @@ public class Story : MonoBehaviour
     private void CleanVariables()
     {
         trapdoorCoverUp = false;
-        hasStartedPlaying = false;
         hasGoneDownFast = false;
         trapdoorCoverDown = false;
         hasStartedPlayingWin = false;

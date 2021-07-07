@@ -12,10 +12,9 @@ public class CastingStory : MonoBehaviour
 
     private ArrayList actorsScript = new ArrayList()
     {
-        "These are the actors who showed up \nat the casting auditions you organized. \nPay attention: not all of them are professionals!",
-        "You have to choose the best one and \nget rid of the other actors that are \ntrying to invade your auditions!",
-        "Choose the best one performing the \nemotion of joy with only body language.",
-        "But before, show them an example of \nwhat is for you a good interpretation of joy \nperformed only with the upper part of your body.",
+        "These are the actors \n\nat the casting auditions you organized.",
+        "Pay attention: not all of them are professionals!",
+        "You have to choose the best one \n\nperforming the emotion of joy.",
         "Are you ready?"
     };
 

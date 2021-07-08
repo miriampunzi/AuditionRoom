@@ -9,6 +9,10 @@ public class Human : MonoBehaviour
     public static ArrayList rotationsRightForeArm = new ArrayList();
     public static ArrayList rotationsRightHand = new ArrayList();
 
+    public static ArrayList rotationsLeftArm = new ArrayList();
+    public static ArrayList rotationsLeftForeArm = new ArrayList();
+    public static ArrayList rotationsLeftHand = new ArrayList();
+
     public static int numActions = 0;
 
     public static void DNNRewardFunction()

@@ -92,6 +92,8 @@ public class Actor : Agent, IComparer<Actor>
             animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
                 hasRecorded = true;
+
+                Human.numActions = Human.numActions / 4;
             }
         }
     }

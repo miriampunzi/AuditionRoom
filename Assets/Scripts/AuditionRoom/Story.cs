@@ -110,7 +110,8 @@ public class Story : MonoBehaviour
         ActorsAppear,
         Choosing,
         Win,
-        Bye
+        Lose,
+        Continue
     }
 
     private ArrayList votingScript = new ArrayList()
@@ -118,7 +119,8 @@ public class Story : MonoBehaviour
         "Now it’s time to vote",
         "Which was the best actor?",
         "Congratulations actor num ",
-        "Bye bye the others!"
+        "Bye bye the others!",
+        "Do you want to do another round?"
     };
 
     private StateVoting currentStateVoting;
@@ -533,13 +535,13 @@ public class Story : MonoBehaviour
                 if (hasStartedPlayingWin && !actorsMonoBehavior[bestActorVoted - 1].IsPlayingWinning())
                 {
                     indexVotingScript++;
-                    currentStateVoting = StateVoting.Bye;
+                    currentStateVoting = StateVoting.Lose;
                     hasStartedPlayingWin = false;
                 }
 
                 break;
 
-            case StateVoting.Bye:
+            case StateVoting.Lose:
                 // BEGIN
                 if (!hasGoneDownFast)
                 {
@@ -552,13 +554,49 @@ public class Story : MonoBehaviour
                 // TIME EXPIRED
                 if (hasGoneDownFast && !actors[0].trapdoorCover.IsGoingDownFast())
                 {
-                    scriptTextMesh.text = "THE END";
                     hasGoneDownFast = false;
 
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
                     {
                         actors[i].EndEpisode();
                     }
+
+                    indexVotingScript++;
+                    currentStateVoting = StateVoting.Continue;
+                }
+
+                break;
+
+            case StateVoting.Continue:
+                // YES
+                if (wasYesPressed && !wasNoPressed)
+                {
+                    currentState = State.Recording;
+
+                    indexRecordingScript = 0;
+                    indexPerformancesScript = 0;
+                    indexVotingScript = 0;
+                    indexReplayScript = 0;
+
+                    indexPerformingActor = 0;
+
+                    wasYesPressed = false;
+                    wasNoPressed = false;
+
+                    trapdoorCoverUp = false;
+                    trapdoorCoverDown = false;
+                }
+                // NO
+                else if (!wasYesPressed && wasNoPressed)
+                {
+                    scriptTextMesh.text = "Bye-bye!";
+                }
+
+                // ON EXIT
+                for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                {
+                    actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
+                    actors[i].trapdoorCover.GoDownFast();
                 }
 
                 break;

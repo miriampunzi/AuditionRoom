@@ -118,7 +118,7 @@ public class Story : MonoBehaviour
     {
         "Now it’s time to vote",
         "Which was the best actor?",
-        "Congratulations actor num ",
+        "Congratulations actor num $!",
         "Bye bye the others!",
         "Do you want to do another round?"
     };
@@ -475,7 +475,13 @@ public class Story : MonoBehaviour
         // update text script
         if (indexVotingScript < votingScript.Count)
         {
-            scriptTextMesh.text = (string)votingScript[indexVotingScript];
+            if (currentStateVoting == StateVoting.Win)
+            {
+                string modifiedText = ((string)votingScript[indexVotingScript]).Replace("$", "" + (bestActorVoted));
+                scriptTextMesh.text = modifiedText;
+            }
+            else
+                scriptTextMesh.text = (string)votingScript[indexVotingScript];
         }
 
         switch (currentStateVoting)
@@ -486,6 +492,7 @@ public class Story : MonoBehaviour
                 {
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
                     {
+                        actors[i].SetupForReplay();
                         actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
                         actors[i].trapdoorCover.GoUpSlow();
                     }

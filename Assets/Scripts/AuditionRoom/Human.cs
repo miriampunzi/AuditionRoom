@@ -5,29 +5,19 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
-    public static ArrayList rotationsRightArm = new ArrayList();
-    public static ArrayList rotationsRightForeArm = new ArrayList();
-    public static ArrayList rotationsRightHand = new ArrayList();
-
-    public static ArrayList rotationsLeftArm = new ArrayList();
-    public static ArrayList rotationsLeftForeArm = new ArrayList();
-    public static ArrayList rotationsLeftHand = new ArrayList();
-
-    public static int numActions = 0;
-
     public static void DNNRewardFunction()
     {
-        //List<Actor> actors = EnvironmentStatus.getActors();
+        List<Actor> actors = EnvironmentStatus.getActors();
 
-        //for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-        //{
-        //    for (int j = 0; j < numActions; j++)
-        //    {
-        //        actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightArm[j], (Quaternion)rotationsRightArm[j]));
-        //        actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightForeArm[j], (Quaternion)rotationsRightForeArm[j]));
-        //        actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightHand[j], (Quaternion)rotationsRightHand[j]));
-        //    }
-        //}
+        for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+        {
+            for (int j = 0; j < EnvironmentStatus.numActions; j++)
+            {
+                actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightArm[j], (Quaternion)EnvironmentStatus.rotationsRightArm[j]));
+                actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightForeArm[j], (Quaternion)EnvironmentStatus.rotationsRightForeArm[j]));
+                actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightHand[j], (Quaternion)EnvironmentStatus.rotationsRightHand[j]));
+            }
+        }
     }
 
     private static float calculateReward(Quaternion v1, Quaternion v2)

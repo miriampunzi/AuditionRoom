@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class EnvironmentStatus : MonoBehaviour
 {
+    // movements performed by the avatar to copy 
+    public static ArrayList rotationsRightArm = new ArrayList();
+    public static ArrayList rotationsRightForeArm = new ArrayList();
+    public static ArrayList rotationsRightHand = new ArrayList();
+
+    public static ArrayList rotationsLeftArm = new ArrayList();
+    public static ArrayList rotationsLeftForeArm = new ArrayList();
+    public static ArrayList rotationsLeftHand = new ArrayList();
+
+    // number of actions performed by the avatar to copy
+    public static int numActions = 0;
+
+    // has the player already provided the feedback?
     public static bool feedbackProvided = false;
+
+    // id of the best actor voted. -1 if nobody was voted
     public static int idBestActor = -1;
+
+    // variable to count the number of episodes. It's incremented after every EndEpisode() call
     public static int numEpisode = 1;
 
+    // number of actors in the environment
     public const int NUM_ACTORS = 5;
-    public const float ARM_LENGTH = 0.62f;
 
+    // retrieve all actors from environment
     public static List<Actor> getActors()
     {
         GameObject[] gameObjects = FindObjectsOfType<GameObject>();
@@ -25,6 +43,7 @@ public class EnvironmentStatus : MonoBehaviour
             }
         }
 
+        // sort actors by their id
         actors.Sort(new ActorComparer());
         return actors;
     }

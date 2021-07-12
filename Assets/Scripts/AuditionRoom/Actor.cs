@@ -126,15 +126,15 @@ public class Actor : Agent, IComparer<Actor>
             animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
             {
                 // saving rotations performed by avatar to copy
-                Human.rotationsRightArm.Add(avatarToCopyRightArm.rotation);
-                Human.rotationsRightForeArm.Add(avatarToCopyRightForeArm.rotation);
-                Human.rotationsRightHand.Add(avatarToCopyRightHand.rotation);
+                EnvironmentStatus.rotationsRightArm.Add(avatarToCopyRightArm.rotation);
+                EnvironmentStatus.rotationsRightForeArm.Add(avatarToCopyRightForeArm.rotation);
+                EnvironmentStatus.rotationsRightHand.Add(avatarToCopyRightHand.rotation);
 
-                Human.rotationsLeftArm.Add(avatarToCopyLeftArm.rotation);
-                Human.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.rotation);
-                Human.rotationsLeftHand.Add(avatarToCopyLeftHand.rotation);
+                EnvironmentStatus.rotationsLeftArm.Add(avatarToCopyLeftArm.rotation);
+                EnvironmentStatus.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.rotation);
+                EnvironmentStatus.rotationsLeftHand.Add(avatarToCopyLeftHand.rotation);
 
-                Human.numActions++;
+                EnvironmentStatus.numActions++;
             }
             else
             {
@@ -146,7 +146,7 @@ public class Actor : Agent, IComparer<Actor>
     public void PerformAction()
     {
         // the avatar perform the same number of actions performed by the acatar to copy
-        if (countStep < Human.numActions)
+        if (countStep < EnvironmentStatus.numActions)
         {
             RequestDecision();
             countStep++;
@@ -164,7 +164,7 @@ public class Actor : Agent, IComparer<Actor>
 
     public bool IsPlayingPerformance()
     {
-        return countStep < Human.numActions;
+        return countStep < EnvironmentStatus.numActions;
     }
 
     // not working properly

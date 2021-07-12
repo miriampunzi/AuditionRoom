@@ -21953,7 +21953,7 @@ GameObject:
   - component: {fileID: 1029232316}
   - component: {fileID: 1029232315}
   - component: {fileID: 1029232314}
-  - component: {fileID: 1029232313}
+  - component: {fileID: 1029232317}
   m_Layer: 0
   m_Name: Push
   m_TagString: Untagged
@@ -21976,26 +21976,6 @@ Transform:
   m_Father: {fileID: 727431604}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1029232313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029232311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 116efbf64679e144f841be6a8f0dc6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 0.1
-  deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!153 &1029232314
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -22121,6 +22101,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.058836892, y: 0.02814442, z: 0.054679394}
   m_Center: {x: 0.00030581653, y: -0.0016760528, z: 0.0023970604}
+--- !u!114 &1029232317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029232311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b2858ff0e39e04e948289f84b3fdf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.1
+  deadZone: 0.025
+  isPositive: 0
 --- !u!1 &1032251985
 GameObject:
   m_ObjectHideFlags: 0
@@ -23638,7 +23633,7 @@ GameObject:
   - component: {fileID: 1141854505}
   - component: {fileID: 1141854507}
   - component: {fileID: 1141854506}
-  - component: {fileID: 1141854508}
+  - component: {fileID: 1141854509}
   m_Layer: 0
   m_Name: Push
   m_TagString: Untagged
@@ -23786,7 +23781,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1141854508
+--- !u!114 &1141854509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23795,17 +23790,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1141854503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e62d0f5774af0c9429ae0ecc184ab5e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 99b2858ff0e39e04e948289f84b3fdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 0.1
   deadZone: 0.025
-  onPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onReleased:
-    m_PersistentCalls:
-      m_Calls: []
+  isPositive: 1
 --- !u!1 &1147567131
 GameObject:
   m_ObjectHideFlags: 0

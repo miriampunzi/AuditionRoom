@@ -2,19 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class YesButton : MonoBehaviour
+public class AnswerButton : MonoBehaviour
 {
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float deadZone = 0.025f;
+    [SerializeField] private bool isPositive;
 
     private bool isPressed;
     private Vector3 startPos;
     private ConfigurableJoint joint;
-
-    public UnityEvent onPressed;
-    public UnityEvent onReleased;
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +45,14 @@ public class YesButton : MonoBehaviour
     private void Pressed()
     {
         isPressed = true;
-        Story.wasYesPressed = true;
-        //onPressed.Invoke();
+        if (isPositive)
+            Story.wasYesPressed = true;
+        else
+            Story.wasNoPressed = true;
     }
 
     private void Released()
     {
         isPressed = false;
-        //onReleased.Invoke();
     }
 }

@@ -50,6 +50,7 @@ public class TrapdoorButton : MonoBehaviour
 
         switch (Story.currentState)
         {
+            // the user clicked a trapdoor button to ask for replay of a particular actor
             case Story.State.Replay:
                 Story.idActorForReplay = id;
                 Story.hasAskedForReplay = true;
@@ -58,9 +59,12 @@ public class TrapdoorButton : MonoBehaviour
                 Story.hasVoted = false;
                 break;
 
+            // the user clicked a trapdoor button to vote a particular actor
             case Story.State.Voting:
                 Story.bestActorVoted = id;
                 Story.hasVoted = true;
+
+                // after voting, the rewards are given to the actors
                 Human.DNNRewardFunction();
 
                 Story.idActorForReplay = -1;

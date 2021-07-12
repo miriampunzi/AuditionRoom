@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 
+// class used to be able to access the animator component of the Actor, because the method GetComponent<>() is from the class MonoBehaviour
 public class ActorMonoBehavior : MonoBehaviour
 {
-    Animator animator;
-    public int id;
+    public int idActor;
 
+    private Animator animator;
+
+    // name of pre-recorded animation to play if the actor is a human
     public string nameAnimationToPlay;
+
+    // controllers to play victory or defeat animation after voting phase
     public AnimatorController victoryAnimatorController;
     public AnimatorController defeatedAnimatorController;
 
@@ -16,7 +21,6 @@ public class ActorMonoBehavior : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-
 
     public void PlayAnimation()
     {
@@ -51,16 +55,19 @@ public class ActorMonoBehavior : MonoBehaviour
         return animator.GetCurrentAnimatorStateInfo(0).IsName("Victory") &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1;
     }
+
+    // method used to be able to order a list of ActorMonoBehavior based on their idActor
     public int Compare(Actor x, Actor y)
     {
         return x.idActor.CompareTo(y.idActor);
     }
 }
 
+// class used to be able to order a list of ActorMonoBehavior based on their idActor
 class ActorMonoBehaviorComparer : IComparer<ActorMonoBehavior>
 {
     public int Compare(ActorMonoBehavior x, ActorMonoBehavior y)
     {
-        return x.id.CompareTo(y.id);
+        return x.idActor.CompareTo(y.idActor);
     }
 }

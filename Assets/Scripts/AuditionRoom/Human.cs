@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
+    // gives rewards to the actors
     public static void DNNRewardFunction()
     {
         List<Actor> actors = EnvironmentStatus.getActors();

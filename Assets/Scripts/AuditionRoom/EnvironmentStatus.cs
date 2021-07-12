@@ -48,6 +48,7 @@ public class EnvironmentStatus : MonoBehaviour
         return actors;
     }
 
+    // retrieve all actors monobehavior from environment
     public static List<ActorMonoBehavior> getActorsMonoBehavior()
     {
         GameObject[] gameObjects = FindObjectsOfType<GameObject>();

@@ -525,7 +525,7 @@ public class Story : MonoBehaviour
                 {
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
                     {
-                        if (bestActorVoted == actors[i].id)
+                        if (bestActorVoted == actors[i].idActor)
                         {
                             actorsMonoBehavior[i].PlayVictory();
                         }
@@ -553,7 +553,7 @@ public class Story : MonoBehaviour
                 if (!hasGoneDownFast)
                 {
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                        if (actors[i].id != bestActorVoted)
+                        if (actors[i].idActor != bestActorVoted)
                             actors[i].trapdoorCover.GoDownFast();
                     hasGoneDownFast = true;
                 }

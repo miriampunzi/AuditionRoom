@@ -4654,16 +4654,16 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  idActor: 4
+  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 579300165}
-  id: 4
-  gender: 0
   actorRightArm: {fileID: 580961139}
   actorRightForeArm: {fileID: 1661282848}
   actorRightHand: {fileID: 117487300}
   avatarToCopyRightArm: {fileID: 2086291269}
   avatarToCopyRightForeArm: {fileID: 2086291270}
   avatarToCopyRightHand: {fileID: 2086291271}
-  targerRightArm: {fileID: 652107236}
+  targetRightArm: {fileID: 652107236}
   actorLeftArm: {fileID: 1911411676}
   actorLeftForeArm: {fileID: 2021237626}
   actorLeftHand: {fileID: 1604838981}
@@ -4671,7 +4671,6 @@ MonoBehaviour:
   avatarToCopyLeftForeArm: {fileID: 2086291299}
   avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 1605253532}
-  avatarToCopy: {fileID: 2086291263}
 --- !u!65 &228408033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10246,16 +10245,16 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  idActor: 1
+  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 1507411390}
-  id: 1
-  gender: 0
   actorRightArm: {fileID: 2075146213}
   actorRightForeArm: {fileID: 1033290642}
   actorRightHand: {fileID: 1804393420}
   avatarToCopyRightArm: {fileID: 2086291269}
   avatarToCopyRightForeArm: {fileID: 2086291270}
   avatarToCopyRightHand: {fileID: 2086291271}
-  targerRightArm: {fileID: 589250742}
+  targetRightArm: {fileID: 589250742}
   actorLeftArm: {fileID: 307436781}
   actorLeftForeArm: {fileID: 307436780}
   actorLeftHand: {fileID: 307436779}
@@ -10263,7 +10262,6 @@ MonoBehaviour:
   avatarToCopyLeftForeArm: {fileID: 2086291299}
   avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 1219543623}
-  avatarToCopy: {fileID: 2086291263}
 --- !u!65 &477801295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11579,16 +11577,16 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  idActor: 5
+  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 1455116312}
-  id: 5
-  gender: 0
   actorRightArm: {fileID: 920150495}
   actorRightForeArm: {fileID: 1778794504}
   actorRightHand: {fileID: 1094829221}
   avatarToCopyRightArm: {fileID: 2086291269}
   avatarToCopyRightForeArm: {fileID: 2086291270}
   avatarToCopyRightHand: {fileID: 2086291271}
-  targerRightArm: {fileID: 1557182109}
+  targetRightArm: {fileID: 1557182109}
   actorLeftArm: {fileID: 566929566}
   actorLeftForeArm: {fileID: 962042196}
   actorLeftHand: {fileID: 1085635639}
@@ -11596,7 +11594,6 @@ MonoBehaviour:
   avatarToCopyLeftForeArm: {fileID: 2086291299}
   avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 670772595}
-  avatarToCopy: {fileID: 2086291263}
 --- !u!65 &531210506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20156,16 +20153,16 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  idActor: 3
+  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 1043032884}
-  id: 3
-  gender: 0
   actorRightArm: {fileID: 284296330}
   actorRightForeArm: {fileID: 521748383}
   actorRightHand: {fileID: 753201801}
   avatarToCopyRightArm: {fileID: 2086291269}
   avatarToCopyRightForeArm: {fileID: 2086291270}
   avatarToCopyRightHand: {fileID: 2086291271}
-  targerRightArm: {fileID: 750960206}
+  targetRightArm: {fileID: 750960206}
   actorLeftArm: {fileID: 119970005}
   actorLeftForeArm: {fileID: 1399918447}
   actorLeftHand: {fileID: 750943190}
@@ -20173,7 +20170,6 @@ MonoBehaviour:
   avatarToCopyLeftForeArm: {fileID: 2086291299}
   avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 1980255750}
-  avatarToCopy: {fileID: 2086291263}
 --- !u!54 &937445257
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26738,16 +26734,16 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  idActor: 2
+  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 2127349258}
-  id: 2
-  gender: 0
   actorRightArm: {fileID: 1410626201}
   actorRightForeArm: {fileID: 821013491}
   actorRightHand: {fileID: 1036694361}
   avatarToCopyRightArm: {fileID: 2086291269}
   avatarToCopyRightForeArm: {fileID: 2086291270}
   avatarToCopyRightHand: {fileID: 2086291271}
-  targerRightArm: {fileID: 1383797924}
+  targetRightArm: {fileID: 1383797924}
   actorLeftArm: {fileID: 745470968}
   actorLeftForeArm: {fileID: 462765421}
   actorLeftHand: {fileID: 2114343944}
@@ -26755,7 +26751,6 @@ MonoBehaviour:
   avatarToCopyLeftForeArm: {fileID: 2086291299}
   avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 2096363580}
-  avatarToCopy: {fileID: 2086291263}
 --- !u!65 &1278871151
 BoxCollider:
   m_ObjectHideFlags: 0

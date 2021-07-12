@@ -53,7 +53,7 @@ public class ActorMonoBehavior : MonoBehaviour
     }
     public int Compare(Actor x, Actor y)
     {
-        return x.id.CompareTo(y.id);
+        return x.idActor.CompareTo(y.idActor);
     }
 }
 

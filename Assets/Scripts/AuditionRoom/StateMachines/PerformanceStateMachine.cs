@@ -27,7 +27,7 @@ public class PerformanceStateMachine : MonoBehaviour
     private StatePerformance currentStatePerformance = StatePerformance.Presentation;
 
     private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 5;
+    private int indexPerformingActor = 0;
 
     public PerformanceStateMachine(TextMeshPro scriptTextMesh)
     {

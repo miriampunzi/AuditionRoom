@@ -8,17 +8,17 @@ public class Human : MonoBehaviour
     // gives rewards to the actors
     public static void DNNRewardFunction()
     {
-        List<Actor> actors = EnvironmentStatus.getActors();
+        //List<Actor> actors = EnvironmentStatus.getActors();
 
-        for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-        {
-            for (int j = 0; j < EnvironmentStatus.numActions; j++)
-            {
-                actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightArm[j], (Quaternion)EnvironmentStatus.rotationsRightArm[j]));
-                actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightForeArm[j], (Quaternion)EnvironmentStatus.rotationsRightForeArm[j]));
-                actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightHand[j], (Quaternion)EnvironmentStatus.rotationsRightHand[j]));
-            }
-        }
+        //for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+        //{
+        //    for (int j = 0; j < EnvironmentStatus.numActions; j++)
+        //    {
+        //        actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightArm[j], (Quaternion)EnvironmentStatus.rotationsRightArm[j]));
+        //        actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightForeArm[j], (Quaternion)EnvironmentStatus.rotationsRightForeArm[j]));
+        //        actors[i].AddReward(calculateReward((Quaternion)actors[i].performedRotationsRightHand[j], (Quaternion)EnvironmentStatus.rotationsRightHand[j]));
+        //    }
+        //}
     }
 
     private static float calculateReward(Quaternion v1, Quaternion v2)

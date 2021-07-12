@@ -4795,7 +4795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
+  idActor: 4
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -10368,7 +10368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  idActor: 1
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -11718,7 +11718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
+  idActor: 5
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -20294,7 +20294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
+  idActor: 3
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -26865,7 +26865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  idActor: 2
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}

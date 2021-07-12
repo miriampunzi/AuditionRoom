@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class Story : MonoBehaviour
 {
-    // COMMON PARAMETERS
+    public static RecordingStateMachine recordingStateMachine;
+    public static PerformanceStateMachine performanceStateMachine;
+    public static ReplayStateMachine replayStateMachine;
+    public static VotingStateMachine votingStateMachine;
+
+    private TextMeshPro scriptTextMesh;
+
     [SerializeField] private GameObject playerPrefab;
-
-    private List<Actor> actors;
-    private List<ActorMonoBehavior> actorsMonoBehavior;
-    TextMeshPro scriptTextMesh;
-
+        
     public enum State
     {
         Recording,
@@ -23,110 +25,16 @@ public class Story : MonoBehaviour
 
     public static State currentState = State.Recording;
 
-    private bool trapdoorCoverUp = false;
-    private bool hasGoneDownFast = false;
-
-    // DESK BUTTONS
-    // yes button value
+    public static bool trapdoorCoverUp = false;
+    public static bool hasGoneDownFast = false;
     public static bool wasYesPressed = false;
-
-    // no button value
     public static bool wasNoPressed = false;
 
-    // trapdoor button value for replay
     public static bool hasAskedForReplay = false;
     public static int idActorForReplay = -1;
 
-    // trapdoor button value for voting
     public static bool hasVoted = false;
     public static int bestActorVoted = -1;
-
-    // RECORDING PARAMETERS
-    private enum StateRecording
-    {
-        Question,
-        Ready,
-        Performance,
-        Continue
-    }
-
-    private ArrayList recordingScript = new ArrayList()
-    {
-        "Before starting, show an example of joy. Are you ready?\n",
-        "Press X when you want to start",
-        "Recording...\nPress X when you want to finish",
-        "Do you want to redo your recording?"
-    };
-
-    private StateRecording currentStateRecording;
-    private int indexRecordingScript = 0;
-
-    // PERFORMANCES PARAMETERS
-    private enum StatePerformance
-    {
-        Presentation,
-        Performace,
-        Replay,
-        Bye
-    }
-
-    private ArrayList performancesScript = new ArrayList()
-    {
-        "Now it’s the turn of the actor $. Are you ready to see the performance?",
-        "Performance...",
-        "Do you want to see a replay?",
-        "Bye-bye, see you later!"
-    };
-
-    private StatePerformance currentStatePerformance;
-
-    private int indexPerformancesScript = 0;
-    private int indexPerformingActor = 0;
-
-    // REPLAY PARAMETERS
-    private enum StateReplay
-    {
-        Question,
-        Performance,
-        Continue
-    }
-
-    private ArrayList replayScript = new ArrayList()
-    {
-        "Which actor do you want to ask for a replay",
-        "Performance...",
-        "Do you want to see other replays?"
-    };
-
-    private StateReplay currentStateReplay;
-    private int indexReplayScript = 0;
-
-    private bool trapdoorCoverDown = false;
-    private bool hasPerformedReplay = false;
-
-    // VOTING PARAMETERS
-    private enum StateVoting
-    {
-        ActorsAppear,
-        Choosing,
-        Win,
-        Lose,
-        Continue
-    }
-
-    private ArrayList votingScript = new ArrayList()
-    {
-        "Now it’s time to vote",
-        "Which was the best actor?",
-        "Congratulations actor num $!",
-        "Bye bye the others!",
-        "Do you want to do another round?"
-    };
-
-    private StateVoting currentStateVoting;
-    private int indexVotingScript = 0;
-
-    private bool hasStartedPlayingWin = false;
 
     private void Start()
     {
@@ -145,9 +53,11 @@ public class Story : MonoBehaviour
         }
 
         scriptTextMesh = GetComponent<TextMeshPro>();
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
-        currentStatePerformance = StatePerformance.Presentation;
+
+        recordingStateMachine = new RecordingStateMachine(scriptTextMesh);
+        performanceStateMachine = new PerformanceStateMachine(scriptTextMesh);
+        replayStateMachine = new ReplayStateMachine(scriptTextMesh);
+        votingStateMachine = new VotingStateMachine(scriptTextMesh);
     }
 
     public void Update()
@@ -155,478 +65,93 @@ public class Story : MonoBehaviour
         switch (currentState)
         {
             case State.Recording:
-                RecordingStateMachine();
+                recordingStateMachine.Execute();
                 break;
 
             case State.Performance:
-                PerformancesStateMachine();
+                performanceStateMachine.Execute();
                 break;
 
             case State.Replay:
-                ReplayStateMachine();
+                replayStateMachine.Execute();
                 break;
 
             case State.Voting:
-                VotingStateMachine();
+                votingStateMachine.Execute();
                 break;
         }
     }
 
-    private void RecordingStateMachine()
+    public static void CleanVariables()
     {
-        // update text script
-        if (indexRecordingScript < recordingScript.Count)
-        {
-            scriptTextMesh.text = (string)recordingScript[indexRecordingScript];
-
-            switch (currentStateRecording)
-            {
-                case StateRecording.Question:
-                    // YES
-                    if (wasYesPressed && !wasNoPressed)
-                    {
-                        indexRecordingScript++;
-                        currentStateRecording = StateRecording.Ready;
-
-                        wasYesPressed = false;
-                        wasNoPressed = false;
-                    }
-
-                    break;
-
-                case StateRecording.Ready:
-                    // X PRESSING
-                    if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
-                    {
-                        indexRecordingScript++;
-                        currentStateRecording = StateRecording.Performance;
-                    }
-
-                    break;
-
-                case StateRecording.Performance:
-                    // TODO TRACK MOVEMENTS
-
-                    // X PRESSING
-                    if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
-                    {
-                        indexRecordingScript++;
-                        currentStateRecording = StateRecording.Continue;
-                    }
-
-                    break;
-
-                case StateRecording.Continue:
-                    // YES
-                    if (wasYesPressed && !wasNoPressed)
-                    {
-                        indexRecordingScript = 1;
-                        currentStateRecording = StateRecording.Ready;
-
-                        wasYesPressed = false;
-                        wasNoPressed = false;
-                    }
-                    // NO
-                    else if (!wasYesPressed && wasNoPressed)
-                    {
-                        wasNoPressed = false;
-                        wasYesPressed = false;
-
-                        currentState = State.Performance;
-                        CleanVariables();
-                    }
-
-                    break;
-            }
-        }
+        trapdoorCoverUp = false;
+        hasGoneDownFast = false;
     }
 
-    private void PerformancesStateMachine()
+    public static void CleanDeskVariables()
     {
-        if (indexPerformingActor < EnvironmentStatus.NUM_ACTORS)
-        {
-            // update text script
-            if (indexPerformancesScript < performancesScript.Count)
-            {
-                if (currentStatePerformance == StatePerformance.Presentation)
-                {
-                    string modifiedText = ((string)performancesScript[indexPerformancesScript]).Replace("$", "" + (indexPerformingActor + 1));
-                    scriptTextMesh.text = modifiedText;
-                }
-                else
-                    scriptTextMesh.text = (string)performancesScript[indexPerformancesScript];
-            }
+        wasYesPressed = false;
+        wasNoPressed = false;
 
-            switch (currentStatePerformance)
-            {
-                case StatePerformance.Presentation:
-                    // BEGIN
-                    if (!trapdoorCoverUp)
-                    {
-                        actors[indexPerformingActor].transform.position = new Vector3(actors[indexPerformingActor].transform.position.x, actors[indexPerformingActor].transform.position.y + 0.1f, actors[indexPerformingActor].transform.position.z);
-                        actors[indexPerformingActor].trapdoorCover.GoUpSlow();
-                        trapdoorCoverUp = true;
-                    }
+        hasAskedForReplay = false;
+        idActorForReplay = -1;
 
-                    // TODO CONTROLLA CHE I TRAPDOORCOVER SIANO SU PRIMA DI CONTROLLARE IL SI PER EVITARE CHE SUCCEDANO COSE QUANDO L'UTENTE CLICCA SI A CASO
-
-                    // YES
-                    if (trapdoorCoverUp && wasYesPressed)
-                    {
-                        indexPerformancesScript++;
-                        currentStatePerformance = StatePerformance.Performace;
-
-                        trapdoorCoverUp = false;
-                    }
-
-                    // END
-                    CleanDeskVariables();
-
-                    break;
-
-                case StatePerformance.Performace:
-                    
-                    if (!hasAskedForReplay)
-                    {
-                        // BEGIN PERFORMANCE
-                        actors[indexPerformingActor].PerformAction();
-
-                        // FINISHED PERFORMANCE
-                        if (!actors[indexPerformingActor].IsPlayingPerformance())
-                        {
-                            currentStatePerformance = StatePerformance.Replay;
-                            indexPerformancesScript++;
-                        }
-                    }
-                    else
-                    {
-                        // BEGIN REPLAY
-                        actors[indexPerformingActor].PerformReplay();
-
-                        // FINISHED REPLAY
-                        if (!actors[indexPerformingActor].IsPlayingReplay())
-                        {
-                            currentStatePerformance = StatePerformance.Replay;
-                            indexPerformancesScript++;
-                        }
-                    }
-
-                    break;
-
-                case StatePerformance.Replay:
-                    // YES
-                    if (wasYesPressed && !wasNoPressed)
-                    {
-                        actors[indexPerformingActor].SetupForReplay();
-                        hasAskedForReplay = true;
-                        indexPerformancesScript--;
-                        currentStatePerformance = StatePerformance.Performace;
-                        wasYesPressed = false;
-                    }
-
-                    // NO
-                    else if (!wasYesPressed && wasNoPressed)
-                    {
-                        hasAskedForReplay = false;
-                        indexPerformancesScript++;
-                        currentStatePerformance = StatePerformance.Bye;
-                        wasNoPressed = false;
-                    }
-
-                    break;
-
-                case StatePerformance.Bye:
-                    // BEGIN
-                    if (!hasGoneDownFast)
-                    {
-                        actors[indexPerformingActor].trapdoorCover.GoDownFast();
-                        hasGoneDownFast = true;
-                    }
-
-                    // TIME EXPIRED
-                    if (hasGoneDownFast && !actors[indexPerformingActor].trapdoorCover.IsGoingDownFast())
-                    {
-                        indexPerformancesScript = 0;
-                        currentStatePerformance = StatePerformance.Presentation;
-                        indexPerformingActor++;
-                        hasGoneDownFast = false;
-                    }
-
-                    break;
-
-                default:
-                    scriptTextMesh.color = Color.red;
-                    scriptTextMesh.text = "YOU SHOULDN'T ENTER HERE";
-
-                    break;
-            }
-        }
-        // SEE OLD PERFORMANCES
-        else
-        {
-            scriptTextMesh.text = "Now all the actors have finished. Do you want to see old performances?";
-
-            // YES
-            if (wasYesPressed && !wasNoPressed)
-            {
-                wasYesPressed = false;
-                currentState = State.Replay;
-                CleanVariables();
-            }
-            // NO
-            else if (!wasYesPressed && wasNoPressed)
-            {
-                wasNoPressed = false;
-                currentState = State.Voting;
-                CleanVariables();
-            }
-        }
+        //hasVoted = false;
+        //bestActorVoted = -1;
     }
 
-    private void ReplayStateMachine()
+    public static void NextState()
     {
-        // update text script
-        if (indexReplayScript < replayScript.Count)
+        CleanVariables();
+
+        switch (currentState)
         {
-            scriptTextMesh.text = (string)replayScript[indexReplayScript];
-
-            switch (currentStateReplay)
-            {
-                case StateReplay.Question:
-                    if (hasAskedForReplay)
-                    {
-                        indexReplayScript++;
-                        currentStateReplay = StateReplay.Performance;
-                        hasAskedForReplay = false;
-                    }
-
-                    break;
-
-                case StateReplay.Performance:
-                    // ON ENTER STATE
-                    if (!trapdoorCoverUp)
-                    {                        
-                        actors[idActorForReplay - 1].transform.position = new Vector3(
-                            actors[idActorForReplay - 1].transform.position.x,
-                            actors[idActorForReplay - 1].transform.position.y + 0.1f,
-                            actors[idActorForReplay - 1].transform.position.z);
-                        actors[idActorForReplay - 1].trapdoorCover.GoUpSlow();
-                        trapdoorCoverUp = true;
-                        actors[idActorForReplay - 1].SetupForReplay();
-                    }
-
-                    // REPLAY PERFORMANCE
-                    if (!actors[idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
-                    {
-                        actors[idActorForReplay - 1].PerformReplay();
-                        hasPerformedReplay = true;
-                    }
-
-                    // ON EXIT STATE
-                    if (hasPerformedReplay && !actors[idActorForReplay - 1].IsPlayingReplay())
-                    {
-                        actors[idActorForReplay - 1].trapdoorCover.GoDownFast();
-                        trapdoorCoverDown = true;
-                        hasPerformedReplay = false;
-                    }
-
-                    if (trapdoorCoverDown && !actors[idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
-                    {
-                        currentStateReplay = StateReplay.Continue;
-                        indexReplayScript++;
-                        trapdoorCoverDown = false;
-                    }
-
-                    break;
-
-                case StateReplay.Continue:
-                    // YES
-                    if (wasYesPressed && !wasNoPressed)
-                    {
-                        indexReplayScript = 0;
-                        currentStateReplay = StateReplay.Question;
-
-                        wasYesPressed = false;
-                        wasNoPressed = false;
-
-                        trapdoorCoverUp = false;
-                        trapdoorCoverDown = false;
-                    }
-                    // NO
-                    else if (!wasYesPressed && wasNoPressed)
-                    {
-                        wasNoPressed = false;
-                        wasYesPressed = false;
-
-                        trapdoorCoverUp = false;
-                        trapdoorCoverDown = false;
-
-                        currentState = State.Voting;
-                        CleanVariables();
-                    }
-
-                    break;
-            }
-        }
-    }
-
-    private void VotingStateMachine()
-    {
-        // update text script
-        if (indexVotingScript < votingScript.Count)
-        {
-            if (currentStateVoting == StateVoting.Win)
-            {
-                string modifiedText = ((string)votingScript[indexVotingScript]).Replace("$", "" + (bestActorVoted));
-                scriptTextMesh.text = modifiedText;
-            }
-            else
-                scriptTextMesh.text = (string)votingScript[indexVotingScript];
-        }
-
-        switch (currentStateVoting)
-        {
-            case StateVoting.ActorsAppear:
-                // BEGIN
-                if (!trapdoorCoverUp)
-                {
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                    {
-                        actors[i].SetupForReplay();
-                        actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
-                        actors[i].trapdoorCover.GoUpSlow();
-                    }
-                    trapdoorCoverUp = true;
-                }
-
-                // TIME EXPIRED
-                if (trapdoorCoverUp && !actors[EnvironmentStatus.NUM_ACTORS - 1].trapdoorCover.IsGoingUpSlow())
-                {
-                    trapdoorCoverUp = true;
-                    indexVotingScript++;
-                    currentStateVoting = StateVoting.Choosing;
-                }
+            case State.Recording:
+                currentState = State.Performance;
+                recordingStateMachine.ResetStateMachine();
 
                 break;
 
-            case StateVoting.Choosing:
-                if (hasVoted)
-                {
-                    indexVotingScript++;
-                    currentStateVoting = StateVoting.Win;
-                    hasVoted = false;
-                }
-
-                break;
-
-            case StateVoting.Win:
-                // BEGIN
-                if (!hasStartedPlayingWin)
-                {
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                    {
-                        if (bestActorVoted == actors[i].idActor)
-                        {
-                            actorsMonoBehavior[i].PlayVictory();
-                        }
-                        else
-                        {
-                            actorsMonoBehavior[i].PlayDefeat();
-                        }
-                    }
-
-                    hasStartedPlayingWin = true;
-                }
-
-                // TIME EXPIRED
-                if (hasStartedPlayingWin && !actorsMonoBehavior[bestActorVoted - 1].IsPlayingWinning())
-                {
-                    indexVotingScript++;
-                    currentStateVoting = StateVoting.Lose;
-                    hasStartedPlayingWin = false;
-                }
-
-                break;
-
-            case StateVoting.Lose:
-                // BEGIN
-                if (!hasGoneDownFast)
-                {
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                        if (actors[i].idActor != bestActorVoted)
-                            actors[i].trapdoorCover.GoDownFast();
-                    hasGoneDownFast = true;
-                }
-
-                // TIME EXPIRED
-                if (hasGoneDownFast && !actors[0].trapdoorCover.IsGoingDownFast())
-                {
-                    hasGoneDownFast = false;
-
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                    {
-                        actors[i].EndEpisode();
-                    }
-
-                    indexVotingScript++;
-                    currentStateVoting = StateVoting.Continue;
-                }
-
-                break;
-
-            case StateVoting.Continue:
+            case State.Performance:
                 // YES
                 if (wasYesPressed && !wasNoPressed)
                 {
-                    currentState = State.Recording;
-
-                    indexRecordingScript = 0;
-                    indexPerformancesScript = 0;
-                    indexVotingScript = 0;
-                    indexReplayScript = 0;
-
-                    indexPerformingActor = 0;
-
                     wasYesPressed = false;
-                    wasNoPressed = false;
-
-                    trapdoorCoverUp = false;
-                    trapdoorCoverDown = false;
+                    currentState = State.Replay;
+                    performanceStateMachine.ResetStateMachine();
                 }
                 // NO
                 else if (!wasYesPressed && wasNoPressed)
                 {
-                    scriptTextMesh.text = "Bye-bye!";
-                }
-
-                // ON EXIT
-                for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                {
-                    actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
-                    actors[i].trapdoorCover.GoDownFast();
+                    wasNoPressed = false;
+                    currentState = State.Voting;
+                    performanceStateMachine.ResetStateMachine();
                 }
 
                 break;
 
-            default:
-                scriptTextMesh.color = Color.red;
-                scriptTextMesh.text = "YOU SHOULDN'T ENTER HERE";
+            case State.Replay:
+                currentState = State.Voting;
+                replayStateMachine.ResetStateMachine();
 
+                break;
+
+            case State.Voting:
+                currentState = State.Recording;
+                ResetState();
+                votingStateMachine.ResetStateMachine();
+                
                 break;
         }
     }
 
-    private void CleanVariables()
+    public static void ResetState()
     {
         trapdoorCoverUp = false;
         hasGoneDownFast = false;
-        trapdoorCoverDown = false;
-        hasStartedPlayingWin = false;
-    }
 
-    private void CleanDeskVariables()
-    {
         wasYesPressed = false;
+
         wasNoPressed = false;
 
         hasAskedForReplay = false;
@@ -635,4 +160,5 @@ public class Story : MonoBehaviour
         hasVoted = false;
         bestActorVoted = -1;
     }
+
 }

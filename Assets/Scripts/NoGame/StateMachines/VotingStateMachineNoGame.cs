@@ -59,12 +59,22 @@ public class VotingStateMachineNoGame : MonoBehaviour
                 {
                     StoryNoGame.wasYesPressed = false;
 
+                    for (int i = 0; i < EnvironmentStatusNoGame.NUM_ACTORS; i++)
+                    {
+                        actors[i].EndEpisode();
+                    }
+
                     StoryNoGame.NextState();
                 }
                 // NO
                 else if (!StoryNoGame.wasYesPressed && StoryNoGame.wasNoPressed)
                 {
                     StoryNoGame.wasNoPressed = false;
+
+                    for (int i = 0; i < EnvironmentStatusNoGame.NUM_ACTORS; i++)
+                    {
+                        actors[i].EndEpisode();
+                    }
 
                     scriptTextMesh.text = "Bye-bye!";
                     indexVotingScript++;

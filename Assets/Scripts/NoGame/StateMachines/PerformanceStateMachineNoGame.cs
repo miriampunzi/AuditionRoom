@@ -65,7 +65,6 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                     break;
 
                 case StatePerformance.Performace:
-
                     if (!StoryNoGame.hasAskedForReplay)
                     {
                         // BEGIN PERFORMANCE

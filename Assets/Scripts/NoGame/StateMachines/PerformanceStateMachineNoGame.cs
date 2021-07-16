@@ -107,6 +107,7 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                     // NO
                     else if (!StoryNoGame.wasYesPressed && StoryNoGame.wasNoPressed)
                     {
+                        actors[indexPerformingActor].SetupForReplay();
                         StoryNoGame.hasAskedForReplay = false;
                         indexPerformancesScript = 0;
                         indexPerformingActor++;

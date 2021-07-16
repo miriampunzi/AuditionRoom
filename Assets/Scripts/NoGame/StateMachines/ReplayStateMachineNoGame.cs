@@ -70,6 +70,7 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     // YES
                     if (StoryNoGame.wasYesPressed && !StoryNoGame.wasNoPressed)
                     {
+                        actors[StoryNoGame.idActorForReplay - 1].SetupForReplay();
                         indexReplayScript = 0;
                         currentStateReplay = StateReplay.Question;
 
@@ -79,6 +80,7 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     // NO
                     else if (!StoryNoGame.wasYesPressed && StoryNoGame.wasNoPressed)
                     {
+                        actors[StoryNoGame.idActorForReplay - 1].SetupForReplay();
                         StoryNoGame.wasNoPressed = false;
                         StoryNoGame.wasYesPressed = false;
 

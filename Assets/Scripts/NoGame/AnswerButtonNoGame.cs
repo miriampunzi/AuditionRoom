@@ -12,7 +12,5 @@ public class AnswerButtonNoGame : MonoBehaviour
             StoryNoGame.wasYesPressed = true;
         else
             StoryNoGame.wasNoPressed = true;
-
-        Debug.Log("Clicked on " + isPositive);
     }
 }

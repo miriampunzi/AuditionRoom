@@ -16,7 +16,6 @@ public class VotingButton : MonoBehaviour
                 StoryNoGame.bestActorVoted = -1;
                 StoryNoGame.hasVoted = false;
 
-                Debug.Log("Replay for avatar " + num);
                 break;
 
             // the user clicked a trapdoor button to vote a particular actor
@@ -30,7 +29,6 @@ public class VotingButton : MonoBehaviour
                 StoryNoGame.idActorForReplay = -1;
                 StoryNoGame.hasAskedForReplay = false;
 
-                Debug.Log("Voted for avatar " + num);
                 break;
         }
     }

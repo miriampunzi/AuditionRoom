@@ -10297,7 +10297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148124179792}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.88, y: 0.218, z: -0.205}
+  m_LocalPosition: {x: -1.2, y: 0.2, z: 6.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 24279385}
@@ -10315,7 +10315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148965385401}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 1.26, y: 0.21299995, z: -0.075}
+  m_LocalPosition: {x: 1.2, y: 0.2, z: 6.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1328164660}
@@ -10333,7 +10333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149614729758}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.89, y: 0.23300001, z: 2.96}
+  m_LocalPosition: {x: 0, y: 0.2, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450651839912042}
@@ -11340,6 +11340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idActor: 3
+  numActor: 3
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -11359,7 +11360,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  idActor: 0
+  idActor: -1
+  numActor: 3
   avatarToCopy: {fileID: 511504795}
   trapdoorCover: {fileID: 0}
   actorRightArm: {fileID: 6033891387668586679}
@@ -11494,6 +11496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idActor: 4
+  numActor: 4
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -11513,7 +11516,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  idActor: 0
+  idActor: -1
+  numActor: 4
   avatarToCopy: {fileID: 511504795}
   trapdoorCover: {fileID: 0}
   actorRightArm: {fileID: 6033891389583530334}
@@ -11598,7 +11602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &919132149614729759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11869,7 +11873,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  idActor: 1
+  idActor: -1
+  numActor: 1
   avatarToCopy: {fileID: 511504795}
   trapdoorCover: {fileID: 0}
   actorRightArm: {fileID: 868876869296228975}
@@ -11899,6 +11904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idActor: 1
+  numActor: 1
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -32808,7 +32814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8843338956984097114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33095,6 +33101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idActor: 2
+  numActor: 2
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -33114,7 +33121,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  idActor: 2
+  idActor: -1
+  numActor: 2
   avatarToCopy: {fileID: 511504795}
   trapdoorCover: {fileID: 0}
   actorRightArm: {fileID: 1029581043}

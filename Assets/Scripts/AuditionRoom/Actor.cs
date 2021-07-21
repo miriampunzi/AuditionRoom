@@ -9,6 +9,7 @@ using UnityEngine;
 public class Actor : Agent, IComparer<Actor>
 {
     public int idActor;
+    public int numActor;
 
     // FOR ML ALGORITHM
     private int countStep = 0;          // counts the actions to take in each episode

@@ -7,6 +7,7 @@ using UnityEngine;
 public class ActorMonoBehavior : MonoBehaviour
 {
     public int idActor;
+    public int numActor;
 
     private Animator animator;
 

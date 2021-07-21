@@ -7,7 +7,6 @@ public class VotingStateMachineNoGame : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
     private List<Actor> actors;
-    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StateVoting
     {
@@ -30,7 +29,6 @@ public class VotingStateMachineNoGame : MonoBehaviour
     {
         this.scriptTextMesh = scriptTextMesh;
         actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 
     public void Execute()
@@ -64,7 +62,7 @@ public class VotingStateMachineNoGame : MonoBehaviour
                         actors[i].EndEpisode();
                     }
 
-                    StoryNoGame.NextState();
+                    StoryNoGame.NextState();                    
                 }
                 // NO
                 else if (!StoryNoGame.wasYesPressed && StoryNoGame.wasNoPressed)
@@ -95,5 +93,7 @@ public class VotingStateMachineNoGame : MonoBehaviour
         currentStateVoting = StateVoting.Choosing;
         indexVotingScript = 0;
         hasStartedPlayingWin = false;
+
+        actors = EnvironmentStatusNoGame.getActors();
     }
 }

@@ -97,5 +97,7 @@ public class ReplayStateMachineNoGame : MonoBehaviour
         currentStateReplay = StateReplay.Question;
         indexReplayScript = 0;
         hasPerformedReplay = false;
+
+        actors = EnvironmentStatusNoGame.getActors();
     }
 }

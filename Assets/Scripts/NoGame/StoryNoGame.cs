@@ -32,8 +32,12 @@ public class StoryNoGame : MonoBehaviour
     public static bool hasVoted = false;
     public static int bestActorVoted = -1;
 
+    public static bool actorsPlaced = false;
+
     private void Start()
     {
+        EnvironmentStatusNoGame.PlaceActors();
+
         scriptTextMesh = GetComponent<TextMeshPro>();
 
         performanceStateMachine = new PerformanceStateMachineNoGame(scriptTextMesh);
@@ -78,29 +82,31 @@ public class StoryNoGame : MonoBehaviour
                 {
                     wasYesPressed = false;
                     currentState = State.Replay;
-                    performanceStateMachine.ResetStateMachine();
                 }
                 // NO
                 else if (!wasYesPressed && wasNoPressed)
                 {
                     wasNoPressed = false;
                     currentState = State.Voting;
-                    performanceStateMachine.ResetStateMachine();
                 }
 
                 break;
 
             case State.Replay:
                 currentState = State.Voting;
-                replayStateMachine.ResetStateMachine();
 
                 break;
 
             case State.Voting:
                 currentState = State.Performance;
                 ResetState();
+
+                EnvironmentStatusNoGame.PlaceActors();
+
+                performanceStateMachine.ResetStateMachine();
+                replayStateMachine.ResetStateMachine();
                 votingStateMachine.ResetStateMachine();
-                
+
                 break;
         }
     }

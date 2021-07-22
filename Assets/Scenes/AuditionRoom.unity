@@ -4779,21 +4779,14 @@ MonoBehaviour:
   MaxStep: 0
   idActor: 4
   numActor: 0
-  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 579300165}
   actorRightArm: {fileID: 580961139}
   actorRightForeArm: {fileID: 1661282848}
   actorRightHand: {fileID: 117487300}
-  avatarToCopyRightArm: {fileID: 2086291269}
-  avatarToCopyRightForeArm: {fileID: 2086291270}
-  avatarToCopyRightHand: {fileID: 2086291271}
   targetRightArm: {fileID: 652107236}
   actorLeftArm: {fileID: 1911411676}
   actorLeftForeArm: {fileID: 2021237626}
   actorLeftHand: {fileID: 1604838981}
-  avatarToCopyLeftArm: {fileID: 2086291298}
-  avatarToCopyLeftForeArm: {fileID: 2086291299}
-  avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 1605253532}
 --- !u!65 &228408033
 BoxCollider:
@@ -10518,21 +10511,14 @@ MonoBehaviour:
   MaxStep: 0
   idActor: 1
   numActor: 0
-  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 1507411390}
   actorRightArm: {fileID: 2075146213}
   actorRightForeArm: {fileID: 1033290642}
   actorRightHand: {fileID: 1804393420}
-  avatarToCopyRightArm: {fileID: 2086291269}
-  avatarToCopyRightForeArm: {fileID: 2086291270}
-  avatarToCopyRightHand: {fileID: 2086291271}
   targetRightArm: {fileID: 589250742}
   actorLeftArm: {fileID: 307436781}
   actorLeftForeArm: {fileID: 307436780}
   actorLeftHand: {fileID: 307436779}
-  avatarToCopyLeftArm: {fileID: 2086291298}
-  avatarToCopyLeftForeArm: {fileID: 2086291299}
-  avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 1219543623}
 --- !u!65 &477801295
 BoxCollider:
@@ -12005,21 +11991,14 @@ MonoBehaviour:
   MaxStep: 0
   idActor: 5
   numActor: 0
-  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 1455116312}
   actorRightArm: {fileID: 920150495}
   actorRightForeArm: {fileID: 1778794504}
   actorRightHand: {fileID: 1094829221}
-  avatarToCopyRightArm: {fileID: 2086291269}
-  avatarToCopyRightForeArm: {fileID: 2086291270}
-  avatarToCopyRightHand: {fileID: 2086291271}
   targetRightArm: {fileID: 1557182109}
   actorLeftArm: {fileID: 566929566}
   actorLeftForeArm: {fileID: 962042196}
   actorLeftHand: {fileID: 1085635639}
-  avatarToCopyLeftArm: {fileID: 2086291298}
-  avatarToCopyLeftForeArm: {fileID: 2086291299}
-  avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 670772595}
 --- !u!65 &531210506
 BoxCollider:
@@ -21035,21 +21014,14 @@ MonoBehaviour:
   MaxStep: 0
   idActor: 3
   numActor: 0
-  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 1043032884}
   actorRightArm: {fileID: 284296330}
   actorRightForeArm: {fileID: 521748383}
   actorRightHand: {fileID: 753201801}
-  avatarToCopyRightArm: {fileID: 2086291269}
-  avatarToCopyRightForeArm: {fileID: 2086291270}
-  avatarToCopyRightHand: {fileID: 2086291271}
   targetRightArm: {fileID: 750960206}
   actorLeftArm: {fileID: 119970005}
   actorLeftForeArm: {fileID: 1399918447}
   actorLeftHand: {fileID: 750943190}
-  avatarToCopyLeftArm: {fileID: 2086291298}
-  avatarToCopyLeftForeArm: {fileID: 2086291299}
-  avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 1980255750}
 --- !u!54 &937445257
 Rigidbody:
@@ -27931,21 +27903,14 @@ MonoBehaviour:
   MaxStep: 0
   idActor: 2
   numActor: 0
-  avatarToCopy: {fileID: 2086291263}
   trapdoorCover: {fileID: 2127349258}
   actorRightArm: {fileID: 1410626201}
   actorRightForeArm: {fileID: 821013491}
   actorRightHand: {fileID: 1036694361}
-  avatarToCopyRightArm: {fileID: 2086291269}
-  avatarToCopyRightForeArm: {fileID: 2086291270}
-  avatarToCopyRightHand: {fileID: 2086291271}
   targetRightArm: {fileID: 1383797924}
   actorLeftArm: {fileID: 745470968}
   actorLeftForeArm: {fileID: 462765421}
   actorLeftHand: {fileID: 2114343944}
-  avatarToCopyLeftArm: {fileID: 2086291298}
-  avatarToCopyLeftForeArm: {fileID: 2086291299}
-  avatarToCopyLeftHand: {fileID: 2086291300}
   targerLeftArm: {fileID: 2096363580}
 --- !u!65 &1278871151
 BoxCollider:
@@ -46997,6 +46962,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739461856}
     m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: RightArmAvatarToCopy
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -47041,9 +47010,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: LeftHandAvatarToCopy
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: RightForeArmAvatarToCopy
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_Name
       value: AvatarToCopy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: AvatarToCopy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: RightHandAvatarToCopy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: LeftForeArmAvatarToCopy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: LeftArmAvatarToCopy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}

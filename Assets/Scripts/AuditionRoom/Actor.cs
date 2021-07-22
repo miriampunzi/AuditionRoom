@@ -18,7 +18,7 @@ public class Actor : Agent, IComparer<Actor>
     private float moveSpeed = 5f;       // speed to move cubes used as target as IK. For now it's random, I don't know which number is the best
 
     // ENVIRONMENT OBJECTS
-    public Transform avatarToCopy;
+    Transform avatarToCopy;
     Animator animatorAvatarToCopy;
     public TrapdoorCover trapdoorCover;
 
@@ -27,9 +27,9 @@ public class Actor : Agent, IComparer<Actor>
     public Transform actorRightForeArm;
     public Transform actorRightHand;
 
-    public Transform avatarToCopyRightArm;
-    public Transform avatarToCopyRightForeArm;
-    public Transform avatarToCopyRightHand;
+    Transform avatarToCopyRightArm;
+    Transform avatarToCopyRightForeArm;
+    Transform avatarToCopyRightHand;
 
     // cube on the right hand used to perform IK 
     public Transform targetRightArm;    
@@ -48,9 +48,9 @@ public class Actor : Agent, IComparer<Actor>
     public Transform actorLeftForeArm;
     public Transform actorLeftHand;
 
-    public Transform avatarToCopyLeftArm;
-    public Transform avatarToCopyLeftForeArm;
-    public Transform avatarToCopyLeftHand;
+    Transform avatarToCopyLeftArm;
+    Transform avatarToCopyLeftForeArm;
+    Transform avatarToCopyLeftHand;
 
     // cube on the right hand used to perform IK 
     public Transform targerLeftArm;
@@ -66,7 +66,16 @@ public class Actor : Agent, IComparer<Actor>
 
     void Start()
     {
+        avatarToCopy = GameObject.FindGameObjectWithTag("AvatarToCopy").transform;
         animatorAvatarToCopy = avatarToCopy.GetComponent<Animator>();
+
+        avatarToCopyRightArm = GameObject.FindGameObjectWithTag("RightArmAvatarToCopy").transform;
+        avatarToCopyRightForeArm = GameObject.FindGameObjectWithTag("RightForeArmAvatarToCopy").transform;
+        avatarToCopyRightHand = GameObject.FindGameObjectWithTag("RightHandAvatarToCopy").transform;
+
+        avatarToCopyLeftArm = GameObject.FindGameObjectWithTag("LeftArmAvatarToCopy").transform;
+        avatarToCopyLeftForeArm = GameObject.FindGameObjectWithTag("LeftForeArmAvatarToCopy").transform;
+        avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
     }
 
     public override void OnEpisodeBegin()

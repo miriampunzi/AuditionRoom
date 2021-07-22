@@ -6,6 +6,21 @@ TagManager:
   tags:
   - PlayerHand
   - Actor
+  - RightArmAvatarToCopy
+  - RightForeArmAvatarToCopy
+  - RightHandAvatarToCopy
+  - LeftArmAvatarToCopy
+  - LeftForeArmAvatarToCopy
+  - LeftHandAvatarToCopy
+  - RightHand
+  - RightForeArm
+  - RightArm
+  - RightTarget
+  - LeftHand
+  - LeftForeArm
+  - LeftArm
+  - LeftTarget
+  - AvatarToCopy
   layers:
   - Default
   - TransparentFX

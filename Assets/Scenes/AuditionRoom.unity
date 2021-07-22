@@ -6749,6 +6749,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1777318830}
     m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightArm
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6793,6 +6797,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightForeArm
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_Name
       value: Actor 1
@@ -6804,6 +6816,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_TagString
       value: Actor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftForeArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -13256,7 +13280,7 @@ GameObject:
   - component: {fileID: 589250743}
   m_Layer: 0
   m_Name: RightArmTarget
-  m_TagString: Untagged
+  m_TagString: RightTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14550,7 +14574,7 @@ GameObject:
   - component: {fileID: 652107237}
   m_Layer: 0
   m_Name: RightArmTarget
-  m_TagString: Untagged
+  m_TagString: RightTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14800,7 +14824,7 @@ GameObject:
   - component: {fileID: 670772596}
   m_Layer: 0
   m_Name: LeftArmTarget
-  m_TagString: Untagged
+  m_TagString: LeftTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16403,7 +16427,7 @@ GameObject:
   - component: {fileID: 750960207}
   m_Layer: 0
   m_Name: RightArmTarget
-  m_TagString: Untagged
+  m_TagString: RightTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19316,6 +19340,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1777318830}
     m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightArm
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -19360,6 +19388,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightForeArm
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_Name
       value: Actor 2
@@ -19371,6 +19407,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_TagString
       value: Actor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftForeArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -26413,7 +26461,7 @@ GameObject:
   - component: {fileID: 1219543624}
   m_Layer: 0
   m_Name: LeftArmTarget
-  m_TagString: Untagged
+  m_TagString: LeftTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27668,6 +27716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -28484,6 +28536,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1777318830}
     m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightArm
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -28528,6 +28584,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightForeArm
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_Name
       value: Actor 5
@@ -28539,6 +28603,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_TagString
       value: Actor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftForeArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -30212,7 +30288,7 @@ GameObject:
   - component: {fileID: 1383797925}
   m_Layer: 0
   m_Name: RightArmTarget
-  m_TagString: Untagged
+  m_TagString: RightTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33434,6 +33510,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1777318830}
     m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightArm
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -33478,6 +33558,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightForeArm
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_Name
       value: Actor 4
@@ -33489,6 +33577,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_TagString
       value: Actor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftForeArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -34545,7 +34645,7 @@ GameObject:
   - component: {fileID: 1557182110}
   m_Layer: 0
   m_Name: RightArmTarget
-  m_TagString: Untagged
+  m_TagString: RightTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34714,6 +34814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1777318830}
     m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightArm
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -34758,6 +34862,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightForeArm
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_Name
       value: Actor 3
@@ -34769,6 +34881,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
       propertyPath: m_TagString
       value: Actor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftForeArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
+      propertyPath: m_TagString
+      value: LeftArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -35635,7 +35759,7 @@ GameObject:
   - component: {fileID: 1605253533}
   m_Layer: 0
   m_Name: LeftArmTarget
-  m_TagString: Untagged
+  m_TagString: LeftTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44553,7 +44677,7 @@ GameObject:
   - component: {fileID: 1980255751}
   m_Layer: 0
   m_Name: LeftArmTarget
-  m_TagString: Untagged
+  m_TagString: LeftTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46964,7 +47088,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9070493210130169274, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_TagString
-      value: RightArmAvatarToCopy
+      value: RightArm
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_RootOrder
@@ -47012,11 +47136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4728426434207774260, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_TagString
-      value: LeftHandAvatarToCopy
+      value: LeftHand
       objectReference: {fileID: 0}
     - target: {fileID: -290750445479886849, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_TagString
-      value: RightForeArmAvatarToCopy
+      value: RightForeArm
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_Name
@@ -47028,15 +47152,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2715566404302941441, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_TagString
-      value: RightHandAvatarToCopy
+      value: RightHand
       objectReference: {fileID: 0}
     - target: {fileID: 3948933247560734027, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_TagString
-      value: LeftForeArmAvatarToCopy
+      value: LeftForeArm
       objectReference: {fileID: 0}
     - target: {fileID: 8817898888258712963, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_TagString
-      value: LeftArmAvatarToCopy
+      value: LeftArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
@@ -47799,7 +47923,7 @@ GameObject:
   - component: {fileID: 2096363581}
   m_Layer: 0
   m_Name: LeftArmTarget
-  m_TagString: Untagged
+  m_TagString: LeftTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49409,7 +49533,7 @@ GameObject:
   - component: {fileID: 1132585407810910979}
   m_Layer: 0
   m_Name: mixamorig9:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50126,7 +50250,7 @@ GameObject:
   - component: {fileID: 6000407479180959761}
   m_Layer: 0
   m_Name: mixamorig:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50142,7 +50266,7 @@ GameObject:
   - component: {fileID: 6000407479307042788}
   m_Layer: 0
   m_Name: mixamorig:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50158,7 +50282,7 @@ GameObject:
   - component: {fileID: 6000407479626869761}
   m_Layer: 0
   m_Name: mixamorig:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50174,7 +50298,7 @@ GameObject:
   - component: {fileID: 6000407479849190746}
   m_Layer: 0
   m_Name: mixamorig:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50190,7 +50314,7 @@ GameObject:
   - component: {fileID: 6000407480901722996}
   m_Layer: 0
   m_Name: mixamorig:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50488,7 +50612,7 @@ GameObject:
   - component: {fileID: 3459055513307361894}
   m_Layer: 0
   m_Name: mixamorig7:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50504,7 +50628,7 @@ GameObject:
   - component: {fileID: 3459055514763510391}
   m_Layer: 0
   m_Name: mixamorig7:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50520,7 +50644,7 @@ GameObject:
   - component: {fileID: 6409932981179137309}
   m_Layer: 0
   m_Name: mixamorig7:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50536,7 +50660,7 @@ GameObject:
   - component: {fileID: 6409932981022051596}
   m_Layer: 0
   m_Name: mixamorig7:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50750,7 +50874,7 @@ GameObject:
   - component: {fileID: 3080742855526279407}
   m_Layer: 0
   m_Name: mixamorig4:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50766,7 +50890,7 @@ GameObject:
   - component: {fileID: 3080742855046083781}
   m_Layer: 0
   m_Name: mixamorig4:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50868,7 +50992,7 @@ GameObject:
   - component: {fileID: 1287747274255210658}
   m_Layer: 0
   m_Name: mixamorig11:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50988,7 +51112,7 @@ GameObject:
   - component: {fileID: 2352611761008499358}
   m_Layer: 0
   m_Name: mixamorig4:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51004,7 +51128,7 @@ GameObject:
   - component: {fileID: 2352611761489577652}
   m_Layer: 0
   m_Name: mixamorig4:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51080,7 +51204,7 @@ GameObject:
   - component: {fileID: 9006338074150486638}
   m_Layer: 0
   m_Name: mixamorig9:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52016,7 +52140,7 @@ GameObject:
   - component: {fileID: 6326828195669265689}
   m_Layer: 0
   m_Name: mixamorig10:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53198,7 +53322,7 @@ GameObject:
   - component: {fileID: 2803318976699468984}
   m_Layer: 0
   m_Name: mixamorig1:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54260,7 +54384,7 @@ GameObject:
   - component: {fileID: 885812793726069699}
   m_Layer: 0
   m_Name: mixamorig7:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54276,7 +54400,7 @@ GameObject:
   - component: {fileID: 885812792414084050}
   m_Layer: 0
   m_Name: mixamorig7:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54634,7 +54758,7 @@ GameObject:
   - component: {fileID: 1084884740517544661}
   m_Layer: 0
   m_Name: mixamorig7:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54650,7 +54774,7 @@ GameObject:
   - component: {fileID: 1084884739129946820}
   m_Layer: 0
   m_Name: mixamorig7:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55519,7 +55643,7 @@ GameObject:
   - component: {fileID: 2700830836973108966}
   m_Layer: 0
   m_Name: mixamorig10:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55631,7 +55755,7 @@ GameObject:
   - component: {fileID: 32333677696261057}
   m_Layer: 0
   m_Name: mixamorig5:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56404,7 +56528,7 @@ GameObject:
   - component: {fileID: 4778605163246889572}
   m_Layer: 0
   m_Name: mixamorig11:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58207,7 +58331,7 @@ GameObject:
   - component: {fileID: 3214081578781153213}
   m_Layer: 0
   m_Name: mixamorig8:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60653,7 +60777,7 @@ GameObject:
   - component: {fileID: 1196217696082613160}
   m_Layer: 0
   m_Name: mixamorig2:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61994,7 +62118,7 @@ GameObject:
   - component: {fileID: 7025426550873880244}
   m_Layer: 0
   m_Name: mixamorig7:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62010,7 +62134,7 @@ GameObject:
   - component: {fileID: 7025426550710339237}
   m_Layer: 0
   m_Name: mixamorig7:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62467,7 +62591,7 @@ GameObject:
   - component: {fileID: 6036979242132577709}
   m_Layer: 0
   m_Name: mixamorig7:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62483,7 +62607,7 @@ GameObject:
   - component: {fileID: 6036979242966150588}
   m_Layer: 0
   m_Name: mixamorig7:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62808,7 +62932,7 @@ GameObject:
   - component: {fileID: 7215182474085406521}
   m_Layer: 0
   m_Name: mixamorig6:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64879,7 +65003,7 @@ GameObject:
   - component: {fileID: 5137736268742748362}
   m_Layer: 0
   m_Name: mixamorig8:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65545,7 +65669,7 @@ GameObject:
   - component: {fileID: 1852576805813502905}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65561,7 +65685,7 @@ GameObject:
   - component: {fileID: 1852576806421105868}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65577,7 +65701,7 @@ GameObject:
   - component: {fileID: 1852576806710289815}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65593,7 +65717,7 @@ GameObject:
   - component: {fileID: 1852576807407804201}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65609,7 +65733,7 @@ GameObject:
   - component: {fileID: 1852576807383433436}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66033,7 +66157,7 @@ GameObject:
   - component: {fileID: 3701240625494633920}
   m_Layer: 0
   m_Name: mixamorig11:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66744,7 +66868,7 @@ GameObject:
   - component: {fileID: 8859567154636442413}
   m_Layer: 0
   m_Name: mixamorig1:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69125,7 +69249,7 @@ GameObject:
   - component: {fileID: 9087432882516958903}
   m_Layer: 0
   m_Name: mixamorig6:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69341,7 +69465,7 @@ GameObject:
   - component: {fileID: 5742365298833388150}
   m_Layer: 0
   m_Name: mixamorig11:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70137,7 +70261,7 @@ GameObject:
   - component: {fileID: 69799077690619167}
   m_Layer: 0
   m_Name: mixamorig12:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72374,7 +72498,7 @@ GameObject:
   - component: {fileID: 5587647354759107176}
   m_Layer: 0
   m_Name: mixamorig2:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72925,7 +73049,7 @@ GameObject:
   - component: {fileID: 322764058770092176}
   m_Layer: 0
   m_Name: mixamorig8:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73190,7 +73314,7 @@ GameObject:
   - component: {fileID: 6455583942468517400}
   m_Layer: 0
   m_Name: mixamorig12:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73316,7 +73440,7 @@ GameObject:
   - component: {fileID: 7410462539708727944}
   m_Layer: 0
   m_Name: mixamorig:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73332,7 +73456,7 @@ GameObject:
   - component: {fileID: 7410462538972941821}
   m_Layer: 0
   m_Name: mixamorig:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73348,7 +73472,7 @@ GameObject:
   - component: {fileID: 7410462538725450918}
   m_Layer: 0
   m_Name: mixamorig:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73364,7 +73488,7 @@ GameObject:
   - component: {fileID: 7410462538114178584}
   m_Layer: 0
   m_Name: mixamorig:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73380,7 +73504,7 @@ GameObject:
   - component: {fileID: 7410462538057269741}
   m_Layer: 0
   m_Name: mixamorig:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73396,7 +73520,7 @@ GameObject:
   - component: {fileID: 1952508049726009411}
   m_Layer: 0
   m_Name: mixamorig4:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73412,7 +73536,7 @@ GameObject:
   - component: {fileID: 1952508049133218921}
   m_Layer: 0
   m_Name: mixamorig4:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75051,7 +75175,7 @@ GameObject:
   - component: {fileID: 1510652387638441091}
   m_Layer: 0
   m_Name: mixamorig1:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75250,7 +75374,7 @@ GameObject:
   - component: {fileID: 6250088319894741064}
   m_Layer: 0
   m_Name: mixamorig12:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75835,7 +75959,7 @@ GameObject:
   - component: {fileID: 8499276921597529573}
   m_Layer: 0
   m_Name: mixamorig8:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76381,7 +76505,7 @@ GameObject:
   - component: {fileID: 4812437193988725963}
   m_Layer: 0
   m_Name: mixamorig10:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76699,7 +76823,7 @@ GameObject:
   - component: {fileID: 954176530779101633}
   m_Layer: 0
   m_Name: mixamorig9:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76738,7 +76862,7 @@ GameObject:
   - component: {fileID: 6502182840370538930}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76754,7 +76878,7 @@ GameObject:
   - component: {fileID: 6502182839521464220}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76770,7 +76894,7 @@ GameObject:
   - component: {fileID: 6502182839760643783}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76786,7 +76910,7 @@ GameObject:
   - component: {fileID: 6502182838853364439}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76802,7 +76926,7 @@ GameObject:
   - component: {fileID: 6502182838775985442}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77031,7 +77155,7 @@ GameObject:
   - component: {fileID: 6140598024691428111}
   m_Layer: 0
   m_Name: mixamorig10:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80137,7 +80261,7 @@ GameObject:
   - component: {fileID: 1482289870087954508}
   m_Layer: 0
   m_Name: mixamorig12:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80580,7 +80704,7 @@ GameObject:
   - component: {fileID: 4694757283236920834}
   m_Layer: 0
   m_Name: mixamorig2:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81125,7 +81249,7 @@ GameObject:
   - component: {fileID: 1751407275043590480}
   m_Layer: 0
   m_Name: mixamorig12:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82673,7 +82797,7 @@ GameObject:
   - component: {fileID: 7845636010267752493}
   m_Layer: 0
   m_Name: mixamorig10:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83216,7 +83340,7 @@ GameObject:
   - component: {fileID: 389897202143111612}
   m_Layer: 0
   m_Name: mixamorig9:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83874,7 +83998,7 @@ GameObject:
   - component: {fileID: 6194461637315654184}
   m_Layer: 0
   m_Name: mixamorig8:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83890,7 +84014,7 @@ GameObject:
   - component: {fileID: 3051122770837615989}
   m_Layer: 0
   m_Name: mixamorig4:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83906,7 +84030,7 @@ GameObject:
   - component: {fileID: 3051122771431975263}
   m_Layer: 0
   m_Name: mixamorig4:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84646,7 +84770,7 @@ GameObject:
   - component: {fileID: 2864209750966128145}
   m_Layer: 0
   m_Name: mixamorig11:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85014,7 +85138,7 @@ GameObject:
   - component: {fileID: 1107445694325670108}
   m_Layer: 0
   m_Name: mixamorig4:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85030,7 +85154,7 @@ GameObject:
   - component: {fileID: 1107445694940978422}
   m_Layer: 0
   m_Name: mixamorig4:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85068,7 +85192,7 @@ GameObject:
   - component: {fileID: 8009786972605787216}
   m_Layer: 0
   m_Name: mixamorig6:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86279,7 +86403,7 @@ GameObject:
   - component: {fileID: 7778723795905959392}
   m_Layer: 0
   m_Name: mixamorig1:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87101,7 +87225,7 @@ GameObject:
   - component: {fileID: 4209983308807805007}
   m_Layer: 0
   m_Name: mixamorig4:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87117,7 +87241,7 @@ GameObject:
   - component: {fileID: 4209983309272269925}
   m_Layer: 0
   m_Name: mixamorig4:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87377,7 +87501,7 @@ GameObject:
   - component: {fileID: 67586105441571734}
   m_Layer: 0
   m_Name: mixamorig6:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89583,7 +89707,7 @@ GameObject:
   - component: {fileID: 5838414567234715008}
   m_Layer: 0
   m_Name: mixamorig11:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89629,7 +89753,7 @@ GameObject:
   - component: {fileID: 8307534566382347217}
   m_Layer: 0
   m_Name: mixamorig2:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89707,7 +89831,7 @@ GameObject:
   - component: {fileID: 5855040603891565113}
   m_Layer: 0
   m_Name: mixamorig8:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89946,7 +90070,7 @@ GameObject:
   - component: {fileID: 4082902090574028698}
   m_Layer: 0
   m_Name: mixamorig6:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90599,7 +90723,7 @@ GameObject:
   - component: {fileID: 4343717412951737859}
   m_Layer: 0
   m_Name: mixamorig9:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91580,7 +91704,7 @@ GameObject:
   - component: {fileID: 7542488106089366301}
   m_Layer: 0
   m_Name: mixamorig1:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92878,7 +93002,7 @@ GameObject:
   - component: {fileID: 8493646922459052461}
   m_Layer: 0
   m_Name: mixamorig9:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93744,7 +93868,7 @@ GameObject:
   - component: {fileID: 1078299063390482996}
   m_Layer: 0
   m_Name: mixamorig5:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97233,7 +97357,7 @@ GameObject:
   - component: {fileID: 1561907739384914626}
   m_Layer: 0
   m_Name: mixamorig12:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97530,7 +97654,7 @@ GameObject:
   - component: {fileID: 6608176700452843440}
   m_Layer: 0
   m_Name: mixamorig2:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99081,7 +99205,7 @@ GameObject:
   - component: {fileID: 2424663337662837866}
   m_Layer: 0
   m_Name: mixamorig2:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99526,7 +99650,7 @@ GameObject:
   - component: {fileID: 1238381914496386968}
   m_Layer: 0
   m_Name: mixamorig6:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99620,7 +99744,7 @@ GameObject:
   - component: {fileID: 8589642721396458092}
   m_Layer: 0
   m_Name: mixamorig5:RightArm
-  m_TagString: Untagged
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99636,7 +99760,7 @@ GameObject:
   - component: {fileID: 6168888463926208872}
   m_Layer: 0
   m_Name: mixamorig5:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99911,7 +100035,7 @@ GameObject:
   - component: {fileID: 79644160830773045}
   m_Layer: 0
   m_Name: mixamorig5:LeftForeArm
-  m_TagString: Untagged
+  m_TagString: LeftForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101233,7 +101357,7 @@ GameObject:
   - component: {fileID: 5790970485922262857}
   m_Layer: 0
   m_Name: mixamorig:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101249,7 +101373,7 @@ GameObject:
   - component: {fileID: 5790970486768175463}
   m_Layer: 0
   m_Name: mixamorig:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101265,7 +101389,7 @@ GameObject:
   - component: {fileID: 5790970486529007676}
   m_Layer: 0
   m_Name: mixamorig:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101281,7 +101405,7 @@ GameObject:
   - component: {fileID: 5790970487441533996}
   m_Layer: 0
   m_Name: mixamorig:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101297,7 +101421,7 @@ GameObject:
   - component: {fileID: 5790970487549326297}
   m_Layer: 0
   m_Name: mixamorig:LeftArm
-  m_TagString: Untagged
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101345,7 +101469,7 @@ GameObject:
   - component: {fileID: 8899351977234073679}
   m_Layer: 0
   m_Name: mixamorig5:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101718,7 +101842,7 @@ GameObject:
   - component: {fileID: 2563496968856537788}
   m_Layer: 0
   m_Name: mixamorig:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101734,7 +101858,7 @@ GameObject:
   - component: {fileID: 2563496968879920457}
   m_Layer: 0
   m_Name: mixamorig:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101750,7 +101874,7 @@ GameObject:
   - component: {fileID: 2563496969763817132}
   m_Layer: 0
   m_Name: mixamorig:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101766,7 +101890,7 @@ GameObject:
   - component: {fileID: 2563496969524981751}
   m_Layer: 0
   m_Name: mixamorig:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101782,7 +101906,7 @@ GameObject:
   - component: {fileID: 2563496968360806873}
   m_Layer: 0
   m_Name: mixamorig:RightForeArm
-  m_TagString: Untagged
+  m_TagString: RightForeArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102097,7 +102221,7 @@ GameObject:
   - component: {fileID: 5621442063862166743}
   m_Layer: 0
   m_Name: mixamorig10:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

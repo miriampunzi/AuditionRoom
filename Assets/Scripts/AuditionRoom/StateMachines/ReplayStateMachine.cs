@@ -126,5 +126,7 @@ public class ReplayStateMachine : MonoBehaviour
         indexReplayScript = 0;
         trapdoorCoverDown = false;
         hasPerformedReplay = false;
+
+        actors = EnvironmentStatus.getActors();
     }
 }

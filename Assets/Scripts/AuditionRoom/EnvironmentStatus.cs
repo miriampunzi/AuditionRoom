@@ -109,67 +109,54 @@ public class EnvironmentStatus : MonoBehaviour
         if (trapdoorCovers == null)
         {
             trapdoorCovers = getTrapdoorCovers();
-
-            Debug.Log(trapdoorCovers.Count);
             allActors = getActors();
             allActorMonoBehaviors = getActorsMonoBehavior();
         }
 
         foreach (Actor actor in allActors)
         {
-            for (int i = 0; i < selectedActors.Count; i++)
+            if (actor.numActor == selectedActors[0])
             {
-                if (actor.numActor == selectedActors[i])
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            actor.transform.position = new Vector3(-2.4f, -2.5f, 0.41f);
-                            actor.tag = "Actor";
-                            actor.idActor = 1;
-                            actor.trapdoorCover = trapdoorCovers[i];
-                            break;
-
-                        case 1:
-                            actor.transform.position = new Vector3(-1.43f, -2.5f, 2.53f);
-                            actor.tag = "Actor";
-                            actor.idActor = 2;
-                            actor.trapdoorCover = trapdoorCovers[i];
-                            break;
-
-                        case 2:
-                            actor.transform.position = new Vector3(0.12f, -2.5f, 0.38f);
-                            actor.tag = "Actor";
-                            actor.idActor = 3;
-                            actor.trapdoorCover = trapdoorCovers[i];
-                            break;
-
-                        case 3:
-                            actor.transform.position = new Vector3(1.59f, -2.5f, 2.44f);
-                            actor.tag = "Actor";
-                            actor.idActor = 4;
-                            actor.trapdoorCover = trapdoorCovers[i];
-                            break;
-
-                        case 4:
-                            actor.transform.position = new Vector3(2.62f, -2.5f, 0.43f);
-                            actor.tag = "Actor";
-                            actor.idActor = 5;
-                            actor.trapdoorCover = trapdoorCovers[i];
-                            break;
-
-                        default:
-                            actor.transform.position = new Vector3(-15, -3, 4);
-                            actor.tag = "Untagged";
-                            actor.idActor = -1;
-                            actor.trapdoorCover = null;
-                            break;
-                    }
-
-                    break;
-                }
+                actor.transform.position = new Vector3(-2.4f, -2.5f, 0.41f);
+                actor.tag = "Actor";
+                actor.idActor = 1;
+                actor.trapdoorCover = trapdoorCovers[0];
             }
-            
+            else if (actor.numActor == selectedActors[1])
+            {
+                actor.transform.position = new Vector3(-1.43f, -2.5f, 2.53f);
+                actor.tag = "Actor";
+                actor.idActor = 2;
+                actor.trapdoorCover = trapdoorCovers[1];
+            }
+            else if (actor.numActor == selectedActors[2])
+            {
+                actor.transform.position = new Vector3(0.12f, -2.5f, 0.38f);
+                actor.tag = "Actor";
+                actor.idActor = 3;
+                actor.trapdoorCover = trapdoorCovers[2];
+            }
+            else if (actor.numActor == selectedActors[3])
+            {
+                actor.transform.position = new Vector3(1.59f, -2.5f, 2.44f);
+                actor.tag = "Actor";
+                actor.idActor = 4;
+                actor.trapdoorCover = trapdoorCovers[3];
+            }
+            else if (actor.numActor == selectedActors[4])
+            {
+                actor.transform.position = new Vector3(2.62f, -2.5f, 0.43f);
+                actor.tag = "Actor";
+                actor.idActor = 5;
+                actor.trapdoorCover = trapdoorCovers[4];
+            }
+            else
+            {
+                actor.transform.position = new Vector3(-15, -3, 4);
+                actor.tag = "Untagged";
+                actor.idActor = -1;
+                actor.trapdoorCover = null;
+            }
         }
     }
 }

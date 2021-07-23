@@ -4824,7 +4824,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 4
-  trapdoorCover: {fileID: 579300165}
+  trapdoorCover: {fileID: 0}
 --- !u!65 &228408033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10576,7 +10576,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 1
-  trapdoorCover: {fileID: 1507411390}
+  trapdoorCover: {fileID: 0}
 --- !u!65 &477801295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12048,7 +12048,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 5
-  trapdoorCover: {fileID: 1455116312}
+  trapdoorCover: {fileID: 0}
 --- !u!65 &531210506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21187,7 +21187,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 3
-  trapdoorCover: {fileID: 1043032884}
+  trapdoorCover: {fileID: 0}
 --- !u!54 &937445257
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28130,7 +28130,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 2
-  trapdoorCover: {fileID: 2127349258}
+  trapdoorCover: {fileID: 0}
 --- !u!65 &1278871151
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -57,6 +57,8 @@ public class PerformanceStateMachine : MonoBehaviour
                     // BEGIN
                     if (!Story.trapdoorCoverUp)
                     {
+                        //Debug.Log("ACTOR " + actors[indexPerformingActor].idActor + " " + actors[indexPerformingActor].trapdoorCover);
+
                         actors[indexPerformingActor].transform.position = new Vector3(actors[indexPerformingActor].transform.position.x, actors[indexPerformingActor].transform.position.y + 0.1f, actors[indexPerformingActor].transform.position.z);
                         actors[indexPerformingActor].trapdoorCover.GoUpSlow();
                         Story.trapdoorCoverUp = true;
@@ -169,5 +171,7 @@ public class PerformanceStateMachine : MonoBehaviour
         indexPerformancesScript = 0;
         indexPerformingActor = 0;
         currentStatePerformance = StatePerformance.Presentation;
+
+        actors = EnvironmentStatus.getActors();
     }
 }

@@ -187,5 +187,8 @@ public class VotingStateMachine : MonoBehaviour
         currentStateVoting = StateVoting.ActorsAppear;
         indexVotingScript = 0;
         hasStartedPlayingWin = false;
+
+        actors = EnvironmentStatus.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 }

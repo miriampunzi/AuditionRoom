@@ -19,20 +19,25 @@ public class Actor : Agent, IComparer<Actor>
 
     // ENVIRONMENT OBJECTS
     Transform avatarToCopy;
-    Animator animatorAvatarToCopy;
-    public TrapdoorCover trapdoorCover;
-
-    // RIGHT ARM
-    public Transform actorRightArm;
-    public Transform actorRightForeArm;
-    public Transform actorRightHand;
 
     Transform avatarToCopyRightArm;
     Transform avatarToCopyRightForeArm;
     Transform avatarToCopyRightHand;
 
+    Transform avatarToCopyLeftArm;
+    Transform avatarToCopyLeftForeArm;
+    Transform avatarToCopyLeftHand;
+
+    Animator animatorAvatarToCopy;
+    public TrapdoorCover trapdoorCover;
+
+    // RIGHT ARM
+    Transform actorRightArm;
+    Transform actorRightForeArm;
+    Transform actorRightHand;
+
     // cube on the right hand used to perform IK 
-    public Transform targetRightArm;    
+    Transform targetRightArm;    
 
     // performed rotations of right arm parts
     public ArrayList performedRotationsRightArm = new ArrayList();
@@ -44,16 +49,12 @@ public class Actor : Agent, IComparer<Actor>
     private ArrayList performedRotationsRightTarget = new ArrayList();
 
     // LEFT ARM
-    public Transform actorLeftArm;
-    public Transform actorLeftForeArm;
-    public Transform actorLeftHand;
-
-    Transform avatarToCopyLeftArm;
-    Transform avatarToCopyLeftForeArm;
-    Transform avatarToCopyLeftHand;
+    Transform actorLeftArm;
+    Transform actorLeftForeArm;
+    Transform actorLeftHand;
 
     // cube on the right hand used to perform IK 
-    public Transform targerLeftArm;
+    Transform targerLeftArm;
 
     // performed rotations of left arm parts
     public ArrayList performedRotationsLeftArm = new ArrayList();
@@ -66,6 +67,7 @@ public class Actor : Agent, IComparer<Actor>
 
     void Start()
     {
+        // get avatar to copy body and body parts
         avatarToCopy = GameObject.FindGameObjectWithTag("AvatarToCopy").transform;
         animatorAvatarToCopy = avatarToCopy.GetComponent<Animator>();
 
@@ -76,6 +78,34 @@ public class Actor : Agent, IComparer<Actor>
         avatarToCopyLeftArm = GameObject.FindGameObjectWithTag("LeftArmAvatarToCopy").transform;
         avatarToCopyLeftForeArm = GameObject.FindGameObjectWithTag("LeftForeArmAvatarToCopy").transform;
         avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
+
+        // get own body parts
+        GetBodyParts(transform);
+    }
+
+    public void GetBodyParts(Transform parent)
+    {
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            Transform child = parent.GetChild(i);
+
+            switch (child.tag)
+            {
+                case "RightArm": actorRightArm = child.transform; break;
+                case "RightForeArm": actorRightForeArm = child.transform; break;
+                case "RightHand": actorRightHand = child.transform; break;
+                case "RightTarget": targetRightArm = child.transform; break;
+                case "LeftArm": actorLeftArm = child.transform; break;
+                case "LeftForeArm": actorLeftForeArm = child.transform; break;
+                case "LeftHand": actorLeftHand = child.transform; break;
+                case "LeftTarget": targerLeftArm = child.transform; break;
+            }
+
+            if (child.childCount > 0)
+            {
+                GetBodyParts(child);
+            }
+        }
     }
 
     public override void OnEpisodeBegin()

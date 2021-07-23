@@ -39,6 +39,8 @@ public class Story : MonoBehaviour
 
     private void Start()
     {
+        EnvironmentStatus.PlaceActors();
+
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);

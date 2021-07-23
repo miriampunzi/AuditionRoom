@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapdoorCover : MonoBehaviour
+public class TrapdoorCover : MonoBehaviour, IComparer<TrapdoorCover>
 {
 	private Animation anim;
+	public int id;
 
 	void Start()
 	{
@@ -78,5 +79,18 @@ public class TrapdoorCover : MonoBehaviour
 	public bool IsGoingUpSlow()
 	{
 		return anim.IsPlaying("GoUpSlow");
+	}
+
+	public int Compare(TrapdoorCover x, TrapdoorCover y)
+	{
+		return x.id.CompareTo(y.id);
+	}
+}
+
+class TrapdoorComparer : IComparer<TrapdoorCover>
+{
+	public int Compare(TrapdoorCover x, TrapdoorCover y)
+	{
+		return x.id.CompareTo(y.id);
 	}
 }

@@ -9,6 +9,8 @@ public class ActorMonoBehavior : MonoBehaviour
     public int idActor;
     public int numActor;
 
+    public bool isHuman;
+
     private Animator animator;
 
     // name of pre-recorded animation to play if the actor is a human

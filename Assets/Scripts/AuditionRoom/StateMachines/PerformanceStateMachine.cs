@@ -7,6 +7,7 @@ public class PerformanceStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
     private List<Actor> actors;
+    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StatePerformance
     {
@@ -29,10 +30,13 @@ public class PerformanceStateMachine : MonoBehaviour
     private int indexPerformancesScript = 0;
     private int indexPerformingActor = 0;
 
+    private bool hasStartedPlayingAnimation = false;
+
     public PerformanceStateMachine(TextMeshPro scriptTextMesh)
     {
         this.scriptTextMesh = scriptTextMesh;
         actors = EnvironmentStatus.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 
     public void Execute()
@@ -85,13 +89,34 @@ public class PerformanceStateMachine : MonoBehaviour
                     if (!Story.hasAskedForReplay)
                     {
                         // BEGIN PERFORMANCE
-                        actors[indexPerformingActor].PerformAction();
+                        if (actors[indexPerformingActor].isHuman)
+                        {
+                            if (!hasStartedPlayingAnimation)
+                            {
+                                actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                hasStartedPlayingAnimation = true;
+                            }
+                        }
+                        else
+                            actors[indexPerformingActor].PerformAction();
 
                         // FINISHED PERFORMANCE
-                        if (!actors[indexPerformingActor].IsPlayingPerformance())
+                        if (actors[indexPerformingActor].isHuman)
                         {
-                            currentStatePerformance = StatePerformance.Replay;
-                            indexPerformancesScript++;
+                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                                hasStartedPlayingAnimation = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!actors[indexPerformingActor].IsPlayingPerformance())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                            }
                         }
                     }
                     else

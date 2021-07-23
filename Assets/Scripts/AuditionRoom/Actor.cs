@@ -11,6 +11,8 @@ public class Actor : Agent, IComparer<Actor>
     public int idActor;
     public int numActor;
 
+    public bool isHuman;
+
     // FOR ML ALGORITHM
     private int countStep = 0;          // counts the actions to take in each episode
     private bool hasRecorded = false;   // has the avatar to copy finished the performance?

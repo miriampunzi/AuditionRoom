@@ -9,6 +9,15 @@ public class EnvironmentStatus : MonoBehaviour
     public static int ALL_ACTORS = 6;
     public static List<TrapdoorCover> trapdoorCovers;
 
+    static List<bool> avatarTypes = new List<bool>()
+    {
+        true,       // human
+        true,       // human
+        false,      // virtual
+        false,      // virtual
+        false,      // virtual
+    };
+
     // movements performed by the avatar to copy 
     public static ArrayList rotationsRightArm = new ArrayList();
     public static ArrayList rotationsRightForeArm = new ArrayList();
@@ -92,11 +101,26 @@ public class EnvironmentStatus : MonoBehaviour
         return trapdoorCovers;
     }
 
+    private static void ShuffleAvatarTypes()
+    {
+        int n = avatarTypes.Count;
+
+        for (int i = avatarTypes.Count - 1; i > 1; i--)
+        {
+            int rnd = Random.Range(0, i + 1);
+
+            bool value = avatarTypes[rnd];
+            avatarTypes[rnd] = avatarTypes[i];
+            avatarTypes[i] = value;
+        }
+    }
+
     public static void PlaceActors()
     {
+        // select actors
         List<int> numbersAllActors = new List<int>();
         for (int i = 0; i < ALL_ACTORS; i++)
-            numbersAllActors.Add(i);
+            numbersAllActors.Add(i + 1);
 
         List<int> selectedActors = new List<int>();
         for (int i = 0; i < NUM_ACTORS; i++)
@@ -113,14 +137,22 @@ public class EnvironmentStatus : MonoBehaviour
             allActorMonoBehaviors = getActorsMonoBehavior();
         }
 
+        // decide who is human and who is virtual
+        ShuffleAvatarTypes();
+        for (int i = 0; i < avatarTypes.Count; i++)
+            Debug.Log(avatarTypes[i]);
+
+        // place actors
         foreach (Actor actor in allActors)
         {
+            // TODO CREA VETTORE 
             if (actor.numActor == selectedActors[0])
             {
                 actor.transform.position = new Vector3(-2.4f, -2.5f, 0.41f);
                 actor.tag = "Actor";
                 actor.idActor = 1;
                 actor.trapdoorCover = trapdoorCovers[0];
+                actor.isHuman = avatarTypes[0];
             }
             else if (actor.numActor == selectedActors[1])
             {
@@ -128,6 +160,7 @@ public class EnvironmentStatus : MonoBehaviour
                 actor.tag = "Actor";
                 actor.idActor = 2;
                 actor.trapdoorCover = trapdoorCovers[1];
+                actor.isHuman = avatarTypes[1];
             }
             else if (actor.numActor == selectedActors[2])
             {
@@ -135,6 +168,7 @@ public class EnvironmentStatus : MonoBehaviour
                 actor.tag = "Actor";
                 actor.idActor = 3;
                 actor.trapdoorCover = trapdoorCovers[2];
+                actor.isHuman = avatarTypes[2];
             }
             else if (actor.numActor == selectedActors[3])
             {
@@ -142,6 +176,7 @@ public class EnvironmentStatus : MonoBehaviour
                 actor.tag = "Actor";
                 actor.idActor = 4;
                 actor.trapdoorCover = trapdoorCovers[3];
+                actor.isHuman = avatarTypes[3];
             }
             else if (actor.numActor == selectedActors[4])
             {
@@ -149,6 +184,7 @@ public class EnvironmentStatus : MonoBehaviour
                 actor.tag = "Actor";
                 actor.idActor = 5;
                 actor.trapdoorCover = trapdoorCovers[4];
+                actor.isHuman = avatarTypes[4];
             }
             else
             {
@@ -156,6 +192,35 @@ public class EnvironmentStatus : MonoBehaviour
                 actor.tag = "Untagged";
                 actor.idActor = -1;
                 actor.trapdoorCover = null;
+            }
+        }
+
+        //TODO MODIFICA
+        foreach (ActorMonoBehavior actor in allActorMonoBehaviors)
+        {
+            if (actor.numActor == selectedActors[0])
+            {
+                actor.idActor = 1;
+            }
+            else if (actor.numActor == selectedActors[1])
+            {
+                actor.idActor = 2;
+            }
+            else if (actor.numActor == selectedActors[2])
+            {
+                actor.idActor = 3;
+            }
+            else if (actor.numActor == selectedActors[3])
+            {
+                actor.idActor = 4;
+            }
+            else if (actor.numActor == selectedActors[4])
+            {
+                actor.idActor = 5;
+            }
+            else
+            {
+                actor.idActor = -1;
             }
         }
     }

@@ -139,8 +139,6 @@ public class EnvironmentStatus : MonoBehaviour
 
         // decide who is human and who is virtual
         ShuffleAvatarTypes();
-        for (int i = 0; i < avatarTypes.Count; i++)
-            Debug.Log(avatarTypes[i]);
 
         // place actors
         foreach (Actor actor in allActors)

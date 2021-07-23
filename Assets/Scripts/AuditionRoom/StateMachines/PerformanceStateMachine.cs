@@ -122,13 +122,36 @@ public class PerformanceStateMachine : MonoBehaviour
                     else
                     {
                         // BEGIN REPLAY
-                        actors[indexPerformingActor].PerformReplay();
+                        if (actors[indexPerformingActor].isHuman)
+                        {
+                            if (!hasStartedPlayingAnimation)
+                            {
+                                actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                hasStartedPlayingAnimation = true;
+                            }
+                        }
+                        else
+                        {
+                            actors[indexPerformingActor].PerformReplay();
+                        }
 
                         // FINISHED REPLAY
-                        if (!actors[indexPerformingActor].IsPlayingReplay())
+                        if (actors[indexPerformingActor].isHuman)
                         {
-                            currentStatePerformance = StatePerformance.Replay;
-                            indexPerformancesScript++;
+                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                                hasStartedPlayingAnimation = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!actors[indexPerformingActor].IsPlayingReplay())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                            }
                         }
                     }
 

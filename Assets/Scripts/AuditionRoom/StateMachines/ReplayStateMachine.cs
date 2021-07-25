@@ -7,6 +7,7 @@ public class ReplayStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
     private List<Actor> actors;
+    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StateReplay
     {
@@ -27,11 +28,13 @@ public class ReplayStateMachine : MonoBehaviour
 
     public static bool trapdoorCoverDown = false;
     public static bool hasPerformedReplay = false;
+    public static bool hasStartedPlayingAnimation = false;
 
     public ReplayStateMachine(TextMeshPro scriptTextMesh)
     {
         this.scriptTextMesh = scriptTextMesh;
         actors = EnvironmentStatus.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 
     public void Execute()
@@ -63,29 +66,69 @@ public class ReplayStateMachine : MonoBehaviour
                             actors[Story.idActorForReplay - 1].transform.position.z);
                         actors[Story.idActorForReplay - 1].trapdoorCover.GoUpSlow();
                         Story.trapdoorCoverUp = true;
-                        actors[Story.idActorForReplay - 1].SetupForReplay();
+
+                        if (actors[Story.idActorForReplay - 1].isHuman)
+                        {
+
+                        }
+                        else
+                        {
+                            actors[Story.idActorForReplay - 1].SetupForReplay();
+                        }
                     }
 
                     // REPLAY PERFORMANCE
-                    if (!actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
+                    if (actors[Story.idActorForReplay - 1].isHuman)
                     {
-                        actors[Story.idActorForReplay - 1].PerformReplay();
-                        hasPerformedReplay = true;
+                        if (!hasStartedPlayingAnimation)
+                        {
+                            actorsMonoBehavior[Story.idActorForReplay - 1].PlayVictory();
+                            hasStartedPlayingAnimation = true;
+                        }
+                    }
+                    else
+                    {
+                        if (!actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
+                        {
+                            actors[Story.idActorForReplay - 1].PerformReplay();
+                            hasPerformedReplay = true;
+                        }
                     }
 
                     // ON EXIT STATE
-                    if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].IsPlayingReplay())
+                    if (actors[Story.idActorForReplay - 1].isHuman)
                     {
-                        actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
-                        trapdoorCoverDown = true;
-                        hasPerformedReplay = false;
-                    }
+                        if (hasStartedPlayingAnimation && !actorsMonoBehavior[Story.idActorForReplay - 1].IsPlayingWinning())
+                        {
+                            actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
+                            trapdoorCoverDown = true;
 
-                    if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
+                            hasStartedPlayingAnimation = false;
+                        }
+
+                        if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
+                        {
+                            currentStateReplay = StateReplay.Continue;
+                            indexReplayScript++;
+                            trapdoorCoverDown = false;
+                        }
+                    }
+                    else
                     {
-                        currentStateReplay = StateReplay.Continue;
-                        indexReplayScript++;
-                        trapdoorCoverDown = false;
+                        if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].IsPlayingReplay())
+                        {
+                            actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
+                            trapdoorCoverDown = true;
+
+                            hasPerformedReplay = false;
+                        }
+
+                        if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
+                        {
+                            currentStateReplay = StateReplay.Continue;
+                            indexReplayScript++;
+                            trapdoorCoverDown = false;
+                        }
                     }
 
                     break;
@@ -128,6 +171,6 @@ public class ReplayStateMachine : MonoBehaviour
         hasPerformedReplay = false;
 
         actors = EnvironmentStatus.getActors();
-        //actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 }

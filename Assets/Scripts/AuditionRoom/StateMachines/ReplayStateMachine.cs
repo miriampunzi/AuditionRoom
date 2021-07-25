@@ -128,5 +128,6 @@ public class ReplayStateMachine : MonoBehaviour
         hasPerformedReplay = false;
 
         actors = EnvironmentStatus.getActors();
+        //actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 }

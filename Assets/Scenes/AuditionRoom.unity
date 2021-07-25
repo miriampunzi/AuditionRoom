@@ -4824,6 +4824,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 4
+  isHuman: 0
   trapdoorCover: {fileID: 0}
 --- !u!65 &228408033
 BoxCollider:
@@ -4951,6 +4952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idActor: 4
   numActor: 4
+  isHuman: 0
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -10576,6 +10578,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 1
+  isHuman: 0
   trapdoorCover: {fileID: 0}
 --- !u!65 &477801295
 BoxCollider:
@@ -10685,6 +10688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idActor: 1
   numActor: 1
+  isHuman: 0
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -12048,6 +12052,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 5
+  isHuman: 0
   trapdoorCover: {fileID: 0}
 --- !u!65 &531210506
 BoxCollider:
@@ -12175,6 +12180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idActor: 5
   numActor: 5
+  isHuman: 0
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -13345,7 +13351,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589250741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14303,7 +14309,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623081543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14734,7 +14740,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652107235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14984,7 +14990,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670772594}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -16587,7 +16593,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750960205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21479,6 +21485,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 3
+  isHuman: 0
   trapdoorCover: {fileID: 0}
 --- !u!54 &937445257
 Rigidbody:
@@ -21606,6 +21613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idActor: 3
   numActor: 3
+  isHuman: 0
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -26989,7 +26997,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219543622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28501,6 +28509,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 2
+  isHuman: 0
   trapdoorCover: {fileID: 0}
 --- !u!65 &1278871151
 BoxCollider:
@@ -28628,6 +28637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idActor: 2
   numActor: 2
+  isHuman: 0
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
@@ -30872,7 +30882,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383797923}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -35364,7 +35374,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557182108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36482,7 +36492,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605253531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -44982,7 +44992,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949837520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -45642,7 +45652,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980255749}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -49048,7 +49058,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096363579}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -56318,6 +56328,7 @@ MonoBehaviour:
   MaxStep: 0
   idActor: -1
   numActor: 6
+  isHuman: 0
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132148772066309
 MonoBehaviour:
@@ -56363,6 +56374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idActor: 6
   numActor: 6
+  isHuman: 0
   nameAnimationToPlay: 
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}

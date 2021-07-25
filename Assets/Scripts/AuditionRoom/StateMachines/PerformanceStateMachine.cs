@@ -221,5 +221,6 @@ public class PerformanceStateMachine : MonoBehaviour
         currentStatePerformance = StatePerformance.Presentation;
 
         actors = EnvironmentStatus.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 }

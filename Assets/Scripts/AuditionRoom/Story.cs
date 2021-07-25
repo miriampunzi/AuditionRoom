@@ -140,10 +140,19 @@ public class Story : MonoBehaviour
                 break;
 
             case State.Voting:
-                currentState = State.Recording;
+                //currentState = State.Recording;
+                //ResetState();
+                //votingStateMachine.ResetStateMachine();
+
+                currentState = State.Performance;
                 ResetState();
+
+                EnvironmentStatus.PlaceActors();
+
+                performanceStateMachine.ResetStateMachine();
+                replayStateMachine.ResetStateMachine();
                 votingStateMachine.ResetStateMachine();
-                
+
                 break;
         }
     }

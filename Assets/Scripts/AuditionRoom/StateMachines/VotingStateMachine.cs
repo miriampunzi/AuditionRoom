@@ -13,6 +13,7 @@ public class VotingStateMachine : MonoBehaviour
     {
         ActorsAppear,
         Choosing,
+        Confirm,
         Win,
         Lose,
         Continue
@@ -22,6 +23,7 @@ public class VotingStateMachine : MonoBehaviour
     {
         "Now it’s time to vote",
         "Which was the best actor?",
+        "Are you sure you want to vote this actor?",
         "Congratulations actor num $!",
         "Bye bye the others!",
         "Do you want to do another round?"
@@ -82,8 +84,27 @@ public class VotingStateMachine : MonoBehaviour
                 if (Story.hasVoted)
                 {
                     indexVotingScript++;
-                    currentStateVoting = StateVoting.Win;
+                    currentStateVoting = StateVoting.Confirm;
                     Story.hasVoted = false;
+                }
+
+                break;
+
+            case StateVoting.Confirm:
+                // NO
+                if (!Story.wasYesPressed && Story.wasNoPressed)
+                {
+                    indexVotingScript--;
+                    currentStateVoting = StateVoting.Choosing;
+                    Story.wasNoPressed = false;
+                }
+
+                // YES
+                else if (Story.wasYesPressed && !Story.wasNoPressed)
+                {
+                    indexVotingScript++;
+                    currentStateVoting = StateVoting.Win;
+                    Story.wasYesPressed = false;
                 }
 
                 break;

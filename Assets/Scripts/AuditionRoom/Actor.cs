@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -81,8 +82,41 @@ public class Actor : Agent, IComparer<Actor>
         avatarToCopyLeftForeArm = GameObject.FindGameObjectWithTag("LeftForeArmAvatarToCopy").transform;
         avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
 
+        // clear previous performed rotations
+        performedRotationsRightArm.Clear();
+        performedRotationsRightForeArm.Clear();
+        performedRotationsRightHand.Clear();
+
+        performedRotationsLeftArm.Clear();
+        performedRotationsLeftForeArm.Clear();
+        performedRotationsLeftHand.Clear();
+
         // get own body parts
         GetBodyParts(transform);
+
+        // read rotations performed by avatar to copy from file
+        string fileName = "1file.csv";
+
+        using (StreamReader reader = new StreamReader(fileName))
+        {
+            string line;
+            reader.ReadLine();
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(';');
+                Quaternion qra = new Quaternion(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                //EnvironmentStatus.rotationsRightArm.Add(qra);
+                EnvironmentStatus.rotationsRightArm.Add(qra);
+                Quaternion qrfa = new Quaternion(float.Parse(parts[4]), float.Parse(parts[5]), float.Parse(parts[6]), float.Parse(parts[7]));
+                //EnvironmentStatus.rotationsRightArm.Add(qrfa);
+                EnvironmentStatus.rotationsRightForeArm.Add(qrfa);
+                Quaternion qrh = new Quaternion(float.Parse(parts[8]), float.Parse(parts[9]), float.Parse(parts[10]), float.Parse(parts[11]));
+                //EnvironmentStatus.rotationsRightArm.Add(qrh);
+                EnvironmentStatus.rotationsRightHand.Add(qrh);
+
+                EnvironmentStatus.numActions++;
+            }
+        }
     }
 
     public void GetBodyParts(Transform parent)
@@ -132,57 +166,60 @@ public class Actor : Agent, IComparer<Actor>
         performedRotationsLeftHand.Clear();
 
         // move the avatar to copy
-        animatorAvatarToCopy.Play("Standing Greeting", -1, 0f);
+        //animatorAvatarToCopy.Play("Standing Greeting", -1, 0f);
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        // which frame
+        sensor.AddObservation(countStep / (EnvironmentStatus.numActions - 1.0f));
+
         // own right arm parts
-        sensor.AddObservation(actorRightArm.localRotation);
-        sensor.AddObservation(actorRightForeArm.localRotation);
-        sensor.AddObservation(actorRightHand.localRotation);
+        //sensor.AddObservation(actorRightArm.localRotation);
+        //sensor.AddObservation(actorRightForeArm.localRotation);
+        //sensor.AddObservation(actorRightHand.localRotation);
 
-        // avatar to copy's right arm parts
-        sensor.AddObservation(avatarToCopyRightArm.localRotation);
-        sensor.AddObservation(avatarToCopyRightForeArm.localRotation);
-        sensor.AddObservation(avatarToCopyRightHand.localRotation);
+        //// avatar to copy's right arm parts
+        //sensor.AddObservation(avatarToCopyRightArm.localRotation);
+        //sensor.AddObservation(avatarToCopyRightForeArm.localRotation);
+        //sensor.AddObservation(avatarToCopyRightHand.localRotation);
 
-        // own left arm parts
-        sensor.AddObservation(actorLeftArm.localRotation);
-        sensor.AddObservation(actorLeftForeArm.localRotation);
-        sensor.AddObservation(actorLeftHand.localRotation);
+        //// own left arm parts
+        //sensor.AddObservation(actorLeftArm.localRotation);
+        //sensor.AddObservation(actorLeftForeArm.localRotation);
+        //sensor.AddObservation(actorLeftHand.localRotation);
 
-        // avatar to copy's left arm parts
-        sensor.AddObservation(avatarToCopyLeftArm.localRotation);
-        sensor.AddObservation(avatarToCopyLeftForeArm.localRotation);
-        sensor.AddObservation(avatarToCopyLeftHand.localRotation);
+        //// avatar to copy's left arm parts
+        //sensor.AddObservation(avatarToCopyLeftArm.localRotation);
+        //sensor.AddObservation(avatarToCopyLeftForeArm.localRotation);
+        //sensor.AddObservation(avatarToCopyLeftHand.localRotation);
     }
 
     private void Update()
     {
         // if the avatar to copy has not done the performance
-        if (!hasRecorded)
-        {
-            // is the avatar to copy still playing the animation?
-            if (animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).IsName("Standing Greeting") &&
-            animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
-            {
-                // saving rotations performed by avatar to copy
-                EnvironmentStatus.rotationsRightArm.Add(avatarToCopyRightArm.rotation);
-                EnvironmentStatus.rotationsRightForeArm.Add(avatarToCopyRightForeArm.rotation);
-                EnvironmentStatus.rotationsRightHand.Add(avatarToCopyRightHand.rotation);
+        //if (!hasRecorded)
+        //{
+        //    // is the avatar to copy still playing the animation?
+        //    if (animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).IsName("Standing Greeting") &&
+        //    animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
+        //    {
+        //        // saving rotations performed by avatar to copy
+        //        EnvironmentStatus.rotationsRightArm.Add(avatarToCopyRightArm.rotation);
+        //        EnvironmentStatus.rotationsRightForeArm.Add(avatarToCopyRightForeArm.rotation);
+        //        EnvironmentStatus.rotationsRightHand.Add(avatarToCopyRightHand.rotation);
 
-                EnvironmentStatus.rotationsLeftArm.Add(avatarToCopyLeftArm.rotation);
-                EnvironmentStatus.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.rotation);
-                EnvironmentStatus.rotationsLeftHand.Add(avatarToCopyLeftHand.rotation);
+        //        EnvironmentStatus.rotationsLeftArm.Add(avatarToCopyLeftArm.rotation);
+        //        EnvironmentStatus.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.rotation);
+        //        EnvironmentStatus.rotationsLeftHand.Add(avatarToCopyLeftHand.rotation);
 
-                EnvironmentStatus.numActions++;
-            }
-            else
-            {
-                hasRecorded = true; // this variable avoid the repeating of the saving of rotations performed by avatar to copy
-            }
-        }
+        //        EnvironmentStatus.numActions++;
+        //    }
+        //    else
+        //    {
+        //        hasRecorded = true; // this variable avoid the repeating of the saving of rotations performed by avatar to copy
+        //    }
+        //}
     }
 
     public void PerformAction()
@@ -194,13 +231,13 @@ public class Actor : Agent, IComparer<Actor>
             countStep++;
 
             // save the rotations performed by the actor (left and right arm)
-            performedRotationsRightArm.Add(actorRightArm.rotation);
-            performedRotationsRightForeArm.Add(actorRightForeArm.rotation);
-            performedRotationsRightHand.Add(actorRightHand.rotation);
+            performedRotationsRightArm.Add(actorRightArm.localRotation);
+            performedRotationsRightForeArm.Add(actorRightForeArm.localRotation);
+            performedRotationsRightHand.Add(actorRightHand.localRotation);
             
-            performedRotationsLeftArm.Add(actorLeftArm.rotation);
-            performedRotationsLeftForeArm.Add(actorLeftForeArm.rotation);
-            performedRotationsLeftHand.Add(actorLeftHand.rotation);
+            performedRotationsLeftArm.Add(actorLeftArm.localRotation);
+            performedRotationsLeftForeArm.Add(actorLeftForeArm.localRotation);
+            performedRotationsLeftHand.Add(actorLeftHand.localRotation);
         }
     }
 
@@ -255,7 +292,44 @@ public class Actor : Agent, IComparer<Actor>
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        float reward = 0.0f;
         // values used to move the target cube for the right arm
+        float rightArmX = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f) * 180.0f + 180.0f;
+        float rightArmY = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f) * 180.0f + 180.0f;
+        float rightArmZ = Mathf.Clamp(actions.ContinuousActions[2], -1f, 1f) * 180.0f + 180.0f;
+        //float rightArmW = Mathf.Clamp(actions.ContinuousActions[3], -1f, 1f);
+        Quaternion qra = Quaternion.Euler(rightArmX, rightArmY, rightArmZ);
+        actorRightArm.localRotation = qra;
+
+        if (countStep < EnvironmentStatus.rotationsRightArm.Count)
+            reward += (-1 + 2 * Mathf.Abs(Quaternion.Dot(qra, (Quaternion)EnvironmentStatus.rotationsRightArm[countStep]))) * 0.66f;
+
+        float rightForeArmX = Mathf.Clamp(actions.ContinuousActions[3], -1f, 1f) * 180.0f + 180.0f;
+        float rightForeArmY = Mathf.Clamp(actions.ContinuousActions[4], -1f, 1f) * 180.0f + 180.0f;
+        float rightForeArmZ = Mathf.Clamp(actions.ContinuousActions[5], -1f, 1f) * 180.0f + 180.0f;
+        //float rightForeArmW = Mathf.Clamp(actions.ContinuousActions[7], -1f, 1f) * 180.0f;
+        Quaternion qrfa = Quaternion.Euler(rightForeArmX, rightForeArmY, rightForeArmZ);
+        actorRightForeArm.localRotation = qrfa;
+
+        if (countStep < EnvironmentStatus.rotationsRightForeArm.Count)
+            reward += (-1 + 2 * Mathf.Abs(Quaternion.Dot(qrfa, (Quaternion)EnvironmentStatus.rotationsRightForeArm[countStep]))) * 0.20f;
+
+        float rightHandX = Mathf.Clamp(actions.ContinuousActions[6], -1f, 1f) * 180.0f + 180.0f;
+        float rightHandY = Mathf.Clamp(actions.ContinuousActions[7], -1f, 1f) * 180.0f + 180.0f;
+        float rightHandZ = Mathf.Clamp(actions.ContinuousActions[8], -1f, 1f) * 180.0f + 180.0f;
+        //float rightHandW = Mathf.Clamp(actions.ContinuousActions[11], -1f, 1f) * 180.0f;
+        Quaternion qrh = Quaternion.Euler(rightHandX, rightHandY, rightHandZ);
+        actorRightHand.localRotation = qrh;
+
+        if (countStep < EnvironmentStatus.rotationsRightArm.Count)
+            reward += (-1 + 2 * Mathf.Abs(Quaternion.Dot(qrh, (Quaternion)EnvironmentStatus.rotationsRightArm[countStep]))) * 0.13f;
+
+        AddReward(reward);
+        //Debug.Log(Quaternion.Dot(qra, (Quaternion)rotationsRArm[countStep]));
+
+        // #########################################################################
+
+        //// values used to move the target cube for the right arm
         float moveRightArmX = actions.ContinuousActions[0];
         float moveRightArmY = actions.ContinuousActions[1];
         float moveRightArmZ = actions.ContinuousActions[2];
@@ -264,12 +338,12 @@ public class Actor : Agent, IComparer<Actor>
         float rotateRightArmY = actions.ContinuousActions[4];
         float rotateRightArmZ = actions.ContinuousActions[5];
 
-        // move the target cube for the right arm
-        targetRightArm.localPosition += new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ) * Time.deltaTime * moveSpeed;
-        targetRightArm.Rotate(
-            (transform.localRotation.x + rotateRightArmX) * Time.deltaTime * moveSpeed * 500,
-            (transform.localRotation.y + rotateRightArmY) * Time.deltaTime * moveSpeed * 500,
-            (transform.localRotation.z + rotateRightArmZ) * Time.deltaTime * moveSpeed * 500);
+        //// move the target cube for the right arm
+        //targetRightArm.localPosition += new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ) * Time.deltaTime * moveSpeed;
+        //targetRightArm.Rotate(
+        //    (transform.localRotation.x + rotateRightArmX) * Time.deltaTime * moveSpeed * 500,
+        //    (transform.localRotation.y + rotateRightArmY) * Time.deltaTime * moveSpeed * 500,
+        //    (transform.localRotation.z + rotateRightArmZ) * Time.deltaTime * moveSpeed * 500);
 
         // save movement performed by the right target cube
         performedPositionsRightTarget.Add(new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ));

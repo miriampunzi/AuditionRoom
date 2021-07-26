@@ -57,6 +57,7 @@ public class TrapdoorButton : MonoBehaviour
 
                 Story.bestActorVoted = -1;
                 Story.hasVoted = false;
+
                 break;
 
             // the user clicked a trapdoor button to vote a particular actor
@@ -69,6 +70,7 @@ public class TrapdoorButton : MonoBehaviour
 
                 Story.idActorForReplay = -1;
                 Story.hasAskedForReplay = false;
+
                 break;
         }
     }

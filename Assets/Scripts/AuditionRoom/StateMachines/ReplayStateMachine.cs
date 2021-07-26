@@ -51,7 +51,11 @@ public class ReplayStateMachine : MonoBehaviour
                     {
                         indexReplayScript++;
                         currentStateReplay = StateReplay.Performance;
+
                         Story.hasAskedForReplay = false;
+
+                        Story.wasYesPressed = false;
+                        Story.wasNoPressed = false;
                     }
 
                     break;
@@ -104,6 +108,9 @@ public class ReplayStateMachine : MonoBehaviour
                             trapdoorCoverDown = true;
 
                             hasStartedPlayingAnimation = false;
+
+                            Story.wasYesPressed = false;
+                            Story.wasNoPressed = false;
                         }
 
                         if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
@@ -111,6 +118,8 @@ public class ReplayStateMachine : MonoBehaviour
                             currentStateReplay = StateReplay.Continue;
                             indexReplayScript++;
                             trapdoorCoverDown = false;
+
+                            Story.CleanDeskVariables();
                         }
                     }
                     else
@@ -121,6 +130,9 @@ public class ReplayStateMachine : MonoBehaviour
                             trapdoorCoverDown = true;
 
                             hasPerformedReplay = false;
+
+                            Story.wasYesPressed = false;
+                            Story.wasNoPressed = false;
                         }
 
                         if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
@@ -128,6 +140,8 @@ public class ReplayStateMachine : MonoBehaviour
                             currentStateReplay = StateReplay.Continue;
                             indexReplayScript++;
                             trapdoorCoverDown = false;
+
+                            Story.CleanDeskVariables();
                         }
                     }
 

@@ -339,11 +339,11 @@ public class Actor : Agent, IComparer<Actor>
         float rotateRightArmZ = actions.ContinuousActions[5];
 
         //// move the target cube for the right arm
-        //targetRightArm.localPosition += new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ) * Time.deltaTime * moveSpeed;
-        //targetRightArm.Rotate(
-        //    (transform.localRotation.x + rotateRightArmX) * Time.deltaTime * moveSpeed * 500,
-        //    (transform.localRotation.y + rotateRightArmY) * Time.deltaTime * moveSpeed * 500,
-        //    (transform.localRotation.z + rotateRightArmZ) * Time.deltaTime * moveSpeed * 500);
+        targetRightArm.localPosition += new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ) * Time.deltaTime * moveSpeed;
+        targetRightArm.Rotate(
+            (transform.localRotation.x + rotateRightArmX) * Time.deltaTime * moveSpeed * 500,
+            (transform.localRotation.y + rotateRightArmY) * Time.deltaTime * moveSpeed * 500,
+            (transform.localRotation.z + rotateRightArmZ) * Time.deltaTime * moveSpeed * 500);
 
         // save movement performed by the right target cube
         performedPositionsRightTarget.Add(new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ));

@@ -80,7 +80,7 @@ public class ReplayStateMachine : MonoBehaviour
                     // REPLAY PERFORMANCE
                     if (actors[Story.idActorForReplay - 1].isHuman)
                     {
-                        if (!hasStartedPlayingAnimation)
+                        if (!hasStartedPlayingAnimation && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
                         {
                             actorsMonoBehavior[Story.idActorForReplay - 1].PlayVictory();
                             hasStartedPlayingAnimation = true;

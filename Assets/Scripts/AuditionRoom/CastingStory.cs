@@ -12,9 +12,9 @@ public class CastingStory : MonoBehaviour
 
     private ArrayList actorsScript = new ArrayList()
     {
-        "These are the actors \n\nat the casting auditions you organized.",
+        "These are the actors \n\nat the casting auditions you organized",
         "Pay attention: not all of them are professionals!",
-        "You have to choose the best one \n\nperforming the emotion of joy.",
+        "You have to choose the best one \n\nperforming the emotion of joy",
         "Are you ready?"
     };
 

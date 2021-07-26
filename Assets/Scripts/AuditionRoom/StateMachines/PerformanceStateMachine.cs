@@ -61,22 +61,18 @@ public class PerformanceStateMachine : MonoBehaviour
                     // BEGIN
                     if (!Story.trapdoorCoverUp)
                     {
-                        //Debug.Log("ACTOR " + actors[indexPerformingActor].idActor + " " + actors[indexPerformingActor].trapdoorCover);
-
                         actors[indexPerformingActor].transform.position = new Vector3(actors[indexPerformingActor].transform.position.x, actors[indexPerformingActor].transform.position.y + 0.1f, actors[indexPerformingActor].transform.position.z);
                         actors[indexPerformingActor].trapdoorCover.GoUpSlow();
                         Story.trapdoorCoverUp = true;
                     }
 
-                    // TODO CONTROLLA CHE I TRAPDOORCOVER SIANO SU PRIMA DI CONTROLLARE IL SI PER EVITARE CHE SUCCEDANO COSE QUANDO L'UTENTE CLICCA SI A CASO
-
                     // YES
-                    if (Story.trapdoorCoverUp && Story.wasYesPressed)
+                    if (!actors[indexPerformingActor].trapdoorCover.IsGoingUpSlow() && Story.trapdoorCoverUp && Story.wasYesPressed)
                     {
                         indexPerformancesScript++;
                         currentStatePerformance = StatePerformance.Performace;
 
-                        Story.trapdoorCoverUp = false;
+                        Story.trapdoorCoverUp = false;                        
                     }
 
                     // END
@@ -154,6 +150,9 @@ public class PerformanceStateMachine : MonoBehaviour
                             }
                         }
                     }
+
+                    Story.wasYesPressed = false;
+                    Story.wasNoPressed = false;
 
                     break;
 

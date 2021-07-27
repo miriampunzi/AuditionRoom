@@ -41,19 +41,19 @@ public class Story : MonoBehaviour
     {
         EnvironmentStatus.PlaceActors();
 
-        if (GameObject.FindGameObjectWithTag("Player") == null)
-        {
-            Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
+        //if (GameObject.FindGameObjectWithTag("Player") == null)
+        //{
+        //    Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
 
-            GameObject VRCamera = GameObject.Find("VRCamera");
-            Camera camera = VRCamera.GetComponent<Camera>();
-            camera.clearFlags = CameraClearFlags.SolidColor;
-        }
-        else
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.position = new Vector3(0, 0, -3.8f);
-        }
+        //    GameObject VRCamera = GameObject.Find("VRCamera");
+        //    Camera camera = VRCamera.GetComponent<Camera>();
+        //    camera.clearFlags = CameraClearFlags.SolidColor;
+        //}
+        //else
+        //{
+        //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //    player.transform.position = new Vector3(0, 0, -3.8f);
+        //}
 
         scriptTextMesh = GetComponent<TextMeshPro>();
 

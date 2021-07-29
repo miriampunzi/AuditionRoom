@@ -247,6 +247,8 @@ public class Actor : Agent, IComparer<Actor>
                 (transform.localRotation.y + ((Vector3)performedRotationsLeftTarget[indexReplay]).y) * Time.deltaTime * moveSpeed * 500,
                 (transform.localRotation.z + ((Vector3)performedRotationsLeftTarget[indexReplay]).z) * Time.deltaTime * moveSpeed * 500);
 
+            // TODO INDEX OUT OF BOUND NEL SECONDO ROUND. FORSE DEVO FARE QUALCHE CLEAR
+
             targetHead.localPosition += ((Vector3) performedPositionsHeadTarget[indexReplay]) * Time.deltaTime * moveSpeed * 5;
             targetHead.Rotate(
                 (transform.localRotation.x + ((Vector3)performedRotationsHeadTarget[indexReplay]).x) * Time.deltaTime * moveSpeed * 500,
@@ -389,8 +391,8 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateHeadZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
-        performedPositionsLeftTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
-        performedRotationsLeftTarget.Add(new Vector3(rotateHeadX, rotateHeadY, rotateHeadZ));
+        performedPositionsHeadTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
+        performedRotationsHeadTarget.Add(new Vector3(rotateHeadX, rotateHeadY, rotateHeadZ));
 
         // CHEST
 
@@ -411,8 +413,8 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateChestZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
-        performedPositionsLeftTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));
-        performedRotationsLeftTarget.Add(new Vector3(rotateChestX, rotateChestY, rotateChestZ));
+        performedPositionsChestTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));
+        performedRotationsChestTarget.Add(new Vector3(rotateChestX, rotateChestY, rotateChestZ));
     }
 
     // method used to be able to order a list of Actors based on their idActor

@@ -35,8 +35,6 @@ public class RecordMovement : MonoBehaviour
         avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
 
         avatarToCopyHead = GameObject.FindGameObjectWithTag("HeadAvatarToCopy").transform;
-
-        Debug.Log("entrato");
     }
 
 

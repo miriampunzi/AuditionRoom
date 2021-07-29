@@ -66,6 +66,9 @@ public class RecordingStateMachine : MonoBehaviour
                         currentStateRecording = StateRecording.Performance;
                     }
 
+                    Story.wasYesPressed = false;
+                    Story.wasNoPressed = false;
+
                     break;
 
                 case StateRecording.Performance:
@@ -80,6 +83,9 @@ public class RecordingStateMachine : MonoBehaviour
                         indexInScript++;
                         currentStateRecording = StateRecording.Continue;
                     }
+
+                    Story.wasYesPressed = false;
+                    Story.wasNoPressed = false;
 
                     break;
 

@@ -163,7 +163,7 @@ public class Story : MonoBehaviour
                 break;
 
             case State.Voting:
-                currentState = State.Recording;
+                currentState = State.Performance;
                 ResetState();
 
                 EnvironmentStatus.PlaceActors();

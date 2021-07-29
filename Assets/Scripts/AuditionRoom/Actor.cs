@@ -384,9 +384,9 @@ public class Actor : Agent, IComparer<Actor>
         // move the target cube for the head
         targetHead.localPosition += new Vector3(moveHeadX, moveHeadY, moveHeadZ) * Time.deltaTime * moveSpeed;
         targetHead.Rotate(
-            (transform.localRotation.x + rotateHeadX) * Time.deltaTime * moveSpeed * 500,
-            (transform.localRotation.y + rotateHeadY) * Time.deltaTime * moveSpeed * 500,
-            (transform.localRotation.z + rotateHeadZ) * Time.deltaTime * moveSpeed * 500);
+            (transform.localRotation.x + rotateHeadX) * Time.deltaTime * moveSpeed * 100,
+            (transform.localRotation.y + rotateHeadY) * Time.deltaTime * moveSpeed * 100,
+            (transform.localRotation.z + rotateHeadZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
         performedPositionsLeftTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
@@ -406,9 +406,9 @@ public class Actor : Agent, IComparer<Actor>
         // move the target cube for the head
         targetChest.localPosition += new Vector3(moveChestX, moveChestY, moveChestZ) * Time.deltaTime * moveSpeed;
         targetChest.Rotate(
-            (transform.localRotation.x + rotateChestX) * Time.deltaTime * moveSpeed * 500,
-            (transform.localRotation.y + rotateChestY) * Time.deltaTime * moveSpeed * 500,
-            (transform.localRotation.z + rotateChestZ) * Time.deltaTime * moveSpeed * 500);
+            (transform.localRotation.x + rotateChestX) * Time.deltaTime * moveSpeed * 100,
+            (transform.localRotation.y + rotateChestY) * Time.deltaTime * moveSpeed * 100,
+            (transform.localRotation.z + rotateChestZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
         performedPositionsLeftTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));

@@ -23,7 +23,7 @@ public class Story : MonoBehaviour
         Voting
     }
 
-    public static State currentState = State.Recording;
+    public static State currentState = State.Performance;
 
     public static bool trapdoorCoverUp = false;
     public static bool hasGoneDownFast = false;

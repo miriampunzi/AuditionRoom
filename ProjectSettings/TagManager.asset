@@ -25,6 +25,10 @@ TagManager:
   - ViveCameraRig
   - ViveColliders
   - HeadAvatarToCopy
+  - Head
+  - Chest
+  - ChestTarget
+  - HeadTarget
   layers:
   - Default
   - TransparentFX

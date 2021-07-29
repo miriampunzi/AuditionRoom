@@ -14,25 +14,13 @@ public class Actor : Agent, IComparer<Actor>
 
     public bool isHuman;
 
+    public TrapdoorCover trapdoorCover;
+
     // FOR ML ALGORITHM
     private int countStep = 0;          // counts the actions to take in each episode
     private bool hasRecorded = false;   // has the avatar to copy finished the performance?
     private int indexReplay = 0;        // index in the array of performed rotations to do replay
     private float moveSpeed = 5f;       // speed to move cubes used as target as IK. For now it's random, I don't know which number is the best
-
-    // ENVIRONMENT OBJECTS
-    Transform avatarToCopy;
-
-    Transform avatarToCopyRightArm;
-    Transform avatarToCopyRightForeArm;
-    Transform avatarToCopyRightHand;
-
-    Transform avatarToCopyLeftArm;
-    Transform avatarToCopyLeftForeArm;
-    Transform avatarToCopyLeftHand;
-
-    Animator animatorAvatarToCopy;
-    public TrapdoorCover trapdoorCover;
 
     // RIGHT ARM
     Transform actorRightArm;
@@ -57,7 +45,7 @@ public class Actor : Agent, IComparer<Actor>
     Transform actorLeftHand;
 
     // cube on the right hand used to perform IK 
-    Transform targerLeftArm;
+    Transform targetLeftArm;
 
     // performed rotations of left arm parts
     public ArrayList performedRotationsLeftArm = new ArrayList();
@@ -68,20 +56,22 @@ public class Actor : Agent, IComparer<Actor>
     private ArrayList performedPositionsLeftTarget = new ArrayList();
     private ArrayList performedRotationsLeftTarget = new ArrayList();
 
+    // HEAD
+    Transform actorHead;
+    Transform targetHead;
+    public ArrayList performedRotationsHead = new ArrayList();
+    public ArrayList performedPositionsHeadTarget = new ArrayList();
+    public ArrayList performedRotationsHeadTarget = new ArrayList();
+
+    // CHEST
+    Transform actorChest;
+    Transform targetChest;
+    public ArrayList performedRotationsChest = new ArrayList();
+    public ArrayList performedPositionsChestTarget = new ArrayList();
+    public ArrayList performedRotationsChestTarget = new ArrayList();
+
     void Start()
     {
-        // get avatar to copy body and body parts
-        avatarToCopy = GameObject.FindGameObjectWithTag("AvatarToCopy").transform;
-        animatorAvatarToCopy = avatarToCopy.GetComponent<Animator>();
-
-        avatarToCopyRightArm = GameObject.FindGameObjectWithTag("RightArmAvatarToCopy").transform;
-        avatarToCopyRightForeArm = GameObject.FindGameObjectWithTag("RightForeArmAvatarToCopy").transform;
-        avatarToCopyRightHand = GameObject.FindGameObjectWithTag("RightHandAvatarToCopy").transform;
-
-        avatarToCopyLeftArm = GameObject.FindGameObjectWithTag("LeftArmAvatarToCopy").transform;
-        avatarToCopyLeftForeArm = GameObject.FindGameObjectWithTag("LeftForeArmAvatarToCopy").transform;
-        avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
-
         // clear previous performed rotations
         performedRotationsRightArm.Clear();
         performedRotationsRightForeArm.Clear();
@@ -93,6 +83,8 @@ public class Actor : Agent, IComparer<Actor>
 
         // get own body parts
         GetBodyParts(transform);
+
+        // TODO LEGGI TUTTI I FILE  
 
         // read rotations performed by avatar to copy from file
         string fileName = "1file.csv";
@@ -134,7 +126,11 @@ public class Actor : Agent, IComparer<Actor>
                 case "LeftArm": actorLeftArm = child.transform; break;
                 case "LeftForeArm": actorLeftForeArm = child.transform; break;
                 case "LeftHand": actorLeftHand = child.transform; break;
-                case "LeftTarget": targerLeftArm = child.transform; break;
+                case "LeftTarget": targetLeftArm = child.transform; break;
+                case "Head": actorHead = child.transform; break;
+                case "HeadTarget": targetHead = child.transform; break;
+                case "Chest": actorChest = child.transform; break;
+                case "ChestTarget": targetChest = child.transform; break;
             }
 
             if (child.childCount > 0)
@@ -153,8 +149,14 @@ public class Actor : Agent, IComparer<Actor>
         targetRightArm.localPosition = Vector3.zero;
         targetRightArm.localRotation = Quaternion.identity;
 
-        targerLeftArm.localPosition = Vector3.zero;
-        targerLeftArm.localRotation = Quaternion.identity;
+        targetLeftArm.localPosition = Vector3.zero;
+        targetLeftArm.localRotation = Quaternion.identity;
+
+        targetHead.localPosition = Vector3.zero;
+        targetHead.localRotation = Quaternion.identity;
+
+        targetChest.localPosition = Vector3.zero;
+        targetChest.localRotation = Quaternion.identity;
 
         // clear previous performed rotations
         performedRotationsRightArm.Clear();
@@ -165,8 +167,8 @@ public class Actor : Agent, IComparer<Actor>
         performedRotationsLeftForeArm.Clear();
         performedRotationsLeftHand.Clear();
 
-        // move the avatar to copy
-        //animatorAvatarToCopy.Play("Standing Greeting", -1, 0f);
+        performedPositionsHeadTarget.Clear();
+        performedPositionsChestTarget.Clear();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -195,33 +197,6 @@ public class Actor : Agent, IComparer<Actor>
         //sensor.AddObservation(avatarToCopyLeftHand.localRotation);
     }
 
-    private void Update()
-    {
-        // if the avatar to copy has not done the performance
-        //if (!hasRecorded)
-        //{
-        //    // is the avatar to copy still playing the animation?
-        //    if (animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).IsName("Standing Greeting") &&
-        //    animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
-        //    {
-        //        // saving rotations performed by avatar to copy
-        //        EnvironmentStatus.rotationsRightArm.Add(avatarToCopyRightArm.rotation);
-        //        EnvironmentStatus.rotationsRightForeArm.Add(avatarToCopyRightForeArm.rotation);
-        //        EnvironmentStatus.rotationsRightHand.Add(avatarToCopyRightHand.rotation);
-
-        //        EnvironmentStatus.rotationsLeftArm.Add(avatarToCopyLeftArm.rotation);
-        //        EnvironmentStatus.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.rotation);
-        //        EnvironmentStatus.rotationsLeftHand.Add(avatarToCopyLeftHand.rotation);
-
-        //        EnvironmentStatus.numActions++;
-        //    }
-        //    else
-        //    {
-        //        hasRecorded = true; // this variable avoid the repeating of the saving of rotations performed by avatar to copy
-        //    }
-        //}
-    }
-
     public void PerformAction()
     {
         // the avatar perform the same number of actions performed by the acatar to copy
@@ -238,6 +213,10 @@ public class Actor : Agent, IComparer<Actor>
             performedRotationsLeftArm.Add(actorLeftArm.localRotation);
             performedRotationsLeftForeArm.Add(actorLeftForeArm.localRotation);
             performedRotationsLeftHand.Add(actorLeftHand.localRotation);
+
+            performedRotationsHead.Add(actorHead.localRotation);
+
+            performedRotationsChest.Add(actorChest.localRotation);
         }
     }
 
@@ -262,11 +241,23 @@ public class Actor : Agent, IComparer<Actor>
                 (transform.localRotation.y + ((Vector3) performedRotationsRightTarget[indexReplay]).y) * Time.deltaTime * moveSpeed * 500,
                 (transform.localRotation.z + ((Vector3) performedRotationsRightTarget[indexReplay]).z) * Time.deltaTime * moveSpeed * 500);
 
-            targerLeftArm.localPosition += ((Vector3)performedPositionsLeftTarget[indexReplay]) * Time.deltaTime * moveSpeed * 5;
-            targerLeftArm.Rotate(
+            targetLeftArm.localPosition += ((Vector3)performedPositionsLeftTarget[indexReplay]) * Time.deltaTime * moveSpeed * 5;
+            targetLeftArm.Rotate(
                 (transform.localRotation.x + ((Vector3)performedRotationsLeftTarget[indexReplay]).x) * Time.deltaTime * moveSpeed * 500,
                 (transform.localRotation.y + ((Vector3)performedRotationsLeftTarget[indexReplay]).y) * Time.deltaTime * moveSpeed * 500,
                 (transform.localRotation.z + ((Vector3)performedRotationsLeftTarget[indexReplay]).z) * Time.deltaTime * moveSpeed * 500);
+
+            targetHead.localPosition += ((Vector3) performedPositionsHeadTarget[indexReplay]) * Time.deltaTime * moveSpeed * 5;
+            targetHead.Rotate(
+                (transform.localRotation.x + ((Vector3)performedRotationsHeadTarget[indexReplay]).x) * Time.deltaTime * moveSpeed * 500,
+                (transform.localRotation.y + ((Vector3)performedRotationsHeadTarget[indexReplay]).y) * Time.deltaTime * moveSpeed * 500,
+                (transform.localRotation.z + ((Vector3)performedRotationsHeadTarget[indexReplay]).z) * Time.deltaTime * moveSpeed * 500);
+
+            targetChest.localPosition += ((Vector3)performedPositionsChestTarget[indexReplay]) * Time.deltaTime * moveSpeed * 5;
+            targetChest.Rotate(
+                (transform.localRotation.x + ((Vector3)performedRotationsChestTarget[indexReplay]).x) * Time.deltaTime * moveSpeed * 500,
+                (transform.localRotation.y + ((Vector3)performedRotationsChestTarget[indexReplay]).y) * Time.deltaTime * moveSpeed * 500,
+                (transform.localRotation.z + ((Vector3)performedRotationsChestTarget[indexReplay]).z) * Time.deltaTime * moveSpeed * 500);
 
             indexReplay++;
         }        
@@ -283,8 +274,14 @@ public class Actor : Agent, IComparer<Actor>
         targetRightArm.localPosition = Vector3.zero;
         targetRightArm.localRotation = Quaternion.identity;
 
-        targerLeftArm.localPosition = Vector3.zero;
-        targerLeftArm.localRotation = Quaternion.identity;
+        targetLeftArm.localPosition = Vector3.zero;
+        targetLeftArm.localRotation = Quaternion.identity;
+
+        targetHead.localPosition = Vector3.zero;
+        targetHead.localRotation = Quaternion.identity;
+
+        targetChest.localPosition = Vector3.zero;
+        targetChest.localRotation = Quaternion.identity;
 
         // reset index in array for replay
         indexReplay = 0;
@@ -292,6 +289,8 @@ public class Actor : Agent, IComparer<Actor>
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        // RIGHT ARM
+
         float reward = 0.0f;
         // values used to move the target cube for the right arm
         float rightArmX = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f) * 180.0f + 180.0f;
@@ -349,6 +348,8 @@ public class Actor : Agent, IComparer<Actor>
         performedPositionsRightTarget.Add(new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ));
         performedRotationsRightTarget.Add(new Vector3(rotateRightArmX, rotateRightArmY, rotateRightArmZ));
 
+        // LEFT ARM
+
         // values used to move the target cube for the left arm
         float moveLeftArmX = actions.ContinuousActions[6];
         float moveLeftArmY = actions.ContinuousActions[7];
@@ -359,8 +360,8 @@ public class Actor : Agent, IComparer<Actor>
         float rotateLeftArmZ = actions.ContinuousActions[11];
 
         // move the target cube for the left arm
-        targerLeftArm.localPosition += new Vector3(moveLeftArmX, moveLeftArmY, moveLeftArmZ) * Time.deltaTime * moveSpeed;
-        targerLeftArm.Rotate(
+        targetLeftArm.localPosition += new Vector3(moveLeftArmX, moveLeftArmY, moveLeftArmZ) * Time.deltaTime * moveSpeed;
+        targetLeftArm.Rotate(
             (transform.localRotation.x + rotateLeftArmX) * Time.deltaTime * moveSpeed * 500,
             (transform.localRotation.y + rotateLeftArmY) * Time.deltaTime * moveSpeed * 500,
             (transform.localRotation.z + rotateLeftArmZ) * Time.deltaTime * moveSpeed * 500);
@@ -368,6 +369,50 @@ public class Actor : Agent, IComparer<Actor>
         // save movement performed by the left target cube
         performedPositionsLeftTarget.Add(new Vector3(moveLeftArmX, moveLeftArmY, moveLeftArmZ));
         performedRotationsLeftTarget.Add(new Vector3(rotateLeftArmX, rotateLeftArmY, rotateLeftArmZ));
+
+        // HEAD
+
+        // values used to move the target cube for the head
+        float moveHeadX = actions.ContinuousActions[12];
+        float moveHeadY = actions.ContinuousActions[13];
+        float moveHeadZ = actions.ContinuousActions[14];
+
+        float rotateHeadX = actions.ContinuousActions[15];
+        float rotateHeadY = actions.ContinuousActions[16];
+        float rotateHeadZ = actions.ContinuousActions[17];
+
+        // move the target cube for the head
+        targetHead.localPosition += new Vector3(moveHeadX, moveHeadY, moveHeadZ) * Time.deltaTime * moveSpeed;
+        targetHead.Rotate(
+            (transform.localRotation.x + rotateHeadX) * Time.deltaTime * moveSpeed * 500,
+            (transform.localRotation.y + rotateHeadY) * Time.deltaTime * moveSpeed * 500,
+            (transform.localRotation.z + rotateHeadZ) * Time.deltaTime * moveSpeed * 500);
+
+        // save movement performed by the head target cube
+        performedPositionsLeftTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
+        performedRotationsLeftTarget.Add(new Vector3(rotateHeadX, rotateHeadY, rotateHeadZ));
+
+        // CHEST
+
+        // values used to move the target cube for the head
+        float moveChestX = actions.ContinuousActions[18];
+        float moveChestY = actions.ContinuousActions[19];
+        float moveChestZ = actions.ContinuousActions[20];
+
+        float rotateChestX = actions.ContinuousActions[21];
+        float rotateChestY = actions.ContinuousActions[22];
+        float rotateChestZ = actions.ContinuousActions[23];
+
+        // move the target cube for the head
+        targetChest.localPosition += new Vector3(moveChestX, moveChestY, moveChestZ) * Time.deltaTime * moveSpeed;
+        targetChest.Rotate(
+            (transform.localRotation.x + rotateChestX) * Time.deltaTime * moveSpeed * 500,
+            (transform.localRotation.y + rotateChestY) * Time.deltaTime * moveSpeed * 500,
+            (transform.localRotation.z + rotateChestZ) * Time.deltaTime * moveSpeed * 500);
+
+        // save movement performed by the head target cube
+        performedPositionsLeftTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));
+        performedRotationsLeftTarget.Add(new Vector3(rotateChestX, rotateChestY, rotateChestZ));
     }
 
     // method used to be able to order a list of Actors based on their idActor

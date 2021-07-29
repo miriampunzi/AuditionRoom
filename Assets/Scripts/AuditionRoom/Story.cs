@@ -23,8 +23,7 @@ public class Story : MonoBehaviour
         Voting
     }
 
-    //public static State currentState = State.Recording;
-    public static State currentState = State.Performance;
+    public static State currentState = State.Recording;
 
     public static bool trapdoorCoverUp = false;
     public static bool hasGoneDownFast = false;
@@ -55,29 +54,29 @@ public class Story : MonoBehaviour
         //    player.transform.position = new Vector3(0, 0, -3.8f);
         //}
 
-        if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
-        {
-            Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
+        //if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
+        //{
+        //    Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
 
-            GameObject VRCamera = GameObject.Find("VRCamera");
-            Camera camera = VRCamera.GetComponent<Camera>();
-            camera.clearFlags = CameraClearFlags.SolidColor;
-        }
-        else
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("ViveCameraRig");
-            player.transform.position = new Vector3(0, 0, -3.8f);
-        }
+        //    GameObject VRCamera = GameObject.Find("VRCamera");
+        //    Camera camera = VRCamera.GetComponent<Camera>();
+        //    camera.clearFlags = CameraClearFlags.SolidColor;
+        //}
+        //else
+        //{
+        //    GameObject player = GameObject.FindGameObjectWithTag("ViveCameraRig");
+        //    player.transform.position = new Vector3(0, 0, -3.8f);
+        //}
         
-        if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
-        {
-            Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
-        }
-        else
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("ViveColliders");
-            player.transform.position = new Vector3(0, 0, -3.8f);
-        }
+        //if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
+        //{
+        //    Instantiate(playerPrefab, new Vector3(0, 0, -3.8f), Quaternion.identity);
+        //}
+        //else
+        //{
+        //    GameObject player = GameObject.FindGameObjectWithTag("ViveColliders");
+        //    player.transform.position = new Vector3(0, 0, -3.8f);
+        //}
 
         scriptTextMesh = GetComponent<TextMeshPro>();
 
@@ -164,11 +163,7 @@ public class Story : MonoBehaviour
                 break;
 
             case State.Voting:
-                //currentState = State.Recording;
-                //ResetState();
-                //votingStateMachine.ResetStateMachine();
-
-                currentState = State.Performance;
+                currentState = State.Recording;
                 ResetState();
 
                 EnvironmentStatus.PlaceActors();

@@ -48,6 +48,8 @@ public class RecordingStateMachine : MonoBehaviour
                         indexInScript++;
                         currentStateRecording = StateRecording.Ready;
 
+                        RecordMovement.Init();
+
                         Story.wasYesPressed = false;
                         Story.wasNoPressed = false;
                     }
@@ -60,8 +62,6 @@ public class RecordingStateMachine : MonoBehaviour
 
                     if (Input.GetKeyDown("x"))
                     {
-
-
                         indexInScript++;
                         currentStateRecording = StateRecording.Performance;
                     }
@@ -70,6 +70,7 @@ public class RecordingStateMachine : MonoBehaviour
 
                 case StateRecording.Performance:
                     // TODO TRACK MOVEMENTS
+                    RecordMovement.Record();
 
                     // X PRESSING
                     //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
@@ -86,6 +87,8 @@ public class RecordingStateMachine : MonoBehaviour
                     // YES
                     if (Story.wasYesPressed && !Story.wasNoPressed)
                     {
+                        RecordMovement.ResetMotions();
+
                         indexInScript = 1;
                         currentStateRecording = StateRecording.Ready;
 
@@ -95,6 +98,8 @@ public class RecordingStateMachine : MonoBehaviour
                     // NO
                     else if (!Story.wasYesPressed && Story.wasNoPressed)
                     {
+                        RecordMovement.SaveToFile();
+
                         Story.wasNoPressed = false;
                         Story.wasYesPressed = false;
 

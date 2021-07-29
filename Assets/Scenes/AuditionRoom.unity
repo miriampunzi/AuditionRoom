@@ -48941,6 +48941,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LeftHandAvatarToCopy
       objectReference: {fileID: 0}
+    - target: {fileID: -1781356600409242780, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
+      propertyPath: m_TagString
+      value: HeadAvatarToCopy
+      objectReference: {fileID: 0}
     - target: {fileID: -290750445479886849, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_Name
       value: RightForeArmAvatarToCopy

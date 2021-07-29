@@ -6,22 +6,23 @@ using UnityEngine;
 public class RecordMovement : MonoBehaviour
 {
     private bool hasRecorded = false;   // has the avatar to copy finished the performance?
-    public Transform avatarToCopy;
-    Animator animatorAvatarToCopy;
+    private static bool hasStartedPlaying = false;
 
-    Transform avatarToCopyRightArm;
-    Transform avatarToCopyRightForeArm;
-    Transform avatarToCopyRightHand;
+    public static Transform avatarToCopy;
+    static Animator animatorAvatarToCopy;
 
-    Transform avatarToCopyLeftArm;
-    Transform avatarToCopyLeftForeArm;
-    Transform avatarToCopyLeftHand;
+    static Transform avatarToCopyRightArm;
+    static Transform avatarToCopyRightForeArm;
+    static Transform avatarToCopyRightHand;
 
-    Transform avatarToCopyHead;
+    static Transform avatarToCopyLeftArm;
+    static Transform avatarToCopyLeftForeArm;
+    static Transform avatarToCopyLeftHand;
 
-    private void Start()
+    static Transform avatarToCopyHead;
+
+    public static void Init()
     {
-        // get avatar to copy body and body parts
         avatarToCopy = GameObject.FindGameObjectWithTag("AvatarToCopy").transform;
         animatorAvatarToCopy = avatarToCopy.GetComponent<Animator>();
 
@@ -34,70 +35,92 @@ public class RecordMovement : MonoBehaviour
         avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
 
         avatarToCopyHead = GameObject.FindGameObjectWithTag("HeadAvatarToCopy").transform;
+
+        Debug.Log("entrato");
     }
 
-    private void Update()
+
+    public static void Record()
     {
-        // if the avatar to copy has not done the performance
-        if (!hasRecorded)
+        if (!hasStartedPlaying)
         {
-            // is the avatar to copy still playing the animation?
-            if (animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).IsName("Standing Greeting") &&
-            animatorAvatarToCopy.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
+            ResetMotions();
+            animatorAvatarToCopy.Play("Standing Greeting", -1, 0f);
+            hasStartedPlaying = true;
+        }
+
+        Debug.Log("Recording...");
+
+        // saving rotations performed by avatar to copy
+        EnvironmentStatus.rotationsRightArm.Add(avatarToCopyRightArm.localRotation);
+        EnvironmentStatus.rotationsRightForeArm.Add(avatarToCopyRightForeArm.localRotation);
+        EnvironmentStatus.rotationsRightHand.Add(avatarToCopyRightHand.localRotation);
+
+        EnvironmentStatus.rotationsLeftArm.Add(avatarToCopyLeftArm.localRotation);
+        EnvironmentStatus.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.localRotation);
+        EnvironmentStatus.rotationsLeftHand.Add(avatarToCopyLeftHand.localRotation);
+
+        EnvironmentStatus.rotationsHead.Add(avatarToCopyHead.localRotation);
+
+        EnvironmentStatus.numActions++;
+    }
+
+    public static void ResetMotions()
+    {
+        EnvironmentStatus.rotationsRightArm.Clear();
+        EnvironmentStatus.rotationsRightForeArm.Clear();
+        EnvironmentStatus.rotationsRightHand.Clear();
+
+        EnvironmentStatus.rotationsLeftArm.Clear();
+        EnvironmentStatus.rotationsLeftForeArm.Clear();
+        EnvironmentStatus.rotationsLeftHand.Clear();
+
+        EnvironmentStatus.rotationsHead.Clear();
+
+        EnvironmentStatus.numActions = 0;
+
+        hasStartedPlaying = false;
+    }
+
+    public static void SaveToFile()
+    {
+        // WRITE RIGHT ARM ROTATIONS IN FILE
+        using (StreamWriter theWriter = new StreamWriter("RightArm.csv"))
+        {
+            theWriter.WriteLine("rightarmx;rightarmy;rightarmz;rightarmw;rightforearmx;rightforearmy;rightforearmz;rightforearmw;righthandx;righthandy;righthandz;righthandw");
+            for (int i = 0; i < EnvironmentStatus.numActions; i++)
             {
-                // saving rotations performed by avatar to copy
-                EnvironmentStatus.rotationsRightArm.Add(avatarToCopyRightArm.localRotation);
-                EnvironmentStatus.rotationsRightForeArm.Add(avatarToCopyRightForeArm.localRotation);
-                EnvironmentStatus.rotationsRightHand.Add(avatarToCopyRightHand.localRotation);
-
-                EnvironmentStatus.rotationsLeftArm.Add(avatarToCopyLeftArm.localRotation);
-                EnvironmentStatus.rotationsLeftForeArm.Add(avatarToCopyLeftForeArm.localRotation);
-                EnvironmentStatus.rotationsLeftHand.Add(avatarToCopyLeftHand.localRotation);
-
-                EnvironmentStatus.rotationsHead.Add(avatarToCopyHead.localRotation);
-
-                EnvironmentStatus.numActions++;
-            }
-            else
-            {
-                // WRITE RIGHT ARM ROTATIONS IN FILE
-                using (StreamWriter theWriter = new StreamWriter("RightArm.csv"))
-                {
-                    theWriter.WriteLine("rightarmx;rightarmy;rightarmz;rightarmw;rightforearmx;rightforearmy;rightforearmz;rightforearmw;righthandx;righthandy;righthandz;righthandw");
-                    for (int i = 0; i < EnvironmentStatus.numActions; i++)
-                    {
-                        Quaternion qra = (Quaternion)EnvironmentStatus.rotationsRightArm[i];
-                        Quaternion qrfa = (Quaternion)EnvironmentStatus.rotationsRightForeArm[i];
-                        Quaternion qrh = (Quaternion)EnvironmentStatus.rotationsRightHand[i];
-                        theWriter.WriteLine(qra.x + ";" + qra.y + ";" + qra.z + ";" + qra.w + ";" + qrfa.x + ";" + qrfa.y + ";" + qrfa.z + ";" + qrfa.w + ";" + qrh.x + ";" + qrh.y + ";" + qrh.z + ";" + qrh.w);
-                    }
-                }
-
-                // WRITE LEFT ARM ROTATIONS IN FILE
-                using (StreamWriter theWriter = new StreamWriter("LeftArm.csv"))
-                {
-                    theWriter.WriteLine("leftarmx;leftarmy;leftarmz;leftarmw;leftforearmx;leftforearmy;leftforearmz;leftforearmw;lefthandx;lefthandy;lefthandz;lefthandw");
-                    for (int i = 0; i < EnvironmentStatus.numActions; i++)
-                    {
-                        Quaternion qla = (Quaternion)EnvironmentStatus.rotationsLeftArm[i];
-                        Quaternion qlfa = (Quaternion)EnvironmentStatus.rotationsLeftForeArm[i];
-                        Quaternion qlh = (Quaternion)EnvironmentStatus.rotationsLeftHand[i];
-                        theWriter.WriteLine(qla.x + ";" + qla.y + ";" + qla.z + ";" + qla.w + ";" + qlfa.x + ";" + qlfa.y + ";" + qlfa.z + ";" + qlfa.w + ";" + qlh.x + ";" + qlh.y + ";" + qlh.z + ";" + qlh.w);
-                    }
-                }
-
-                // WRITE HEAD ROTATIONS IN FILE
-                using (StreamWriter theWriter = new StreamWriter("Head.csv"))
-                {
-                    theWriter.WriteLine("headx;heady;headz;headw");
-                    for (int i = 0; i < EnvironmentStatus.numActions; i++)
-                    {
-                        Quaternion qh = (Quaternion)EnvironmentStatus.rotationsHead[i];
-                        theWriter.WriteLine(qh.x + ";" + qh.y + ";" + qh.z + ";" + qh.w);
-                    }
-                }
+                Quaternion qra = (Quaternion)EnvironmentStatus.rotationsRightArm[i];
+                Quaternion qrfa = (Quaternion)EnvironmentStatus.rotationsRightForeArm[i];
+                Quaternion qrh = (Quaternion)EnvironmentStatus.rotationsRightHand[i];
+                theWriter.WriteLine(qra.x + ";" + qra.y + ";" + qra.z + ";" + qra.w + ";" + qrfa.x + ";" + qrfa.y + ";" + qrfa.z + ";" + qrfa.w + ";" + qrh.x + ";" + qrh.y + ";" + qrh.z + ";" + qrh.w);
             }
         }
-               
+
+        // WRITE LEFT ARM ROTATIONS IN FILE
+        using (StreamWriter theWriter = new StreamWriter("LeftArm.csv"))
+        {
+            theWriter.WriteLine("leftarmx;leftarmy;leftarmz;leftarmw;leftforearmx;leftforearmy;leftforearmz;leftforearmw;lefthandx;lefthandy;lefthandz;lefthandw");
+            for (int i = 0; i < EnvironmentStatus.numActions; i++)
+            {
+                Quaternion qla = (Quaternion)EnvironmentStatus.rotationsLeftArm[i];
+                Quaternion qlfa = (Quaternion)EnvironmentStatus.rotationsLeftForeArm[i];
+                Quaternion qlh = (Quaternion)EnvironmentStatus.rotationsLeftHand[i];
+                theWriter.WriteLine(qla.x + ";" + qla.y + ";" + qla.z + ";" + qla.w + ";" + qlfa.x + ";" + qlfa.y + ";" + qlfa.z + ";" + qlfa.w + ";" + qlh.x + ";" + qlh.y + ";" + qlh.z + ";" + qlh.w);
+            }
+        }
+
+        // WRITE HEAD ROTATIONS IN FILE
+        using (StreamWriter theWriter = new StreamWriter("Head.csv"))
+        {
+            theWriter.WriteLine("headx;heady;headz;headw");
+            for (int i = 0; i < EnvironmentStatus.numActions; i++)
+            {
+                Quaternion qh = (Quaternion)EnvironmentStatus.rotationsHead[i];
+                theWriter.WriteLine(qh.x + ";" + qh.y + ";" + qh.z + ";" + qh.w);
+            }
+        }
+
+        Debug.Log("Saved to file...");
     }
 }

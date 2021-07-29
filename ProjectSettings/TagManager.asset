@@ -24,6 +24,7 @@ TagManager:
   - TrapdoorCover
   - ViveCameraRig
   - ViveColliders
+  - HeadAvatarToCopy
   layers:
   - Default
   - TransparentFX

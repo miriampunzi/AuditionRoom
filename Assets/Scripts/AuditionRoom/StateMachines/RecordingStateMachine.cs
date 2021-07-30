@@ -90,8 +90,6 @@ public class RecordingStateMachine : MonoBehaviour
                     break;
 
                 case StateRecording.Continue:
-                    Debug.Log(EnvironmentStatus.numActions);
-
                     // YES
                     if (Story.wasYesPressed && !Story.wasNoPressed)
                     {

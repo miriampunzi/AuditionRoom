@@ -29,6 +29,8 @@ public class EnvironmentStatus : MonoBehaviour
 
     public static ArrayList rotationsHead = new ArrayList();
 
+    public static ArrayList rotationsChest = new ArrayList();
+
     // number of actions performed by the avatar to copy
     public static int numActions = 0;
 

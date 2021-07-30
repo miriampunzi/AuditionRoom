@@ -20,6 +20,7 @@ public class RecordMovement : MonoBehaviour
     static Transform avatarToCopyLeftHand;
 
     static Transform avatarToCopyHead;
+    static Transform avatarToCopyChest;
 
     public static void Init()
     {
@@ -35,6 +36,8 @@ public class RecordMovement : MonoBehaviour
         avatarToCopyLeftHand = GameObject.FindGameObjectWithTag("LeftHandAvatarToCopy").transform;
 
         avatarToCopyHead = GameObject.FindGameObjectWithTag("HeadAvatarToCopy").transform;
+
+        avatarToCopyChest = GameObject.FindGameObjectWithTag("ChestAvatarToCopy").transform;
     }
 
 
@@ -43,7 +46,7 @@ public class RecordMovement : MonoBehaviour
         if (!hasStartedPlaying)
         {
             ResetMotions();
-            animatorAvatarToCopy.Play("Standing Greeting", -1, 0f);
+            //animatorAvatarToCopy.Play("Standing Greeting", -1, 0f);
             hasStartedPlaying = true;
         }
 
@@ -60,6 +63,8 @@ public class RecordMovement : MonoBehaviour
 
         EnvironmentStatus.rotationsHead.Add(avatarToCopyHead.localRotation);
 
+        EnvironmentStatus.rotationsChest.Add(avatarToCopyChest.localRotation);
+
         EnvironmentStatus.numActions++;
     }
 
@@ -74,6 +79,8 @@ public class RecordMovement : MonoBehaviour
         EnvironmentStatus.rotationsLeftHand.Clear();
 
         EnvironmentStatus.rotationsHead.Clear();
+
+        EnvironmentStatus.rotationsChest.Clear();
 
         EnvironmentStatus.numActions = 0;
 
@@ -116,6 +123,17 @@ public class RecordMovement : MonoBehaviour
             {
                 Quaternion qh = (Quaternion)EnvironmentStatus.rotationsHead[i];
                 theWriter.WriteLine(qh.x + ";" + qh.y + ";" + qh.z + ";" + qh.w);
+            }
+        }
+
+        // WRITE CHEST ROTATIONS IN FILE
+        using (StreamWriter theWriter = new StreamWriter("Chest.csv"))
+        {
+            theWriter.WriteLine("chestx;chesty;chestz;chestw");
+            for (int i = 0; i < EnvironmentStatus.numActions; i++)
+            {
+                Quaternion ch = (Quaternion)EnvironmentStatus.rotationsChest[i];
+                theWriter.WriteLine(ch.x + ";" + ch.y + ";" + ch.z + ";" + ch.w);
             }
         }
 

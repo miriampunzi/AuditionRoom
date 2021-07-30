@@ -84,12 +84,10 @@ public class Actor : Agent, IComparer<Actor>
         // get own body parts
         GetBodyParts(transform);
 
-        // TODO LEGGI TUTTI I FILE  
+        // READ RIGHT ARM ROTATIONS PERFORMED BY AVATAR TO COPY FROM FILE
+        string fileRightArmRotations = "RightArm.csv";
 
-        // read rotations performed by avatar to copy from file
-        string fileName = "1file.csv";
-
-        using (StreamReader reader = new StreamReader(fileName))
+        using (StreamReader reader = new StreamReader(fileRightArmRotations))
         {
             string line;
             reader.ReadLine();
@@ -97,16 +95,60 @@ public class Actor : Agent, IComparer<Actor>
             {
                 string[] parts = line.Split(';');
                 Quaternion qra = new Quaternion(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
-                //EnvironmentStatus.rotationsRightArm.Add(qra);
                 EnvironmentStatus.rotationsRightArm.Add(qra);
                 Quaternion qrfa = new Quaternion(float.Parse(parts[4]), float.Parse(parts[5]), float.Parse(parts[6]), float.Parse(parts[7]));
-                //EnvironmentStatus.rotationsRightArm.Add(qrfa);
                 EnvironmentStatus.rotationsRightForeArm.Add(qrfa);
                 Quaternion qrh = new Quaternion(float.Parse(parts[8]), float.Parse(parts[9]), float.Parse(parts[10]), float.Parse(parts[11]));
-                //EnvironmentStatus.rotationsRightArm.Add(qrh);
                 EnvironmentStatus.rotationsRightHand.Add(qrh);
+            }
+        }
 
-                EnvironmentStatus.numActions++;
+        // READ LEFT ARM ROTATIONS PERFORMED BY AVATAR TO COPY FROM FILE
+        string fileLeftArmRotations = "LeftArm.csv";
+
+        using (StreamReader reader = new StreamReader(fileLeftArmRotations))
+        {
+            string line;
+            reader.ReadLine();
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(';');
+                Quaternion qla = new Quaternion(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                EnvironmentStatus.rotationsLeftArm.Add(qla);
+                Quaternion qlfa = new Quaternion(float.Parse(parts[4]), float.Parse(parts[5]), float.Parse(parts[6]), float.Parse(parts[7]));
+                EnvironmentStatus.rotationsLeftForeArm.Add(qlfa);
+                Quaternion qlh = new Quaternion(float.Parse(parts[8]), float.Parse(parts[9]), float.Parse(parts[10]), float.Parse(parts[11]));
+                EnvironmentStatus.rotationsLeftHand.Add(qlh);
+            }
+        }
+
+        // READ HEAD ROTATIONS PERFORMED BY AVATAR TO COPY FROM FILE
+        string fileHeadRotations = "Head.csv";
+
+        using (StreamReader reader = new StreamReader(fileHeadRotations))
+        {
+            string line;
+            reader.ReadLine();
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(';');
+                Quaternion qh = new Quaternion(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                EnvironmentStatus.rotationsHead.Add(qh);
+            }
+        }
+
+        // READ CHEST ROTATIONS PERFORMED BY AVATAR TO COPY FROM FILE
+        string fileChestRotations = "Chest.csv";
+
+        using (StreamReader reader = new StreamReader(fileChestRotations))
+        {
+            string line;
+            reader.ReadLine();
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(';');
+                Quaternion qc = new Quaternion(float.Parse(parts[0]), float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                EnvironmentStatus.rotationsChest.Add(qc);
             }
         }
     }

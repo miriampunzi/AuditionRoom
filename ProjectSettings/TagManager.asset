@@ -29,6 +29,7 @@ TagManager:
   - Chest
   - ChestTarget
   - HeadTarget
+  - ChestAvatarToCopy
   layers:
   - Default
   - TransparentFX

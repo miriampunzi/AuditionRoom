@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnvironmentStatus : MonoBehaviour
@@ -13,10 +14,17 @@ public class EnvironmentStatus : MonoBehaviour
     {
         true,       // human
         true,       // human
-        false,      // virtual
-        false,      // virtual
-        false,      // virtual
+        true,      // virtual
+        true,      // virtual
+        true,      // virtual
     };
+
+    public static int NUM_FEMALE_ANIMATIONS = 9;
+    public static int NUM_MALE_ANIMATIONS = 9;
+    public static List<AnimatorController> femaleAnimations = new List<AnimatorController>();
+    public static List<AnimatorController> maleAnimations = new List<AnimatorController>();
+    public static List<string> femaleAnimationNames = new List<string>();
+    public static List<string> maleAnimationNames = new List<string>();
 
     // movements performed by the avatar to copy 
     public static ArrayList rotationsRightArm = new ArrayList();
@@ -107,12 +115,9 @@ public class EnvironmentStatus : MonoBehaviour
 
     private static void ShuffleAvatarTypes()
     {
-        int n = avatarTypes.Count;
-
         for (int i = avatarTypes.Count - 1; i > 1; i--)
         {
             int rnd = Random.Range(0, i + 1);
-
             bool value = avatarTypes[rnd];
             avatarTypes[rnd] = avatarTypes[i];
             avatarTypes[i] = value;
@@ -143,6 +148,8 @@ public class EnvironmentStatus : MonoBehaviour
 
         // decide who is human and who is virtual
         ShuffleAvatarTypes();
+
+        RetrieveAnimations();
 
         // place actors
         foreach (Actor actor in allActors)
@@ -203,27 +210,98 @@ public class EnvironmentStatus : MonoBehaviour
             if (actor.numActor == selectedActors[0])
             {
                 actor.idActor = 1;
+                if (actor.gender == 0)
+                    actor.SetAnimation(femaleAnimations[0], femaleAnimationNames[0]);
+                else
+                    actor.SetAnimation(maleAnimations[0], maleAnimationNames[0]);
             }
             else if (actor.numActor == selectedActors[1])
             {
                 actor.idActor = 2;
+                if (actor.gender == 0)
+                    actor.SetAnimation(femaleAnimations[1], femaleAnimationNames[1]);
+                else
+                    actor.SetAnimation(maleAnimations[1], maleAnimationNames[1]);
             }
             else if (actor.numActor == selectedActors[2])
             {
                 actor.idActor = 3;
+                if (actor.gender == 0)
+                    actor.SetAnimation(femaleAnimations[2], femaleAnimationNames[2]);
+                else
+                    actor.SetAnimation(maleAnimations[2], maleAnimationNames[2]);
             }
             else if (actor.numActor == selectedActors[3])
             {
                 actor.idActor = 4;
+                if (actor.gender == 0)
+                    actor.SetAnimation(femaleAnimations[3], femaleAnimationNames[3]);
+                else
+                    actor.SetAnimation(maleAnimations[3], maleAnimationNames[3]);
             }
             else if (actor.numActor == selectedActors[4])
             {
                 actor.idActor = 5;
+                if (actor.gender == 0)
+                    actor.SetAnimation(femaleAnimations[5], femaleAnimationNames[5]);
+                else
+                    actor.SetAnimation(maleAnimations[5], maleAnimationNames[5]);
             }
             else
             {
                 actor.idActor = -1;
             }
         }
+
+        
+    }
+
+    public static void RetrieveAnimations()
+    {
+        if (femaleAnimations.Count == 0 && maleAnimations.Count == 0)
+        {
+            femaleAnimations.Clear();
+            maleAnimations.Clear();
+
+            for (int i = 0; i < NUM_FEMALE_ANIMATIONS; i++)
+            {
+                femaleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "ControllerJoy" + (i + 1)));
+                femaleAnimationNames.Add("Joy" + (i + 1));
+
+                // TODO CHANGE
+                maleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "ControllerJoy" + (i + 1)));
+                maleAnimationNames.Add("Joy" + (i + 1));
+            }
+        }
+
+        // Shuffle female animator controllers
+        for (int i = femaleAnimations.Count - 1; i > 1; i--)
+        {
+            int rnd = Random.Range(0, i + 1);
+            AnimatorController value = femaleAnimations[rnd];
+            femaleAnimations[rnd] = femaleAnimations[i];
+            femaleAnimations[i] = value;
+
+            string valueString = femaleAnimationNames[rnd];
+            femaleAnimationNames[rnd] = femaleAnimationNames[i];
+            femaleAnimationNames[i] = valueString;
+        }
+        
+        // Shuffle male animator controllers
+        for (int i = maleAnimations.Count - 1; i > 1; i--)
+        {
+            int rnd = Random.Range(0, i + 1);
+            AnimatorController value = maleAnimations[rnd];
+            maleAnimations[rnd] = maleAnimations[i];
+            maleAnimations[i] = value;
+
+            string valueString = maleAnimationNames[rnd];
+            maleAnimationNames[rnd] = maleAnimationNames[i];
+            maleAnimationNames[i] = valueString;
+        }
+
+        for (int j = 0; j < NUM_FEMALE_ANIMATIONS; j++)
+            Debug.Log(femaleAnimationNames[j] + " " + femaleAnimations[j] + " --- " + maleAnimations[j] + " " + maleAnimationNames[j]);
+
     }
 }

@@ -89,7 +89,8 @@ public class PerformanceStateMachine : MonoBehaviour
                         {
                             if (!hasStartedPlayingAnimation)
                             {
-                                actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                actorsMonoBehavior[indexPerformingActor].PlayAnimation();
                                 hasStartedPlayingAnimation = true;
                             }
                         }
@@ -99,7 +100,8 @@ public class PerformanceStateMachine : MonoBehaviour
                         // FINISHED PERFORMANCE
                         if (actors[indexPerformingActor].isHuman)
                         {
-                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingAnimation())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
@@ -122,7 +124,8 @@ public class PerformanceStateMachine : MonoBehaviour
                         {
                             if (!hasStartedPlayingAnimation)
                             {
-                                actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                actorsMonoBehavior[indexPerformingActor].PlayAnimation();
                                 hasStartedPlayingAnimation = true;
                             }
                         }
@@ -134,7 +137,8 @@ public class PerformanceStateMachine : MonoBehaviour
                         // FINISHED REPLAY
                         if (actors[indexPerformingActor].isHuman)
                         {
-                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingAnimation())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;

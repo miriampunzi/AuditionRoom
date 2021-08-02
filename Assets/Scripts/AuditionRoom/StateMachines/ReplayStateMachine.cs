@@ -86,7 +86,7 @@ public class ReplayStateMachine : MonoBehaviour
                     {
                         if (!hasStartedPlayingAnimation && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
                         {
-                            actorsMonoBehavior[Story.idActorForReplay - 1].PlayVictory();
+                            actorsMonoBehavior[Story.idActorForReplay - 1].PlayAnimation();
                             hasStartedPlayingAnimation = true;
                         }
                     }
@@ -102,7 +102,8 @@ public class ReplayStateMachine : MonoBehaviour
                     // ON EXIT STATE
                     if (actors[Story.idActorForReplay - 1].isHuman)
                     {
-                        if (hasStartedPlayingAnimation && !actorsMonoBehavior[Story.idActorForReplay - 1].IsPlayingWinning())
+                        //if (hasStartedPlayingAnimation && !actorsMonoBehavior[Story.idActorForReplay - 1].IsPlayingWinning())
+                        if (hasStartedPlayingAnimation && !actorsMonoBehavior[Story.idActorForReplay - 1].IsPlayingAnimation())
                         {
                             actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
                             trapdoorCoverDown = true;

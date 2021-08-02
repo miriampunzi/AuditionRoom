@@ -10,23 +10,33 @@ public class ActorMonoBehavior : MonoBehaviour
     public int numActor;
 
     public bool isHuman;
+    public int gender;
 
     private Animator animator;
-
-    // name of pre-recorded animation to play if the actor is a human
-    public string nameAnimationToPlay;
 
     // controllers to play victory or defeat animation after voting phase
     public AnimatorController victoryAnimatorController;
     public AnimatorController defeatedAnimatorController;
+
+    public AnimatorController animationToPlay;
+    // name of pre-recorded animation to play if the actor is a human
+    public string nameAnimationToPlay;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
+    public void SetAnimation(AnimatorController animationToPlay, string nameAnimationToPlay)
+    {
+        this.animationToPlay = animationToPlay;
+        this.nameAnimationToPlay = nameAnimationToPlay;
+    }
+
     public void PlayAnimation()
     {
+        animator.runtimeAnimatorController = animationToPlay;
+        animator.enabled = true;
         animator.Rebind();
         animator.Play(nameAnimationToPlay, -1, 0f);
     }

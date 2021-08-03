@@ -8,6 +8,7 @@ public class EnvironmentStatusNoGame : MonoBehaviour
     public static int idBestActor = -1;
 
     public static int NUM_ACTORS = 2;
+    public static int ALL_ACTORS = 6;
 
     public static List<Actor> allActors;
     public static List<ActorMonoBehavior> allActorMonoBehaviors;
@@ -25,6 +26,8 @@ public class EnvironmentStatusNoGame : MonoBehaviour
             if (actor.CompareTag("Actor"))
             {
                 actors.Add(actor.GetComponent<Actor>());
+                //Debug.Log("Actor " + actors[i].numActor + ": " + actors[i].transform.position + " " + actors[i].initialPosition);
+
                 i++;
             }
         }
@@ -54,20 +57,27 @@ public class EnvironmentStatusNoGame : MonoBehaviour
 
     public static void PlaceActors()
     {
-        int numActor1 = Random.Range(1, 5);
+        int numActor1 = Random.Range(1, ALL_ACTORS + 1);
         int numActor2;
 
         do
         {
-            numActor2 = Random.Range(1, 5);
+            numActor2 = Random.Range(1, ALL_ACTORS + 1);
         }
         while (numActor1 == numActor2);
 
         if (allActors == null)
         {
             allActors = getActors();
-            allActorMonoBehaviors = getActorsMonoBehavior();            
+            allActorMonoBehaviors = getActorsMonoBehavior();
+
+            //Debug.Log(allActors.Count + " " + allActorMonoBehaviors.Count);
+
+            foreach (Actor actor in allActors)
+                actor.initialPosition = actor.transform.position;
         }
+
+        
 
         foreach (Actor actor in allActors)
         {
@@ -85,7 +95,8 @@ public class EnvironmentStatusNoGame : MonoBehaviour
             }
             else
             {
-                actor.transform.position = actor.initialPosition;
+                //Debug.Log("Actor " + actor.numActor + ": " + actor.transform.position + " " + actor.initialPosition);
+                actor.transform.position = actor.initialPosition;              
                 actor.tag = "Untagged";
                 actor.idActor = -1;
             }

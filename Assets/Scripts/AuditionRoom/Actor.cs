@@ -74,8 +74,6 @@ public class Actor : Agent, IComparer<Actor>
 
     void Start()
     {
-        initialPosition = transform.position;
-
         // clear previous performed rotations
         performedRotationsRightArm.Clear();
         performedRotationsRightForeArm.Clear();

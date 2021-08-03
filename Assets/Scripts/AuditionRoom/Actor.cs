@@ -14,6 +14,8 @@ public class Actor : Agent, IComparer<Actor>
 
     public bool isHuman;
 
+    public Vector3 initialPosition;
+
     public TrapdoorCover trapdoorCover;
 
     // FOR ML ALGORITHM
@@ -72,6 +74,8 @@ public class Actor : Agent, IComparer<Actor>
 
     void Start()
     {
+        initialPosition = transform.position;
+
         // clear previous performed rotations
         performedRotationsRightArm.Clear();
         performedRotationsRightForeArm.Clear();

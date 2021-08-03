@@ -73,19 +73,19 @@ public class EnvironmentStatusNoGame : MonoBehaviour
         {
             if (actor.numActor == numActor1)
             {
-                actor.transform.position = new Vector3(-1.2f, 0.2f, 0);
+                actor.transform.position = new Vector3(-1.2f, 0, 0);
                 actor.tag = "Actor";
                 actor.idActor = 1;
             }
             else if (actor.numActor == numActor2)
             {
-                actor.transform.position = new Vector3(1.2f, 0.2f, 0);
+                actor.transform.position = new Vector3(1.2f, 0, 0);
                 actor.tag = "Actor";
                 actor.idActor = 2;
             }
             else
             {
-                actor.transform.position = new Vector3(0, 0.2f, 3);
+                actor.transform.position = actor.initialPosition;
                 actor.tag = "Untagged";
                 actor.idActor = -1;
             }

@@ -47,6 +47,9 @@ public class ReplayStateMachine : MonoBehaviour
             switch (currentStateReplay)
             {
                 case StateReplay.Question:
+                    //foreach (ActorMonoBehavior a in actorsMonoBehavior)
+                    //    a.PlayIdle();
+
                     if (Story.hasAskedForReplay)
                     {
                         indexReplayScript++;

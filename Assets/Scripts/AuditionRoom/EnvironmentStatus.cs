@@ -14,9 +14,9 @@ public class EnvironmentStatus : MonoBehaviour
     {
         true,       // human
         true,       // human
-        true,      // virtual
-        true,      // virtual
-        true,      // virtual
+        false,      // virtual
+        false,      // virtual
+        false,      // virtual
     };
 
     public static int NUM_FEMALE_ANIMATIONS = 9;
@@ -299,9 +299,5 @@ public class EnvironmentStatus : MonoBehaviour
             maleAnimationNames[rnd] = maleAnimationNames[i];
             maleAnimationNames[i] = valueString;
         }
-
-        for (int j = 0; j < NUM_FEMALE_ANIMATIONS; j++)
-            Debug.Log(femaleAnimationNames[j] + " " + femaleAnimations[j] + " --- " + maleAnimations[j] + " " + maleAnimationNames[j]);
-
     }
 }

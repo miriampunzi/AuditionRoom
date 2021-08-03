@@ -5842,9 +5842,12 @@ MonoBehaviour:
   idActor: 4
   numActor: 4
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &235996700
 GameObject:
   m_ObjectHideFlags: 0
@@ -12341,9 +12344,12 @@ MonoBehaviour:
   idActor: 1
   numActor: 1
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!114 &477801301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13929,9 +13935,12 @@ MonoBehaviour:
   idActor: 5
   numActor: 5
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &531835035
 GameObject:
   m_ObjectHideFlags: 0
@@ -24222,9 +24231,12 @@ MonoBehaviour:
   idActor: 3
   numActor: 3
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &938865953
 GameObject:
   m_ObjectHideFlags: 0
@@ -32087,9 +32099,12 @@ MonoBehaviour:
   idActor: 2
   numActor: 2
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &1291181774
 GameObject:
   m_ObjectHideFlags: 0
@@ -61676,9 +61691,12 @@ MonoBehaviour:
   idActor: 2
   numActor: 2
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: a2654aa39f4c66644a1ceb87a84ebe6a, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &919132147963288878
 GameObject:
   m_ObjectHideFlags: 0
@@ -61952,9 +61970,12 @@ MonoBehaviour:
   idActor: 1
   numActor: 1
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: a2654aa39f4c66644a1ceb87a84ebe6a, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!65 &919132148772066311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62154,9 +62175,12 @@ MonoBehaviour:
   idActor: 3
   numActor: 3
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: a2654aa39f4c66644a1ceb87a84ebe6a, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &919132148925022789
 GameObject:
   m_ObjectHideFlags: 0
@@ -62341,9 +62365,12 @@ MonoBehaviour:
   idActor: 4
   numActor: 4
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: a2654aa39f4c66644a1ceb87a84ebe6a, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &919132149301202517
 GameObject:
   m_ObjectHideFlags: 0
@@ -62496,9 +62523,12 @@ MonoBehaviour:
   idActor: 6
   numActor: 6
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: a2654aa39f4c66644a1ceb87a84ebe6a, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &919132149318708370
 GameObject:
   m_ObjectHideFlags: 0
@@ -62651,9 +62681,12 @@ MonoBehaviour:
   idActor: 5
   numActor: 5
   isHuman: 0
-  nameAnimationToPlay: 
+  gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 141ed14873214e146a85d34c40e758a0, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c6a2e52c59709c44c9f0855b22633bd1, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: a2654aa39f4c66644a1ceb87a84ebe6a, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
 --- !u!1 &919132149457883646
 GameObject:
   m_ObjectHideFlags: 0

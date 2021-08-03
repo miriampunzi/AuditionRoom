@@ -59,6 +59,9 @@ public class PerformanceStateMachine : MonoBehaviour
             {
                 case StatePerformance.Presentation:
                     // BEGIN
+                    //foreach (ActorMonoBehavior a in actorsMonoBehavior)
+                    //    a.PlayIdle();
+
                     if (!Story.trapdoorCoverUp)
                     {
                         actors[indexPerformingActor].transform.position = new Vector3(actors[indexPerformingActor].transform.position.x, actors[indexPerformingActor].transform.position.y + 0.1f, actors[indexPerformingActor].transform.position.z);

@@ -17,6 +17,7 @@ public class ActorMonoBehavior : MonoBehaviour
     // controllers to play victory or defeat animation after voting phase
     public AnimatorController victoryAnimatorController;
     public AnimatorController defeatedAnimatorController;
+    public AnimatorController idleAnimatorController;
 
     public AnimatorController animationToPlay;
     // name of pre-recorded animation to play if the actor is a human
@@ -45,6 +46,14 @@ public class ActorMonoBehavior : MonoBehaviour
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(nameAnimationToPlay) &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1;
+    }
+
+    public void PlayIdle()
+    {
+        animator.runtimeAnimatorController = idleAnimatorController;
+        animator.enabled = true;
+        animator.Rebind();
+        animator.Play("Idle", -1, 0f);
     }
 
     public void PlayVictory()

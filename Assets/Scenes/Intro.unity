@@ -18779,7 +18779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ccdfd7ecb8f91408fe31ad5f40459d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+  ViveCameraRigPrefab: {fileID: 175660, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
+  collidersViveCameraRigPrefab: {fileID: 160224, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
 --- !u!1 &1639057440
 GameObject:
   m_ObjectHideFlags: 0

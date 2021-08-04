@@ -8,7 +8,8 @@ using Valve.VR;
 
 public class CastingStory : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject ViveCameraRigPrefab;
+    [SerializeField] private GameObject collidersViveCameraRigPrefab;
 
     private ArrayList actorsScript = new ArrayList()
     {
@@ -23,13 +24,19 @@ public class CastingStory : MonoBehaviour
 
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag("Player") == null)
+        if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
         {
-            Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
-            GameObject VRCamera = GameObject.Find("VRCamera");
+            GameObject VRCamera = GameObject.Find("Camera");
             Camera camera = VRCamera.GetComponent<Camera>();
             camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = Color.black;
+        }
+
+        if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
+        {
+            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }
 
         scriptTextMesh = GetComponent<TextMeshPro>();

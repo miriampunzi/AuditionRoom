@@ -5724,6 +5724,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 4
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!65 &228408033
 BoxCollider:
@@ -12474,6 +12475,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 1
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!65 &477801295
 BoxCollider:
@@ -14047,6 +14049,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 5
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!65 &531210506
 BoxCollider:
@@ -24408,6 +24411,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 3
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!54 &937445257
 Rigidbody:
@@ -32328,6 +32332,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 2
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!65 &1278871151
 BoxCollider:
@@ -42254,7 +42259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2ec1f05284df5448075a89c18aa238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+  ViveCameraRigPrefab: {fileID: 175660, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
+  collidersViveCameraRigPrefab: {fileID: 160224, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
 --- !u!1 &1649208159
 GameObject:
   m_ObjectHideFlags: 0
@@ -62141,6 +62147,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 2
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132147915934347
 MonoBehaviour:
@@ -62420,6 +62427,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 1
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132148772066309
 MonoBehaviour:
@@ -62625,6 +62633,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 3
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132148849286582
 MonoBehaviour:
@@ -62815,6 +62824,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 4
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132149257416005
 MonoBehaviour:
@@ -62973,6 +62983,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 6
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132149301202523
 MonoBehaviour:
@@ -63131,6 +63142,7 @@ MonoBehaviour:
   idActor: -1
   numActor: 5
   isHuman: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
 --- !u!114 &919132149318708376
 MonoBehaviour:

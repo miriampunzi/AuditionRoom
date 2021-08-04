@@ -7,6 +7,7 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
     private List<Actor> actors;
+    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StatePerformance
     {
@@ -27,10 +28,13 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
     private int indexPerformancesScript = 0;
     private int indexPerformingActor = 0;
 
+    private bool hasStartedPlayingAnimation = false;
+
     public PerformanceStateMachineNoGame(TextMeshPro scriptTextMesh)
     {
         this.scriptTextMesh = scriptTextMesh;
         actors = EnvironmentStatusNoGame.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 
     public void Execute()
@@ -68,25 +72,74 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                     if (!StoryNoGame.hasAskedForReplay)
                     {
                         // BEGIN PERFORMANCE
-                        actors[indexPerformingActor].PerformAction();
+                        if (actors[indexPerformingActor].isHuman)
+                        {
+                            if (!hasStartedPlayingAnimation)
+                            {
+                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                actorsMonoBehavior[indexPerformingActor].PlayAnimation();
+                                hasStartedPlayingAnimation = true;
+                            }
+                        }
+                        else { 
+                            actors[indexPerformingActor].PerformAction();
+                        }
 
                         // FINISHED PERFORMANCE
-                        if (!actors[indexPerformingActor].IsPlayingPerformance())
+                        if (actors[indexPerformingActor].isHuman)
                         {
-                            currentStatePerformance = StatePerformance.Replay;
-                            indexPerformancesScript++;
+                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingAnimation())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                                hasStartedPlayingAnimation = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!actors[indexPerformingActor].IsPlayingPerformance())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                            }
                         }
                     }
                     else
                     {
                         // BEGIN REPLAY
-                        actors[indexPerformingActor].PerformReplay();
+                        if (actors[indexPerformingActor].isHuman)
+                        {
+                            if (!hasStartedPlayingAnimation)
+                            {
+                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
+                                actorsMonoBehavior[indexPerformingActor].PlayAnimation();
+                                hasStartedPlayingAnimation = true;
+                            }
+                        }
+                        else
+                        {
+                            actors[indexPerformingActor].PerformReplay();
+                        }
 
                         // FINISHED REPLAY
-                        if (!actors[indexPerformingActor].IsPlayingReplay())
+                        if (actors[indexPerformingActor].isHuman)
                         {
-                            currentStatePerformance = StatePerformance.Replay;
-                            indexPerformancesScript++;
+                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
+                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingAnimation())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                                hasStartedPlayingAnimation = false;
+                            }
+                        }
+                        else
+                        {
+                            if (!actors[indexPerformingActor].IsPlayingReplay())
+                            {
+                                currentStatePerformance = StatePerformance.Replay;
+                                indexPerformancesScript++;
+                            }
                         }
                     }
 
@@ -139,5 +192,6 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
         currentStatePerformance = StatePerformance.Presentation;
 
         actors = EnvironmentStatusNoGame.getActors();
+        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
     }
 }

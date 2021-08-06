@@ -269,12 +269,11 @@ public class EnvironmentStatus : MonoBehaviour
 
             for (int i = 0; i < NUM_FEMALE_ANIMATIONS; i++)
             {
-                femaleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "ControllerJoy" + (i + 1)));
-                femaleAnimationNames.Add("Joy" + (i + 1));
+                femaleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "FemaleControllerJoy" + (i + 1)));
+                femaleAnimationNames.Add("FemaleJoy" + (i + 1));
 
-                // TODO CHANGE
-                maleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "ControllerJoy" + (i + 1)));
-                maleAnimationNames.Add("Joy" + (i + 1));
+                maleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "MaleControllerJoy" + (i + 1)));
+                maleAnimationNames.Add("MaleJoy" + (i + 1));
             }
         }
 
@@ -303,25 +302,5 @@ public class EnvironmentStatus : MonoBehaviour
             maleAnimationNames[rnd] = maleAnimationNames[i];
             maleAnimationNames[i] = valueString;
         }
-    }
-
-    public static void Loading()
-    {
-        TextMeshPro scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
-
-        if (loadingCube == null)
-            loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
-
-        loadingCube.Show();
-        scriptTextMesh.text = "Loading...";
-        loadingCube.Move();
-    }
-
-    public static bool IsLoading()
-    {
-        if (loadingCube == null)
-            loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
-
-        return loadingCube.IsMoving();
     }
 }

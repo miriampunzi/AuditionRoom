@@ -36,6 +36,11 @@ public class ActorMonoBehavior : MonoBehaviour
 
     public void PlayAnimation()
     {
+        if (gender == 1)
+        {
+            transform.rotation = Quaternion.identity;
+        }
+
         animator.runtimeAnimatorController = animationToPlay;
         animator.enabled = true;
         animator.Rebind();

@@ -59,7 +59,7 @@ public class EnvironmentStatus : MonoBehaviour
     {
         GameObject[] gameObjects = FindObjectsOfType<GameObject>();
         List<Actor> actors = new List<Actor>();
-        int i = 0;
+        int i = 0;  // TODO remove
         foreach (GameObject actor in gameObjects)
         {
             if (actor.CompareTag("Actor"))
@@ -299,5 +299,12 @@ public class EnvironmentStatus : MonoBehaviour
             maleAnimationNames[rnd] = maleAnimationNames[i];
             maleAnimationNames[i] = valueString;
         }
+    }
+
+    public static void Loading()
+    {
+        LoadingCube loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
+
+        loadingCube.Move();
     }
 }

@@ -30,6 +30,7 @@ TagManager:
   - ChestTarget
   - HeadTarget
   - ChestAvatarToCopy
+  - LoadingCube
   layers:
   - Default
   - TransparentFX

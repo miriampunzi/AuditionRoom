@@ -264,6 +264,17 @@ public class Actor : Agent, IComparer<Actor>
         }
     }
 
+    public void LearningInBackground()
+    {
+        RequestDecision();
+        countStep++;
+        if (countStep >= EnvironmentStatus.numActions)
+        {
+            countStep = 0;
+            EndEpisode();
+        }
+    }
+
     public bool IsPlayingPerformance()
     {
         return countStep < EnvironmentStatus.numActions;

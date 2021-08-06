@@ -100,7 +100,10 @@ public class PerformanceStateMachine : MonoBehaviour
                         else
                         {
                             actors[indexPerformingActor].isForPerformance = true;
-                            actors[indexPerformingActor].PerformAction();
+                            //actors[indexPerformingActor].PerformAction();
+                            actors[indexPerformingActor].rightArmAgent.PerformAction();
+                            actors[indexPerformingActor].leftArmAgent.PerformAction();
+                            actors[indexPerformingActor].headChestAgent.PerformAction();
                         }
 
                         // FINISHED PERFORMANCE
@@ -116,7 +119,8 @@ public class PerformanceStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            if (!actors[indexPerformingActor].IsPlayingPerformance())
+                            //if (!actors[indexPerformingActor].IsPlayingPerformance())
+                            if (!actors[indexPerformingActor].rightArmAgent.IsPlayingPerformance())
                             {
                                 actors[indexPerformingActor].isForPerformance = false;
                                 currentStatePerformance = StatePerformance.Replay;
@@ -138,7 +142,10 @@ public class PerformanceStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            actors[indexPerformingActor].PerformReplay();
+                            //actors[indexPerformingActor].PerformReplay();
+                            actors[indexPerformingActor].rightArmAgent.PerformReplay();
+                            actors[indexPerformingActor].leftArmAgent.PerformReplay();
+                            actors[indexPerformingActor].headChestAgent.PerformReplay();
                         }
 
                         // FINISHED REPLAY
@@ -154,7 +161,8 @@ public class PerformanceStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            if (!actors[indexPerformingActor].IsPlayingReplay())
+                            //if (!actors[indexPerformingActor].IsPlayingReplay())
+                            if (!actors[indexPerformingActor].rightArmAgent.IsPlayingReplay())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
@@ -171,7 +179,11 @@ public class PerformanceStateMachine : MonoBehaviour
                     // YES
                     if (Story.wasYesPressed && !Story.wasNoPressed)
                     {
-                        actors[indexPerformingActor].SetupForReplay();
+                        //actors[indexPerformingActor].SetupForReplay();
+                        actors[indexPerformingActor].rightArmAgent.SetupForReplay();
+                        actors[indexPerformingActor].leftArmAgent.SetupForReplay();
+                        actors[indexPerformingActor].headChestAgent.SetupForReplay();
+
                         Story.hasAskedForReplay = true;
                         indexPerformancesScript--;
                         currentStatePerformance = StatePerformance.Performace;

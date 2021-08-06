@@ -45,7 +45,10 @@ public class ReplayStateMachine : MonoBehaviour
             if (i != Story.idActorForReplay - 1)
             {
                 actors[i].isForPerformance = false;
-                actors[i].LearnInBackground();
+                //actors[i].LearnInBackground();
+                actors[i].rightArmAgent.LearnInBackground();
+                actors[i].leftArmAgent.LearnInBackground();
+                actors[i].headChestAgent.LearnInBackground();
             }
         }
 
@@ -90,7 +93,10 @@ public class ReplayStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            actors[Story.idActorForReplay - 1].SetupForReplay();
+                            //actors[Story.idActorForReplay - 1].SetupForReplay();
+                            actors[Story.idActorForReplay - 1].rightArmAgent.SetupForReplay();
+                            actors[Story.idActorForReplay - 1].leftArmAgent.SetupForReplay();
+                            actors[Story.idActorForReplay - 1].headChestAgent.SetupForReplay();
                         }
                     }
 
@@ -107,7 +113,10 @@ public class ReplayStateMachine : MonoBehaviour
                     {
                         if (!actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
                         {
-                            actors[Story.idActorForReplay - 1].PerformReplay();
+                            //actors[Story.idActorForReplay - 1].PerformReplay();
+                            actors[Story.idActorForReplay - 1].rightArmAgent.PerformReplay();
+                            actors[Story.idActorForReplay - 1].leftArmAgent.PerformReplay();
+                            actors[Story.idActorForReplay - 1].headChestAgent.PerformReplay();
                             hasPerformedReplay = true;
                         }
                     }
@@ -138,7 +147,8 @@ public class ReplayStateMachine : MonoBehaviour
                     }
                     else
                     {
-                        if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].IsPlayingReplay())
+                        //if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].IsPlayingReplay())
+                        if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].rightArmAgent.IsPlayingReplay())
                         {
                             actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
                             trapdoorCoverDown = true;

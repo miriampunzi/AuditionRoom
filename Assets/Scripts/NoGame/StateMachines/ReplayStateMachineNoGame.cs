@@ -67,7 +67,10 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     }
                     else
                     {
-                        actors[StoryNoGame.idActorForReplay - 1].PerformReplay();
+                        //actors[StoryNoGame.idActorForReplay - 1].PerformReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].rightArmAgent.PerformReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].leftArmAgent.PerformReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].headChestAgent.PerformReplay();
                         hasPerformedReplay = true;
                     }
 
@@ -83,7 +86,7 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     }
                     else
                     {
-                        if (hasPerformedReplay && !actors[StoryNoGame.idActorForReplay - 1].IsPlayingReplay())
+                        if (hasPerformedReplay && !actors[StoryNoGame.idActorForReplay - 1].rightArmAgent.IsPlayingReplay())
                         {
                             hasPerformedReplay = false;
                             currentStateReplay = StateReplay.Continue;
@@ -97,7 +100,11 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     // YES
                     if (StoryNoGame.wasYesPressed && !StoryNoGame.wasNoPressed)
                     {
-                        actors[StoryNoGame.idActorForReplay - 1].SetupForReplay();
+                        //actors[StoryNoGame.idActorForReplay - 1].SetupForReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].rightArmAgent.SetupForReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].leftArmAgent.SetupForReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].headChestAgent.SetupForReplay();
+
                         indexReplayScript = 0;
                         currentStateReplay = StateReplay.Question;
 
@@ -106,7 +113,11 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     // NO
                     else if (!StoryNoGame.wasYesPressed && StoryNoGame.wasNoPressed)
                     {
-                        actors[StoryNoGame.idActorForReplay - 1].SetupForReplay();
+                        //actors[StoryNoGame.idActorForReplay - 1].SetupForReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].rightArmAgent.SetupForReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].leftArmAgent.SetupForReplay();
+                        actors[StoryNoGame.idActorForReplay - 1].headChestAgent.SetupForReplay();
+
                         StoryNoGame.CleanDeskVariables();
 
                         StoryNoGame.NextState();

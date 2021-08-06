@@ -63,7 +63,11 @@ public class VotingStateMachine : MonoBehaviour
                 {
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
                     {
-                        actors[i].SetupForReplay();
+                        //actors[i].SetupForReplay();
+                        actors[i].rightArmAgent.SetupForReplay();
+                        actors[i].leftArmAgent.SetupForReplay();
+                        actors[i].headChestAgent.SetupForReplay();
+
                         actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
                         actors[i].trapdoorCover.GoUpSlow();
                     }

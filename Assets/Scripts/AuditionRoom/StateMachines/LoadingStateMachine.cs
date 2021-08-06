@@ -9,6 +9,10 @@ public class LoadingStateMachine : MonoBehaviour
     private LoadingCube loadingCube;
     private List<Actor> actors;
 
+    private List<RightArmAgent> rightArmAgents = new List<RightArmAgent>();
+    private List<LeftArmAgent> leftArmAgents = new List<LeftArmAgent>();
+    private List<HeadChestAgent> headChestAgents = new List<HeadChestAgent>();        
+
     private bool isLoading = false;
 
     private enum StateLoading
@@ -41,7 +45,10 @@ public class LoadingStateMachine : MonoBehaviour
         for (int i = 0; i < actors.Count; i++)
         {
             actors[i].isForPerformance = false;
-            actors[i].LearnInBackground();
+            //actors[i].LearnInBackground();
+            actors[i].rightArmAgent.LearnInBackground();
+            actors[i].leftArmAgent.LearnInBackground();
+            actors[i].headChestAgent.LearnInBackground();
         }
 
         // update text script

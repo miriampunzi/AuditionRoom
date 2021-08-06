@@ -699,6 +699,8 @@ GameObject:
   - component: {fileID: 19401772}
   - component: {fileID: 19401771}
   - component: {fileID: 19401770}
+  - component: {fileID: 19401774}
+  - component: {fileID: 19401773}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -782,6 +784,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19401768}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &19401773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19401768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450651583811647}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &19401774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19401768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &20502792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,6 +2947,8 @@ GameObject:
   - component: {fileID: 122175416}
   - component: {fileID: 122175415}
   - component: {fileID: 122175414}
+  - component: {fileID: 122175418}
+  - component: {fileID: 122175417}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -2978,6 +3032,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122175412}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &122175417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122175412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653041823419}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &122175418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122175412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &126283641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,6 +3586,8 @@ GameObject:
   - component: {fileID: 148102832}
   - component: {fileID: 148102831}
   - component: {fileID: 148102830}
+  - component: {fileID: 148102834}
+  - component: {fileID: 148102833}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -3565,6 +3671,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148102828}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &148102833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148102828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653554185455}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &148102834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148102828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &153912019
 GameObject:
   m_ObjectHideFlags: 0
@@ -5724,8 +5880,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 4
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!65 &228408033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7261,7 +7421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9742,6 +9902,8 @@ GameObject:
   - component: {fileID: 378236662}
   - component: {fileID: 378236661}
   - component: {fileID: 378236660}
+  - component: {fileID: 378236664}
+  - component: {fileID: 378236663}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -9825,6 +9987,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378236658}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &378236663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378236658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450651583811647}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &378236664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378236658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &379659619
 GameObject:
   m_ObjectHideFlags: 0
@@ -10384,6 +10596,8 @@ GameObject:
   - component: {fileID: 392027767}
   - component: {fileID: 392027766}
   - component: {fileID: 392027765}
+  - component: {fileID: 392027769}
+  - component: {fileID: 392027768}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -10467,6 +10681,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392027763}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &392027768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392027763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653577983528}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &392027769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392027763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &399246460
 GameObject:
   m_ObjectHideFlags: 0
@@ -12570,8 +12834,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 1
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!65 &477801295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12715,6 +12983,8 @@ GameObject:
   - component: {fileID: 478549270}
   - component: {fileID: 478549269}
   - component: {fileID: 478549268}
+  - component: {fileID: 478549272}
+  - component: {fileID: 478549271}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -12798,6 +13068,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478549266}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &478549271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478549266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &478549272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478549266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &480617123
 GameObject:
   m_ObjectHideFlags: 0
@@ -14144,8 +14464,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 5
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!65 &531210506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15469,6 +15793,8 @@ GameObject:
   - component: {fileID: 589250745}
   - component: {fileID: 589250744}
   - component: {fileID: 589250743}
+  - component: {fileID: 589250747}
+  - component: {fileID: 589250746}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -15552,6 +15878,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589250741}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &589250746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589250741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &589250747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589250741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &589452487
 GameObject:
   m_ObjectHideFlags: 0
@@ -15705,6 +16081,8 @@ GameObject:
   - component: {fileID: 596517464}
   - component: {fileID: 596517463}
   - component: {fileID: 596517462}
+  - component: {fileID: 596517466}
+  - component: {fileID: 596517465}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -15788,6 +16166,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596517460}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &596517465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596517460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653462198149}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &596517466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596517460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1001 &596606666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16195,6 +16623,8 @@ GameObject:
   - component: {fileID: 608993669}
   - component: {fileID: 608993668}
   - component: {fileID: 608993667}
+  - component: {fileID: 608993671}
+  - component: {fileID: 608993670}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -16278,6 +16708,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608993665}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &608993670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608993665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450652840150794}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &608993671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608993665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1001 &614908933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16627,6 +17107,8 @@ GameObject:
   - component: {fileID: 623081547}
   - component: {fileID: 623081546}
   - component: {fileID: 623081545}
+  - component: {fileID: 623081549}
+  - component: {fileID: 623081548}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -16710,6 +17192,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623081543}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &623081548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623081543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653041823419}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &623081549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623081543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!4 &624368868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3183749884578473501, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
@@ -17068,6 +17600,8 @@ GameObject:
   - component: {fileID: 652107239}
   - component: {fileID: 652107238}
   - component: {fileID: 652107237}
+  - component: {fileID: 652107241}
+  - component: {fileID: 652107240}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -17151,6 +17685,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652107235}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &652107240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652107235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &652107241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652107235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &652476101
 GameObject:
   m_ObjectHideFlags: 0
@@ -17405,6 +17989,8 @@ GameObject:
   - component: {fileID: 670772598}
   - component: {fileID: 670772597}
   - component: {fileID: 670772596}
+  - component: {fileID: 670772600}
+  - component: {fileID: 670772599}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -17488,6 +18074,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670772594}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &670772599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670772594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &670772600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670772594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &673386614
 GameObject:
   m_ObjectHideFlags: 0
@@ -18007,7 +18643,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -19215,6 +19851,8 @@ GameObject:
   - component: {fileID: 750960209}
   - component: {fileID: 750960208}
   - component: {fileID: 750960207}
+  - component: {fileID: 750960211}
+  - component: {fileID: 750960210}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -19298,6 +19936,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750960205}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &750960210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750960205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &750960211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750960205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!4 &753201801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -22075,7 +22763,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840293373
 GameObject:
@@ -24601,8 +25289,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 3
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!54 &937445257
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26782,6 +27474,8 @@ GameObject:
   - component: {fileID: 1041516153}
   - component: {fileID: 1041516152}
   - component: {fileID: 1041516151}
+  - component: {fileID: 1041516155}
+  - component: {fileID: 1041516154}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -26865,6 +27559,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041516149}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1041516154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041516149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653554185455}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1041516155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041516149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1043032879
 GameObject:
   m_ObjectHideFlags: 0
@@ -27088,6 +27832,8 @@ GameObject:
   - component: {fileID: 1050495563}
   - component: {fileID: 1050495562}
   - component: {fileID: 1050495561}
+  - component: {fileID: 1050495565}
+  - component: {fileID: 1050495564}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -27171,6 +27917,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050495559}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1050495564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050495559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1050495565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050495559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1051988981
 GameObject:
   m_ObjectHideFlags: 0
@@ -27183,6 +27979,8 @@ GameObject:
   - component: {fileID: 1051988985}
   - component: {fileID: 1051988984}
   - component: {fileID: 1051988983}
+  - component: {fileID: 1051988987}
+  - component: {fileID: 1051988986}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -27266,6 +28064,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051988981}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1051988986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051988981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450651583811647}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1051988987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051988981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1055044718
 GameObject:
   m_ObjectHideFlags: 0
@@ -27625,6 +28473,8 @@ GameObject:
   - component: {fileID: 1086903125}
   - component: {fileID: 1086903124}
   - component: {fileID: 1086903123}
+  - component: {fileID: 1086903127}
+  - component: {fileID: 1086903126}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -27708,6 +28558,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086903121}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1086903126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086903121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450652840150794}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1086903127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086903121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!4 &1094829221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: e6413e5e5af4bf743a0d5600d82c9575, type: 3}
@@ -30107,6 +31007,8 @@ GameObject:
   - component: {fileID: 1188620774}
   - component: {fileID: 1188620773}
   - component: {fileID: 1188620772}
+  - component: {fileID: 1188620776}
+  - component: {fileID: 1188620775}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -30190,6 +31092,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188620770}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1188620775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188620770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653577983528}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1188620776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188620770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1189868406
 GameObject:
   m_ObjectHideFlags: 0
@@ -30934,6 +31886,8 @@ GameObject:
   - component: {fileID: 1219543626}
   - component: {fileID: 1219543625}
   - component: {fileID: 1219543624}
+  - component: {fileID: 1219543628}
+  - component: {fileID: 1219543627}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -31017,6 +31971,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219543622}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1219543627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219543622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1219543628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219543622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1226436771
 GameObject:
   m_ObjectHideFlags: 0
@@ -32618,8 +33622,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 2
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!65 &1278871151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34916,6 +35924,8 @@ GameObject:
   - component: {fileID: 1383797927}
   - component: {fileID: 1383797926}
   - component: {fileID: 1383797925}
+  - component: {fileID: 1383797929}
+  - component: {fileID: 1383797928}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -34999,6 +36009,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383797923}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1383797928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383797923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1383797929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383797923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1388552943
 GameObject:
   m_ObjectHideFlags: 0
@@ -35629,6 +36689,8 @@ GameObject:
   - component: {fileID: 1407781993}
   - component: {fileID: 1407781992}
   - component: {fileID: 1407781991}
+  - component: {fileID: 1407781995}
+  - component: {fileID: 1407781994}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -35712,6 +36774,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407781989}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1407781994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407781989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450652840150794}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1407781995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407781989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1408204388
 GameObject:
   m_ObjectHideFlags: 0
@@ -36752,7 +37864,7 @@ RectTransform:
   - {fileID: 802556393}
   - {fileID: 1441354824}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -37949,6 +39061,8 @@ GameObject:
   - component: {fileID: 1474533937}
   - component: {fileID: 1474533936}
   - component: {fileID: 1474533935}
+  - component: {fileID: 1474533939}
+  - component: {fileID: 1474533938}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -38032,6 +39146,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474533933}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1474533938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474533933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653554185455}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1474533939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474533933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1485588524
 GameObject:
   m_ObjectHideFlags: 0
@@ -38576,7 +39740,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490418018
 GameObject:
@@ -40343,6 +41507,8 @@ GameObject:
   - component: {fileID: 1557182112}
   - component: {fileID: 1557182111}
   - component: {fileID: 1557182110}
+  - component: {fileID: 1557182114}
+  - component: {fileID: 1557182113}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -40426,6 +41592,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557182108}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1557182113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557182108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1557182114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557182108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1558324202
 GameObject:
   m_ObjectHideFlags: 0
@@ -41574,6 +42790,8 @@ GameObject:
   - component: {fileID: 1605253535}
   - component: {fileID: 1605253534}
   - component: {fileID: 1605253533}
+  - component: {fileID: 1605253537}
+  - component: {fileID: 1605253536}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -41657,6 +42875,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605253531}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1605253536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605253531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1605253537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605253531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!4 &1607795504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8400955822856789975, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
@@ -47800,6 +49068,8 @@ GameObject:
   - component: {fileID: 1812752172}
   - component: {fileID: 1812752171}
   - component: {fileID: 1812752170}
+  - component: {fileID: 1812752174}
+  - component: {fileID: 1812752173}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -47883,6 +49153,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812752168}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1812752173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812752168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653462198149}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1812752174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812752168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1812848026
 GameObject:
   m_ObjectHideFlags: 0
@@ -50573,6 +51893,8 @@ GameObject:
   - component: {fileID: 1949837524}
   - component: {fileID: 1949837523}
   - component: {fileID: 1949837522}
+  - component: {fileID: 1949837526}
+  - component: {fileID: 1949837525}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -50656,6 +51978,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949837520}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1949837525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949837520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653041823419}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1949837526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949837520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1951430175
 GameObject:
   m_ObjectHideFlags: 0
@@ -51101,6 +52473,8 @@ GameObject:
   - component: {fileID: 1974191281}
   - component: {fileID: 1974191280}
   - component: {fileID: 1974191279}
+  - component: {fileID: 1974191283}
+  - component: {fileID: 1974191282}
   m_Layer: 0
   m_Name: RightArmTarget
   m_TagString: RightTarget
@@ -51184,6 +52558,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974191277}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1974191282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974191277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1b1c41e7bfb94cbb369fe0b5452e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653462198149}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1974191283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974191277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: RightArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1979086721
 GameObject:
   m_ObjectHideFlags: 0
@@ -51358,6 +52782,8 @@ GameObject:
   - component: {fileID: 1980255753}
   - component: {fileID: 1980255752}
   - component: {fileID: 1980255751}
+  - component: {fileID: 1980255755}
+  - component: {fileID: 1980255754}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -51441,6 +52867,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980255749}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1980255754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980255749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &1980255755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980255749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &1983791167
 GameObject:
   m_ObjectHideFlags: 0
@@ -52175,6 +53651,8 @@ GameObject:
   - component: {fileID: 2006726598}
   - component: {fileID: 2006726597}
   - component: {fileID: 2006726596}
+  - component: {fileID: 2006726600}
+  - component: {fileID: 2006726599}
   m_Layer: 0
   m_Name: ChestTarget
   m_TagString: ChestTarget
@@ -52258,6 +53736,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006726594}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2006726599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006726594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ca68e8c65aeff409b8d90cab12150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 543450653577983528}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &2006726600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006726594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 12
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: HeadChestMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1001 &2006831600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54234,760 +55762,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084294759}
   m_Mesh: {fileID: -5790159474209698859, guid: 165f8ebe5c5c3594b919c11831ed79d8, type: 3}
---- !u!1001 &2086291260
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -9070493210130169274, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: mixamorig:RightArm
-      objectReference: {fileID: 0}
-    - target: {fileID: -9070493210130169274, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: RightArmAvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.26041204
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.24
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8021001004253913084, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.3505006
-      objectReference: {fileID: 0}
-    - target: {fileID: -8021001004253913084, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.37084472
-      objectReference: {fileID: 0}
-    - target: {fileID: -8021001004253913084, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.40173864
-      objectReference: {fileID: 0}
-    - target: {fileID: -6874584590210671055, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -12.828098
-      objectReference: {fileID: 0}
-    - target: {fileID: -6874584590210671055, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -1.4157274
-      objectReference: {fileID: 0}
-    - target: {fileID: -6874584590210671055, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 9.762415
-      objectReference: {fileID: 0}
-    - target: {fileID: -6803169544883306252, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -4.420389
-      objectReference: {fileID: 0}
-    - target: {fileID: -6803169544883306252, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 19.071194
-      objectReference: {fileID: 0}
-    - target: {fileID: -6803169544883306252, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -35.570724
-      objectReference: {fileID: 0}
-    - target: {fileID: -4728426434207774260, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: mixamorig:LeftHand
-      objectReference: {fileID: 0}
-    - target: {fileID: -4728426434207774260, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: LeftHandAvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: -3746190272939815206, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 20.582518
-      objectReference: {fileID: 0}
-    - target: {fileID: -3746190272939815206, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 9.612989
-      objectReference: {fileID: 0}
-    - target: {fileID: -3746190272939815206, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 6.4891343
-      objectReference: {fileID: 0}
-    - target: {fileID: -3480699329000672020, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.2909669
-      objectReference: {fileID: 0}
-    - target: {fileID: -3480699329000672020, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.011080176
-      objectReference: {fileID: 0}
-    - target: {fileID: -3480699329000672020, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.24538596
-      objectReference: {fileID: 0}
-    - target: {fileID: -3321919801592875672, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -9.796319
-      objectReference: {fileID: 0}
-    - target: {fileID: -3321919801592875672, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.7435293
-      objectReference: {fileID: 0}
-    - target: {fileID: -3321919801592875672, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -3.7318065
-      objectReference: {fileID: 0}
-    - target: {fileID: -2770666803903516498, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.275947
-      objectReference: {fileID: 0}
-    - target: {fileID: -2770666803903516498, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.0000031163227
-      objectReference: {fileID: 0}
-    - target: {fileID: -2770666803903516498, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.00075405836
-      objectReference: {fileID: 0}
-    - target: {fileID: -2072040086291044643, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 24.567587
-      objectReference: {fileID: 0}
-    - target: {fileID: -2072040086291044643, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -7.742859
-      objectReference: {fileID: 0}
-    - target: {fileID: -2072040086291044643, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -4.7141685
-      objectReference: {fileID: 0}
-    - target: {fileID: -1781356600409242780, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: HeadAvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: -290750445479886849, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: mixamorig:RightForeArm
-      objectReference: {fileID: 0}
-    - target: {fileID: -290750445479886849, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: RightForeArmAvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: 366175167995203695, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.3499308
-      objectReference: {fileID: 0}
-    - target: {fileID: 366175167995203695, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.37333623
-      objectReference: {fileID: 0}
-    - target: {fileID: 366175167995203695, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.40153673
-      objectReference: {fileID: 0}
-    - target: {fileID: 608321761475470972, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -11.459198
-      objectReference: {fileID: 0}
-    - target: {fileID: 608321761475470972, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 5.895964
-      objectReference: {fileID: 0}
-    - target: {fileID: 608321761475470972, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -12.807791
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: AvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: AvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559285840627121667, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -9.426153
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559285840627121667, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -14.463359
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559285840627121667, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -9.832177
-      objectReference: {fileID: 0}
-    - target: {fileID: 2715566404302941441, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: mixamorig:RightHand
-      objectReference: {fileID: 0}
-    - target: {fileID: 2715566404302941441, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: RightHandAvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916570863362053800, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.28419137
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916570863362053800, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.0000012988687
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916570863362053800, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.0000015086339
-      objectReference: {fileID: 0}
-    - target: {fileID: 3948933247560734027, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: mixamorig:LeftForeArm
-      objectReference: {fileID: 0}
-    - target: {fileID: 3948933247560734027, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: LeftForeArmAvatarToCopy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5465940246521907071, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.49182338
-      objectReference: {fileID: 0}
-    - target: {fileID: 5465940246521907071, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.316017
-      objectReference: {fileID: 0}
-    - target: {fileID: 5465940246521907071, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.7051005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6515712193588681746, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.1044104
-      objectReference: {fileID: 0}
-    - target: {fileID: 6515712193588681746, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.17551863
-      objectReference: {fileID: 0}
-    - target: {fileID: 6515712193588681746, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.5178709
-      objectReference: {fileID: 0}
-    - target: {fileID: 7078722787440015773, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -12.536153
-      objectReference: {fileID: 0}
-    - target: {fileID: 7078722787440015773, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -17.21632
-      objectReference: {fileID: 0}
-    - target: {fileID: 7078722787440015773, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 42.72199
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169382868667117632, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -5.778204
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169382868667117632, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 12.4908695
-      objectReference: {fileID: 0}
-    - target: {fileID: 8169382868667117632, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 7.458706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8817898888258712963, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_Name
-      value: mixamorig:LeftArm
-      objectReference: {fileID: 0}
-    - target: {fileID: 8817898888258712963, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-      propertyPath: m_TagString
-      value: LeftArmAvatarToCopy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
---- !u!1 &2086291261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2086291262
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086291261}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a909a80033932234787ea9d2e949eced, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &2086291264 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291265 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3480699329000672020, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291266 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8021001004253913084, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291267 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 366175167995203695, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291268 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7078722787440015773, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291269 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6000407479487422213, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291270 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2563496969622287784, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291271 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291272 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8447082967072642302, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291273 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -870823317777057635, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291274 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7219772299731422950, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291275 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 234480625599603528, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291276 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -104578136787704052, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291277 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2899422035419094908, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291278 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1092408308860062549, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291279 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6897756558726502734, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1189529853000058984, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291281 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5372056943023685468, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291282 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6768225281626788248, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291283 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3153535790306996272, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291284 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3667946887678727147, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291285 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6341119541397085964, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291286 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6024149945523619558, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291287 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8400955822856789975, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291288 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1070350730909333850, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291289 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5480977901411583989, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291290 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5097370190579632962, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291291 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1293157592579415587, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291292 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6515712193588681746, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291293 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291294 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5953981544481626711, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291295 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -9117222261170815195, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291296 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291297 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6803169544883306252, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291298 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3432401550182100168, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291299 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1812909498023395591, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291300 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291301 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5048025441337412694, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291302 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6857788192064577062, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291303 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8191740002585371210, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291304 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6297854906677940197, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291305 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2594260964506120097, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291306 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1564860333797465651, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291307 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5665043316445423941, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291308 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -972137825769415166, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291309 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4747904710347621765, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291310 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6655383506977046455, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291311 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8068027186691560116, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291312 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8725540660313892278, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291313 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8255111157037086696, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291314 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2389525917609993686, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291315 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3183749884578473501, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291316 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7934756007121485630, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291317 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1330755669629619180, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291318 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7666680083751660616, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291319 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1864740628597940677, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8333627713332763490, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291321 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8169382868667117632, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291322 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3746190272939815206, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 608321761475470972, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291324 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2916570863362053800, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291325 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8044669281949152778, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2559285840627121667, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291327 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2072040086291044643, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291328 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6874584590210671055, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291329 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2770666803903516498, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2086291330 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4042427859692680568, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
-  m_PrefabInstance: {fileID: 2086291260}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2086291331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086291261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneShape: 1
-  drawBones: 1
-  drawTripods: 0
-  boneSize: 1
-  tripodSize: 1
-  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
-  m_Transforms:
-  - {fileID: 2086291264}
-  - {fileID: 2086291326}
-  - {fileID: 2086291327}
-  - {fileID: 2086291328}
-  - {fileID: 2086291329}
-  - {fileID: 2086291330}
-  - {fileID: 2086291321}
-  - {fileID: 2086291322}
-  - {fileID: 2086291323}
-  - {fileID: 2086291324}
-  - {fileID: 2086291325}
-  - {fileID: 2086291265}
-  - {fileID: 2086291266}
-  - {fileID: 2086291267}
-  - {fileID: 2086291297}
-  - {fileID: 2086291298}
-  - {fileID: 2086291299}
-  - {fileID: 2086291300}
-  - {fileID: 2086291317}
-  - {fileID: 2086291318}
-  - {fileID: 2086291319}
-  - {fileID: 2086291320}
-  - {fileID: 2086291313}
-  - {fileID: 2086291314}
-  - {fileID: 2086291315}
-  - {fileID: 2086291316}
-  - {fileID: 2086291309}
-  - {fileID: 2086291310}
-  - {fileID: 2086291311}
-  - {fileID: 2086291312}
-  - {fileID: 2086291305}
-  - {fileID: 2086291306}
-  - {fileID: 2086291307}
-  - {fileID: 2086291308}
-  - {fileID: 2086291301}
-  - {fileID: 2086291302}
-  - {fileID: 2086291303}
-  - {fileID: 2086291304}
-  - {fileID: 2086291292}
-  - {fileID: 2086291293}
-  - {fileID: 2086291296}
-  - {fileID: 2086291295}
-  - {fileID: 2086291294}
-  - {fileID: 2086291268}
-  - {fileID: 2086291269}
-  - {fileID: 2086291270}
-  - {fileID: 2086291271}
-  - {fileID: 2086291288}
-  - {fileID: 2086291289}
-  - {fileID: 2086291290}
-  - {fileID: 2086291291}
-  - {fileID: 2086291284}
-  - {fileID: 2086291285}
-  - {fileID: 2086291286}
-  - {fileID: 2086291287}
-  - {fileID: 2086291280}
-  - {fileID: 2086291281}
-  - {fileID: 2086291282}
-  - {fileID: 2086291283}
-  - {fileID: 2086291276}
-  - {fileID: 2086291277}
-  - {fileID: 2086291278}
-  - {fileID: 2086291279}
-  - {fileID: 2086291272}
-  - {fileID: 2086291273}
-  - {fileID: 2086291274}
-  - {fileID: 2086291275}
 --- !u!1 &2087052658
 GameObject:
   m_ObjectHideFlags: 0
@@ -55295,6 +56069,8 @@ GameObject:
   - component: {fileID: 2096363583}
   - component: {fileID: 2096363582}
   - component: {fileID: 2096363581}
+  - component: {fileID: 2096363585}
+  - component: {fileID: 2096363584}
   m_Layer: 0
   m_Name: LeftArmTarget
   m_TagString: LeftTarget
@@ -55378,6 +56154,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096363579}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2096363584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096363579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e823e4514845941886150cc8aa7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  actorTransform: {fileID: 0}
+  isForPerformance: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  countStep: 0
+--- !u!114 &2096363585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096363579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 6
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: LeftArmMovement
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
 --- !u!1 &2099982115
 GameObject:
   m_ObjectHideFlags: 0
@@ -62561,8 +63387,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 2
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!114 &919132147915934347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62841,8 +63671,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 1
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!114 &919132148772066309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63047,8 +63881,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 3
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!114 &919132148849286582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63238,8 +64076,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 4
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!114 &919132149257416005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63397,8 +64239,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 6
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!114 &919132149301202523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63556,8 +64402,12 @@ MonoBehaviour:
   idActor: -1
   numActor: 5
   isHuman: 0
+  isForPerformance: 0
   initialPosition: {x: 0, y: 0, z: 0}
   trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!114 &919132149318708376
 MonoBehaviour:
   m_ObjectHideFlags: 0

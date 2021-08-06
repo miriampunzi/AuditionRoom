@@ -12,17 +12,17 @@ public class LoadingCube : MonoBehaviour
 		anim = GetComponent<Animation>();
 
 		// GoUpSlow
-		AnimationCurve xTransition = AnimationCurve.Linear(0, transform.localPosition.x, 10, -0.23f);
-		AnimationCurve yTransition = AnimationCurve.Linear(0, transform.localPosition.y, 10, transform.localPosition.y);
-		AnimationCurve zTransition = AnimationCurve.Linear(0, transform.localPosition.z, 10, transform.localPosition.z);
+		AnimationCurve xTransition = AnimationCurve.Linear(0, 0.252f, 3, -0.23f);
+		AnimationCurve yTransition = AnimationCurve.Linear(0, transform.localPosition.y, 3, transform.localPosition.y);
+		AnimationCurve zTransition = AnimationCurve.Linear(0, transform.localPosition.z, 3, transform.localPosition.z);
 
-		AnimationClip goUpSlowClip = new AnimationClip();
-		goUpSlowClip.SetCurve("", typeof(Transform), "localPosition.x", xTransition);
-		goUpSlowClip.SetCurve("", typeof(Transform), "localPosition.y", yTransition);
-		goUpSlowClip.SetCurve("", typeof(Transform), "localPosition.z", zTransition);
+		AnimationClip moveClip = new AnimationClip();
+		moveClip.SetCurve("", typeof(Transform), "localPosition.x", xTransition);
+		moveClip.SetCurve("", typeof(Transform), "localPosition.y", yTransition);
+		moveClip.SetCurve("", typeof(Transform), "localPosition.z", zTransition);
 
-		goUpSlowClip.legacy = true;
-		anim.AddClip(goUpSlowClip, "Move");
+		moveClip.legacy = true;
+		anim.AddClip(moveClip, "Move");
 	}
 
 	public void Move()
@@ -33,5 +33,15 @@ public class LoadingCube : MonoBehaviour
 	public bool IsMoving()
 	{
 		return anim.IsPlaying("Move");
+	}
+
+	public void Show()
+    {
+		GetComponent<MeshRenderer>().enabled = true;
+    }
+
+	public void Hide()
+    {
+		GetComponent<MeshRenderer>().enabled = false;
 	}
 }

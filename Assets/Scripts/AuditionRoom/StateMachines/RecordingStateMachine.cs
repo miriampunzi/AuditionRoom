@@ -109,8 +109,6 @@ public class RecordingStateMachine : MonoBehaviour
                         Story.wasNoPressed = false;
                         Story.wasYesPressed = false;
 
-                        EnvironmentStatus.Loading();
-
                         Story.NextState();
                     }
 

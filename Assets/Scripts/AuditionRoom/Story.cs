@@ -7,6 +7,7 @@ using UnityEngine;
 public class Story : MonoBehaviour
 {
     public static RecordingStateMachine recordingStateMachine;
+    public static LoadingStateMachine loadingStateMachine;
     public static PerformanceStateMachine performanceStateMachine;
     public static ReplayStateMachine replayStateMachine;
     public static VotingStateMachine votingStateMachine;
@@ -19,6 +20,7 @@ public class Story : MonoBehaviour
     public enum State
     {
         Recording,
+        Loading,
         Performance,
         Replay,
         Voting
@@ -73,6 +75,7 @@ public class Story : MonoBehaviour
         scriptTextMesh = GetComponent<TextMeshPro>();
 
         recordingStateMachine = new RecordingStateMachine(scriptTextMesh);
+        loadingStateMachine = new LoadingStateMachine();
         performanceStateMachine = new PerformanceStateMachine(scriptTextMesh);
         replayStateMachine = new ReplayStateMachine(scriptTextMesh);
         votingStateMachine = new VotingStateMachine(scriptTextMesh);
@@ -84,6 +87,10 @@ public class Story : MonoBehaviour
         {
             case State.Recording:
                 recordingStateMachine.Execute();
+                break;
+
+            case State.Loading:
+                loadingStateMachine.Execute();
                 break;
 
             case State.Performance:
@@ -125,8 +132,14 @@ public class Story : MonoBehaviour
         switch (currentState)
         {
             case State.Recording:
-                currentState = State.Performance;
+                currentState = State.Loading;
                 recordingStateMachine.ResetStateMachine();
+
+                break;
+
+            case State.Loading:
+                currentState = State.Performance;
+                loadingStateMachine.ResetStateMachine();
 
                 break;
 

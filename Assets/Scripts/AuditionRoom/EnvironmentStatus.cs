@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class EnvironmentStatus : MonoBehaviour
     public static List<ActorMonoBehavior> allActorMonoBehaviors;
     public static int ALL_ACTORS = 6;
     public static List<TrapdoorCover> trapdoorCovers;
+
+    static LoadingCube loadingCube;
+    public static bool hasStartedLoading = false;
 
     static List<bool> avatarTypes = new List<bool>()
     {
@@ -303,8 +307,21 @@ public class EnvironmentStatus : MonoBehaviour
 
     public static void Loading()
     {
-        LoadingCube loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
+        TextMeshPro scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
 
+        if (loadingCube == null)
+            loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
+
+        loadingCube.Show();
+        scriptTextMesh.text = "Loading...";
         loadingCube.Move();
+    }
+
+    public static bool IsLoading()
+    {
+        if (loadingCube == null)
+            loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
+
+        return loadingCube.IsMoving();
     }
 }

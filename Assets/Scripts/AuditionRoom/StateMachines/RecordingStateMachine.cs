@@ -58,9 +58,9 @@ public class RecordingStateMachine : MonoBehaviour
 
                 case StateRecording.Ready:
                     // X PRESSING
-                    if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
 
-                    //if (Input.GetKeyDown("x"))
+                    if (Input.GetKeyDown("x"))
                     {
                         indexInScript++;
                         currentStateRecording = StateRecording.Performance;
@@ -76,9 +76,9 @@ public class RecordingStateMachine : MonoBehaviour
                     RecordMovement.Record();
 
                     // X PRESSING
-                    if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+                    //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
 
-                    //if (Input.GetKeyDown("x"))
+                    if (Input.GetKeyDown("x"))
                     {
                         indexInScript++;
                         currentStateRecording = StateRecording.Continue;

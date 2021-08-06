@@ -39,34 +39,34 @@ public class Story : MonoBehaviour
 
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
-        {
-            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
+        //if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
+        //{
+        //    Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
 
-            GameObject VRCamera = GameObject.Find("Camera");
-            Camera camera = VRCamera.GetComponent<Camera>();
-            camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = Color.black;
-        }
+        //    GameObject VRCamera = GameObject.Find("Camera");
+        //    Camera camera = VRCamera.GetComponent<Camera>();
+        //    camera.clearFlags = CameraClearFlags.SolidColor;
+        //    camera.backgroundColor = Color.black;
+        //}
 
-        if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
-        {
-            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
+        //if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
+        //{
+        //    Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
 
-            GameObject colliderEventCasterR = GameObject.Find("ViveColliders/Right/PoseTracker/ColliderEventCaster");
-            colliderEventCasterR.SetActive(true);
-            GameObject sphereColliderR = GameObject.Find("ViveColliders/Right/PoseTracker/ColliderEventCaster/SphereCollider");
-            sphereColliderR.GetComponent<SphereCollider>().isTrigger = true;
-            GameObject boxColliderR = GameObject.Find("ViveColliders/Right/PoseTracker/ColliderEventCaster/BoxCollider");
-            boxColliderR.GetComponent<SphereCollider>().isTrigger = true;
+        //    GameObject colliderEventCasterR = GameObject.Find("ViveColliders/Right/PoseTracker/ColliderEventCaster");
+        //    colliderEventCasterR.SetActive(true);
+        //    GameObject sphereColliderR = GameObject.Find("ViveColliders/Right/PoseTracker/ColliderEventCaster/SphereCollider");
+        //    sphereColliderR.GetComponent<SphereCollider>().isTrigger = true;
+        //    GameObject boxColliderR = GameObject.Find("ViveColliders/Right/PoseTracker/ColliderEventCaster/BoxCollider");
+        //    boxColliderR.GetComponent<SphereCollider>().isTrigger = true;
 
-            GameObject colliderEventCasterL = GameObject.Find("ViveColliders/Left/PoseTracker/ColliderEventCaster");
-            colliderEventCasterL.SetActive(true);
-            GameObject sphereColliderL = GameObject.Find("ViveColliders/Left/PoseTracker/ColliderEventCaster/SphereCollider");
-            sphereColliderL.GetComponent<SphereCollider>().isTrigger = true;
-            GameObject boxColliderL = GameObject.Find("ViveColliders/Left/PoseTracker/ColliderEventCaster/BoxCollider");
-            boxColliderL.GetComponent<SphereCollider>().isTrigger = true;
-        }
+        //    GameObject colliderEventCasterL = GameObject.Find("ViveColliders/Left/PoseTracker/ColliderEventCaster");
+        //    colliderEventCasterL.SetActive(true);
+        //    GameObject sphereColliderL = GameObject.Find("ViveColliders/Left/PoseTracker/ColliderEventCaster/SphereCollider");
+        //    sphereColliderL.GetComponent<SphereCollider>().isTrigger = true;
+        //    GameObject boxColliderL = GameObject.Find("ViveColliders/Left/PoseTracker/ColliderEventCaster/BoxCollider");
+        //    boxColliderL.GetComponent<SphereCollider>().isTrigger = true;
+        //}
 
         EnvironmentStatus.PlaceActors();
 

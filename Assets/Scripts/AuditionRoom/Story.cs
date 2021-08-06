@@ -91,6 +91,14 @@ public class Story : MonoBehaviour
                 break;
 
             case State.LoadingPerformances:
+                loadingStateMachine.SetScript(
+                    new ArrayList()
+                    {
+                        "Processing movement...",
+                        "Actors are learning...",
+                        "Almost done..."
+                    }
+                );
                 loadingStateMachine.Execute();
                 break;
 
@@ -103,6 +111,14 @@ public class Story : MonoBehaviour
                 break;
 
             case State.LoadingVoting:
+                loadingStateMachine.SetScript(
+                    new ArrayList()
+                    {
+                        "Loading...",
+                        "Loading...",
+                        "Loading..."
+                    }
+                );
                 loadingStateMachine.Execute();
                 break;
 

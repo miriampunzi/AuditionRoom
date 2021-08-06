@@ -18,12 +18,7 @@ public class LoadingStateMachine : MonoBehaviour
         Third
     }
 
-    private ArrayList loadingScript = new ArrayList()
-    {
-        "Processing movement...",
-        "Actors are learning...",
-        "Almost done..."
-    };
+    private ArrayList loadingScript;
 
     private StateLoading currentStateLoading = StateLoading.First;
     private int indexLoadingScript = 0;
@@ -34,6 +29,12 @@ public class LoadingStateMachine : MonoBehaviour
         loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
         actors = EnvironmentStatusNoGame.getActors();
     }
+
+    public void SetScript(ArrayList loadingScript)
+    {
+        this.loadingScript = loadingScript;
+    }
+
     public void Execute()
     {
         // Learning in background underground
@@ -110,10 +111,7 @@ public class LoadingStateMachine : MonoBehaviour
 
                     break;
             }
-        }   
-
-
-        
+        }        
     }
 
     public void ResetStateMachine()

@@ -81,7 +81,8 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                                 hasStartedPlayingAnimation = true;
                             }
                         }
-                        else { 
+                        else {
+                            actors[indexPerformingActor].isForPerformance = true;
                             actors[indexPerformingActor].PerformAction();
                         }
 

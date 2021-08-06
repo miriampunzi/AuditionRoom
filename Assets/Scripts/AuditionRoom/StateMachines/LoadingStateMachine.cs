@@ -7,6 +7,7 @@ public class LoadingStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
     private LoadingCube loadingCube;
+    private List<Actor> actors;
 
     private bool isLoading = false;
 
@@ -31,9 +32,16 @@ public class LoadingStateMachine : MonoBehaviour
     {
         scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
         loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
+        actors = EnvironmentStatusNoGame.getActors();
     }
     public void Execute()
     {
+        for (int i = 0; i < actors.Count; i++)
+        {
+            actors[i].isForPerformance = false;
+            actors[i].LearnInBackground();
+        }
+
         // update text script
         if (indexLoadingScript < loadingScript.Count)
         {
@@ -90,6 +98,12 @@ public class LoadingStateMachine : MonoBehaviour
                     {
                         loadingCube.Hide();
                         isLoading = false;
+
+                        for (int i = 0; i < actors.Count; i++)
+                        {
+                            actors[i].EndEpisode();
+                        }
+
                         Story.NextState();
                     }
 

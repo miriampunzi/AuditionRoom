@@ -14,12 +14,14 @@ public class Actor : Agent, IComparer<Actor>
 
     public bool isHuman;
 
+    public bool isForPerformance = false;
+
     public Vector3 initialPosition;
 
     public TrapdoorCover trapdoorCover;
 
     // FOR ML ALGORITHM
-    private int countStep = 0;          // counts the actions to take in each episode
+    public int countStep = 0;          // counts the actions to take in each episode
     private bool hasRecorded = false;   // has the avatar to copy finished the performance?
     private int indexReplay = 0;        // index in the array of performed rotations to do replay
     private float moveSpeed = 5f;       // speed to move cubes used as target as IK. For now it's random, I don't know which number is the best
@@ -264,7 +266,7 @@ public class Actor : Agent, IComparer<Actor>
         }
     }
 
-    public void LearningInBackground()
+    public void LearnInBackground()
     {
         RequestDecision();
         countStep++;
@@ -272,6 +274,7 @@ public class Actor : Agent, IComparer<Actor>
         {
             countStep = 0;
             EndEpisode();
+            Debug.Log("EPISODE ENDED");
         }
     }
 
@@ -342,6 +345,8 @@ public class Actor : Agent, IComparer<Actor>
 
         // reset index in array for replay
         indexReplay = 0;
+
+        Debug.Log(targetRightArm.localPosition + " " + targetChest.localPosition + " " + targetHead.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -402,8 +407,11 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateRightArmZ) * Time.deltaTime * moveSpeed * 500);
 
         // save movement performed by the right target cube
-        performedPositionsRightTarget.Add(new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ));
-        performedRotationsRightTarget.Add(new Vector3(rotateRightArmX, rotateRightArmY, rotateRightArmZ));
+        if (!isForPerformance)
+        {
+            performedPositionsRightTarget.Add(new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ));
+            performedRotationsRightTarget.Add(new Vector3(rotateRightArmX, rotateRightArmY, rotateRightArmZ));
+        }
 
         // LEFT ARM
 
@@ -424,8 +432,11 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateLeftArmZ) * Time.deltaTime * moveSpeed * 500);
 
         // save movement performed by the left target cube
-        performedPositionsLeftTarget.Add(new Vector3(moveLeftArmX, moveLeftArmY, moveLeftArmZ));
-        performedRotationsLeftTarget.Add(new Vector3(rotateLeftArmX, rotateLeftArmY, rotateLeftArmZ));
+        if (!isForPerformance)
+        {
+            performedPositionsLeftTarget.Add(new Vector3(moveLeftArmX, moveLeftArmY, moveLeftArmZ));
+            performedRotationsLeftTarget.Add(new Vector3(rotateLeftArmX, rotateLeftArmY, rotateLeftArmZ));
+        }
 
         // HEAD
 
@@ -446,8 +457,11 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateHeadZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
-        performedPositionsHeadTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
-        performedRotationsHeadTarget.Add(new Vector3(rotateHeadX, rotateHeadY, rotateHeadZ));
+        if (!isForPerformance)
+        {
+            performedPositionsHeadTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
+            performedRotationsHeadTarget.Add(new Vector3(rotateHeadX, rotateHeadY, rotateHeadZ));
+        }
 
         // CHEST
 
@@ -468,8 +482,11 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateChestZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
-        performedPositionsChestTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));
-        performedRotationsChestTarget.Add(new Vector3(rotateChestX, rotateChestY, rotateChestZ));
+        if (!isForPerformance)
+        {
+            performedPositionsChestTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));
+            performedRotationsChestTarget.Add(new Vector3(rotateChestX, rotateChestY, rotateChestZ));
+        }
     }
 
     // method used to be able to order a list of Actors based on their idActor

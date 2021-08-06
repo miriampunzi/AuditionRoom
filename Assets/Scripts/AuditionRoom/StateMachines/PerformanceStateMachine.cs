@@ -98,7 +98,10 @@ public class PerformanceStateMachine : MonoBehaviour
                             }
                         }
                         else
+                        {
+                            actors[indexPerformingActor].isForPerformance = true;
                             actors[indexPerformingActor].PerformAction();
+                        }
 
                         // FINISHED PERFORMANCE
                         if (actors[indexPerformingActor].isHuman)

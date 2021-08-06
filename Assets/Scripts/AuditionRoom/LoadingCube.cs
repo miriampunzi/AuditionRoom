@@ -12,9 +12,9 @@ public class LoadingCube : MonoBehaviour
 		anim = GetComponent<Animation>();
 
 		// GoUpSlow
-		AnimationCurve xTransition = AnimationCurve.Linear(0, 0.252f, 3, -0.23f);
-		AnimationCurve yTransition = AnimationCurve.Linear(0, transform.localPosition.y, 3, transform.localPosition.y);
-		AnimationCurve zTransition = AnimationCurve.Linear(0, transform.localPosition.z, 3, transform.localPosition.z);
+		AnimationCurve xTransition = AnimationCurve.Linear(0, 0.252f, 4, -0.23f);
+		AnimationCurve yTransition = AnimationCurve.Linear(0, transform.localPosition.y, 4, transform.localPosition.y);
+		AnimationCurve zTransition = AnimationCurve.Linear(0, transform.localPosition.z, 4, transform.localPosition.z);
 
 		AnimationClip moveClip = new AnimationClip();
 		moveClip.SetCurve("", typeof(Transform), "localPosition.x", xTransition);

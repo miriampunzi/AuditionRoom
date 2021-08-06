@@ -159,7 +159,10 @@ public class VotingStateMachine : MonoBehaviour
 
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
                     {
-                        actors[i].EndEpisode();
+                        //actors[i].EndEpisode();
+                        actors[i].rightArmAgent.EndEpisode();
+                        actors[i].leftArmAgent.EndEpisode();
+                        actors[i].headChestAgent.EndEpisode();
                     }
 
                     indexVotingScript++;

@@ -110,7 +110,10 @@ public class LoadingStateMachine : MonoBehaviour
 
                         for (int i = 0; i < actors.Count; i++)
                         {
-                            actors[i].EndEpisode();
+                            //actors[i].EndEpisode();
+                            actors[i].rightArmAgent.EndEpisode();
+                            actors[i].leftArmAgent.EndEpisode();
+                            actors[i].headChestAgent.EndEpisode();
                         }
 
                         Story.NextState();

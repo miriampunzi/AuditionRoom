@@ -7,7 +7,7 @@ using Unity.MLAgents.Sensors;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class Actor : Agent, IComparer<Actor>
+public class Actor : MonoBehaviour, IComparer<Actor>
 {
     public int idActor;
     public int numActor;

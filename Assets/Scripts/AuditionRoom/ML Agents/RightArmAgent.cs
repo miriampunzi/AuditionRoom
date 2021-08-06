@@ -151,6 +151,8 @@ public class RightArmAgent : Agent
         // scan all the arrat of performed rotations
         if (indexReplay < performedPositionsRightTarget.Count)
         {
+            Debug.Log("UANIME");
+
             float moveSpeed = 1f;
 
             // make the cube targets for IK move exactly like before 

@@ -59,7 +59,10 @@ public class VotingStateMachineNoGame : MonoBehaviour
 
                     for (int i = 0; i < EnvironmentStatusNoGame.NUM_ACTORS; i++)
                     {
-                        actors[i].EndEpisode();
+                        //actors[i].EndEpisode();
+                        actors[i].rightArmAgent.EndEpisode();
+                        actors[i].leftArmAgent.EndEpisode();
+                        actors[i].headChestAgent.EndEpisode();
                     }
 
                     StoryNoGame.NextState();                    
@@ -71,7 +74,10 @@ public class VotingStateMachineNoGame : MonoBehaviour
 
                     for (int i = 0; i < EnvironmentStatusNoGame.NUM_ACTORS; i++)
                     {
-                        actors[i].EndEpisode();
+                        //actors[i].EndEpisode();
+                        actors[i].rightArmAgent.EndEpisode();
+                        actors[i].leftArmAgent.EndEpisode();
+                        actors[i].headChestAgent.EndEpisode();
                     }
 
                     scriptTextMesh.text = "Bye-bye!";

@@ -252,17 +252,20 @@ public class Actor : Agent, IComparer<Actor>
             countStep++;
 
             // save the rotations performed by the actor (left and right arm)
-            performedRotationsRightArm.Add(actorRightArm.localRotation);
-            performedRotationsRightForeArm.Add(actorRightForeArm.localRotation);
-            performedRotationsRightHand.Add(actorRightHand.localRotation);
-            
-            performedRotationsLeftArm.Add(actorLeftArm.localRotation);
-            performedRotationsLeftForeArm.Add(actorLeftForeArm.localRotation);
-            performedRotationsLeftHand.Add(actorLeftHand.localRotation);
+            if (isForPerformance)
+            {
+                performedRotationsRightArm.Add(actorRightArm.localRotation);
+                performedRotationsRightForeArm.Add(actorRightForeArm.localRotation);
+                performedRotationsRightHand.Add(actorRightHand.localRotation);
 
-            performedRotationsHead.Add(actorHead.localRotation);
+                performedRotationsLeftArm.Add(actorLeftArm.localRotation);
+                performedRotationsLeftForeArm.Add(actorLeftForeArm.localRotation);
+                performedRotationsLeftHand.Add(actorLeftHand.localRotation);
 
-            performedRotationsChest.Add(actorChest.localRotation);
+                performedRotationsHead.Add(actorHead.localRotation);
+
+                performedRotationsChest.Add(actorChest.localRotation);
+            }
         }
     }
 
@@ -407,7 +410,7 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateRightArmZ) * Time.deltaTime * moveSpeed * 500);
 
         // save movement performed by the right target cube
-        if (!isForPerformance)
+        if (isForPerformance)
         {
             performedPositionsRightTarget.Add(new Vector3(moveRightArmX, moveRightArmY, moveRightArmZ));
             performedRotationsRightTarget.Add(new Vector3(rotateRightArmX, rotateRightArmY, rotateRightArmZ));
@@ -432,7 +435,7 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateLeftArmZ) * Time.deltaTime * moveSpeed * 500);
 
         // save movement performed by the left target cube
-        if (!isForPerformance)
+        if (isForPerformance)
         {
             performedPositionsLeftTarget.Add(new Vector3(moveLeftArmX, moveLeftArmY, moveLeftArmZ));
             performedRotationsLeftTarget.Add(new Vector3(rotateLeftArmX, rotateLeftArmY, rotateLeftArmZ));
@@ -457,7 +460,7 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateHeadZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
-        if (!isForPerformance)
+        if (isForPerformance)
         {
             performedPositionsHeadTarget.Add(new Vector3(moveHeadX, moveHeadY, moveHeadZ));
             performedRotationsHeadTarget.Add(new Vector3(rotateHeadX, rotateHeadY, rotateHeadZ));
@@ -482,7 +485,7 @@ public class Actor : Agent, IComparer<Actor>
             (transform.localRotation.z + rotateChestZ) * Time.deltaTime * moveSpeed * 100);
 
         // save movement performed by the head target cube
-        if (!isForPerformance)
+        if (isForPerformance)
         {
             performedPositionsChestTarget.Add(new Vector3(moveChestX, moveChestY, moveChestZ));
             performedRotationsChestTarget.Add(new Vector3(rotateChestX, rotateChestY, rotateChestZ));

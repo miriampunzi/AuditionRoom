@@ -39,6 +39,16 @@ public class ReplayStateMachine : MonoBehaviour
 
     public void Execute()
     {
+        // Learning in background underground
+        for (int i = 0; i < actors.Count; i++)
+        {
+            if (i != Story.idActorForReplay - 1)
+            {
+                actors[i].isForPerformance = false;
+                actors[i].LearnInBackground();
+            }
+        }
+
         // update text script
         if (indexReplayScript < replayScript.Count)
         {

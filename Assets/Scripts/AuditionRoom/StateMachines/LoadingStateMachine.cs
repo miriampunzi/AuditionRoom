@@ -36,6 +36,7 @@ public class LoadingStateMachine : MonoBehaviour
     }
     public void Execute()
     {
+        // Learning in background underground
         for (int i = 0; i < actors.Count; i++)
         {
             actors[i].isForPerformance = false;
@@ -116,6 +117,7 @@ public class LoadingStateMachine : MonoBehaviour
     }
 
     public void ResetStateMachine()
+
     {
         currentStateLoading = StateLoading.First;
         indexLoadingScript = 0;

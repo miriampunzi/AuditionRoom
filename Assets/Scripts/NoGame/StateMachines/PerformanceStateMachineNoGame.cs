@@ -138,6 +138,7 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                         {
                             if (!actors[indexPerformingActor].IsPlayingReplay())
                             {
+                                actors[indexPerformingActor].isForPerformance = false;
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
                             }

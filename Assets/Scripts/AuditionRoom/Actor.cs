@@ -213,8 +213,8 @@ public class Actor : Agent, IComparer<Actor>
         performedRotationsLeftForeArm.Clear();
         performedRotationsLeftHand.Clear();
 
-        performedPositionsHeadTarget.Clear();
-        performedPositionsChestTarget.Clear();
+        performedRotationsHead.Clear();
+        performedRotationsChest.Clear();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -287,6 +287,8 @@ public class Actor : Agent, IComparer<Actor>
     // this method is called always after SetupForReplay()
     public void PerformReplay()
     {
+        Debug.Log(performedPositionsRightTarget.Count + " " + performedPositionsLeftTarget.Count + " " + performedPositionsHeadTarget.Count + " " + performedPositionsChestTarget.Count);
+
         // scan all the arrat of performed rotations
         if (indexReplay < performedPositionsRightTarget.Count)
         {
@@ -345,8 +347,6 @@ public class Actor : Agent, IComparer<Actor>
 
         // reset index in array for replay
         indexReplay = 0;
-
-        Debug.Log(targetRightArm.localPosition + " " + targetChest.localPosition + " " + targetHead.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)

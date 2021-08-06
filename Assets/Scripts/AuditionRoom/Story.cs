@@ -20,9 +20,10 @@ public class Story : MonoBehaviour
     public enum State
     {
         Recording,
-        Loading,
+        LoadingPerformances,
         Performance,
         Replay,
+        LoadingVoting,
         Voting
     }
 
@@ -89,7 +90,7 @@ public class Story : MonoBehaviour
                 recordingStateMachine.Execute();
                 break;
 
-            case State.Loading:
+            case State.LoadingPerformances:
                 loadingStateMachine.Execute();
                 break;
 
@@ -99,6 +100,10 @@ public class Story : MonoBehaviour
 
             case State.Replay:
                 replayStateMachine.Execute();
+                break;
+
+            case State.LoadingVoting:
+                loadingStateMachine.Execute();
                 break;
 
             case State.Voting:
@@ -132,12 +137,12 @@ public class Story : MonoBehaviour
         switch (currentState)
         {
             case State.Recording:
-                currentState = State.Loading;
+                currentState = State.LoadingPerformances;
                 recordingStateMachine.ResetStateMachine();
 
                 break;
 
-            case State.Loading:
+            case State.LoadingPerformances:
                 currentState = State.Performance;
                 loadingStateMachine.ResetStateMachine();
 
@@ -155,15 +160,21 @@ public class Story : MonoBehaviour
                 else if (!wasYesPressed && wasNoPressed)
                 {
                     wasNoPressed = false;
-                    currentState = State.Voting;
+                    currentState = State.LoadingVoting;
                     performanceStateMachine.ResetStateMachine();
                 }
 
                 break;
 
             case State.Replay:
-                currentState = State.Voting;
+                currentState = State.LoadingVoting;
                 replayStateMachine.ResetStateMachine();
+
+                break;
+
+            case State.LoadingVoting:
+                currentState = State.Voting;
+                loadingStateMachine.ResetStateMachine();
 
                 break;
 

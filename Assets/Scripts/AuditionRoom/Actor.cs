@@ -290,8 +290,6 @@ public class Actor : Agent, IComparer<Actor>
     // this method is called always after SetupForReplay()
     public void PerformReplay()
     {
-        Debug.Log(performedPositionsRightTarget.Count + " " + performedPositionsLeftTarget.Count + " " + performedPositionsHeadTarget.Count + " " + performedPositionsChestTarget.Count);
-
         // scan all the arrat of performed rotations
         if (indexReplay < performedPositionsRightTarget.Count)
         {

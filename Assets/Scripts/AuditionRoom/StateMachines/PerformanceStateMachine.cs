@@ -99,7 +99,10 @@ public class PerformanceStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            actors[indexPerformingActor].isForPerformance = true;
+                            //actors[indexPerformingActor].isForPerformance = true;
+                            actors[indexPerformingActor].rightArmAgent.isForPerformance = true;
+                            actors[indexPerformingActor].leftArmAgent.isForPerformance = true;
+                            actors[indexPerformingActor].headChestAgent.isForPerformance = true;
                             //actors[indexPerformingActor].PerformAction();
                             actors[indexPerformingActor].rightArmAgent.PerformAction();
                             actors[indexPerformingActor].leftArmAgent.PerformAction();
@@ -122,7 +125,11 @@ public class PerformanceStateMachine : MonoBehaviour
                             //if (!actors[indexPerformingActor].IsPlayingPerformance())
                             if (!actors[indexPerformingActor].rightArmAgent.IsPlayingPerformance())
                             {
-                                actors[indexPerformingActor].isForPerformance = false;
+                                //actors[indexPerformingActor].isForPerformance = false;
+                                actors[indexPerformingActor].rightArmAgent.isForPerformance = false;
+                                actors[indexPerformingActor].leftArmAgent.isForPerformance = false;
+                                actors[indexPerformingActor].headChestAgent.isForPerformance = false;
+
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
                             }

@@ -44,7 +44,11 @@ public class ReplayStateMachine : MonoBehaviour
         {
             if (i != Story.idActorForReplay - 1)
             {
-                actors[i].isForPerformance = false;
+                //actors[i].isForPerformance = false;
+                actors[i].rightArmAgent.isForPerformance = false;
+                actors[i].leftArmAgent.isForPerformance = false;
+                actors[i].headChestAgent.isForPerformance = false;
+
                 //actors[i].LearnInBackground();
                 actors[i].rightArmAgent.LearnInBackground();
                 actors[i].leftArmAgent.LearnInBackground();

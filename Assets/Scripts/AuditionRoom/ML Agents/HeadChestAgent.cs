@@ -144,7 +144,6 @@ public class HeadChestAgent : Agent
         {
             countStep = 0;
             EndEpisode();
-            Debug.Log("EPISODE ENDED");
         }
     }
 

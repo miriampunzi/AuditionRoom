@@ -14,8 +14,6 @@ public class Actor : MonoBehaviour, IComparer<Actor>
 
     public bool isHuman;
 
-    public bool isForPerformance = false;
-
     public Vector3 initialPosition;
 
     public TrapdoorCover trapdoorCover;

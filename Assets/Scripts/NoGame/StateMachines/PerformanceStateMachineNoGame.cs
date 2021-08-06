@@ -82,7 +82,11 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                             }
                         }
                         else {
-                            actors[indexPerformingActor].isForPerformance = true;
+                            //actors[indexPerformingActor].isForPerformance = true;
+                            actors[indexPerformingActor].rightArmAgent.isForPerformance = true;
+                            actors[indexPerformingActor].leftArmAgent.isForPerformance = true;
+                            actors[indexPerformingActor].headChestAgent.isForPerformance = true;
+
                             //actors[indexPerformingActor].PerformAction();
                             actors[indexPerformingActor].rightArmAgent.PerformAction();
                             actors[indexPerformingActor].leftArmAgent.PerformAction();
@@ -144,7 +148,11 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                         {
                             if (!actors[indexPerformingActor].rightArmAgent.IsPlayingReplay())
                             {
-                                actors[indexPerformingActor].isForPerformance = false;
+                                //actors[indexPerformingActor].isForPerformance = false;
+                                actors[indexPerformingActor].rightArmAgent.isForPerformance = false;
+                                actors[indexPerformingActor].leftArmAgent.isForPerformance = false;
+                                actors[indexPerformingActor].headChestAgent.isForPerformance = false;
+
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
                             }

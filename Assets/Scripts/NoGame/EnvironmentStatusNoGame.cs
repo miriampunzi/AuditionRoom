@@ -18,7 +18,7 @@ public class EnvironmentStatusNoGame : MonoBehaviour
     public static bool wasNoPressed = false;
 
     public static int NUM_FEMALE_ANIMATIONS = 9;
-    public static int NUM_MALE_ANIMATIONS = 9;
+    public static int NUM_MALE_ANIMATIONS = 10;
     public static List<AnimatorController> femaleAnimations = new List<AnimatorController>();
     public static List<AnimatorController> maleAnimations = new List<AnimatorController>();
     public static List<string> femaleAnimationNames = new List<string>();
@@ -72,12 +72,14 @@ public class EnvironmentStatusNoGame : MonoBehaviour
 
             for (int i = 0; i < NUM_FEMALE_ANIMATIONS; i++)
             {
-                femaleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "ControllerJoy" + (i + 1)));
-                femaleAnimationNames.Add("Joy" + (i + 1));
+                femaleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "FemaleControllerJoy" + (i + 1)));
+                femaleAnimationNames.Add("FemaleJoy" + (i + 1));
+            }
 
-                // TODO CHANGE
-                maleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "ControllerJoy" + (i + 1)));
-                maleAnimationNames.Add("Joy" + (i + 1));
+            for (int i = 0; i < NUM_MALE_ANIMATIONS; i++)
+            { 
+                maleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "MaleControllerJoy" + (i + 1)));
+                maleAnimationNames.Add("MaleJoy" + (i + 1));
             }
         }
 

@@ -24,7 +24,7 @@ public class EnvironmentStatus : MonoBehaviour
     };
 
     public static int NUM_FEMALE_ANIMATIONS = 9;
-    public static int NUM_MALE_ANIMATIONS = 9;
+    public static int NUM_MALE_ANIMATIONS = 10;
     public static List<AnimatorController> femaleAnimations = new List<AnimatorController>();
     public static List<AnimatorController> maleAnimations = new List<AnimatorController>();
     public static List<string> femaleAnimationNames = new List<string>();
@@ -271,7 +271,10 @@ public class EnvironmentStatus : MonoBehaviour
             {
                 femaleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "FemaleControllerJoy" + (i + 1)));
                 femaleAnimationNames.Add("FemaleJoy" + (i + 1));
+            }
 
+            for (int i = 0; i < NUM_MALE_ANIMATIONS; i++)
+            {
                 maleAnimations.Add((AnimatorController)Resources.Load("RecordedAnimations/" + "MaleControllerJoy" + (i + 1)));
                 maleAnimationNames.Add("MaleJoy" + (i + 1));
             }

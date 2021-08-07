@@ -193,7 +193,7 @@ public class VotingStateMachine : MonoBehaviour
                 {
                     Story.wasNoPressed = false;
 
-                    scriptTextMesh.text = "Bye-bye!";
+                    scriptTextMesh.text = "Thanks to the actors you chose, the algorithm predicts your movie will be a success!!";
                     indexVotingScript++;
 
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)

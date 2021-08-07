@@ -24,6 +24,8 @@ public class IntroStory : MonoBehaviour
     private int position = 0;
     TextMeshPro scriptTextMesh;
 
+    public static bool wasNextPressed = false;
+
     private void Start()
     {
         if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
@@ -48,9 +50,10 @@ public class IntroStory : MonoBehaviour
     {
         scriptTextMesh.text = (string) contextScript[position];
                 
-        if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+        if (Input.GetKeyDown("x") || wasNextPressed)
         {
             position++;
+            wasNextPressed = false;
         }
 
         if (position == 3)

@@ -14,6 +14,9 @@ public class ActorMonoBehavior : MonoBehaviour
 
     private Animator animator;
 
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
     // controllers to play victory or defeat animation after voting phase
     public AnimatorController victoryAnimatorController;
     public AnimatorController defeatedAnimatorController;
@@ -26,6 +29,8 @@ public class ActorMonoBehavior : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
     }
 
     public void SetAnimation(AnimatorController animationToPlay, string nameAnimationToPlay)
@@ -38,7 +43,11 @@ public class ActorMonoBehavior : MonoBehaviour
     {
         if (gender == 1)
         {
-            transform.rotation = Quaternion.identity;
+            transform.localRotation = Quaternion.identity;
+        }
+        else
+        {
+            transform.localRotation = initialRotation;
         }
 
         animator.runtimeAnimatorController = animationToPlay;
@@ -63,6 +72,8 @@ public class ActorMonoBehavior : MonoBehaviour
 
     public void PlayVictory()
     {
+        transform.localRotation = Quaternion.identity;
+
         animator.runtimeAnimatorController = victoryAnimatorController;
         animator.enabled = true;
         animator.Rebind();
@@ -71,6 +82,8 @@ public class ActorMonoBehavior : MonoBehaviour
 
     public void PlayDefeat()
     {
+        transform.localRotation = Quaternion.identity;
+
         animator.runtimeAnimatorController = defeatedAnimatorController;
         animator.enabled = true;
         animator.Rebind();

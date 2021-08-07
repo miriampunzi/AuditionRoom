@@ -18,9 +18,9 @@ public class EnvironmentStatus : MonoBehaviour
     {
         true,       // human
         true,       // human
-        false,      // virtual
-        false,      // virtual
-        false,      // virtual
+        true,      // virtual
+        true,      // virtual
+        true,      // virtual
     };
 
     public static int NUM_FEMALE_ANIMATIONS = 9;

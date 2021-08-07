@@ -18,9 +18,9 @@ public class ReplayStateMachine : MonoBehaviour
 
     private ArrayList replayScript = new ArrayList()
     {
-        "Which actor do you want to ask for a replay",
+        "Press the button of the performance you want to replay",
         "Performance...",
-        "Do you want to see other replays?"
+        "Do you want to replay other performances?"
     };
 
     private StateReplay currentStateReplay = StateReplay.Question;

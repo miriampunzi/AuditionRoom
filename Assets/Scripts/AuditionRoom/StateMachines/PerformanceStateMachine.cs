@@ -235,7 +235,7 @@ public class PerformanceStateMachine : MonoBehaviour
         // SEE OLD PERFORMANCES
         else
         {
-            scriptTextMesh.text = "Now all the actors have finished. Do you want to see old performances?";
+            scriptTextMesh.text = "Now all the actors have finished. Do you want to replay one of the performances?";
 
             for (int i = 0; i < actorsMonoBehavior.Count; i++)
                 actorsMonoBehavior[i].PlayIdle();

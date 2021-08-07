@@ -11,11 +11,14 @@ public class IntroStory : MonoBehaviour
     [SerializeField] private GameObject ViveCameraRigPrefab;
     [SerializeField] private GameObject collidersViveCameraRigPrefab;
 
+    [SerializeField] private GameObject presentationMask;
+
     private ArrayList contextScript = new ArrayList()
     {
-        "You are a movie director who \n\nis emerging among the \n\nmost famous directors",
-        "You are searching for a new actor \n\nof one of the main characters",
-        "This character is particular \n\nbecause appears with a mask, \n\never speaks and \n\always seated on a chair",
+        "Hello!",
+        "You are an emerging movie director \n\n who organized a casting \n\nfor your new movie",
+        "So, you are looking for an actor \n\nwho plays the role of \n\none of the main characters",
+        "This character is particular \n\nbecause appears with a mask, \n\nnever speaks and \n\nis always sitting on a chair",
     };
 
     private int position = 0;
@@ -45,9 +48,14 @@ public class IntroStory : MonoBehaviour
     {
         scriptTextMesh.text = (string) contextScript[position];
                 
-        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+        if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
         {
             position++;
+        }
+
+        if (position == 3)
+        {
+            presentationMask.active = true;
         }
 
         if (position == contextScript.Count)

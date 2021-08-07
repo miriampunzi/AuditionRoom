@@ -23,9 +23,9 @@ public class RecordingStateMachine : MonoBehaviour
 
     private ArrayList script = new ArrayList()
     {
-        "Before starting, show an example of joy. Are you ready?\n",
-        "Press X when you want to start",
-        "Recording...\nPress X when you want to finish",
+        "Before, show an example of joy! \nYou will have to click the trigger button of the controller to start and stop the recordings. \n\nAre you ready?",
+        "Press the trigger button when you want to start",
+        "Recording...\nPress the trigger button when you want to finish",
         "Do you want to redo your recording?"
     };
 

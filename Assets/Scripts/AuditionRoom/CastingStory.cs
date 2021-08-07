@@ -46,7 +46,7 @@ public class CastingStory : MonoBehaviour
     {
         scriptTextMesh.text = (string)actorsScript[position];
                 
-        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
+        if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
         {
             position++;
         }

@@ -175,6 +175,9 @@ public class VotingStateMachine : MonoBehaviour
                 // YES
                 if (Story.wasYesPressed && !Story.wasNoPressed)
                 {
+                    for (int i = 0; i < actorsMonoBehavior.Count; i++)
+                        actorsMonoBehavior[i].PlayIdle();
+
                     Story.wasYesPressed = false;
 
                     for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)

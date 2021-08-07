@@ -59,8 +59,6 @@ public class PerformanceStateMachine : MonoBehaviour
             {
                 case StatePerformance.Presentation:
                     // BEGIN
-                    //foreach (ActorMonoBehavior a in actorsMonoBehavior)
-                    //    a.PlayIdle();
 
                     if (!Story.trapdoorCoverUp)
                     {
@@ -238,6 +236,9 @@ public class PerformanceStateMachine : MonoBehaviour
         else
         {
             scriptTextMesh.text = "Now all the actors have finished. Do you want to see old performances?";
+
+            for (int i = 0; i < actorsMonoBehavior.Count; i++)
+                actorsMonoBehavior[i].PlayIdle();
 
             Story.NextState();
         }

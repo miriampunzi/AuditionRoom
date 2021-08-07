@@ -64,6 +64,8 @@ public class ActorMonoBehavior : MonoBehaviour
 
     public void PlayIdle()
     {
+        transform.localRotation = initialRotation;
+
         animator.runtimeAnimatorController = idleAnimatorController;
         animator.enabled = true;
         animator.Rebind();

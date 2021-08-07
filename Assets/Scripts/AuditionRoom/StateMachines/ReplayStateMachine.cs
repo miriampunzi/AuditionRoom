@@ -64,9 +64,6 @@ public class ReplayStateMachine : MonoBehaviour
             switch (currentStateReplay)
             {
                 case StateReplay.Question:
-                    //foreach (ActorMonoBehavior a in actorsMonoBehavior)
-                    //    a.PlayIdle();
-
                     if (Story.hasAskedForReplay)
                     {
                         indexReplayScript++;
@@ -196,6 +193,9 @@ public class ReplayStateMachine : MonoBehaviour
 
                         Story.trapdoorCoverUp = false;
                         trapdoorCoverDown = false;
+
+                        for (int i = 0; i < actorsMonoBehavior.Count; i++)
+                            actorsMonoBehavior[i].PlayIdle();
 
                         Story.NextState();
                     }

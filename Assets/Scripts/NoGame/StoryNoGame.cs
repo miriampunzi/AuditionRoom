@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class StoryNoGame : MonoBehaviour
 {
+    public static RecordingStateMachineNoGame recordingStateMachine;
     public static PerformanceStateMachineNoGame performanceStateMachine;
     public static ReplayStateMachineNoGame replayStateMachine;
     public static VotingStateMachineNoGame votingStateMachine;
@@ -16,12 +17,13 @@ public class StoryNoGame : MonoBehaviour
         
     public enum State
     {
+        Recording,
         Performance,
         Replay,
         Voting
     }
 
-    public static State currentState = State.Performance;
+    public static State currentState = State.Recording;
 
     public static bool wasYesPressed = false;
     public static bool wasNoPressed = false;
@@ -40,6 +42,7 @@ public class StoryNoGame : MonoBehaviour
 
         scriptTextMesh = GetComponent<TextMeshPro>();
 
+        recordingStateMachine = new RecordingStateMachineNoGame(scriptTextMesh);
         performanceStateMachine = new PerformanceStateMachineNoGame(scriptTextMesh);
         replayStateMachine = new ReplayStateMachineNoGame(scriptTextMesh);
         votingStateMachine = new VotingStateMachineNoGame(scriptTextMesh);
@@ -49,6 +52,10 @@ public class StoryNoGame : MonoBehaviour
     {
         switch (currentState)
         {
+            case State.Recording:
+                recordingStateMachine.Execute();
+                break;
+
             case State.Performance:
                 performanceStateMachine.Execute();
                 break;
@@ -76,6 +83,12 @@ public class StoryNoGame : MonoBehaviour
     {
         switch (currentState)
         {
+            case State.Recording:
+                currentState = State.Performance;
+                recordingStateMachine.ResetStateMachine();
+
+                break;
+
             case State.Performance:
                 // YES
                 if (wasYesPressed && !wasNoPressed)

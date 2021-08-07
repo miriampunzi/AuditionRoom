@@ -130,9 +130,6 @@ public class EnvironmentStatusNoGame : MonoBehaviour
 
             foreach (Actor actor in allActors)
                 actor.initialPosition = actor.transform.position;
-
-            // TODO IS TEMPORARY
-            EnvironmentStatus.numActions = 30;
         }
 
         int numHuman = Random.Range(1, 3);

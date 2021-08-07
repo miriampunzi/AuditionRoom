@@ -145,6 +145,10 @@ public class EnvironmentStatusNoGame : MonoBehaviour
                     actor.isHuman = true;
                 else
                     actor.isHuman = false;
+
+                actor.rightArmAgent.EndEpisode();
+                actor.leftArmAgent.EndEpisode();
+                actor.headChestAgent.EndEpisode();
             }
             else if (actor.numActor == numActor2)
             {
@@ -155,6 +159,10 @@ public class EnvironmentStatusNoGame : MonoBehaviour
                     actor.isHuman = true;
                 else
                     actor.isHuman = false;
+
+                actor.rightArmAgent.EndEpisode();
+                actor.leftArmAgent.EndEpisode();
+                actor.headChestAgent.EndEpisode();
             }
             else
             {

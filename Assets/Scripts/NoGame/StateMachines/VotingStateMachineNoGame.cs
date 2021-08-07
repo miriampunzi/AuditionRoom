@@ -33,6 +33,21 @@ public class VotingStateMachineNoGame : MonoBehaviour
 
     public void Execute()
     {
+        // Learning in background underground
+        for (int i = 0; i < EnvironmentStatusNoGame.allActors.Count; i++)
+        {
+            if (EnvironmentStatusNoGame.allActors[i].idActor == -1)
+            {
+                EnvironmentStatusNoGame.allActors[i].rightArmAgent.isForPerformance = false;
+                EnvironmentStatusNoGame.allActors[i].leftArmAgent.isForPerformance = false;
+                EnvironmentStatusNoGame.allActors[i].headChestAgent.isForPerformance = false;
+
+                EnvironmentStatusNoGame.allActors[i].rightArmAgent.LearnInBackground();
+                EnvironmentStatusNoGame.allActors[i].leftArmAgent.LearnInBackground();
+                EnvironmentStatusNoGame.allActors[i].headChestAgent.LearnInBackground();
+            }
+        }
+
         // update text script
         if (indexVotingScript < votingScript.Count)
         {

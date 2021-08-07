@@ -39,6 +39,21 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
 
     public void Execute()
     {
+        // Learning in background underground
+        for (int i = 0; i < EnvironmentStatusNoGame.allActors.Count; i++)
+        {
+            if (EnvironmentStatusNoGame.allActors[i].idActor == -1)
+            {
+                EnvironmentStatusNoGame.allActors[i].rightArmAgent.isForPerformance = false;
+                EnvironmentStatusNoGame.allActors[i].leftArmAgent.isForPerformance = false;
+                EnvironmentStatusNoGame.allActors[i].headChestAgent.isForPerformance = false;
+
+                EnvironmentStatusNoGame.allActors[i].rightArmAgent.LearnInBackground();
+                EnvironmentStatusNoGame.allActors[i].leftArmAgent.LearnInBackground();
+                EnvironmentStatusNoGame.allActors[i].headChestAgent.LearnInBackground();
+            }
+        }
+
         if (indexPerformingActor < EnvironmentStatusNoGame.NUM_ACTORS)
         {
             // update text script

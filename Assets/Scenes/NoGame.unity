@@ -1238,8 +1238,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63345274}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.689, z: 0.024}
-  m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.69, z: 0.04}
+  m_LocalScale: {x: 0.65, y: 0.3, z: 0.5}
   m_Children:
   - {fileID: 1406409275}
   - {fileID: 1430552307}
@@ -2010,9 +2010,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 94213548}
-        m_TargetAssemblyTypeName: AnswerButtonNoGame, Assembly-CSharp
-        m_MethodName: Pressed
-        m_Mode: 1
+        m_TargetAssemblyTypeName: TempClickUI, Assembly-CSharp
+        m_MethodName: Press
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2068,10 +2068,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 94213543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad5162fd8179cc4584b8a64b6d80716, type: 3}
+  m_Script: {fileID: 11500000, guid: 117f29b82797e734089f75f7e904a72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPositive: 0
 --- !u!1 &98885266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,7 +2240,6 @@ GameObject:
   - component: {fileID: 107453375}
   - component: {fileID: 107453374}
   - component: {fileID: 107453373}
-  - component: {fileID: 107453372}
   m_Layer: 0
   m_Name: Actor 9
   m_TagString: Actor
@@ -2273,27 +2271,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &107453372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107453370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 9
-  numActor: 9
-  isHuman: 0
-  gender: 1
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &107453373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2306,10 +2283,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 9
   idActor: -1
-  numActor: 9
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -2802,49 +2786,6 @@ Transform:
   m_Father: {fileID: 1065515140}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.1744313, y: -3.1593843, z: -8.784084}
---- !u!1 &144650907
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 144650908}
-  - component: {fileID: 144650909}
-  m_Layer: 0
-  m_Name: Human
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &144650908
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144650907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8306211, y: -2.105722, z: -2.0759757}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &144650909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144650907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49502025960fb5c43901d4efa6bd1786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &146284862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,16 +4674,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 249673973}
-        m_TargetAssemblyTypeName: AnswerButtonNoGame, Assembly-CSharp
-        m_MethodName: Pressed
-        m_Mode: 1
+        m_TargetAssemblyTypeName: TempClickUI, Assembly-CSharp
+        m_MethodName: Press
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &249673971
 MonoBehaviour:
@@ -4791,10 +4732,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 249673968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad5162fd8179cc4584b8a64b6d80716, type: 3}
+  m_Script: {fileID: 11500000, guid: 117f29b82797e734089f75f7e904a72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPositive: 1
 --- !u!1 &250669255
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +4866,7 @@ GameObject:
   - component: {fileID: 263771827}
   - component: {fileID: 263771826}
   - component: {fileID: 263771825}
+  - component: {fileID: 263771828}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -4997,9 +4938,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 144650909}
-        m_TargetAssemblyTypeName: VotingButton, Assembly-CSharp
-        m_MethodName: VoteActor
+      - m_Target: {fileID: 263771828}
+        m_TargetAssemblyTypeName: TempClickUI, Assembly-CSharp
+        m_MethodName: Vote
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5047,6 +4988,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263771823}
   m_CullTransparentMesh: 1
+--- !u!114 &263771828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263771823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117f29b82797e734089f75f7e904a72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &265227637
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,7 +7705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &409138793
 GameObject:
@@ -8909,7 +8862,6 @@ GameObject:
   - component: {fileID: 461115369}
   - component: {fileID: 461115368}
   - component: {fileID: 461115367}
-  - component: {fileID: 461115366}
   m_Layer: 0
   m_Name: Actor 7
   m_TagString: Actor
@@ -8939,27 +8891,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &461115366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461115364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 7
-  numActor: 7
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &461115367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8972,10 +8903,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 7
+  idPerformance: -1
+  idActor: 7
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -9814,7 +9752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502923705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.235, y: 0.729, z: 0.010999918}
+  m_LocalPosition: {x: -0.235, y: 0.729, z: -0.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1183910809}
@@ -10113,7 +10051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 463184, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 463184, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12360,7 +12298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &595936140
 GameObject:
@@ -13594,7 +13532,7 @@ Transform:
   - {fileID: 1924205214}
   - {fileID: 482094659}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684401640
 GameObject:
@@ -13996,7 +13934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &705565090
 GameObject:
@@ -16706,7 +16644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475840, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 475840, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18479,7 +18417,6 @@ GameObject:
   - component: {fileID: 965623026}
   - component: {fileID: 965623025}
   - component: {fileID: 965623023}
-  - component: {fileID: 965623022}
   m_Layer: 0
   m_Name: Actor 5
   m_TagString: Actor
@@ -18504,27 +18441,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &965623022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965623020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 5
-  numActor: 5
-  isHuman: 0
-  gender: 1
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 9100000, guid: 85ebc569b23b8d346a95424ed6e8fc55, type: 2}
-  nameAnimationToPlay: 
 --- !u!114 &965623023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18537,10 +18453,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 5
+  idPerformance: -1
+  idActor: 5
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -18772,7 +18695,6 @@ GameObject:
   - component: {fileID: 966303847}
   - component: {fileID: 966303846}
   - component: {fileID: 966303845}
-  - component: {fileID: 966303844}
   m_Layer: 0
   m_Name: Actor 8
   m_TagString: Actor
@@ -18802,27 +18724,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &966303844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966303842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 8
-  numActor: 8
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &966303845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18835,10 +18736,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 8
+  idPerformance: -1
+  idActor: 8
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -19107,7 +19015,6 @@ GameObject:
   - component: {fileID: 995422114}
   - component: {fileID: 995422113}
   - component: {fileID: 995422111}
-  - component: {fileID: 995422110}
   m_Layer: 0
   m_Name: Actor 2
   m_TagString: Actor
@@ -19136,27 +19043,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 179.65852, z: 0}
---- !u!114 &995422110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995422108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 2
-  numActor: 2
-  isHuman: 0
-  gender: 1
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &995422111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19169,10 +19055,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 2
+  idPerformance: -1
+  idActor: 2
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -19253,7 +19146,6 @@ GameObject:
   - component: {fileID: 998137670}
   - component: {fileID: 998137669}
   - component: {fileID: 998137667}
-  - component: {fileID: 998137666}
   - component: {fileID: 998137665}
   - component: {fileID: 998137664}
   m_Layer: 0
@@ -19315,27 +19207,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &998137666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998137662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 1
-  numActor: 1
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &998137667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19348,10 +19219,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 1
+  idPerformance: -1
+  idActor: 1
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -19766,7 +19644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024511673
 GameObject:
@@ -25339,7 +25217,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 1.9999981, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 1.9999981, z: 0.000000745058}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -27223,7 +27101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398092930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.028999805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 786187130}
@@ -27497,7 +27375,7 @@ GameObject:
   - component: {fileID: 1406409276}
   m_Layer: 0
   m_Name: Script
-  m_TagString: Untagged
+  m_TagString: Script
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27509,17 +27387,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406409274}
-  m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.17}
-  m_LocalScale: {x: 1.4285713, y: 2, z: 2}
+  m_LocalRotation: {x: -0, y: 0.9848078, z: -0.17364816, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.17000055}
+  m_LocalScale: {x: 1.0989012, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 63345275}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.006, y: 0.486}
-  m_SizeDelta: {x: 0.4, y: 0.2}
+  m_AnchoredPosition: {x: 0.007, y: 0.4860003}
+  m_SizeDelta: {x: 0.5, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406409276
 MonoBehaviour:
@@ -27530,10 +27408,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1406409274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6ff843e345f9d4ca386d47b2c0e7a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a2ec1f05284df5448075a89c18aa238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  ViveCameraRigPrefab: {fileID: 175660, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
+  collidersViveCameraRigPrefab: {fileID: 160224, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
 --- !u!114 &1406409277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29754,7 +29633,6 @@ GameObject:
   - component: {fileID: 1507084987}
   - component: {fileID: 1507084986}
   - component: {fileID: 1507084984}
-  - component: {fileID: 1507084983}
   m_Layer: 0
   m_Name: Actor 4
   m_TagString: Actor
@@ -29785,27 +29663,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1507084983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507084981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 4
-  numActor: 4
-  isHuman: 0
-  gender: 1
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &1507084984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29818,10 +29675,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 4
+  idPerformance: -1
+  idActor: 4
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -31564,7 +31428,6 @@ GameObject:
   - component: {fileID: 1626759182}
   - component: {fileID: 1626759181}
   - component: {fileID: 1626759179}
-  - component: {fileID: 1626759178}
   m_Layer: 0
   m_Name: Actor 6
   m_TagString: Actor
@@ -31594,27 +31457,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1626759178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626759176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 6
-  numActor: 6
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &1626759179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31627,10 +31469,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 6
+  idPerformance: -1
+  idActor: 6
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -31807,7 +31656,6 @@ GameObject:
   - component: {fileID: 1644059935}
   - component: {fileID: 1644059934}
   - component: {fileID: 1644059932}
-  - component: {fileID: 1644059931}
   m_Layer: 0
   m_Name: Actor 3
   m_TagString: Actor
@@ -31837,27 +31685,6 @@ Transform:
   m_Father: {fileID: 124683576}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1644059931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644059929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 3
-  numActor: 3
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &1644059932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31870,10 +31697,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 3
+  idPerformance: -1
+  idActor: 3
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -33901,7 +33735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760744512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0.729, z: 0.010999918}
+  m_LocalPosition: {x: 0.24, y: 0.729, z: -0.017999887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1241841560}
@@ -34721,6 +34555,7 @@ GameObject:
   - component: {fileID: 1802181441}
   - component: {fileID: 1802181440}
   - component: {fileID: 1802181439}
+  - component: {fileID: 1802181442}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -34792,9 +34627,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 144650909}
-        m_TargetAssemblyTypeName: VotingButton, Assembly-CSharp
-        m_MethodName: VoteActor
+      - m_Target: {fileID: 1802181442}
+        m_TargetAssemblyTypeName: TempClickUI, Assembly-CSharp
+        m_MethodName: Vote
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34842,6 +34677,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802181437}
   m_CullTransparentMesh: 1
+--- !u!114 &1802181442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802181437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117f29b82797e734089f75f7e904a72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802280457
 GameObject:
   m_ObjectHideFlags: 0
@@ -40010,7 +39857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f94b80474002a94c9cf17062d63524a, type: 3}
       propertyPath: m_LocalPosition.x

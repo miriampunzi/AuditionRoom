@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnvironmentStatus : MonoBehaviour
 {
-    public static bool isGame = true;
+    public static bool isGame = false;
 
     // environment objects
     public static List<Actor> allActors;
@@ -167,8 +167,6 @@ public class EnvironmentStatus : MonoBehaviour
         {
             actor.initialPosition = actor.transform.localPosition;
             actor.initialRotation = actor.transform.localRotation;
-
-            Debug.Log(actor.initialPosition);
         }
 
         if (isGame)

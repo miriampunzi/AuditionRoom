@@ -6,13 +6,18 @@ using UnityEngine;
 
 public class Story : MonoBehaviour
 {
+    // state machines for game
     public static RecordingStateMachine recordingStateMachine;
     public static LoadingStateMachine loadingStateMachine;
     public static PerformanceStateMachine performanceStateMachine;
     public static ReplayStateMachine replayStateMachine;
     public static VotingStateMachine votingStateMachine;
 
-    private TextMeshPro scriptTextMesh;
+    // state machines for no game
+    public static RecordingStateMachineNoGame recordingStateMachineNoGame;
+    public static PerformanceStateMachineNoGame performanceStateMachineNoGame;
+    public static ReplayStateMachineNoGame replayStateMachineNoGame;
+    public static VotingStateMachineNoGame votingStateMachineNoGame;
 
     [SerializeField] private GameObject ViveCameraRigPrefab;
     [SerializeField] private GameObject collidersViveCameraRigPrefab;
@@ -61,13 +66,21 @@ public class Story : MonoBehaviour
 
         EnvironmentStatus.SetupRound();
 
-        scriptTextMesh = GetComponent<TextMeshPro>();
-
-        recordingStateMachine = new RecordingStateMachine();
-        loadingStateMachine = new LoadingStateMachine();
-        performanceStateMachine = new PerformanceStateMachine();
-        replayStateMachine = new ReplayStateMachine();
-        votingStateMachine = new VotingStateMachine();
+        if (EnvironmentStatus.isGame)
+        {
+            recordingStateMachine = new RecordingStateMachine();
+            loadingStateMachine = new LoadingStateMachine();
+            performanceStateMachine = new PerformanceStateMachine();
+            replayStateMachine = new ReplayStateMachine();
+            votingStateMachine = new VotingStateMachine();
+        }
+        else
+        {
+            recordingStateMachineNoGame = new RecordingStateMachineNoGame();
+            performanceStateMachineNoGame = new PerformanceStateMachineNoGame();
+            replayStateMachineNoGame = new ReplayStateMachineNoGame();
+            votingStateMachineNoGame = new VotingStateMachineNoGame();
+        }        
     }
 
     public void Update()
@@ -75,43 +88,61 @@ public class Story : MonoBehaviour
         switch (currentState)
         {
             case State.Recording:
-                recordingStateMachine.Execute();
+                if (EnvironmentStatus.isGame)
+                    recordingStateMachine.Execute();
+                else
+                    recordingStateMachineNoGame.Execute();
                 break;
 
             case State.LoadingPerformances:
-                loadingStateMachine.SetScript(
-                    new ArrayList()
-                    {
-                        "Processing movement...",
-                        "Actors are learning...",
-                        "Almost done..."
-                    }
-                );
-                loadingStateMachine.Execute();
+                if (EnvironmentStatus.isGame)
+                {
+                    loadingStateMachine.SetScript(
+                        new ArrayList()
+                        {
+                            "Processing movement...",
+                            "Actors are learning...",
+                            "Almost done..."
+                        }
+                    );
+                    loadingStateMachine.Execute();
+                }
                 break;
 
             case State.Performance:
-                performanceStateMachine.Execute();
+                if (EnvironmentStatus.isGame)
+                    performanceStateMachine.Execute();
+                else
+                    performanceStateMachineNoGame.Execute();
                 break;
 
             case State.Replay:
-                replayStateMachine.Execute();
+                if (EnvironmentStatus.isGame)
+                    replayStateMachine.Execute();
+                else
+                    replayStateMachineNoGame.Execute();
                 break;
 
             case State.LoadingVoting:
-                loadingStateMachine.SetScript(
-                    new ArrayList()
-                    {
+                if (EnvironmentStatus.isGame)
+                {
+                    loadingStateMachine.SetScript(
+                        new ArrayList()
+                        {
                         "Loading...",
                         "Loading...",
                         "Loading..."
-                    }
-                );
-                loadingStateMachine.Execute();
+                        }
+                    );
+                    loadingStateMachine.Execute();
+                }
                 break;
 
             case State.Voting:
-                votingStateMachine.Execute();
+                if (EnvironmentStatus.isGame)
+                    votingStateMachine.Execute();
+                else
+                    votingStateMachineNoGame.Execute();
                 break;
         }
     }
@@ -138,14 +169,25 @@ public class Story : MonoBehaviour
         switch (currentState)
         {
             case State.Recording:
-                currentState = State.LoadingPerformances;
-                recordingStateMachine.ResetStateMachine();
+                if (EnvironmentStatus.isGame)
+                {
+                    currentState = State.LoadingPerformances;
+                    recordingStateMachine.ResetStateMachine();
+                }
+                else
+                {
+                    currentState = State.Performance;
+                    recordingStateMachineNoGame.ResetStateMachine();
+                }
 
                 break;
 
             case State.LoadingPerformances:
-                currentState = State.Performance;
-                loadingStateMachine.ResetStateMachine();
+                if (EnvironmentStatus.isGame)
+                {
+                    currentState = State.Performance;
+                    loadingStateMachine.ResetStateMachine();
+                }
 
                 break;
 
@@ -153,41 +195,84 @@ public class Story : MonoBehaviour
                 // YES
                 if (wasYesPressed && !wasNoPressed)
                 {
-                    wasYesPressed = false;
-                    currentState = State.Replay;
-                    performanceStateMachine.ResetStateMachine();
+                    if (EnvironmentStatus.isGame)
+                    {
+                        wasYesPressed = false;
+                        currentState = State.Replay;
+                        performanceStateMachine.ResetStateMachine();
+                    }
+                    else
+                    {
+                        wasYesPressed = false;
+                        currentState = State.Replay;
+                        performanceStateMachineNoGame.ResetStateMachine();
+                    }
                 }
                 // NO
                 else if (!wasYesPressed && wasNoPressed)
                 {
-                    wasNoPressed = false;
-                    currentState = State.LoadingVoting;
-                    performanceStateMachine.ResetStateMachine();
+                    if (EnvironmentStatus.isGame)
+                    {
+                        wasNoPressed = false;
+                        currentState = State.LoadingVoting;
+                        performanceStateMachine.ResetStateMachine();
+                    }
+                    else
+                    {
+                        wasNoPressed = false;
+                        currentState = State.Voting;
+                        performanceStateMachineNoGame.ResetStateMachine();
+                    }
                 }
 
                 break;
 
             case State.Replay:
-                currentState = State.LoadingVoting;
-                replayStateMachine.ResetStateMachine();
+                if (EnvironmentStatus.isGame)
+                {
+                    currentState = State.LoadingVoting;
+                    replayStateMachine.ResetStateMachine();
+                }
+                else
+                {
+                    currentState = State.Voting;
+                    replayStateMachineNoGame.ResetStateMachine();
+                }
 
                 break;
 
             case State.LoadingVoting:
-                currentState = State.Voting;
-                loadingStateMachine.ResetStateMachine();
+                if (EnvironmentStatus.isGame)
+                {
+                    currentState = State.Voting;
+                    loadingStateMachine.ResetStateMachine();
+                }
 
                 break;
 
             case State.Voting:
-                currentState = State.Performance;
-                ResetState();
+                if (EnvironmentStatus.isGame)
+                {
+                    currentState = State.Performance;
+                    ResetState();
 
-                EnvironmentStatus.SetupRound();
+                    EnvironmentStatus.SetupRound();
 
-                performanceStateMachine.ResetStateMachine();
-                replayStateMachine.ResetStateMachine();
-                votingStateMachine.ResetStateMachine();
+                    performanceStateMachine.ResetStateMachine();
+                    replayStateMachine.ResetStateMachine();
+                    votingStateMachine.ResetStateMachine();
+                }
+                else
+                {
+                    currentState = State.Performance;
+                    ResetState();
+
+                    EnvironmentStatus.SetupRound();
+
+                    performanceStateMachineNoGame.ResetStateMachine();
+                    replayStateMachineNoGame.ResetStateMachine();
+                    votingStateMachineNoGame.ResetStateMachine();
+                }
 
                 break;
         }

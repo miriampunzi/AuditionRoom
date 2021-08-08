@@ -39,6 +39,7 @@ public class StoryNoGame : MonoBehaviour
     private void Start()
     {
         EnvironmentStatusNoGame.PlaceActors();
+        Debug.Log("CIAONE");
 
         scriptTextMesh = GetComponent<TextMeshPro>();
 

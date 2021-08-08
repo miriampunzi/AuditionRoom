@@ -14,7 +14,7 @@ public class CastingStory : MonoBehaviour
     private ArrayList actorsScript = new ArrayList()
     {
         "These are the actors \n\nat the casting auditions you organized",
-        "Pay attention: not all of them are professionals!",
+        "Pay attention: \n\nnot all of them \n\nare professionals!",
         "You have to choose the best one \n\nperforming the emotion of joy",
         "Are you ready?"
     };
@@ -38,7 +38,7 @@ public class CastingStory : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
         {
-            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(collidersViveCameraRigPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }
 
         scriptTextMesh = GetComponent<TextMeshPro>();
@@ -48,7 +48,7 @@ public class CastingStory : MonoBehaviour
     {
         scriptTextMesh.text = (string)actorsScript[position];
                 
-        if (Input.GetKeyDown("x") || wasNextPressed)
+        if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
         {
             position++;
             wasNextPressed = false;

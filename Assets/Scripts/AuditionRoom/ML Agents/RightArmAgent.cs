@@ -72,9 +72,6 @@ public class RightArmAgent : Agent
         {
             Transform child = parent.GetChild(i);
 
-            if (!child.CompareTag("Untagged"))
-                Debug.Log(actorTransform.gameObject.name + " " + child.tag);
-
             switch (child.tag)
             {
                 case "RightArm": actorRightArm = child.transform; break;
@@ -93,8 +90,6 @@ public class RightArmAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-
-
         // reset number of steps for the current episode
         countStep = 0;
 

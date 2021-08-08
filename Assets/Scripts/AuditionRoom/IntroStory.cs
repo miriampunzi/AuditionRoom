@@ -40,7 +40,7 @@ public class IntroStory : MonoBehaviour
         
         if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
         {
-            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(collidersViveCameraRigPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }
 
         scriptTextMesh = GetComponent<TextMeshPro>();
@@ -50,7 +50,7 @@ public class IntroStory : MonoBehaviour
     {
         scriptTextMesh.text = (string) contextScript[position];
                 
-        if (Input.GetKeyDown("x") || wasNextPressed)
+        if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
         {
             position++;
             wasNextPressed = false;

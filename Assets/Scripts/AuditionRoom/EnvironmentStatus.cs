@@ -8,7 +8,7 @@ public class EnvironmentStatus : MonoBehaviour
 {
     public static List<Actor> allActors;
     public static List<ActorMonoBehavior> allActorMonoBehaviors;
-    public static int ALL_ACTORS = 6;
+    public static int ALL_ACTORS = 9;
     public static List<TrapdoorCover> trapdoorCovers;
 
     static LoadingCube loadingCube;
@@ -18,9 +18,9 @@ public class EnvironmentStatus : MonoBehaviour
     {
         true,       // human
         true,       // human
-        true,      // virtual
-        true,      // virtual
-        true,      // virtual
+        false,      // virtual
+        false,      // virtual
+        false,      // virtual
     };
 
     public static int NUM_FEMALE_ANIMATIONS = 9;
@@ -148,6 +148,9 @@ public class EnvironmentStatus : MonoBehaviour
             trapdoorCovers = getTrapdoorCovers();
             allActors = getActors();
             allActorMonoBehaviors = getActorsMonoBehavior();
+
+            foreach (Actor actor in allActors)
+                actor.initialPosition = actor.transform.position;
         }
 
         // decide who is human and who is virtual
@@ -205,6 +208,7 @@ public class EnvironmentStatus : MonoBehaviour
                 actor.tag = "Untagged";
                 actor.idActor = -1;
                 actor.trapdoorCover = null;
+                actor.transform.position = actor.initialPosition;
             }
         }
 

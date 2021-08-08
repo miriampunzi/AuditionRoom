@@ -42,6 +42,8 @@ public class AnswerButton : MonoBehaviour
 
     private void Pressed()
     {
+        Debug.Log(isPositive);
+
         isPressed = true;
         if (isPositive)
             Story.wasYesPressed = true;

@@ -22,20 +22,27 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     public AnimatorController defeatedAnimatorController;
     public AnimatorController idleAnimatorController;
 
+    [HideInInspector]
     public AnimatorController animationToPlay;
     // name of pre-recorded animation to play if the actor is a human
+    [HideInInspector]
     public string nameAnimationToPlay;
 
+    [HideInInspector]
     public Vector3 initialPosition;
+    [HideInInspector]
     public Quaternion initialRotation;
 
+    [HideInInspector]
     public TrapdoorCover trapdoorCover;
 
     // different ML brains
+    [HideInInspector]
     public RightArmAgent rightArmAgent;
+    [HideInInspector]
     public LeftArmAgent leftArmAgent;
+    [HideInInspector]
     public HeadChestAgent headChestAgent;
-
 
     private void Start()
     {

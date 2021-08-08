@@ -68581,7 +68581,6 @@ GameObject:
   - component: {fileID: 919132147497764424}
   - component: {fileID: 919132147497764425}
   - component: {fileID: 919132147497764427}
-  - component: {fileID: 919132147497764426}
   m_Layer: 0
   m_Name: Actor 8
   m_TagString: Actor
@@ -68653,27 +68652,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 278709664}
     m_Active: 1
   m_Effectors: []
---- !u!114 &919132147497764426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147497764421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 8
-  numActor: 8
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &919132147497764427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68686,10 +68664,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 8
+  idPerformance: -1
+  idActor: 8
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -68744,7 +68729,6 @@ GameObject:
   - component: {fileID: 919132147915934344}
   - component: {fileID: 919132147915934345}
   - component: {fileID: 919132147915934346}
-  - component: {fileID: 919132147915934348}
   m_Layer: 0
   m_Name: Actor 2
   m_TagString: Actor
@@ -68828,28 +68812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 2
-  isHuman: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  trapdoorCover: {fileID: 0}
-  rightArmAgent: {fileID: 0}
-  leftArmAgent: {fileID: 0}
-  headChestAgent: {fileID: 0}
---- !u!114 &919132147915934348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147915934341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  idPerformance: -1
   idActor: 2
-  numActor: 2
   isHuman: 0
   gender: 1
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
@@ -68857,6 +68821,12 @@ MonoBehaviour:
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!1 &919132147963288878
 GameObject:
   m_ObjectHideFlags: 0
@@ -68959,6 +68929,9 @@ MonoBehaviour:
   numActor: 13
   isHuman: 0
   gender: 1
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -68976,10 +68949,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 13
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69086,6 +69066,9 @@ MonoBehaviour:
   numActor: 12
   isHuman: 0
   gender: 1
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -69103,10 +69086,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 12
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69125,7 +69115,6 @@ GameObject:
   - component: {fileID: 919132148294910243}
   - component: {fileID: 919132148294910244}
   - component: {fileID: 919132148294910246}
-  - component: {fileID: 919132148294910245}
   m_Layer: 0
   m_Name: Actor 9
   m_TagString: Actor
@@ -69197,27 +69186,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 846917585}
     m_Active: 1
   m_Effectors: []
---- !u!114 &919132148294910245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148294910240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 9
-  numActor: 9
-  isHuman: 0
-  gender: 1
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &919132148294910246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69230,10 +69198,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 9
+  idPerformance: -1
+  idActor: 9
   isHuman: 0
+  gender: 1
+  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69358,6 +69333,9 @@ MonoBehaviour:
   numActor: 11
   isHuman: 0
   gender: 0
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -69375,10 +69353,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 11
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69503,6 +69488,9 @@ MonoBehaviour:
   numActor: 18
   isHuman: 0
   gender: 1
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -69520,10 +69508,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 18
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69630,6 +69625,9 @@ MonoBehaviour:
   numActor: 10
   isHuman: 0
   gender: 0
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -69647,10 +69645,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 10
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69757,6 +69762,9 @@ MonoBehaviour:
   numActor: 16
   isHuman: 0
   gender: 0
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -69774,10 +69782,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 16
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -69794,7 +69809,6 @@ GameObject:
   - component: {fileID: 919132148772066307}
   - component: {fileID: 919132148772066306}
   - component: {fileID: 919132148772066308}
-  - component: {fileID: 919132148772066310}
   - component: {fileID: 919132148772066312}
   - component: {fileID: 919132148772066311}
   m_Layer: 0
@@ -69853,28 +69867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 1
-  isHuman: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  trapdoorCover: {fileID: 0}
-  rightArmAgent: {fileID: 0}
-  leftArmAgent: {fileID: 0}
-  headChestAgent: {fileID: 0}
---- !u!114 &919132148772066310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148772066305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  idPerformance: -1
   idActor: 1
-  numActor: 1
   isHuman: 0
   gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
@@ -69882,6 +69876,12 @@ MonoBehaviour:
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!65 &919132148772066311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69943,7 +69943,6 @@ GameObject:
   - component: {fileID: 919132148849286579}
   - component: {fileID: 919132148849286580}
   - component: {fileID: 919132148849286581}
-  - component: {fileID: 919132148849286583}
   m_Layer: 0
   m_Name: Actor 3
   m_TagString: Actor
@@ -70027,28 +70026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 3
-  isHuman: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  trapdoorCover: {fileID: 0}
-  rightArmAgent: {fileID: 0}
-  leftArmAgent: {fileID: 0}
-  headChestAgent: {fileID: 0}
---- !u!114 &919132148849286583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148849286576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  idPerformance: -1
   idActor: 3
-  numActor: 3
   isHuman: 0
   gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
@@ -70056,6 +70035,12 @@ MonoBehaviour:
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!1 &919132148925022789
 GameObject:
   m_ObjectHideFlags: 0
@@ -70158,6 +70143,9 @@ MonoBehaviour:
   numActor: 17
   isHuman: 0
   gender: 1
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -70175,10 +70163,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 17
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -70285,6 +70280,9 @@ MonoBehaviour:
   numActor: 14
   isHuman: 0
   gender: 0
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -70302,10 +70300,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 14
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -70324,7 +70329,6 @@ GameObject:
   - component: {fileID: 919132149257416002}
   - component: {fileID: 919132149257416003}
   - component: {fileID: 919132149257416004}
-  - component: {fileID: 919132149257416006}
   m_Layer: 0
   m_Name: Actor 4
   m_TagString: Actor
@@ -70408,28 +70412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 4
-  isHuman: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  trapdoorCover: {fileID: 0}
-  rightArmAgent: {fileID: 0}
-  leftArmAgent: {fileID: 0}
-  headChestAgent: {fileID: 0}
---- !u!114 &919132149257416006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149257415999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  idPerformance: -1
   idActor: 4
-  numActor: 4
   isHuman: 0
   gender: 1
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
@@ -70437,6 +70421,12 @@ MonoBehaviour:
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!1 &919132149301202517
 GameObject:
   m_ObjectHideFlags: 0
@@ -70451,7 +70441,6 @@ GameObject:
   - component: {fileID: 919132149301202520}
   - component: {fileID: 919132149301202521}
   - component: {fileID: 919132149301202522}
-  - component: {fileID: 919132149301202524}
   m_Layer: 0
   m_Name: Actor 6
   m_TagString: Actor
@@ -70535,28 +70524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 6
-  isHuman: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  trapdoorCover: {fileID: 0}
-  rightArmAgent: {fileID: 0}
-  leftArmAgent: {fileID: 0}
-  headChestAgent: {fileID: 0}
---- !u!114 &919132149301202524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149301202517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  idPerformance: -1
   idActor: 6
-  numActor: 6
   isHuman: 0
   gender: 0
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
@@ -70564,6 +70533,12 @@ MonoBehaviour:
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!1 &919132149318708370
 GameObject:
   m_ObjectHideFlags: 0
@@ -70578,7 +70553,6 @@ GameObject:
   - component: {fileID: 919132149318708373}
   - component: {fileID: 919132149318708374}
   - component: {fileID: 919132149318708375}
-  - component: {fileID: 919132149318708377}
   m_Layer: 0
   m_Name: Actor 5
   m_TagString: Actor
@@ -70662,35 +70636,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 5
-  isHuman: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  trapdoorCover: {fileID: 0}
-  rightArmAgent: {fileID: 0}
-  leftArmAgent: {fileID: 0}
-  headChestAgent: {fileID: 0}
---- !u!114 &919132149318708377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149318708370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  idPerformance: -1
   idActor: 5
-  numActor: 5
   isHuman: 0
   gender: 1
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 9100000, guid: 85ebc569b23b8d346a95424ed6e8fc55, type: 2}
+  animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  trapdoorCover: {fileID: 0}
+  rightArmAgent: {fileID: 0}
+  leftArmAgent: {fileID: 0}
+  headChestAgent: {fileID: 0}
 --- !u!1 &919132149457883646
 GameObject:
   m_ObjectHideFlags: 0
@@ -70793,6 +70753,9 @@ MonoBehaviour:
   numActor: 15
   isHuman: 0
   gender: 1
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
   defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -70810,10 +70773,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPerformance: 0
   idActor: -1
-  numActor: 15
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 0}
+  defeatedAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 0}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}
@@ -70832,7 +70802,6 @@ GameObject:
   - component: {fileID: 919132149599102737}
   - component: {fileID: 919132149599102738}
   - component: {fileID: 919132149599102740}
-  - component: {fileID: 919132149599102739}
   m_Layer: 0
   m_Name: Actor 7
   m_TagString: Actor
@@ -70904,27 +70873,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 544256934}
     m_Active: 1
   m_Effectors: []
---- !u!114 &919132149599102739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149599102734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67718d6057bc2d046b37b174887a3b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idActor: 7
-  numActor: 7
-  isHuman: 0
-  gender: 0
-  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
-  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
-  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
-  animationToPlay: {fileID: 0}
-  nameAnimationToPlay: 
 --- !u!114 &919132149599102740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70937,10 +70885,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99af2829239b8064582c999fdeff4e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idActor: -1
-  numActor: 7
+  idPerformance: -1
+  idActor: 7
   isHuman: 0
+  gender: 0
+  victoryAnimatorController: {fileID: 9100000, guid: 9e11c607c41d0e1458fddcaadb414f0b, type: 2}
+  defeatedAnimatorController: {fileID: 9100000, guid: c4408e9f19213c94ca6615d51f45595e, type: 2}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
+  animationToPlay: {fileID: 0}
+  nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   trapdoorCover: {fileID: 0}
   rightArmAgent: {fileID: 0}
   leftArmAgent: {fileID: 0}

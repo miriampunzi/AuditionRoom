@@ -165,8 +165,10 @@ public class EnvironmentStatus : MonoBehaviour
 
         foreach (Actor actor in allActors)
         {
-            actor.initialPosition = actor.transform.position;
-            actor.initialRotation = actor.transform.rotation;
+            actor.initialPosition = actor.transform.localPosition;
+            actor.initialRotation = actor.transform.localRotation;
+
+            Debug.Log(actor.initialPosition);
         }
 
         if (isGame)
@@ -178,6 +180,14 @@ public class EnvironmentStatus : MonoBehaviour
     // setup round
     public static void SetupRound()
     {
+        // reset actors data & positions
+        foreach (Actor actor in allActors)
+        {
+            actor.idPerformance = -1;
+            actor.trapdoorCover = null;
+            actor.transform.localPosition = actor.initialPosition;
+        }
+
         // delete previous selection of actors
         performingActors.Clear();
 
@@ -209,14 +219,6 @@ public class EnvironmentStatus : MonoBehaviour
                 performingActors.Add(allActors[numbersAllActors[randomNum] - 1]);
                 numbersAllActors.RemoveAt(randomNum);
             }
-        }
-
-        // reset actors data & positions
-        foreach (Actor actor in allActors)
-        {
-            actor.idPerformance = -1;
-            actor.trapdoorCover = null;
-            actor.transform.position = actor.initialPosition;
         }
 
         // place actors

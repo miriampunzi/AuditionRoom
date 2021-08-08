@@ -22,10 +22,8 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     public AnimatorController defeatedAnimatorController;
     public AnimatorController idleAnimatorController;
 
-    [HideInInspector]
     public AnimatorController animationToPlay;
     // name of pre-recorded animation to play if the actor is a human
-    [HideInInspector]
     public string nameAnimationToPlay;
 
     [HideInInspector]
@@ -33,7 +31,6 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     [HideInInspector]
     public Quaternion initialRotation;
 
-    [HideInInspector]
     public TrapdoorCover trapdoorCover;
 
     // different ML brains
@@ -47,10 +44,7 @@ public class Actor : MonoBehaviour, IComparer<Actor>
     private void Start()
     {
         GetBodyParts(transform);
-
         animator = GetComponent<Animator>();
-        initialPosition = transform.position;
-        initialRotation = transform.rotation;
     }
 
     public void GetBodyParts(Transform parent)

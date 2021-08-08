@@ -237,7 +237,5 @@ public class PerformanceStateMachine : MonoBehaviour
         indexPerformancesScript = 0;
         indexPerformingActor = 0;
         currentStatePerformance = StatePerformance.Presentation;
-
-        //EnvironmentStatus.performingActors = EnvironmentStatus.GetActors();
     }
 }

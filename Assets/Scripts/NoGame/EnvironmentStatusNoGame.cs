@@ -9,7 +9,7 @@ public class EnvironmentStatusNoGame : MonoBehaviour
     public static int idBestActor = -1;
 
     public static int NUM_ACTORS = 2;
-    public static int ALL_ACTORS = 6;
+    public static int ALL_ACTORS = 9;
 
     public static List<Actor> allActors;
     public static List<ActorMonoBehavior> allActorMonoBehaviors;
@@ -146,9 +146,12 @@ public class EnvironmentStatusNoGame : MonoBehaviour
                 else
                     actor.isHuman = false;
 
-                actor.rightArmAgent.EndEpisode();
-                actor.leftArmAgent.EndEpisode();
-                actor.headChestAgent.EndEpisode();
+                if (actor.rightArmAgent != null)
+                {
+                    actor.rightArmAgent.EndEpisode();
+                    actor.leftArmAgent.EndEpisode();
+                    actor.headChestAgent.EndEpisode();
+                }
             }
             else if (actor.numActor == numActor2)
             {
@@ -160,9 +163,12 @@ public class EnvironmentStatusNoGame : MonoBehaviour
                 else
                     actor.isHuman = false;
 
-                actor.rightArmAgent.EndEpisode();
-                actor.leftArmAgent.EndEpisode();
-                actor.headChestAgent.EndEpisode();
+                if (actor.rightArmAgent != null)
+                {
+                    actor.rightArmAgent.EndEpisode();
+                    actor.leftArmAgent.EndEpisode();
+                    actor.headChestAgent.EndEpisode();
+                }
             }
             else
             {

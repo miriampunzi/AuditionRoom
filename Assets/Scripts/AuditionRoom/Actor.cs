@@ -43,11 +43,11 @@ public class Actor : MonoBehaviour, IComparer<Actor>
 
     private void Start()
     {
-        GetBodyParts(transform);
+        GetAgents(transform);
         animator = GetComponent<Animator>();
     }
 
-    public void GetBodyParts(Transform parent)
+    public void GetAgents(Transform parent)
     {
         for (int i = 0; i < parent.childCount; i++)
         {
@@ -62,7 +62,7 @@ public class Actor : MonoBehaviour, IComparer<Actor>
 
             if (child.childCount > 0)
             {
-                GetBodyParts(child);
+                GetAgents(child);
             }
         }
     }

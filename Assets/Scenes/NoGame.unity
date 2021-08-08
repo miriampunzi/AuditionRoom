@@ -2289,7 +2289,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -8909,7 +8909,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -18459,7 +18459,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -18742,7 +18742,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -19061,7 +19061,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -19225,7 +19225,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -29681,7 +29681,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -31475,7 +31475,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}
@@ -31703,7 +31703,7 @@ MonoBehaviour:
   gender: 0
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
-  idleAnimatorController: {fileID: 0}
+  idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
   animationToPlay: {fileID: 0}
   nameAnimationToPlay: 
   initialPosition: {x: 0, y: 0, z: 0}

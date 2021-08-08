@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnvironmentStatus : MonoBehaviour
 {
     public static bool isGame = false;
+    public static bool isFirstRound = true;
 
     // environment objects
     public static List<Actor> allActors;
@@ -262,6 +263,13 @@ public class EnvironmentStatus : MonoBehaviour
             {
                 performingActors[i].isHuman = avatarTypesInNoGame[i];
 
+                if (!isFirstRound)
+                {
+                    performingActors[i].rightArmAgent.EndEpisode();
+                    performingActors[i].leftArmAgent.EndEpisode();
+                    performingActors[i].headChestAgent.EndEpisode();
+                }
+
                 switch (i)
                 {
                     case 0:
@@ -274,6 +282,8 @@ public class EnvironmentStatus : MonoBehaviour
                 }
             }
         }
+
+        isFirstRound = false;
     }
 
     

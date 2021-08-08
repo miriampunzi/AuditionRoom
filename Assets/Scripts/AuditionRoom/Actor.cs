@@ -119,7 +119,7 @@ public class Actor : MonoBehaviour, IComparer<Actor>
         animator.runtimeAnimatorController = victoryAnimatorController;
         animator.enabled = true;
         animator.Rebind();
-        animator.Play("Victory", -1, 0f);
+        animator.Play("Win", -1, 0f);
     }
 
     public void PlayDefeat()
@@ -129,12 +129,18 @@ public class Actor : MonoBehaviour, IComparer<Actor>
         animator.runtimeAnimatorController = defeatedAnimatorController;
         animator.enabled = true;
         animator.Rebind();
-        animator.Play("Defeated", -1, 0f);
+        animator.Play("Loose", -1, 0f);
     }
 
     public bool IsPlayingWinning()
     {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("Victory") &&
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("Win") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1;
+    }
+
+    public bool IsPlayingDefeated()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("Loose") &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1;
     }
 

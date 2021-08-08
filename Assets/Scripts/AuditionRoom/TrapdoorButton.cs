@@ -65,9 +65,6 @@ public class TrapdoorButton : MonoBehaviour
                 Story.bestActorVoted = id;
                 Story.hasVoted = true;
 
-                // after voting, the rewards are given to the actors
-                Human.DNNRewardFunction();
-
                 Story.idActorForReplay = -1;
                 Story.hasAskedForReplay = false;
 

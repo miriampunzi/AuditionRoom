@@ -119,8 +119,6 @@ public class VotingStateMachine : MonoBehaviour
                     {
                         if (Story.bestActorVoted == EnvironmentStatus.performingActors[i].idPerformance)
                             EnvironmentStatus.performingActors[i].PlayVictory();
-                        else
-                            EnvironmentStatus.performingActors[i].PlayDefeat();
                     }
 
                     hasStartedPlayingWin = true;

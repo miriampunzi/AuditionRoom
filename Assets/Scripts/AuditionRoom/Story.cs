@@ -42,30 +42,32 @@ public class Story : MonoBehaviour
 
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
-        {
-            Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
+        //if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
+        //{
+        //    Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
 
-            GameObject VRCamera = GameObject.Find("Camera");
-            Camera camera = VRCamera.GetComponent<Camera>();
-            camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = Color.black;
-        }
+        //    GameObject VRCamera = GameObject.Find("Camera");
+        //    Camera camera = VRCamera.GetComponent<Camera>();
+        //    camera.clearFlags = CameraClearFlags.SolidColor;
+        //    camera.backgroundColor = Color.black;
+        //}
 
-        if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
-        {
-            Instantiate(collidersViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
-        }
+        //if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
+        //{
+        //    Instantiate(collidersViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
+        //}
 
-        EnvironmentStatus.PlaceActors();
+        EnvironmentStatus.Init();
+
+        EnvironmentStatus.SetupRound();
 
         scriptTextMesh = GetComponent<TextMeshPro>();
 
-        recordingStateMachine = new RecordingStateMachine(scriptTextMesh);
+        recordingStateMachine = new RecordingStateMachine();
         loadingStateMachine = new LoadingStateMachine();
-        performanceStateMachine = new PerformanceStateMachine(scriptTextMesh);
-        replayStateMachine = new ReplayStateMachine(scriptTextMesh);
-        votingStateMachine = new VotingStateMachine(scriptTextMesh);
+        performanceStateMachine = new PerformanceStateMachine();
+        replayStateMachine = new ReplayStateMachine();
+        votingStateMachine = new VotingStateMachine();
     }
 
     public void Update()
@@ -127,9 +129,6 @@ public class Story : MonoBehaviour
 
         hasAskedForReplay = false;
         idActorForReplay = -1;
-
-        //hasVoted = false;
-        //bestActorVoted = -1;
     }
 
     public static void NextState()
@@ -184,7 +183,7 @@ public class Story : MonoBehaviour
                 currentState = State.Performance;
                 ResetState();
 
-                EnvironmentStatus.PlaceActors();
+                EnvironmentStatus.SetupRound();
 
                 performanceStateMachine.ResetStateMachine();
                 replayStateMachine.ResetStateMachine();

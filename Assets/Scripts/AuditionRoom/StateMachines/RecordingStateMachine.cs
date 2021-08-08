@@ -8,9 +8,9 @@ public class RecordingStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
 
-    public RecordingStateMachine(TextMeshPro scriptTextMesh)
+    public RecordingStateMachine()
     {
-        this.scriptTextMesh = scriptTextMesh;
+        scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
     }
 
     private enum StateRecording
@@ -42,7 +42,7 @@ public class RecordingStateMachine : MonoBehaviour
             switch (currentStateRecording)
             {
                 case StateRecording.Question:
-                    // YES
+                    // ON CLICK YES
                     if (Story.wasYesPressed && !Story.wasNoPressed)
                     {
                         indexInScript++;
@@ -57,7 +57,7 @@ public class RecordingStateMachine : MonoBehaviour
                     break;
 
                 case StateRecording.Ready:
-                    // TRIGGER PRESSING
+                    // ON TRIGGER PRESSING
                     if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
                     {
                         indexInScript++;
@@ -72,7 +72,7 @@ public class RecordingStateMachine : MonoBehaviour
                 case StateRecording.Performance:
                     RecordMovement.Record();
 
-                    // TRIGGER PRESSING
+                    // ON TRIGGER PRESSING
                     if (Input.GetKeyDown("x") || ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger))
                     {
                         indexInScript++;
@@ -85,7 +85,7 @@ public class RecordingStateMachine : MonoBehaviour
                     break;
 
                 case StateRecording.Continue:
-                    // YES
+                    // ON CLICK YES
                     if (Story.wasYesPressed && !Story.wasNoPressed)
                     {
                         RecordMovement.ResetMotions();
@@ -96,7 +96,7 @@ public class RecordingStateMachine : MonoBehaviour
                         Story.wasYesPressed = false;
                         Story.wasNoPressed = false;
                     }
-                    // NO
+                    // ON CLICK NO
                     else if (!Story.wasYesPressed && Story.wasNoPressed)
                     {
                         RecordMovement.SaveToFile();

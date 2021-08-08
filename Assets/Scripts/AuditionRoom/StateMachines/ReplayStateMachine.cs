@@ -6,8 +6,6 @@ using UnityEngine;
 public class ReplayStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
-    private List<Actor> actors;
-    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StateReplay
     {
@@ -30,29 +28,25 @@ public class ReplayStateMachine : MonoBehaviour
     public static bool hasPerformedReplay = false;
     public static bool hasStartedPlayingAnimation = false;
 
-    public ReplayStateMachine(TextMeshPro scriptTextMesh)
+    public ReplayStateMachine()
     {
-        this.scriptTextMesh = scriptTextMesh;
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
     }
 
     public void Execute()
     {
         // Learning in background underground
-        for (int i = 0; i < actors.Count; i++)
+        for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
         {
             if (i != Story.idActorForReplay - 1)
             {
-                //actors[i].isForPerformance = false;
-                actors[i].rightArmAgent.isForPerformance = false;
-                actors[i].leftArmAgent.isForPerformance = false;
-                actors[i].headChestAgent.isForPerformance = false;
+                EnvironmentStatus.performingActors[i].rightArmAgent.isForPerformance = false;
+                EnvironmentStatus.performingActors[i].leftArmAgent.isForPerformance = false;
+                EnvironmentStatus.performingActors[i].headChestAgent.isForPerformance = false;
 
-                //actors[i].LearnInBackground();
-                actors[i].rightArmAgent.LearnInBackground();
-                actors[i].leftArmAgent.LearnInBackground();
-                actors[i].headChestAgent.LearnInBackground();
+                EnvironmentStatus.performingActors[i].rightArmAgent.LearnInBackground();
+                EnvironmentStatus.performingActors[i].leftArmAgent.LearnInBackground();
+                EnvironmentStatus.performingActors[i].headChestAgent.LearnInBackground();
             }
         }
 
@@ -81,54 +75,47 @@ public class ReplayStateMachine : MonoBehaviour
                     // ON ENTER STATE
                     if (!Story.trapdoorCoverUp)
                     {
-                        actors[Story.idActorForReplay - 1].transform.position = new Vector3(
-                            actors[Story.idActorForReplay - 1].transform.position.x,
-                            actors[Story.idActorForReplay - 1].transform.position.y + 0.1f,
-                            actors[Story.idActorForReplay - 1].transform.position.z);
-                        actors[Story.idActorForReplay - 1].trapdoorCover.GoUpSlow();
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position = new Vector3(
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position.x,
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position.y + 0.1f,
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position.z);
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.GoUpSlow();
                         Story.trapdoorCoverUp = true;
 
-                        if (actors[Story.idActorForReplay - 1].isHuman)
+                        if (!EnvironmentStatus.performingActors[Story.idActorForReplay - 1].isHuman)
                         {
-
-                        }
-                        else
-                        {
-                            //actors[Story.idActorForReplay - 1].SetupForReplay();
-                            actors[Story.idActorForReplay - 1].rightArmAgent.SetupForReplay();
-                            actors[Story.idActorForReplay - 1].leftArmAgent.SetupForReplay();
-                            actors[Story.idActorForReplay - 1].headChestAgent.SetupForReplay();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].rightArmAgent.SetupForReplay();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].leftArmAgent.SetupForReplay();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].headChestAgent.SetupForReplay();
                         }
                     }
 
                     // REPLAY PERFORMANCE
-                    if (actors[Story.idActorForReplay - 1].isHuman)
+                    if (EnvironmentStatus.performingActors[Story.idActorForReplay - 1].isHuman)
                     {
-                        if (!hasStartedPlayingAnimation && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
+                        if (!hasStartedPlayingAnimation && !EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
                         {
-                            actorsMonoBehavior[Story.idActorForReplay - 1].PlayAnimation();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].PlayAnimation();
                             hasStartedPlayingAnimation = true;
                         }
                     }
                     else
                     {
-                        if (!actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
+                        if (!EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.IsGoingUpSlow() && !trapdoorCoverDown)
                         {
-                            //actors[Story.idActorForReplay - 1].PerformReplay();
-                            actors[Story.idActorForReplay - 1].rightArmAgent.PerformReplay();
-                            actors[Story.idActorForReplay - 1].leftArmAgent.PerformReplay();
-                            actors[Story.idActorForReplay - 1].headChestAgent.PerformReplay();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].rightArmAgent.PerformReplay();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].leftArmAgent.PerformReplay();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].headChestAgent.PerformReplay();
                             hasPerformedReplay = true;
                         }
                     }
 
                     // ON EXIT STATE
-                    if (actors[Story.idActorForReplay - 1].isHuman)
+                    if (EnvironmentStatus.performingActors[Story.idActorForReplay - 1].isHuman)
                     {
-                        //if (hasStartedPlayingAnimation && !actorsMonoBehavior[Story.idActorForReplay - 1].IsPlayingWinning())
-                        if (hasStartedPlayingAnimation && !actorsMonoBehavior[Story.idActorForReplay - 1].IsPlayingAnimation())
+                        if (hasStartedPlayingAnimation && !EnvironmentStatus.performingActors[Story.idActorForReplay - 1].IsPlayingAnimation())
                         {
-                            actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
                             trapdoorCoverDown = true;
 
                             hasStartedPlayingAnimation = false;
@@ -137,7 +124,7 @@ public class ReplayStateMachine : MonoBehaviour
                             Story.wasNoPressed = false;
                         }
 
-                        if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
+                        if (trapdoorCoverDown && !EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
                         {
                             currentStateReplay = StateReplay.Continue;
                             indexReplayScript++;
@@ -148,10 +135,9 @@ public class ReplayStateMachine : MonoBehaviour
                     }
                     else
                     {
-                        //if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].IsPlayingReplay())
-                        if (hasPerformedReplay && !actors[Story.idActorForReplay - 1].rightArmAgent.IsPlayingReplay())
+                        if (hasPerformedReplay && !EnvironmentStatus.performingActors[Story.idActorForReplay - 1].rightArmAgent.IsPlayingReplay())
                         {
-                            actors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
+                            EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.GoDownFast();
                             trapdoorCoverDown = true;
 
                             hasPerformedReplay = false;
@@ -160,7 +146,7 @@ public class ReplayStateMachine : MonoBehaviour
                             Story.wasNoPressed = false;
                         }
 
-                        if (trapdoorCoverDown && !actors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
+                        if (trapdoorCoverDown && !EnvironmentStatus.performingActors[Story.idActorForReplay - 1].trapdoorCover.IsGoingDownFast())
                         {
                             currentStateReplay = StateReplay.Continue;
                             indexReplayScript++;
@@ -194,8 +180,8 @@ public class ReplayStateMachine : MonoBehaviour
                         Story.trapdoorCoverUp = false;
                         trapdoorCoverDown = false;
 
-                        for (int i = 0; i < actorsMonoBehavior.Count; i++)
-                            actorsMonoBehavior[i].PlayIdle();
+                        for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
+                            EnvironmentStatus.performingActors[i].PlayIdle();
 
                         Story.NextState();
                     }
@@ -212,7 +198,6 @@ public class ReplayStateMachine : MonoBehaviour
         trapdoorCoverDown = false;
         hasPerformedReplay = false;
 
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        //actors = EnvironmentStatus.GetActors();
     }
 }

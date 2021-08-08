@@ -6,8 +6,6 @@ using UnityEngine;
 public class VotingStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
-    private List<Actor> actors;
-    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StateVoting
     {
@@ -34,11 +32,9 @@ public class VotingStateMachine : MonoBehaviour
 
     private static bool hasStartedPlayingWin = false;
 
-    public VotingStateMachine(TextMeshPro scriptTextMesh)
+    public VotingStateMachine()
     {
-        this.scriptTextMesh = scriptTextMesh;
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
     }
 
     public void Execute()
@@ -61,21 +57,23 @@ public class VotingStateMachine : MonoBehaviour
                 // BEGIN
                 if (!Story.trapdoorCoverUp)
                 {
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                    for (int i = 0; i < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME; i++)
                     {
-                        //actors[i].SetupForReplay();
-                        actors[i].rightArmAgent.SetupForReplay();
-                        actors[i].leftArmAgent.SetupForReplay();
-                        actors[i].headChestAgent.SetupForReplay();
+                        EnvironmentStatus.performingActors[i].rightArmAgent.SetupForReplay();
+                        EnvironmentStatus.performingActors[i].leftArmAgent.SetupForReplay();
+                        EnvironmentStatus.performingActors[i].headChestAgent.SetupForReplay();
 
-                        actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
-                        actors[i].trapdoorCover.GoUpSlow();
+                        EnvironmentStatus.performingActors[i].transform.position = new Vector3(
+                            EnvironmentStatus.performingActors[i].transform.position.x,
+                            EnvironmentStatus.performingActors[i].transform.position.y + 0.5f,
+                            EnvironmentStatus.performingActors[i].transform.position.z);
+                        EnvironmentStatus.performingActors[i].trapdoorCover.GoUpSlow();
                     }
                     Story.trapdoorCoverUp = true;
                 }
 
                 // TIME EXPIRED
-                if (Story.trapdoorCoverUp && !actors[EnvironmentStatus.NUM_ACTORS - 1].trapdoorCover.IsGoingUpSlow())
+                if (Story.trapdoorCoverUp && !EnvironmentStatus.performingActors[EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME - 1].trapdoorCover.IsGoingUpSlow())
                 {
                     Story.trapdoorCoverUp = true;
                     indexVotingScript++;
@@ -117,23 +115,19 @@ public class VotingStateMachine : MonoBehaviour
                 // BEGIN
                 if (!hasStartedPlayingWin)
                 {
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                    for (int i = 0; i < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME; i++)
                     {
-                        if (Story.bestActorVoted == actors[i].idActor)
-                        {
-                            actorsMonoBehavior[i].PlayVictory();
-                        }
+                        if (Story.bestActorVoted == EnvironmentStatus.performingActors[i].idPerformance)
+                            EnvironmentStatus.performingActors[i].PlayVictory();
                         else
-                        {
-                            actorsMonoBehavior[i].PlayDefeat();
-                        }
+                            EnvironmentStatus.performingActors[i].PlayDefeat();
                     }
 
                     hasStartedPlayingWin = true;
                 }
 
                 // TIME EXPIRED
-                if (hasStartedPlayingWin && !actorsMonoBehavior[Story.bestActorVoted - 1].IsPlayingWinning())
+                if (hasStartedPlayingWin && !EnvironmentStatus.performingActors[Story.bestActorVoted - 1].IsPlayingWinning())
                 {
                     indexVotingScript++;
                     currentStateVoting = StateVoting.Lose;
@@ -146,23 +140,23 @@ public class VotingStateMachine : MonoBehaviour
                 // BEGIN
                 if (!Story.hasGoneDownFast)
                 {
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
-                        if (actors[i].idActor != Story.bestActorVoted)
-                            actors[i].trapdoorCover.GoDownFast();
+                    for (int i = 0; i < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME; i++)
+                        if (EnvironmentStatus.performingActors[i].idPerformance != Story.bestActorVoted)
+                            EnvironmentStatus.performingActors[i].trapdoorCover.GoDownFast();
                     Story.hasGoneDownFast = true;
                 }
 
                 // TIME EXPIRED
-                if (Story.hasGoneDownFast && !actors[0].trapdoorCover.IsGoingDownFast())
+                if (Story.hasGoneDownFast && !EnvironmentStatus.performingActors[0].trapdoorCover.IsGoingDownFast())
                 {
                     Story.hasGoneDownFast = false;
 
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                    for (int i = 0; i < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME; i++)
                     {
                         //actors[i].EndEpisode();
-                        actors[i].rightArmAgent.EndEpisode();
-                        actors[i].leftArmAgent.EndEpisode();
-                        actors[i].headChestAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[i].rightArmAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[i].leftArmAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[i].headChestAgent.EndEpisode();
                     }
 
                     indexVotingScript++;
@@ -175,15 +169,18 @@ public class VotingStateMachine : MonoBehaviour
                 // YES
                 if (Story.wasYesPressed && !Story.wasNoPressed)
                 {
-                    for (int i = 0; i < actorsMonoBehavior.Count; i++)
-                        actorsMonoBehavior[i].PlayIdle();
+                    for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
+                        EnvironmentStatus.performingActors[i].PlayIdle();
 
                     Story.wasYesPressed = false;
 
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                    for (int i = 0; i < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME; i++)
                     {
-                        actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
-                        actors[i].trapdoorCover.GoDownFast();
+                        EnvironmentStatus.performingActors[i].transform.position = new Vector3(
+                            EnvironmentStatus.performingActors[i].transform.position.x,
+                            EnvironmentStatus.performingActors[i].transform.position.y + 0.5f,
+                            EnvironmentStatus.performingActors[i].transform.position.z);
+                        EnvironmentStatus.performingActors[i].trapdoorCover.GoDownFast();
                     }
 
                     Story.NextState();
@@ -196,10 +193,13 @@ public class VotingStateMachine : MonoBehaviour
                     scriptTextMesh.text = "Thanks to the actors you chose, the algorithm predicts your movie will be a success!!";
                     indexVotingScript++;
 
-                    for (int i = 0; i < EnvironmentStatus.NUM_ACTORS; i++)
+                    for (int i = 0; i < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME; i++)
                     {
-                        actors[i].transform.position = new Vector3(actors[i].transform.position.x, actors[i].transform.position.y + 0.5f, actors[i].transform.position.z);
-                        actors[i].trapdoorCover.GoDownFast();
+                        EnvironmentStatus.performingActors[i].transform.position = new Vector3(
+                            EnvironmentStatus.performingActors[i].transform.position.x,
+                            EnvironmentStatus.performingActors[i].transform.position.y + 0.5f,
+                            EnvironmentStatus.performingActors[i].transform.position.z);
+                        EnvironmentStatus.performingActors[i].trapdoorCover.GoDownFast();
                     }
                 }
 
@@ -219,7 +219,6 @@ public class VotingStateMachine : MonoBehaviour
         indexVotingScript = 0;
         hasStartedPlayingWin = false;
 
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        //actors = EnvironmentStatus.GetActors();
     }
 }

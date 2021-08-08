@@ -6,8 +6,6 @@ using UnityEngine;
 public class PerformanceStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
-    private List<Actor> actors;
-    private List<ActorMonoBehavior> actorsMonoBehavior;
 
     private enum StatePerformance
     {
@@ -32,16 +30,14 @@ public class PerformanceStateMachine : MonoBehaviour
 
     private bool hasStartedPlayingAnimation = false;
 
-    public PerformanceStateMachine(TextMeshPro scriptTextMesh)
+    public PerformanceStateMachine()
     {
-        this.scriptTextMesh = scriptTextMesh;
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
     }
 
     public void Execute()
     {
-        if (indexPerformingActor < EnvironmentStatus.NUM_ACTORS)
+        if (indexPerformingActor < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME)
         {
             // update text script
             if (indexPerformancesScript < performancesScript.Count)
@@ -58,17 +54,19 @@ public class PerformanceStateMachine : MonoBehaviour
             switch (currentStatePerformance)
             {
                 case StatePerformance.Presentation:
-                    // BEGIN
-
+                    // BEGIN: ACTOR APPEAR IN THE ENVIRONMENT THROUGH THE TRAPDOOR
                     if (!Story.trapdoorCoverUp)
                     {
-                        actors[indexPerformingActor].transform.position = new Vector3(actors[indexPerformingActor].transform.position.x, actors[indexPerformingActor].transform.position.y + 0.1f, actors[indexPerformingActor].transform.position.z);
-                        actors[indexPerformingActor].trapdoorCover.GoUpSlow();
+                        EnvironmentStatus.performingActors[indexPerformingActor].transform.position = 
+                            new Vector3(EnvironmentStatus.performingActors[indexPerformingActor].transform.position.x,
+                            EnvironmentStatus.performingActors[indexPerformingActor].transform.position.y + 0.1f,
+                            EnvironmentStatus.performingActors[indexPerformingActor].transform.position.z);
+                        EnvironmentStatus.performingActors[indexPerformingActor].trapdoorCover.GoUpSlow();
                         Story.trapdoorCoverUp = true;
                     }
 
-                    // YES
-                    if (!actors[indexPerformingActor].trapdoorCover.IsGoingUpSlow() && Story.trapdoorCoverUp && Story.wasYesPressed)
+                    // ON CLICK YES
+                    if (!EnvironmentStatus.performingActors[indexPerformingActor].trapdoorCover.IsGoingUpSlow() && Story.trapdoorCoverUp && Story.wasYesPressed)
                     {
                         indexPerformancesScript++;
                         currentStatePerformance = StatePerformance.Performace;
@@ -86,32 +84,29 @@ public class PerformanceStateMachine : MonoBehaviour
                     if (!Story.hasAskedForReplay)
                     {
                         // BEGIN PERFORMANCE
-                        if (actors[indexPerformingActor].isHuman)
+                        if (EnvironmentStatus.performingActors[indexPerformingActor].isHuman)
                         {
                             if (!hasStartedPlayingAnimation)
                             {
-                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
-                                actorsMonoBehavior[indexPerformingActor].PlayAnimation();
+                                EnvironmentStatus.performingActors[indexPerformingActor].PlayAnimation();
                                 hasStartedPlayingAnimation = true;
                             }
                         }
                         else
                         {
-                            //actors[indexPerformingActor].isForPerformance = true;
-                            actors[indexPerformingActor].rightArmAgent.isForPerformance = true;
-                            actors[indexPerformingActor].leftArmAgent.isForPerformance = true;
-                            actors[indexPerformingActor].headChestAgent.isForPerformance = true;
-                            //actors[indexPerformingActor].PerformAction();
-                            actors[indexPerformingActor].rightArmAgent.PerformAction();
-                            actors[indexPerformingActor].leftArmAgent.PerformAction();
-                            actors[indexPerformingActor].headChestAgent.PerformAction();
+                            EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.isForPerformance = true;
+                            EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.isForPerformance = true;
+                            EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.isForPerformance = true;
+
+                            EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.PerformAction();
+                            EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.PerformAction();
+                            EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.PerformAction();
                         }
 
                         // FINISHED PERFORMANCE
-                        if (actors[indexPerformingActor].isHuman)
+                        if (EnvironmentStatus.performingActors[indexPerformingActor].isHuman)
                         {
-                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
-                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingAnimation())
+                            if (hasStartedPlayingAnimation && !EnvironmentStatus.performingActors[indexPerformingActor].IsPlayingAnimation())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
@@ -120,13 +115,11 @@ public class PerformanceStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            //if (!actors[indexPerformingActor].IsPlayingPerformance())
-                            if (!actors[indexPerformingActor].rightArmAgent.IsPlayingPerformance())
+                            if (!EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.IsPlayingPerformance())
                             {
-                                //actors[indexPerformingActor].isForPerformance = false;
-                                actors[indexPerformingActor].rightArmAgent.isForPerformance = false;
-                                actors[indexPerformingActor].leftArmAgent.isForPerformance = false;
-                                actors[indexPerformingActor].headChestAgent.isForPerformance = false;
+                                EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.isForPerformance = false;
+                                EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.isForPerformance = false;
+                                EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.isForPerformance = false;
 
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
@@ -136,28 +129,25 @@ public class PerformanceStateMachine : MonoBehaviour
                     else
                     {
                         // BEGIN REPLAY
-                        if (actors[indexPerformingActor].isHuman)
+                        if (EnvironmentStatus.performingActors[indexPerformingActor].isHuman)
                         {
                             if (!hasStartedPlayingAnimation)
                             {
-                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
-                                actorsMonoBehavior[indexPerformingActor].PlayAnimation();
+                                EnvironmentStatus.performingActors[indexPerformingActor].PlayAnimation();
                                 hasStartedPlayingAnimation = true;
                             }
                         }
                         else
                         {
-                            //actors[indexPerformingActor].PerformReplay();
-                            actors[indexPerformingActor].rightArmAgent.PerformReplay();
-                            actors[indexPerformingActor].leftArmAgent.PerformReplay();
-                            actors[indexPerformingActor].headChestAgent.PerformReplay();
+                            EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.PerformReplay();
+                            EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.PerformReplay();
+                            EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.PerformReplay();
                         }
 
                         // FINISHED REPLAY
-                        if (actors[indexPerformingActor].isHuman)
+                        if (EnvironmentStatus.performingActors[indexPerformingActor].isHuman)
                         {
-                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
-                            if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingAnimation())
+                            if (hasStartedPlayingAnimation && !EnvironmentStatus.performingActors[indexPerformingActor].IsPlayingAnimation())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
@@ -166,8 +156,7 @@ public class PerformanceStateMachine : MonoBehaviour
                         }
                         else
                         {
-                            //if (!actors[indexPerformingActor].IsPlayingReplay())
-                            if (!actors[indexPerformingActor].rightArmAgent.IsPlayingReplay())
+                            if (!EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.IsPlayingReplay())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
                                 indexPerformancesScript++;
@@ -184,10 +173,9 @@ public class PerformanceStateMachine : MonoBehaviour
                     // YES
                     if (Story.wasYesPressed && !Story.wasNoPressed)
                     {
-                        //actors[indexPerformingActor].SetupForReplay();
-                        actors[indexPerformingActor].rightArmAgent.SetupForReplay();
-                        actors[indexPerformingActor].leftArmAgent.SetupForReplay();
-                        actors[indexPerformingActor].headChestAgent.SetupForReplay();
+                        EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.SetupForReplay();
+                        EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.SetupForReplay();
+                        EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.SetupForReplay();
 
                         Story.hasAskedForReplay = true;
                         indexPerformancesScript--;
@@ -210,12 +198,12 @@ public class PerformanceStateMachine : MonoBehaviour
                     // BEGIN
                     if (!Story.hasGoneDownFast)
                     {
-                        actors[indexPerformingActor].trapdoorCover.GoDownFast();
+                        EnvironmentStatus.performingActors[indexPerformingActor].trapdoorCover.GoDownFast();
                         Story.hasGoneDownFast = true;
                     }
 
                     // TIME EXPIRED
-                    if (Story.hasGoneDownFast && !actors[indexPerformingActor].trapdoorCover.IsGoingDownFast())
+                    if (Story.hasGoneDownFast && !EnvironmentStatus.performingActors[indexPerformingActor].trapdoorCover.IsGoingDownFast())
                     {
                         indexPerformancesScript = 0;
                         currentStatePerformance = StatePerformance.Presentation;
@@ -237,8 +225,8 @@ public class PerformanceStateMachine : MonoBehaviour
         {
             scriptTextMesh.text = "Now all the actors have finished. Do you want to replay one of the performances?";
 
-            for (int i = 0; i < actorsMonoBehavior.Count; i++)
-                actorsMonoBehavior[i].PlayIdle();
+            for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
+                EnvironmentStatus.performingActors[i].PlayIdle();
 
             Story.NextState();
         }
@@ -250,7 +238,6 @@ public class PerformanceStateMachine : MonoBehaviour
         indexPerformingActor = 0;
         currentStatePerformance = StatePerformance.Presentation;
 
-        actors = EnvironmentStatus.getActors();
-        actorsMonoBehavior = EnvironmentStatus.getActorsMonoBehavior();
+        //EnvironmentStatus.performingActors = EnvironmentStatus.GetActors();
     }
 }

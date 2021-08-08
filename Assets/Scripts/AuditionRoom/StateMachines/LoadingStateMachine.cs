@@ -7,7 +7,6 @@ public class LoadingStateMachine : MonoBehaviour
 {
     private TextMeshPro scriptTextMesh;
     private LoadingCube loadingCube;
-    private List<Actor> actors;
 
     private List<RightArmAgent> rightArmAgents = new List<RightArmAgent>();
     private List<LeftArmAgent> leftArmAgents = new List<LeftArmAgent>();
@@ -31,7 +30,6 @@ public class LoadingStateMachine : MonoBehaviour
     {
         scriptTextMesh = GameObject.FindGameObjectWithTag("Script").GetComponent<TextMeshPro>();
         loadingCube = GameObject.FindGameObjectWithTag("LoadingCube").GetComponent<LoadingCube>();
-        actors = EnvironmentStatusNoGame.getActors();
     }
 
     public void SetScript(ArrayList loadingScript)
@@ -42,16 +40,15 @@ public class LoadingStateMachine : MonoBehaviour
     public void Execute()
     {
         // Learning in background underground
-        for (int i = 0; i < actors.Count; i++)
+        for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
         {
-            //actors[i].isForPerformance = false;
-            actors[i].rightArmAgent.isForPerformance = false;
-            actors[i].leftArmAgent.isForPerformance = false;
-            actors[i].headChestAgent.isForPerformance = false;
-            //actors[i].LearnInBackground();
-            actors[i].rightArmAgent.LearnInBackground();
-            actors[i].leftArmAgent.LearnInBackground();
-            actors[i].headChestAgent.LearnInBackground();
+            EnvironmentStatus.performingActors[i].rightArmAgent.isForPerformance = false;
+            EnvironmentStatus.performingActors[i].leftArmAgent.isForPerformance = false;
+            EnvironmentStatus.performingActors[i].headChestAgent.isForPerformance = false;
+
+            EnvironmentStatus.performingActors[i].rightArmAgent.LearnInBackground();
+            EnvironmentStatus.performingActors[i].leftArmAgent.LearnInBackground();
+            EnvironmentStatus.performingActors[i].headChestAgent.LearnInBackground();
         }
 
         // update text script
@@ -111,12 +108,11 @@ public class LoadingStateMachine : MonoBehaviour
                         loadingCube.Hide();
                         isLoading = false;
 
-                        for (int i = 0; i < actors.Count; i++)
+                        for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
                         {
-                            //actors[i].EndEpisode();
-                            actors[i].rightArmAgent.EndEpisode();
-                            actors[i].leftArmAgent.EndEpisode();
-                            actors[i].headChestAgent.EndEpisode();
+                            EnvironmentStatus.performingActors[i].rightArmAgent.EndEpisode();
+                            EnvironmentStatus.performingActors[i].leftArmAgent.EndEpisode();
+                            EnvironmentStatus.performingActors[i].headChestAgent.EndEpisode();
                         }
 
                         Story.NextState();

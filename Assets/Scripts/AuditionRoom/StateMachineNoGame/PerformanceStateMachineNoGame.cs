@@ -104,7 +104,6 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                         // FINISHED PERFORMANCE
                         if (EnvironmentStatus.performingActors[indexPerformingActor].isHuman)
                         {
-                            //if (hasStartedPlayingAnimation && !actorsMonoBehavior[indexPerformingActor].IsPlayingWinning())
                             if (hasStartedPlayingAnimation && !EnvironmentStatus.performingActors[indexPerformingActor].IsPlayingAnimation())
                             {
                                 currentStatePerformance = StatePerformance.Replay;
@@ -163,6 +162,9 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                             }
                         }
                     }
+
+                    // END
+                    Story.CleanDeskVariables();
 
                     break;
 

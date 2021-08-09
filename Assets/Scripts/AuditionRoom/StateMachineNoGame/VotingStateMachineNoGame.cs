@@ -62,6 +62,8 @@ public class VotingStateMachineNoGame : MonoBehaviour
                     Story.hasVoted = false;
                 }
 
+                Story.CleanDeskVariables();
+
                 break;
 
             case StateVoting.Continue:
@@ -94,6 +96,8 @@ public class VotingStateMachineNoGame : MonoBehaviour
                     scriptTextMesh.text = "Bye-bye!";
                     indexVotingScript++;
                 }
+
+                Story.CleanDeskVariables();
 
                 break;
 

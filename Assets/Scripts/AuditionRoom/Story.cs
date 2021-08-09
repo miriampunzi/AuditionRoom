@@ -28,7 +28,6 @@ public class Story : MonoBehaviour
         LoadingPerformances,
         Performance,
         Replay,
-        LoadingVoting,
         Voting
     }
 
@@ -47,21 +46,6 @@ public class Story : MonoBehaviour
 
     private void Start()
     {
-        //if (GameObject.FindGameObjectWithTag("ViveCameraRig") == null)
-        //{
-        //    Instantiate(ViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
-
-        //    GameObject VRCamera = GameObject.Find("Camera");
-        //    Camera camera = VRCamera.GetComponent<Camera>();
-        //    camera.clearFlags = CameraClearFlags.SolidColor;
-        //    camera.backgroundColor = Color.black;
-        //}
-
-        //if (GameObject.FindGameObjectWithTag("ViveColliders") == null)
-        //{
-        //    Instantiate(collidersViveCameraRigPrefab, new Vector3(0, 0, -3.7f), Quaternion.identity);
-        //}
-
         EnvironmentStatus.Init();
 
         EnvironmentStatus.SetupRound();
@@ -121,21 +105,6 @@ public class Story : MonoBehaviour
                     replayStateMachine.Execute();
                 else
                     replayStateMachineNoGame.Execute();
-                break;
-
-            case State.LoadingVoting:
-                if (EnvironmentStatus.isGame)
-                {
-                    loadingStateMachine.SetScript(
-                        new ArrayList()
-                        {
-                        "Loading...",
-                        "Loading...",
-                        "Loading..."
-                        }
-                    );
-                    loadingStateMachine.Execute();
-                }
                 break;
 
             case State.Voting:
@@ -214,7 +183,7 @@ public class Story : MonoBehaviour
                     if (EnvironmentStatus.isGame)
                     {
                         wasNoPressed = false;
-                        currentState = State.LoadingVoting;
+                        currentState = State.Voting;
                         performanceStateMachine.ResetStateMachine();
                     }
                     else
@@ -230,22 +199,13 @@ public class Story : MonoBehaviour
             case State.Replay:
                 if (EnvironmentStatus.isGame)
                 {
-                    currentState = State.LoadingVoting;
+                    currentState = State.Voting;
                     replayStateMachine.ResetStateMachine();
                 }
                 else
                 {
                     currentState = State.Voting;
                     replayStateMachineNoGame.ResetStateMachine();
-                }
-
-                break;
-
-            case State.LoadingVoting:
-                if (EnvironmentStatus.isGame)
-                {
-                    currentState = State.Voting;
-                    loadingStateMachine.ResetStateMachine();
                 }
 
                 break;

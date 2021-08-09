@@ -37,6 +37,21 @@ public class PerformanceStateMachine : MonoBehaviour
 
     public void Execute()
     {
+        // Learning in background underground
+        for (int i = 0; i < EnvironmentStatus.performingActors.Count; i++)
+        {
+            if (i != indexPerformingActor)
+            {
+                EnvironmentStatus.performingActors[i].rightArmAgent.isForPerformance = false;
+                EnvironmentStatus.performingActors[i].leftArmAgent.isForPerformance = false;
+                EnvironmentStatus.performingActors[i].headChestAgent.isForPerformance = false;
+
+                EnvironmentStatus.performingActors[i].rightArmAgent.LearnInBackground();
+                EnvironmentStatus.performingActors[i].leftArmAgent.LearnInBackground();
+                EnvironmentStatus.performingActors[i].headChestAgent.LearnInBackground();
+            }
+        }
+
         if (indexPerformingActor < EnvironmentStatus.NUM_PERFORMING_ACTORS_GAME)
         {
             // update text script
@@ -57,6 +72,10 @@ public class PerformanceStateMachine : MonoBehaviour
                     // BEGIN: ACTOR APPEAR IN THE ENVIRONMENT THROUGH THE TRAPDOOR
                     if (!Story.trapdoorCoverUp)
                     {
+                        EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.EndEpisode();
+
                         EnvironmentStatus.performingActors[indexPerformingActor].transform.position = 
                             new Vector3(EnvironmentStatus.performingActors[indexPerformingActor].transform.position.x,
                             EnvironmentStatus.performingActors[indexPerformingActor].transform.position.y + 0.1f,

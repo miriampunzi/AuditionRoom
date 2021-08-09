@@ -75,6 +75,10 @@ public class ReplayStateMachine : MonoBehaviour
                     // ON ENTER STATE
                     if (!Story.trapdoorCoverUp)
                     {
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].leftArmAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].rightArmAgent.EndEpisode();
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].headChestAgent.EndEpisode();
+
                         EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position = new Vector3(
                             EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position.x,
                             EnvironmentStatus.performingActors[Story.idActorForReplay - 1].transform.position.y + 0.1f,

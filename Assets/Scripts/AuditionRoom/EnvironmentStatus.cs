@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnvironmentStatus : MonoBehaviour
 {
-    public static bool isGame = false;
+    public static bool isGame = true;
     public static bool isFirstRound = true;
 
     // environment objects

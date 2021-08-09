@@ -56,7 +56,7 @@ public class CastingStory : MonoBehaviour
 
         if (position == actorsScript.Count)
         {
-            SceneManager.LoadScene("AuditionRoom");
+            scriptTextMesh.text = "";
         }
     }
 }

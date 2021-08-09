@@ -78,6 +78,10 @@ public class ReplayStateMachineNoGame : MonoBehaviour
                     }
                     else
                     {
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].rightArmAgent.isForPerformance = false;
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].leftArmAgent.isForPerformance = false;
+                        EnvironmentStatus.performingActors[Story.idActorForReplay - 1].headChestAgent.isForPerformance = false;
+
                         EnvironmentStatus.performingActors[Story.idActorForReplay - 1].rightArmAgent.PerformReplay();
                         EnvironmentStatus.performingActors[Story.idActorForReplay - 1].leftArmAgent.PerformReplay();
                         EnvironmentStatus.performingActors[Story.idActorForReplay - 1].headChestAgent.PerformReplay();

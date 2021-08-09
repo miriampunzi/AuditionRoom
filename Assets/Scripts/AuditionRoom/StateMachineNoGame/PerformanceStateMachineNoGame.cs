@@ -127,13 +127,16 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                         {
                             if (!hasStartedPlayingAnimation)
                             {
-                                //actorsMonoBehavior[indexPerformingActor].PlayVictory();
                                 EnvironmentStatus.performingActors[indexPerformingActor].PlayAnimation();
                                 hasStartedPlayingAnimation = true;
                             }
                         }
                         else
                         {
+                            EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.isForPerformance = false;
+                            EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.isForPerformance = false;
+                            EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.isForPerformance = false;
+
                             EnvironmentStatus.performingActors[indexPerformingActor].rightArmAgent.PerformReplay();
                             EnvironmentStatus.performingActors[indexPerformingActor].leftArmAgent.PerformReplay();
                             EnvironmentStatus.performingActors[indexPerformingActor].headChestAgent.PerformReplay();
@@ -164,7 +167,8 @@ public class PerformanceStateMachineNoGame : MonoBehaviour
                     }
 
                     // END
-                    Story.CleanDeskVariables();
+                    Story.wasYesPressed = false;
+                    Story.wasNoPressed = false;
 
                     break;
 

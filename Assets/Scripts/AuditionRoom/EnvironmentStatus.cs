@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnvironmentStatus : MonoBehaviour
 {
-    public static bool isGame = false;
+    public static bool isGame = true;
     public static bool isFirstRound = true;
 
     // environment objects
@@ -21,12 +21,6 @@ public class EnvironmentStatus : MonoBehaviour
         true,       // human
         false,      // virtual
         false,      // virtual
-        false,      // virtual
-    };
-
-    static List<bool> avatarTypesInNoGame = new List<bool>()
-    {
-        true,       // human
         false,      // virtual
     };
 
@@ -179,6 +173,8 @@ public class EnvironmentStatus : MonoBehaviour
     // setup round
     public static void SetupRound()
     {
+        ShuffleAnimations();
+
         // reset actors data & positions
         foreach (Actor actor in allActors)
         {
@@ -193,8 +189,6 @@ public class EnvironmentStatus : MonoBehaviour
         // decide who is human and who is virtual
         if (isGame)
             ShuffleAvatarTypes(avatarTypesInGame);
-        else
-            ShuffleAvatarTypes(avatarTypesInNoGame);
 
         // select actors
         List<int> numbersAllActors = new List<int>();
@@ -261,7 +255,10 @@ public class EnvironmentStatus : MonoBehaviour
             }
             else
             {
-                performingActors[i].isHuman = avatarTypesInNoGame[i];
+                int numHuman = Random.Range(1, 3);
+
+                if (i == (numHuman - 1))
+                    performingActors[i].isHuman = true;
 
                 if (!isFirstRound)
                 {

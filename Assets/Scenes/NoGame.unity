@@ -2300,7 +2300,7 @@ MonoBehaviour:
   idPerformance: 9
   idActor: -1
   isHuman: 0
-  gender: 0
+  gender: 1
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -18408,7 +18408,7 @@ MonoBehaviour:
   idPerformance: -1
   idActor: 5
   isHuman: 0
-  gender: 0
+  gender: 1
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -18948,7 +18948,7 @@ MonoBehaviour:
   idPerformance: -1
   idActor: 2
   isHuman: 0
-  gender: 0
+  gender: 1
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}
@@ -29522,7 +29522,7 @@ MonoBehaviour:
   idPerformance: -1
   idActor: 4
   isHuman: 0
-  gender: 0
+  gender: 1
   victoryAnimatorController: {fileID: 0}
   defeatedAnimatorController: {fileID: 0}
   idleAnimatorController: {fileID: 9100000, guid: 59646e486072d024499d72017f6c1815, type: 2}

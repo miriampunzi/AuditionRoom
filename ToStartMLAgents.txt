@@ -1,0 +1,34 @@
+Dal terminale: vai nella cartella del progetto
+
+Crea virtual environment (in the project folder):
+python -m venv venv
+(controlla se si è creata la cartella venv)
+
+Attiva script per il virtual environment:
+venv\Scripts\activate
+(devi vedere venv tra parentesi come conferma che sei dentro al venv)
+
+Upgrade pip package (dentro venv):
+python -m pip install --upgrade pip
+
+Installa packages (dentro venv):
+pip install torch==1.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install mlagents
+
+Verifica che mlagents sia installato correttamente con:
+mlagents-learn --help
+(è normale che sia lento)
+
+Da unity: vai in window > package manager
+In alto a sx vicino al +: apri menu a tendina e clicca su unity registry
+Scrolla e cerca il pacchetto ML Agents
+Clicca in alto a dx l'icona delle impostazioni (vicino barra di ricerca) e apri Advanced Project Settings
+Abilita Enable Preview
+Installa ultima versione del pacchetto (o altrimenti rimani con l'ultima stabile e pace)
+
+Training:
+mlagents-learn --run-id=Test2
+Test2 nome inventato da me
+
+With configuration:
+mlagents-learn config/NOMEFILE.yaml
